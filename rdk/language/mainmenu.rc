@@ -1,0 +1,95 @@
+#include "../inc/rc.h"
+
+MAIN MENU PRELOAD MOVEABLE DISCARDABLE 
+BEGIN
+	POPUP "&File"
+	BEGIN
+		MENUITEM "&New", cm_FileNew
+		MENUITEM "&Open...\tCtrl+O", cm_FOpen
+		MENUITEM SEPARATOR
+		MENUITEM "&Save\tCtrl+S", cm_FSave
+		MENUITEM "Save &as...", cm_FSaveAs
+		MENUITEM SEPARATOR
+		MENUITEM "&Import...", cm_FImport
+		MENUITEM "&Export...", cm_FExport
+		MENUITEM SEPARATOR
+		MENUITEM "&Print...", cm_Print
+		MENUITEM SEPARATOR
+		MENUITEM "&Close", cm_FClose
+		MENUITEM SEPARATOR
+		MENUITEM "E&xit\tAlt+F4", cm_FExit
+	END
+
+	POPUP "&Edit"
+	BEGIN
+		MENUITEM "&Undo\tCtrl+Z", WM_UNDO
+		MENUITEM SEPARATOR
+		MENUITEM "Cu&t\tCtrl+X", WM_CUT
+		MENUITEM "&Copy\tCtrl+C", WM_COPY
+		MENUITEM "&Paste\tCtrl+V", WM_PASTE
+	END
+
+	POPUP "&Reference"
+	BEGIN
+		MENUITEM "&New...\tF7", cm_RefNew
+		MENUITEM "&Edit...\tF6", cm_RefEdit
+		MENUITEM "Edit &author...\tF2", cm_EAuthor
+		MENUITEM SEPARATOR
+		MENUITEM "Add to &bibliography\tCtrl+B", cm_AddToBib
+		MENUITEM "Add &keywords...", cm_AddKeyword
+		MENUITEM "&Select all", cm_SelectAll
+		MENUITEM SEPARATOR
+		MENUITEM "&Delete\tDel", cm_RefDel
+	END
+
+	POPUP "&Search"
+	BEGIN
+		MENUITEM "Show &all references", cm_RefAll
+		MENUITEM "New &search...\tF3", cm_RefSearch
+		MENUITEM SEPARATOR
+		MENUITEM "&Narrow search...", cm_NarrowSrch
+		MENUITEM "&Expand search...", cm_ExpandSrch
+	END
+
+	POPUP "&Options"
+	BEGIN
+		MENUITEM "&List format...", cm_ListOpt
+		MENUITEM "&Sorting...", cm_OptSort
+		MENUITEM "Sea&rching...", cm_OptSrch
+		MENUITEM "&Auto view all", cm_AutoShowIt
+		MENUITEM "&Input defaults...", cm_OInput
+		MENUITEM "&Confirmation...", cm_Confirm
+		POPUP "&Fonts"
+		BEGIN
+			MENUITEM "&Printer...", cm_PrintFont
+			MENUITEM "&Database...", cm_DataFont
+			MENUITEM "&Edit window...", cm_EditFont
+		END
+
+		MENUITEM SEPARATOR
+		MENUITEM "&Display formatted bibliography", cm_BView
+		MENUITEM "Bibliography forma&t...", cm_BFormat
+		MENUITEM "C&olour bibliography items...", cm_BibCol
+		MENUITEM SEPARATOR
+		MENUITEM "La&nguage...", cm_Language
+		MENUITEM "D&efault file format...", cm_FileFormat
+		MENUITEM SEPARATOR
+		MENUITEM "Save &backups", cm_OptBak
+	END
+
+	POPUP "&Window"
+	BEGIN
+		MENUITEM "&Cascade\tShift + F5", cm_Cascade
+		MENUITEM "&Tile\tShift + F4", cm_Tile
+		MENUITEM "&Arrange icons", cm_Arrange
+	END
+
+	POPUP "&Help"
+	BEGIN
+		MENUITEM "&Contents", cm_HelpIndex, HELP
+		MENUITEM "&Using help", cm_HelpOnHelp
+		MENUITEM SEPARATOR
+		MENUITEM "&About Refs...", cm_HelpAbout
+	END
+
+END

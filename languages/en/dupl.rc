@@ -1,0 +1,16 @@
+#include "../inc/rc.h"
+DUPLICATE DIALOG  26, 17, 211, 125
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Duplicate reference"
+FONT 10, "Arial"
+BEGIN
+    PUSHBUTTON      "&Edit",id_DEdit,6,92,30,14
+    PUSHBUTTON      "Edit &authors",id_DEditAuth,37,92,54,14
+    PUSHBUTTON      "&Don't include",id_Ignore,92,92,57,14
+    PUSHBUTTON      "&Help",cm_Help,92,107,57,14
+    EDITTEXT        ide_Example,9,5,195,54,ES_MULTILINE | ES_READONLY | WS_VSCROLL | WS_GROUP | NOT WS_TABSTOP
+    LTEXT           "This reference already exists in the target database.  You can choose to edit it, replace the existing version, or not include it in the target database file.",
+	-1,9,62,195,27
+    PUSHBUTTON      "Abandon operation",IDCANCEL,6,107,85,14
+    PUSHBUTTON      "&Overwrite",idb_Replace,150,92,54,14
+END

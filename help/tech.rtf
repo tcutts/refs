@@ -1,0 +1,307 @@
+{\rtf1\ansi \deff5\deflang1033{\fonttbl{\f3\fmodern\fcharset0\fprq1 Courier;}{\f4\froman\fcharset0\fprq2 Times New Roman;}{\f5\fswiss\fcharset0\fprq2 Arial;}{\f7\fswiss\fcharset0\fprq2 MS Sans Serif;}
+{\f11\fmodern\fcharset0\fprq1 Courier New;}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;
+\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}{\stylesheet{\nowidctlpar \f5\fs20\lang2057 \snext0 Normal;}{\s1\sb120\sa120\widctlpar 
+\cbpat16 \b\i\f4\fs48\cf2\lang2057 \sbasedon0\snext0 heading 1;}{\s2\sb120\nowidctlpar \b\f7\lang2057 \sbasedon0\snext0 heading 2;}{\s3\li360\nowidctlpar \b\f5\lang2057 \sbasedon0\snext16 heading 3;}{\s4\li360\nowidctlpar \f5\ul\lang2057 
+\sbasedon0\snext16 heading 4;}{\s5\li720\nowidctlpar \b\f5\fs20\lang2057 \sbasedon0\snext16 heading 5;}{\s6\li720\nowidctlpar \f5\fs20\ul\lang2057 \sbasedon0\snext16 heading 6;}{\s7\li720\nowidctlpar \i\f5\fs20\lang2057 \sbasedon0\snext16 heading 7;}{
+\s8\li720\nowidctlpar \i\f5\fs20\lang2057 \sbasedon0\snext16 heading 8;}{\s9\li720\nowidctlpar \i\f5\fs20\lang2057 \sbasedon0\snext16 heading 9;}{\*\cs10 \additive Default Paragraph Font;}{\s15\nowidctlpar \f5\fs20\lang2057 \sbasedon0\snext15 
+footnote text;}{\s16\li720\nowidctlpar \f5\fs20\lang2057 \sbasedon0\snext16 Normal Indent;}{\*\cs17 \additive\super \sbasedon10 endnote reference;}{\*\cs18 \additive\super \sbasedon10 footnote reference;}{\s19\sb120\sa120\widctlpar \f3\cf9\lang2057 
+\sbasedon0\snext19 FuncTopic;}}{\info{\author TJR Cutts}{\operator Tim Cutts}{\creatim\yr1993\mo10\dy1\hr18\min8}{\revtim\yr1996\mo3\dy21\hr8\min55}{\version2}{\edmins16}{\nofpages20}{\nofwords2305}{\nofchars13140}{\*\company  }{\vern57431}}
+\margl1440\margr1440 \widowctrl\ftnbj\aenddoc\hyphcaps0 \fet0\sectd \linex0\headery709\footery709\colsx709\endnhere {\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl3
+\pndec\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang{\pntxta )}}{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}
+{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}\pard\plain \s1\sb120\sa120\widctlpar 
+\cbpat16 \b\i\f4\fs48\cf2\lang2057 {\cs18 #{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super #} Tech}${\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super $} Technical notes}K{\footnote \pard\plain \s15\widctlpar 
+\f5\fs20\lang2057 {\cs18\super K} technical}} Technical notes
+\par \pard\plain \widctlpar \f5\fs20\lang2057 This program was originally written in {\b Turbo Pascal for Windows 1.5}, and was translated into C++  from version 7.8.  It requires Windows\'ae
+ 3.1 or higher to run.  You may also be running a version requiring Windows\'ae 95 or Windows NT\'99 3.51 or later
+\par \pard \widctlpar 
+\par \pard \widctlpar It is written to be easily converted to other (human) languages.  Please see the {\strike language}{\v language} page of this help file for details.
+\par \pard \widctlpar 
+\par \pard\plain \s2\sb120\widctlpar \b\f7\lang2057 {\f5 Capacity of the Windows 3.1 version
+\par }\pard\plain \widctlpar \f5\fs20\lang2057 
+\par \pard \widctlpar Each open database has a maximum capacity of 262,140 references in Standard mode, and something over 4.1 million references per database window in 386 Enhanced mode.  You will certainly run out of memory before reaching this limit! The {
+\b About} box in the program tells you how much memory is free.
+\par \pard \widctlpar 
+\par \pard \widctlpar There are other restrictions, un
+fortunately, imposed by Windows 3.x.  You are only allowed 8,192 entries in a List Box, so searches going over that will stop being displayed when the list box is full, though they will still be in the search results.  You should also be aware that displa
+ying all the references can take some time with large files (of several hundred references or more).  Also, because of the limit on edit controls of 32k, this is the maximum size your formatted bibliography can be.
+\par \pard \widctlpar 
+\par \pard \widctlpar These limits are not present if you are using the version specially compiled for Windows NT and Windows 95.  However, having such large files is not a good idea; over a few hundred entries the screen display becomes very slow to update.
+
+\par \pard \widctlpar 
+\par \pard \widctlpar At present I have arbitrarily imposed a maximum length of 16K to each field.  This should be enough for most purposes, I hope!
+\par \pard \widctlpar 
+\par \pard \widctlpar Files are saved by default in the common UNIX refer format.  This means that databases created by this program can be used with UNIX refer, and bibliography programs such as WinRefer.  Th
+e order of fields in this file format is not important.
+\par \pard \widctlpar 
+\par Refer fields currently supported explicitly by Refs are:
+\par 
+\par \tab %A\tab Author
+\par \tab %T\tab Title
+\par \tab %J\tab Journal
+\par \tab %B\tab Book title
+\par \tab %R\tab report (used for unpublished documents)
+\par \tab %I\tab Publisher
+\par \tab %C\tab City of publication
+\par \tab %E\tab Editor
+\par \tab %V\tab Volume
+\par \tab %N\tab Number in volume
+\par \tab %P\tab Pages
+\par \tab %D\tab Date
+\par \tab %X\tab Abstract
+\par \tab %K\tab Keywords
+\par 
+\par \pard \widctlpar {\fs16 The above meanings are as described in SunOS 4.1.3 manpage refer(1)
+\par }\pard \widctlpar 
+\par \pard \widctlpar Fields not included in the above list can still be entered in the database;  see {\strike editing references}{\v EditRef}.
+\par \pard \widctlpar 
+\par The major fields not covered explicitly are:
+\par 
+\par \tab %O\tab other (appended)
+\par \tab %Z\tab ignored
+\par 
+\par \pard \widctlpar Such fields, when encountered in files, will appear in the abstract field, but will be saved correctly.  If anyone knows of other less common fields (those listed here are all the ones I know about), I would be glad to learn about them.
+
+\par \pard \widctlpar 
+\par \pard \widctlpar Foreign file format filters are loaded at run-time.  The {\strike filter interface structure}{\v DLLinterface} is included in this help file for any programmers wishing to write one.
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs18\super #{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super #} network}${\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super $}
+ Running refs on a network}K{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super K} network}} Running Refs on a network
+\par \pard\plain \widctlpar \f5\fs20\lang2057 By default, {\i Refs}
+ for Windows 3.x places its REFS.INI file in the same directory as the executables.  Obviously on a shared server filesystem this presents a problem - either the directory is read-only, and no-one can change their settings, or it's world-writeable, and ev
+eryone changes the settings for everyone else.  If you're running Refs in such a situation. Make sure that users have a copy of REFS.INI in their Windows directory.  Refs always looks there before looking in the default location.
+\par \pard \widctlpar 
+\par \pard \widctlpar Users of the 32 bit version of {\i Refs}
+ do not need to worry, since in this version the configuration information is all stored in the user's personal Registry settings.  There are some default example bibliography formats in HKEY_LOCAL_MACHINE which are copied to the user's settings if the us
+er has no formats of their own yet.
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs18\super #{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super #} Duplicate}${\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super $}
+ Duplicate references}K{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super K} link mode}} Duplicate references
+\par \pard\plain \widctlpar \f5\fs20\lang2057 {\i Refs} is very strict about duplicate references; it tries to prevent them occurring at all costs.  This can cause problems during file loading or changing the way {\i Refs} sorts your references
+\par \pard \widctlpar 
+\par \pard \widctlpar {\i Refs} checks that using the current sorting method, the references do not appear to be the same. After all, why would you want the same reference twice in one file?
+\par \pard \widctlpar 
+\par If this test shows a potential duplicate, {\i Refs} presents you with a dialog.  You have four choices:
+\par 
+\par \pard \widctlpar 1)  You can choose not to include the reference in the target database ({\b Don't include}).
+\par 2)  You can {\b Overwrite} the previous copy.
+\par \pard \widctlpar 3)  You can edit it so that the sort mechanism no longer sees it as a duplicate.
+\par \pard \widctlpar 4)  You can {\b abandon} the entire operation.  This is useful if the duplicates are arising because you have an inappropriate sorting method selected, or because you have opened a file of the wrong format.
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs18\super #{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super #} language}${\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super $}
+ Refs and other languages}K{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super K} techical;languages}} Refs and other (spoken) languages
+\par \pard\plain \widctlpar \f5\fs20\lang2057 {\i Refs} has been designed to cope well with using languages other than English.  All its sorting and searching uses your Windows language setting so that sorting is appropriate for your language.
+\par \pard \widctlpar 
+\par \pard \widctlpar All language dependent resources such as messages, menus and dialog boxes are stored in a
+ separate DLL.  When initially installed there is no Language setting in your REFS.INI file.  In this case, Refs reads your WIN.INI file [intl] sLanguage entry to establish which DLL to use.  If it does not have a suitable DLL it defaults to English.  At 
+present, REFEN.DLL (English), REFES.DLL (Spanish), REFDEU.DLL (German) and REFJPN.DLL (Japanese) are available, but I hope to have DLLs for other languages, particularly French and Italian, and would greatly appreciate any user's help in creating them.
+
+\par \pard \widctlpar 
+\par \pard \widctlpar Refs checks that the DLL in use is the correct version for the main program.  It will allow other versions to be used, but issues a warning.
+\par \pard \widctlpar 
+\par \pard \widctlpar Of course such DLLs need not be used just for foreign languages.  With careful re-writing of resources, customisation of Refs for completely different or specialised purposes is possible.
+\par \pard \widctlpar 
+\par \pard \widctlpar Gerald Pfeifer (e9025064@student.tuwien.ac.at), the German translator, says:  {\i\f4 "If you're using the German DLL please feel free/encouraged to contact me with suggestions, remarks, and bugs!"}
+\par \pard \widctlpar 
+\par \pard \widctlpar If you do find a bug in the non-English versions, {\b please} contact the author of the DLL in question in the first instance, rather than the author of {\i Refs} itself..
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 {\b0\i0 \page }{\cs18\super #{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super #} DLLinterface}${\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {
+\cs18\super $} Import DLL structure}K{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super K} importing files;technical;DLL structure}+{\footnote \pard\plain \s15\nowidctlpar \f5\fs20\lang2057 {\cs18\super +} Filter:01}}
+ Import/Export filter structure and interface
+\par \pard\plain \widctlpar \f5\fs20\lang2057 Import/Export filters are normal Windows Dynamic Link Libraries consisting of at least two exported functions.  Two functions are compulsory, the rest are optional.  The compulsory functions are as follows:
+\par \pard \widctlpar 
+\par \pard \widctlpar {\strike\f11 WhoAmI()}{\v\f11 WhoAmI}{\strike\f11 
+\par GetSpecs()}{\v\f11 GetSpecs}{\strike\f11 
+\par }\pard \widctlpar {\b\f11 
+\par }\pard \widctlpar {\i Refs} uses these functions to obtain data about your library - its description and the type of files it loads and saves.
+\par \pard \widctlpar {\b\f11 
+\par }\pard \widctlpar The optional functions are as follows.  Obviously at least one of LoadRef() and SaveRef() should be present, otherwise your filter won't do much!
+\par \pard \widctlpar {\b\f11 
+\par }\pard \widctlpar {\strike\f11 LoadRef()}{\v\f11 LoadRef}{\f11 
+\par }{\strike\f3 SaveRef()}{\v\f3 SaveRef}{\f3 
+\par }\pard \widctlpar {\f3 
+\par }\pard \widctlpar {\strike\f11 Opts()}{\v\f11 Opts}{\strike\f11 
+\par }\pard \widctlpar 
+\par The Opts function, if it exists, can be used by the user to modify the way your library behaves.
+\par 
+\par \pard \widctlpar There is a library of helper functions supplied with {\i Refs}, called {\strike RIMPEXP.DLL}{\v RImpExp}, which you may find useful in writing your filters.
+\par \pard \widctlpar 
+\par \pard \widctlpar The result
+ing DLL should then be renamed to have a file extension of FLT so that Refs will recognise it.  Please upload any import filters you write... others might find them useful!  Or send them to me, and I will include them in the next official release of Refs.
+
+\par \pard\plain \s19\sb120\sa120\widctlpar \f3\cf9\lang2057 \page {\cs18 #{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super #} WhoAmI}${\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super $} WhoAmI import DLL function}K
+{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super K} importing files;technical;DLL structure}}{\cs18\super +{\footnote \pard\plain \s15\nowidctlpar \f5\fs20\lang2057 {\cs18\super +} Filter:02}} LPSTR FAR PASCAL WhoAmI(void);
+\par \pard\plain \widctlpar \f5\fs20\lang2057 This returns a pointer to a null-terminated string describing the filter.  This is the string that gets inserted in the choices list box.{\f3 
+\par }\pard\plain \s19\sb120\sa120\widctlpar \f3\cf9\lang2057 \page {\cs18\super #{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super #} GetSpecs}${\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super $} GetSpecs import DL
+L function}K{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super K} importing files;technical;DLL structure}+{\footnote \pard\plain \s15\nowidctlpar \f5\fs20\lang2057 {\cs18\super +} Filter:03}}{\up6  }{\b LPSTR }FAR PASCAL GetSpecs(void);
+
+\par \pard\plain \widctlpar \f5\fs20\lang2057 This returns a pointer to a special string that will be referred to in the {\i lpstrFilter} member of a {\i TOPENFILENAME}
+ structure that will be passed to GetOpenFilename() or GetSaveFilename().  See  your compiler documentation for details.  The old 16-bit BIDS.FLT had the following code for this function:
+\par \pard \widctlpar 
+\par \pard \li360\widctlpar {\b\f11 function}{\f11  GetSpecs: PChar; }{\b\f11 export}{\f11 ;
+\par }{\b\f11 begin}{\f11 
+\par }\pard \li360\widctlpar {\f11   GetSpecs := 'ISI text file (*.isi)'+
+\par     #0+'*.ISI'+#0+'All files (*.*)'+#0+'*.*'+#0#0;
+\par }\pard \li360\widctlpar {\b\f11 end}{\f11 ;
+\par }\pard \li360\widctlpar {\f11 
+\par }\pard \widctlpar The C equivalent used by the {\i Refs} 7.8 version is:
+\par \pard \li360\widctlpar {\f11 
+\par }\pard \li360\widctlpar {\b\f11 #ifdef WIN32
+\par LPSTR}{\f11  _declspec(dllexport) GetSpecs(void)\{
+\par }{\b\f11 #else
+\par LPSTR}{\f11  CALLBACK }{\b\f11 _export}{\f11  GetSpecs(void)\{
+\par }{\b\f11 #endif}{\f11 
+\par   }{\b\f11 return}{\f11  "ISI text file (*.isi)\\0*.ISI\\0All files (*.*)\\0*.*\\0\\0";
+\par }\pard \li360\widctlpar {\f11 \}
+\par }\pard\plain \s19\sb120\sa120\widctlpar \f3\cf9\lang2057 \page {\cs18\super #{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super #} LoadRef}${\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super $}
+ LoadRef import DLL function}K{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super K} importing files;technical;DLL structure}+{\footnote \pard\plain \s15\nowidctlpar \f5\fs20\lang2057 {\cs18\super +} Filter:05}}{\up6  }{\b\strike 
+TImportRef}{\v TImportRef} FAR * PASCAL LoadRef(HWND Aparent; LPMMIOINFO FS; LPSTR INIPath);
+\par \pard\plain \widctlpar \f5\fs20\lang2057 FS is a far pointer to a {\i MMIOINFO} structure (see win31mwh.hlp and/or mmsystem.pas/mmsystem.h for more details).
+\par \pard \widctlpar 
+\par \pard \widctlpar The file FS->hmmio will have been opened for buffered I/O and an internal buffer will have been allocated with {\b mmioSetBuffer()}.  You can retrieve the size of this buffer with the function {\strike GetBufSz()}{\v GetBufSz}
+.  LoadRef must load a single reference, and fill a {\strike TImportRef}{\v TImportRef} structure with it.  You then return a pointer to this structure.  {\i Refs}
+ will copy the data, so you may dispose of it in another procedure (or next time LoadRef is called, which is the way both BIDS.FLT and MEDLINE.FLT do it).  LoadRef is repeatedly called by {\i Refs}
+ until you return a non-zero Result member of the TImportRef.  Do not close the file.  {\i Refs} will do this for you.
+\par \pard \widctlpar 
+\par \pard \widctlpar Your function is responsible for calling {\b mmioAdvance()} when appropriate to update the buffer as you read from it.  mmioAdvance() has {\b not}
+ been called before LoadRef is first called.  Example code in both Pascal and C can be obtained from the Refs WWW site.  See the {\strike introduction}{\v Intro}.
+\par \pard \widctlpar 
+\par If you need to load any options, INIPath gives the path to REFS.INI
+\par 
+\par \pard \widctlpar Obviously, Pascal programmers will need to add 'MMSystem' to their {\b uses} clause, and C programmers will need to {\b #include <mmsystem.h>}.
+\par \pard \widctlpar 
+\par \pard \widctlpar {\b\cf6 Important changes in }{\b\i\cf6 Refs}{\b\cf6  7.8
+\par }\pard \widctlpar 
+\par \pard \widctlpar The INIPath parameter is not present in the 32 bit version.  Use {\strike GetConfigStr()}{\v GetConfigStr} and so on from RIMPEXP.H instead to set your configuration options.
+\par \pard \widctlpar {\f3 
+\par }\pard\plain \s19\sb120\sa120\widctlpar \f3\cf9\lang2057 \page {\cs18\super #{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super #} Opts}${\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super $} Opts import DLL procedure}K
+{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super K} importing files;technical;DLL structure}+{\footnote \pard\plain \s15\nowidctlpar \f5\fs20\lang2057 {\cs18\super +} Filter:04}}{\up6  }{\b void }
+FAR PASCAL Opts(HWND Aparent, LPSTR INIPath);
+\par \pard\plain \widctlpar \f5\fs20\lang2057 This is your options procedure.  If this procedure is not present, Refs will display a message box to the user saying so when the {\b Options}
+ button is chosen, otherwise Opts is called, and you are free to display an options dialog box for your filter, using AParent which is the REFS.EXE main window handle.  Bear in mind that your filter w
+ill be freed before being used again to import a reference, so any options should be saved to an INI file.  You may use REFS.INI for this purpose.  The path to REFS.INI is given by INIPath.
+\par \pard \widctlpar {\b\cf6 
+\par Important changes in }{\b\i\cf6 Refs}{\b\cf6  7.8
+\par }\pard \widctlpar 
+\par \pard \widctlpar The INIPath parameter is not present in the 32 bit version.  Use {\strike GetConfigStr()}{\v GetConfigStr} and so on from RIMPEXP.H instead to set your configuration options.
+\par \pard \widctlpar 
+\par \pard\plain \s19\sb120\sa120\widctlpar \f3\cf9\lang2057 \page {\cs18\super #{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super #} TImportRef}${\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super $}
+ TImportRef import DLL structure}K{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super K} importing files;technical;DLL structure}+{\footnote \pard\plain \s15\nowidctlpar \f5\fs20\lang2057 {\cs18\super +} Filter:06}}{\up6  }{\b struct}
+ TImportRef
+\par \pard\plain \widctlpar \f5\fs20\lang2057 This is declared in imptfr.h or imptfr.inc, both of which are components of the {\i\strike Refs Development Kit}{\v RDK}.
+\par \pard \widctlpar 
+\par \pard \widctlpar {\b\f11 struct TImportRef \{}{\f11 
+\par }\pard \widctlpar {\f11   BYTE Result;
+\par   BYTE RefType;
+\par   LPSTR Authors, Date, Title;
+\par }\pard \widctlpar {\f11   LPSTR Journal; }{\i\f11 /*Or book title, depending on RefType*/}{\f11 
+\par }\pard \widctlpar {\f11   LPSTR Vol, VolNo, Pages;
+\par }\pard \widctlpar {\f11   LPSTR Text; }{\i\f11 /* Abstract*/}{\f11 
+\par }\pard \widctlpar {\f11   LPSTR Keywords, Publisher, City, Editor;
+\par   LPSTR SortStr;
+\par \};}{\f3 
+\par }\pard \widctlpar {\f3 
+\par }\pard \widctlpar {\i Result} should be filled as follows:
+\par 
+\par \tab 0\tab Reference read, file not yet exhausted, carry on reading
+\par \tab 1\tab Reference read successfully, and end of file reached, stop reading
+\par \tab >1\tab Error, stop reading, do not create a reference from this TImportRef.
+\par 
+\par {\i RefType}:
+\par 
+\par \tab 0\tab Journal (%J)
+\par \tab 1\tab Book (%B)
+\par \tab 2\tab Report (%R)
+\par 
+\par Other values will result in problems.
+\par 
+\par The other entries should contain pointers to null-terminated strings, or NULL.  There are some rules:
+\par 
+\par {\i Keywords} and {\i Authors} fields:
+\par 
+\par \pard \widctlpar The individual items should be separated by CRLF, otherwise {\i Refs} will make errors saving and displaying the references.
+\par \pard \widctlpar 
+\par \pard \keepn\widctlpar {\i SortStr} is ignored, at present.  {\i Refs} will fill this itself, after copying the structure.
+\par 
+\par \pard\plain \s19\sb120\sa120\widctlpar \f3\cf9\lang2057 \page {\cs18\super #{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super #} SaveRef}+{\footnote \pard\plain \s15\nowidctlpar \f5\fs20\lang2057 {\cs18\super +} Filter:07}${\footnote 
+\pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super $} SaveRef() filter function}K{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super K} technical;DLL structure}}
+ int FAR PASCAL _export SaveRef(HWND aparent, TImportRef *Ref, MMIOINFO *FS, char *INIPath);SaveRef
+\par \pard\plain \widctlpar \f5\fs20\lang2057 {\f3 
+\par }\pard \widctlpar SaveRef is passed a {\strike TImportRef}{\v TImportRef} structure.  Your task is simply to write the contents of that structure to the MMIO file passed in FS.  Simple, honest.
+\par \pard \widctlpar 
+\par \pard \widctlpar {\b\cf6 Important changes in }{\b\i\cf6 Refs}{\b\cf6  7.8
+\par }\pard \widctlpar 
+\par \pard \widctlpar The INIPath parameter is not present in the 32 bit version.  Use {\strike GetConfigStr()}{\v GetConfigStr} and so on from RIMPEXP.H instead to set your configuration options.
+\par \pard \widctlpar 
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs18\super #{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super #} RImpExp}${\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super $}
+ RIMPEXP.DLL library functions}+{\footnote \pard\plain \s15\nowidctlpar \f5\fs20\lang2057 {\cs18\super +} RIE:01}K{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super K} technical;DLL structure}}  RIMPEXP.DLL:
+\par \pard \s1\sb120\sa120\widctlpar \cbpat16 Helper functions for Import/Export filters
+\par \pard\plain \widctlpar \f5\fs20\lang2057 This is a somewhat limited library at present, but there are at least a few functions to stop you from having to reinvent the wheel.
+\par \pard \widctlpar 
+\par File reading/writing:
+\par 
+\par \pard \widctlpar {\strike\f11 GetBufSz()}{\v\f11 GetBufSz}{\f11 
+\par }{\strike\f11 SetBufSz()}{\v\f11 GetBufSz}{\f11   
+\par }{\strike\f11 ReadLine()}{\v\f11 Readline}{\f11 
+\par }{\strike\f11 WriteLine()}{\v\f11 WriteLine}{\f11 
+\par }{\strike\f11 vMMIOprintf()}{\v\f11 vMMIOprintf}{\f11 
+\par }\pard \widctlpar 
+\par Configuration editing:
+\par 
+\par \pard \widctlpar {\strike\f11 GetINIFilePath()}{\v\f11 GetINIFilePath}{\f11  (16 bit versions only)
+\par }{\strike\f11 GetConfigStr()}{\v\f11 GetConfigStr}{\f11 
+\par }{\strike\f11 SetConfigStr()}{\v\f11 GetConfigStr}{\f11 
+\par }{\strike\f11 GetConfigInt()}{\v\f11 GetConfigStr}{\f11 
+\par }{\strike\f11 SetConfigInt()}{\v\f11 GetConfigStr}{\f11 
+\par }{\strike\f11 DeleteConfigTree()}{\v\f11 GetConfigStr}
+\par \pard\plain \s19\sb120\sa120\widctlpar \f3\cf9\lang2057 \page {\cs18\cf2\super #{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super #} WriteLine}${\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super $} WriteLine}K
+{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super K} technical;DLL structure;WriteLine}+{\footnote \pard\plain \s15\nowidctlpar \f5\fs20\lang2057 {\cs18\super +} RIE:02}} int FAR PASCAL WriteLine(LPMMIOINFO FS, LPSTR text);
+\par \pard\plain \widctlpar \f5\fs20\lang2057 WriteLine() writes the null terminated string {\i text} to the file specified in {\i FS}.  It does {\i not}
+ append a CR/LF to the line.  It returns 0 if it simply wrote the text to the buffer.  It returns -1 if text is NULL.  If it called mmioAdvance() in the process of writing text to the buffer, it returns the code returned by mmioAdvance().
+\par \pard\plain \s19\sb120\sa120\widctlpar \f3\cf9\lang2057 \page {\cs18\super #{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super #} vMMIOprintf}${\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super $} vMMIOprintf}K
+{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super K} technical;DLL structure;vMMIOprintf}+{\footnote \pard\plain \s15\nowidctlpar \f5\fs20\lang2057 {\cs18\super +} RIE:03}}
+ int FAR PASCAL vMMIOprintf(LPMMIOINFO FS, LPSTR format, va_list args);
+\par \pard\plain \widctlpar \f5\fs20\lang2057 vMMIOprintf() is a wrapper around {\strike WriteLine()}{\v WriteLine}.  It behaves in exactly the same way as vfprintf() or vsprintf(), and returns the same values as those functions.
+\par \pard\plain \s19\sb120\sa120\widctlpar \f3\cf9\lang2057 \page {\cs18\super #{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super #} ReadLine}${\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super $} ReadLine}K{\footnote 
+\pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super K} technical;DLL structure;ReadLine}+{\footnote \pard\plain \s15\nowidctlpar \f5\fs20\lang2057 {\cs18\super +} RIE:01}} int FAR PASCAL ReadLine(LPMMIOINFO FS, LPSTR text, BOOL FAR *EoF);
+\par \pard\plain \widctlpar \f5\fs20\lang2057 ReadLine() reads a single line from FS into text.  text should be at least as large as the value returned by {\strike GetBufSz()}{\v GetBufSz}
+, to avoid possible general protection faults.  The terminating CRLF pair is discarded by ReadLine, so you won't see them.
+\par \pard \widctlpar 
+\par \pard \widctlpar The return value is not useful in RIMPEXP.DLL 1.2 or earlier, but in version 1.3 the return value is the number of characters read.  The functions sets EoF when the end of the file has been reached.
+\par \pard\plain \s19\sb120\sa120\widctlpar \f3\cf9\lang2057 \page {\cs18\super #{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super #} GetBufSz}${\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super $} GetBufSz()}K{\footnote 
+\pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super K} technical;DLL structure;GetBufSz;SetBufSz}+{\footnote \pard\plain \s15\nowidctlpar \f5\fs20\lang2057 {\cs18\super +} RIE:04}} long FAR PASCAL GetBufSz(void); long FAR PASCAL SetBufSz(long);
+
+\par \pard\plain \widctlpar \f5\fs20\lang2057 GetBufSz() returns the size of the buffer {\i Refs} is using in the MMIOINFO structure.
+\par \pard \widctlpar SetBufSz() sets the size of the buffer.  There is no reason to call this function from within your filter - it is called by {\i Refs}
+ before loading your library, and a buffer set.  Calling the function again simply returns the current buffer size, just like GetBufSz().
+\par \pard\plain \s19\sb120\sa120\widctlpar \f3\cf9\lang2057 \page {\cs18\super #{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super #} GetINIFilePath}${\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super $} GetINIFilePath()}K
+{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super K} technical;DLL structure;GetINIFilePath}+{\footnote \pard\plain \s15\nowidctlpar \f5\fs20\lang2057 {\cs18\super +} RIE:05}} LPSTR FAR PASCAL GetINIFilePath(void);
+\par \pard\plain \widctlpar \f5\fs20\lang2057 GetINIFilePath() is only available in the 16 bit version of RIMPEXP.DLL.  The 32 bit version uses the Registry, rendering this function redundant.
+\par \pard \widctlpar 
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs18\super #{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super #} GetConfigStr}${\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super $}
+ RIMPEXP.DLL: Configuration functions}K{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super K} technical;DLL structure;GetConfigStr;GetConfigInt;SetConfigStr;SetConfigInt;DeleteConfigTree}+{\footnote \pard\plain \s15\nowidctlpar 
+\f5\fs20\lang2057 {\cs18\super +} RIE:06}} Configuration manipulation functions
+\par \pard\plain \widctlpar \f5\fs20\lang2057 These are a set of functions to give you a consistent source code interface across the 16 and 32 bit versions of {\i Refs}, transparently setting configuration options in REFS.INI or the Regi
+stry respectively.  The syntax is in general very similar to the PrivateProfile functions in the Windows 3.1 API.
+\par \pard \widctlpar 
+\par \pard\plain \s19\sb120\sa120\widctlpar \f3\cf9\lang2057 int GetConfigInt(LPSTR Key, LPSTR Value, int Default);
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par \pard \widctlpar In all these functions, in Win32 systems, Key will be added to HKEY_CURRENT_USER\\Software\\TJRC\\Refs\\ to set the location in the Registry.  In 16 bit Windows, Key is the section of the REFS.INI file to be used.
+\par \pard \widctlpar 
+\par GetConfigInt() returns the value found in the configuration data, or the Default if the data was not found.
+\par 
+\par \pard\plain \s19\sb120\sa120\widctlpar \f3\cf9\lang2057 int GetConfigStr(LPSTR Buf, int szBuf, LPSTR Key, LPSTR Value, LPSTR Default);
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par \pard \widctlpar GetConfigStr() returns the length of data copied in to Buf.  szBuf should contain the size of Buf.  If the data requested is not found, Default is used.  As with GerPrivateProfileString(),
+ calling this function with Value set to NULL returns a list of subkeys under this Key.  Each is NULL-terminated, and the list is terminated by two NULL characters.
+\par \pard \widctlpar 
+\par \pard\plain \s19\sb120\sa120\widctlpar \f3\cf9\lang2057 void SetConfigInt(LPSTR Key, LPSTR Value, int Quantity);
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par Hopefully self evident!
+\par 
+\par \pard\plain \s19\sb120\sa120\widctlpar \f3\cf9\lang2057 void SetConfigStr(LPSTR Key, LPSTR Value, LPSTR Data);
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par SetConfigStr() behaves much like WriteProfileString(); if Data is NULL, the Value entry is deleted.
+\par 
+\par \pard\plain \s19\sb120\sa120\widctlpar \f3\cf9\lang2057 void DeleteConfigTree(LPSTR Key);
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par This function deletes entire Registry subtrees.  Use with care!
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs18\super #{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super #} RDK}${\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super $} Refs Devel
+opment Kit}K{\footnote \pard\plain \s15\widctlpar \f5\fs20\lang2057 {\cs18\super K} technical;DLL structure}} The Refs Development Kit
+\par \pard\plain \widctlpar \f5\fs20\lang2057 This contains example source code for Import/Export filters and all the header files, import libraries and units required to write such libraries in both C/C++ and Pascal.  Contact the author for details.
+\par }

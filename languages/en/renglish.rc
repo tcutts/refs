@@ -1,0 +1,64 @@
+#include "../inc/rc.h"
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 7,8,1,0
+ PRODUCTVERSION 7,8,1,0
+ FILEFLAGSMASK 0x0L
+ FILEFLAGS 0x3L
+#ifdef WIN32
+ FILEOS VOS__WINDOWS32
+#else
+ FILEOS VOS__WINDOWS16
+#endif
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+ BEGIN
+   BLOCK "StringFileInfo"
+   BEGIN
+     BLOCK "080904E4"
+     BEGIN
+       VALUE "CompanyName", "Tim Cutts\0"
+       VALUE "FileDescription", "English language library\0"
+       VALUE "FileVersion", "7.8.1\0","\0"
+       VALUE "InternalName", "REFEN.DLL\0"
+       VALUE "LegalCopyright", "Copyright \251 Tim Cutts 1994-1997\0"
+       VALUE "OriginalFilename", "REFEN.DLL\0"
+       VALUE "ProductName", "Refs\0"
+       VALUE "ProductVersion", "7.8.1\0"
+     END
+   END
+   BLOCK "VarFileInfo"
+   BEGIN
+     VALUE "Translation", 0x809, 1252
+   END
+ END
+
+#include "abort.rc"
+#include "about.rc"
+#include "bibfmt.rc"
+#include "bibname.rc"
+#include "clean.rc"
+#include "confirm.rc"
+#include "dupl.rc"
+#include "editbib.rc"
+#include "editref.rc"
+#include "etitle.rc"
+#include "impopt.rc"
+#include "inopt.rc"
+#include "keywords.rc"
+#include "lang.rc"
+#include "listedit.rc"
+#include "listopt.rc"
+#include "nag.rc"
+#include "nagfirst.rc"
+#include "name.rc"
+#include "newsrch.rc"
+#include "optsort.rc"
+#include "register.rc"
+#include "srchopt.rc"
+
+#include "ermenu.rc"
+#include "mainmenu.rc"
+
+#include "enstr.rc"
+

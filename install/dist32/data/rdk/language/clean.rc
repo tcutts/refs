@@ -1,0 +1,8 @@
+#include "../inc/rc.h"
+CLEAN DIALOG 57, 38, 142, 26
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Please wait"
+BEGIN
+  CONTROL "Cleaning up memory...", id_LoadingRef, "STATIC", SS_CENTER | WS_CHILD | WS_VISIBLE, 15,8,111,8
+  CONTROL "", -1, "Static", SS_GRAYFRAME, 7,6,129,13
+END

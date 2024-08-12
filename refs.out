@@ -1,0 +1,241 @@
+Microsoft PLIST Version 1.30.200
+
+Profile: Line timing, sorted by line.
+Date:    Fri Sep 15 13:54:40 1995
+
+
+Program Statistics
+------------------
+    Total time: 32990.500 milliseconds
+    Time before any line: 29.325 milliseconds
+    Total lines: 87
+    Total hits: 74656
+    Line coverage:  56.3%
+
+Module Statistics for d:\data\refs\rimpexp.dll
+----------------------------------------------
+    Time in module: 32961.175 milliseconds
+    Percent of time in module: 100.0%
+    Lines in module: 87
+    Hits in module: 74656
+    Module line coverage:  56.3%
+
+Source file: d:\data\refs\fimpexp.c
+
+               Line        Hit  
+  Line         Time   %   count Source
+--------------------------------------
+    1:                          #include <windows.h>
+    2:                          #include <windowsx.h>
+    3:                          #include <mmsystem.h>
+    4:                          #include <stdlib.h>
+    5:                          #include <stdarg.h>
+    6:                          #include <stdio.h>
+    7:                          #include <string.h>
+    8:                          #include <sys/stat.h>
+    9:                          #include <malloc.h>
+   10:                          
+   11:                          #include "rimpexp.h"
+   12:                          
+   13:                          //Configuration functions
+   14:                          
+   15:                          #ifdef WIN32
+   16:                          // use the Registry
+   17:                          
+   18:                          #pragma argsused
+   19:                          int FAR PASCAL _export GetConfigStr(LPSTR x, int sz, LPSTR section, LPSTR key, LPSTR def){
+   20:                            char t1[RES_STR];
+   21:                            long cb=RES_STR-1;
+   22:                            HKEY hk;
+   23:                            int r;
+   24:                          
+   25:                            lstrcpy(t1, "Refs\\");
+   26:                            lstrcat(t1, section);
+   27:                            if ((r=RegOpenKey(HKEY_CURRENT_USER, t1, &hk)) == ERROR_SUCCESS) {
+   28:                              if ((r=RegQueryValue(hk, key, x, &cb))!=ERROR_SUCCESS)
+   29:                                lstrcpy(x, def);
+   30:                              RegCloseKey(hk);
+   31:                            } else
+   32:                              lstrcpy(x, def);
+   33:                            return lstrlen(x);
+   34:                          }
+   35:                          
+   36:                          int FAR PASCAL _export GetConfigInt(LPSTR section, LPSTR key, int def){
+   37:                            char t[RES_STR];
+   38:                          
+   39:                            if ((r=GetConfigStr(t, RES_STR-1, section, key, ""))==ERROR_SUCCESS)
+   40:                              return atol(t);
+   41:                            else
+   42:                              return def;
+   43:                          }
+   44:                          
+   45:                          void FAR PASCAL _export DeleteConfigTree(LPSTR section){
+   46:                            HKEY hk;
+   47:                          
+   48:                            if ((RegOpenKey(HKEY_CURRENT_USER, "Refs", &hk)==ERROR_SUCCESS){
+   49:                              RegDeleteKey(hk, section);
+   50:                              RegCloseKey(hk);
+   51:                            };
+   52:                          };
+   53:                          
+   54:                          void FAR PASCAL _export SetConfigStr(LPSTR section, LPSTR key, LPSTR x){
+   55:                            char t1[RES_STR];
+   56:                            long cb=RES_STR-1;
+   57:                            HKEY hk;
+   58:                          
+   59:                            lstrcpy(t1, "Refs\\");
+   60:                            lstrcat(t1, section);
+   61:                            if (RegCreateKey(HKEY_CURRENT_USER, t1, &hk) == ERROR_SUCCESS) {
+   62:                              RegSetValue(hk, key, REG_SZ, x, cb);
+   63:                              RegCloseKey(hk);
+   64:                            }
+   65:                          }
+   66:                          
+   67:                          void FAR PASCAL _export SetConfigInt(LPSTR section, LPSTR key, int x){
+   68:                            char t1[RES_STR];
+   69:                            long cb=RES_STR-1;
+   70:                            HKEY hk;
+   71:                          
+   72:                            lstrcpy(t1, "Refs\\");
+   73:                            lstrcat(t1, section);
+   74:                            if (RegCreateKey(HKEY_CURRENT_USER, t1, &hk) == ERROR_SUCCESS) {
+   75:                              RegSetValue(hk, key, REG_DWORD, x, cb);
+   76:                              RegCloseKey(hk);
+   77:                            }
+   78:                          }
+   79:                          
+   80:                          #else
+   81:                          // use REFS.INI
+   82:                          
+   83:                          char INIFile[240];
+   84:                          
+   85:        0.195   0.0     1 LPSTR FAR PASCAL _export GetINIFilePath(void){
+   86:        0.188   0.0     1   return INIFile;
+   87:     3030.000   9.2     1 }
+   88:                          
+   89:        0.194   0.0     1 void FAR PASCAL _export SetINIFilePath(LPSTR a){
+   90:        0.215   0.0     1   lstrcpy(INIFile, a);
+   91:        0.239   0.0     1 }
+   92:                          
+   93:        4.101   0.0    22 int FAR PASCAL _export GetConfigInt(LPSTR section, LPSTR key, int def){
+   94:       88.458   0.3    22   return GetPrivateProfileInt(section, key, def, INIFile);
+   95:        4.562   0.0    22 }
+   96:                          
+   97:        2.844   0.0    15 int FAR PASCAL _export GetConfigStr(LPSTR x, int sz, LPSTR section, LPSTR key, LPSTR def){
+   98:      114.867   0.3    15   return GetPrivateProfileString(section, key, def, x, sz, INIFile);
+   99:     2691.152   8.2    15 }
+  100:                          
+  101:        1.903   0.0    10 void FAR PASCAL _export SetConfigStr(LPSTR section, LPSTR key, LPSTR x){
+  102:       37.988   0.1    10   WritePrivateProfileString(section, key, x, INIFile);
+  103:      379.399   1.2    10 }
+  104:                          
+  105:        0.000   0.0     0 void FAR PASCAL _export DeleteConfigTree(LPSTR section){
+  106:        0.000   0.0     0   WritePrivateProfileString(section, NULL, NULL, INIFile);
+  107:        0.000   0.0     0 }
+  108:                          
+  109:        4.139   0.0    21 void FAR PASCAL _export SetConfigInt(LPSTR section, LPSTR key, int x){
+  110:                            char t[10];
+  111:                          
+  112:        4.982   0.0    21   itoa(x, t, 10);
+  113:       87.498   0.3    21   SetConfigStr(section, key, t);
+  114:        4.281   0.0    21 };
+  115:                          
+  116:                          #endif
+  117:                          
+  118:                          long BufSz;
+  119:                          char *tstr;
+  120:                          
+  121:        0.191   0.0     1 long FAR PASCAL _export GetBufSz(void){
+  122:        0.184   0.0     1   return(BufSz);
+  123:      109.845   0.3     1 }
+  124:                          
+  125:        0.194   0.0     1 long FAR PASCAL _export SetBufSz(long SetTo){
+  126:        0.189   0.0     1   if (!BufSz)
+  127:        0.188   0.0     1     BufSz=SetTo;
+  128:        0.241   0.0     1   return(BufSz);
+  129:       67.785   0.2     1 }
+  130:                          
+  131:        0.000   0.0     0 char *mstrchr(char *p, char c){
+  132:                            char *q;
+  133:        0.000   0.0     0   for (q=p ; (*q!='\0')&&(*q!=c) ; q++) {}
+  134:        0.000   0.0     0   return ((*q==c) ? q : NULL);
+  135:        0.000   0.0     0 }
+  136:                          
+  137:      937.549   2.8  4650 BOOL FAR PASCAL _export ReadLine(MMIOINFO *FS, char *atarget, BOOL FAR *eof){
+  138:                            char *Ptr, t;
+  139:                          
+  140:      967.086   2.9  4650   if (FS->pchNext)
+  141:     1144.832   3.5  4650     Ptr = mstrchr(FS->pchNext, '\n');
+  142:      923.534   2.8  4650   if (!Ptr){
+  143:      479.671   1.5    11     mmioAdvance(FS->hmmio, FS, MMIO_READ);
+  144:       89.550   0.3    11     Ptr=strchr(FS->pchNext, '\n');
+  145:                            };
+  146:                            *eof = (FS->pchNext >= FS->pchEndRead);
+  147:      942.492   2.9  4650   if (!(*eof)) {
+  148:      923.742   2.8  4649     if (Ptr){
+  149:      935.187   2.8  4649       t=Ptr[1];
+  150:      973.775   3.0  4649       Ptr[1]='\0';
+  151:     1171.620   3.6  4649       lstrcpy(atarget, (char *)FS->pchNext);
+  152:      928.181   2.8  4649       Ptr[1]=t;
+  153:      937.925   2.8  4649       FS->pchNext = &Ptr[1];
+  154:                                Ptr = strchr(atarget, '\r');
+  155:     1108.906   3.4  4649       if (Ptr)
+  156:      930.887   2.8  4649         Ptr[0] = '\0';
+  157:      901.785   2.7  4649       else
+  158:                                  FS->pchNext = FS->pchEndRead;
+  159:                              } else
+  160:        0.000   0.0     0       FS->pchNext = FS->pchEndRead;
+  161:                            };
+  162:      972.525   3.0  4650   return (Ptr != NULL);
+  163:    10761.033  32.6  4650 };
+  164:                          
+  165:        0.000   0.0     0 int FAR PASCAL _export vMMIOprintf(LPMMIOINFO FS, LPSTR format, va_list argvlist){
+  166:                            int t;
+  167:                          
+  168:                            /* Using vsprintf because wvsprintf has a 1024 byte limit */  
+  169:                            t=vsprintf(tstr, format, argvlist);
+  170:        0.000   0.0     0   if (t)
+  171:        0.000   0.0     0     WriteLine(FS, tstr);
+  172:        0.000   0.0     0   return(t);
+  173:        0.000   0.0     0 };
+  174:                          
+  175:                          /* writes data to the FS buffer.  Returns 0 if successful. */
+  176:        0.000   0.0     0 int FAR PASCAL _export WriteLine(LPMMIOINFO FS, LPSTR astr){
+  177:                            long s, l;
+  178:        0.000   0.0     0   unsigned int r=0;
+  179:                            char t;
+  180:        0.000   0.0     0   char *p=astr;
+  181:                          
+  182:        0.000   0.0     0   if (!astr)
+  183:        0.000   0.0     0     return(-1);
+  184:        0.000   0.0     0   s=FS->pchEndWrite-FS->pchNext;
+  185:                            l=lstrlen(p);
+  186:        0.000   0.0     0   while (s<l) {
+  187:        0.000   0.0     0     t=p[s-1];
+  188:        0.000   0.0     0     p[s-1]='\0';
+  189:        0.000   0.0     0     lstrcpy((char *)FS->pchNext, p);
+  190:        0.000   0.0     0     FS->pchNext+=(s-1);
+  191:        0.000   0.0     0     FS->dwFlags |= MMIO_DIRTY;
+  192:        0.000   0.0     0     r=mmioAdvance(FS->hmmio, FS, MMIO_WRITE);
+  193:        0.000   0.0     0     p[s-1]=t;
+  194:        0.000   0.0     0     p=&p[s-1];
+  195:        0.000   0.0     0     s=FS->pchEndWrite-FS->pchNext;
+  196:                              l=lstrlen(p);
+  197:        0.000   0.0     0   }
+  198:        0.000   0.0     0   lstrcpy((char *)FS->pchNext, p);
+  199:        0.000   0.0     0   FS->pchNext+=l;
+  200:        0.000   0.0     0   return(r);
+  201:        0.000   0.0     0 }
+  202:                          
+  203:        0.000   0.0     0 int FAR PASCAL _export WEP(int nParameter){
+  204:                          /*  if (tstr)
+  205:                              free(tstr);*/
+  206:        0.000   0.0     0   return(1);
+  207:        0.000   0.0     0 }
+  208:                          
+  209:        0.189   0.0     1 int FAR PASCAL _export LibMain(HINSTANCE hInstance, WORD wDataSeg, WORD cbHeapSize, LPSTR lpCmdLine){
+  210:        0.184   0.0     1   BufSz=0;
+  211:        1.057   0.0     1   tstr=(char *)malloc(32768);
+  212:                          
+  213:      293.444   0.9     1   return (tstr ? 1 : 0);
+  214:        0.000   0.0     0 }

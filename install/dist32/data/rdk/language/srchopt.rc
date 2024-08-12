@@ -1,0 +1,11 @@
+#include "../inc/rc.h"
+SRCHOPT DIALOG  18, 18, 231, 42
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Search Options"
+BEGIN
+    CONTROL         "&Windows searchable by default",id_Searchable,"Button",
+        BS_AUTOCHECKBOX | WS_TABSTOP,12,21,162,12
+    DEFPUSHBUTTON   "OK",IDOK,185,6,42,14
+    PUSHBUTTON      "Cancel",IDCANCEL,185,22,42,14
+    CONTROL         "",-1,"Static",SS_BLACKFRAME,6,5,174,32
+END

@@ -1,0 +1,761 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "X:\compilad\msdev\include\windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+#include "x:\compilad\msdev\include\ver.h"
+#include "refs.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Spanish (Castilian) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESP)
+#ifdef _WIN32
+LANGUAGE LANG_SPANISH, SUBLANG_SPANISH
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+EDITBIB DIALOG DISCARDABLE  13, 79, 218, 76
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+BEGIN
+    EDITTEXT        id_FmtEdit,6,14,208,38,ES_MULTILINE | WS_VSCROLL
+    DEFPUSHBUTTON   "Aceptar",1,82,58,38,14
+    PUSHBUTTON      "Cancelar",2,125,58,42,14
+    PUSHBUTTON      "A&yuda",cm_Help,171,58,42,14
+    LTEXT           "Editar su formato blibliográfico:",-1,6,3,209,8
+END
+
+EDITREF DIALOG DISCARDABLE  4, 23, 301, 233
+STYLE WS_MAXIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_VSCROLL | 
+    WS_HSCROLL | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Editar una referencia"
+MENU EDIT_REF
+FONT 10, "System"
+BEGIN
+    RTEXT           "&Título:",idt_Title,1,4,20,9
+    EDITTEXT        id_Title,26,5,257,19,ES_MULTILINE | WS_VSCROLL
+    RTEXT           "",idt_BookJou,50,32,69,9
+    COMBOBOX        id_Journal,125,31,157,155,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    RTEXT           "&Vol:",idt_Volume,157,47,19,8
+    EDITTEXT        id_Volume,179,46,47,10,ES_AUTOHSCROLL
+    RTEXT           "&Nº:",idt_VolNo,232,46,18,8
+    EDITTEXT        id_Number,254,45,27,10,ES_AUTOHSCROLL
+    RTEXT           "Págin&as:",idt_Pages,190,59,47,9
+    EDITTEXT        id_Pages,241,58,40,10,ES_AUTOHSCROLL
+    LTEXT           "Re&sumen:",idt_Abstract,4,36,46,9
+    EDITTEXT        id_Text,3,50,148,162,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_WANTRETURN | WS_VSCROLL
+    LTEXT           "E&ditorial:",idt_Publisher,163,74,34,8
+    EDITTEXT        id_Publisher,198,72,84,10,ES_AUTOHSCROLL
+    LTEXT           "&Editores:",idt_Editor,164,86,31,8,NOT WS_GROUP
+    EDITTEXT        id_Editor,199,86,84,19,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+    LTEXT           "&Ciudad de publicación:",idt_City,163,108,76,8
+    EDITTEXT        id_City,165,118,115,11,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_WANTRETURN
+    LTEXT           "&Palabras clave:",idt_Keywords,163,133,114,8
+    EDITTEXT        id_Keywords,165,144,115,37,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+    PUSHBUTTON      "<-",id_GPrev,163,186,22,12
+    PUSHBUTTON      "->",id_GNext,211,186,22,12
+    PUSHBUTTON      "Aceptar y continuar",id_OkNew,163,199,70,12
+    DEFPUSHBUTTON   "Aceptar",IDOK,236,186,44,12
+    PUSHBUTTON      "Cancelar",IDCANCEL,236,199,44,12
+END
+
+LANGDLG DIALOG DISCARDABLE  23, 18, 167, 81
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Seleccionar idioma"
+BEGIN
+    LISTBOX         id_LangList,4,20,94,58,WS_VSCROLL
+    DEFPUSHBUTTON   "Aceptar",IDOK,119,49,42,14
+    PUSHBUTTON      "Cancelar",IDCANCEL,119,64,42,14
+    LTEXT           "DLLs de idioma disponibles:",-1,4,6,97,8
+END
+
+SRCHOPT DIALOG DISCARDABLE  6, 52, 262, 46
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Opciones de búsqueda"
+BEGIN
+    CONTROL         "&Búsqueda sensible a las mayúsculas por defecto",
+                    id_CaseDef,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,10,
+                    194,12
+    CONTROL         "Hacer la ventana activa campo de búsqueda por defecto",
+                    id_Searchable,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,27,
+                    195,16
+    DEFPUSHBUTTON   "Aceptar",IDOK,217,8,42,14
+    PUSHBUTTON      "Cancelar",IDCANCEL,217,29,42,14
+    CONTROL         "",-1,"Static",SS_BLACKFRAME,3,6,203,39
+END
+
+CONFIRM DIALOG DISCARDABLE  17, 27, 154, 101
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Opciones de Confirmación"
+BEGIN
+    CONTROL         "&Nunca",id_NeverDel,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,9,15,102,10
+    CONTROL         "Sólo en selecciones &Múltiples ",id_MultipleDel,
+                    "Button",BS_AUTORADIOBUTTON | WS_TABSTOP,9,28,115,10
+    CONTROL         "Siem&pre",id_AlwaysDel,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,9,42,102,10
+    CONTROL         "&Confirmar el arrastre con ratón",id_MouseConf,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,3,65,121,12
+    DEFPUSHBUTTON   "Aceptar",IDOK,60,81,37,15
+    PUSHBUTTON      "Cancelar",IDCANCEL,104,81,40,15
+    GROUPBOX        "Confirmar la eliminación de las referencias",-1,4,3,147,
+                    58,WS_GROUP
+END
+
+DUPLICATES DIALOG DISCARDABLE  14, 33, 234, 125
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Referencias duplicadas"
+BEGIN
+    PUSHBUTTON      "&Editar",id_DEdit,10,88,35,14
+    PUSHBUTTON      "Editar &autores",id_DEditAuth,57,88,56,14
+    PUSHBUTTON      "&No incluir",id_Ignore,184,88,41,14
+    PUSHBUTTON      "A&yuda",cm_Help,192,107,32,14
+    EDITTEXT        ide_Example,9,5,219,30,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL | WS_GROUP | NOT WS_TABSTOP
+    LTEXT           "Esta referencia ya existe en la base de datos, Vd. puede escoger entre: editarla o no incluirla en la base de datos activa.",
+                    -1,8,40,219,20
+    LTEXT           "Bajo ciertas condiciones no puede mejorarse la situación y es necesario descartar la entrada. Ver información detallada en el Archivo de Ayuda",
+                    -1,9,60,220,26
+    PUSHBUTTON      "Cancelar la operación",IDCANCEL,10,107,84,14
+    PUSHBUTTON      "&Sobreescribir",idb_Replace,125,88,50,14
+END
+
+ABORT DIALOG DISCARDABLE  18, 18, 140, 74
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Impresión del Refs"
+BEGIN
+    DEFPUSHBUTTON   "Cancelar",2,51,56,35,14
+    CTEXT           "Enviando",-1,32,12,75,8
+    CTEXT           "",idc_Filename,19,24,102,8
+    CTEXT           "a la impresora",-1,43,34,51,8
+    CONTROL         "",-1,"Static",SS_GRAYFRAME,5,8,129,40
+END
+
+NAG DIALOG DISCARDABLE  18, 19, 206, 102
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Por favor Registrese!!!"
+FONT 10, "System"
+BEGIN
+    DEFPUSHBUTTON   "&Registrarse...",id_BRegister,5,84,52,14
+    PUSHBUTTON      "&No registrarse...",IDOK,98,84,69,14
+    PUSHBUTTON      "A&yuda",cm_Help,170,84,32,14
+    LTEXT           "Refs es ""shareware"".  Esta copia no registrada puede utilizarse  durante 30 días",
+                    -1,10,9,187,17
+    LTEXT           "Al registrarse no aparecerá esta pantalla de información y ayudará a comprar las herramientas y el incentivo que necesito para mejorar este programa",
+                    -1,9,29,185,35
+    LTEXT           "Escoja el botón de ayuda para más información",-1,9,68,
+                    158,8
+    CONTROL         "",-1,"Static",SS_GRAYFRAME,5,4,197,77
+END
+
+NAME DIALOG DISCARDABLE  22, 29, 151, 117
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Opciones de ordenación por Nombre"
+BEGIN
+    CONTROL         "&Apellido(Nombre de familia)",id_cmpsur,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,16,14,115,12
+    CONTROL         "Primer &Nombre dado",idr_firstname,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,16,27,115,12
+    CONTROL         "El Apellido aparece al final por defecto",id_family,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,63,96,12
+    RTEXT           "El Apellido está &seguido por:",-1,12,79,93,8
+    EDITTEXT        id_surname,123,79,10,12
+    DEFPUSHBUTTON   "Aceptar",IDOK,19,99,34,14
+    PUSHBUTTON      "Cancelar",IDCANCEL,63,99,36,14
+    PUSHBUTTON      "Ayuda",cm_Help,115,99,26,14
+    GROUPBOX        "Apellidos",-1,9,52,127,44,WS_TABSTOP
+    GROUPBOX        "Comparar por:",-1,10,3,127,44,WS_TABSTOP
+END
+
+ABOUT DIALOG DISCARDABLE  30, 31, 198, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Información..."
+FONT 8, "System"
+BEGIN
+    LTEXT           "© TJR Cutts, 1993-6",-1,116,6,66,8
+    DEFPUSHBUTTON   "Aceptar",IDOK,9,77,49,13
+    CTEXT           "Refs 7.81",-1,18,11,60,10
+    CTEXT           "tjrc1@mole.bio.cam.ac.uk",-1,105,14,87,8
+    LTEXT           "Registrado a:",-1,12,41,50,10
+    LTEXT           "",id_RegisteredTo,12,56,80,12
+    CONTROL         "",-1,"Static",SS_BLACKFRAME,4,35,94,38
+    CTEXT           "Traducción: Félix Sánchez",-1,105,30,87,8
+    CTEXT           "Felix-IQO@fresno.csic.es",-1,105,39,87,8
+END
+
+BIBFMT DIALOG DISCARDABLE  18, 18, 200, 170
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Formatos bibliográficos"
+FONT 8, "System"
+BEGIN
+    LTEXT           "Ejemplo:",-1,8,81,33,8
+    EDITTEXT        id_Sample,6,92,189,55,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_READONLY | WS_VSCROLL
+    DEFPUSHBUTTON   "Aceptar",IDOK,61,151,37,15
+    PUSHBUTTON      "Cancelar",IDCANCEL,108,151,37,15
+    PUSHBUTTON      "A&yuda",cm_Help,155,151,38,15
+    LISTBOX         id_FmtList,8,7,131,68,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Editar",id_FmtEdit,151,25,42,13
+    PUSHBUTTON      "&Nuevo",id_FmtNew,151,43,42,13
+    PUSHBUTTON      "E&liminar",id_FmtDel,151,61,42,13
+END
+
+CLEAN DIALOG DISCARDABLE  57, 38, 142, 25
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Espere..."
+BEGIN
+    LTEXT           "Liberando memoria...",id_LoadingRef,29,8,85,8,NOT 
+                    WS_GROUP
+    CONTROL         "",-1,"Static",SS_GRAYFRAME,7,6,129,13
+END
+
+ETITLE DIALOG DISCARDABLE  35, 25, 218, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Editar autor(es), Año y Tipo de referencia"
+BEGIN
+    LTEXT           "&Autor(es):",-1,5,2,121,8
+    EDITTEXT        id_Authors,4,12,123,79,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+    RTEXT           "&Año:",-1,150,10,27,8
+    EDITTEXT        id_Year,184,8,29,12,ES_AUTOHSCROLL
+    GROUPBOX        "&Tipo de referencia:",id_Source,131,23,83,49
+    CONTROL         "&Revista",id_Article,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,136,35,62,10
+    CONTROL         "Li&bro",106,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,
+                    136,47,64,10
+    CONTROL         "In&forme",107,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,
+                    136,59,64,10
+    DEFPUSHBUTTON   "Aceptar",IDOK,135,76,35,14
+    PUSHBUTTON      "Cancelar",IDCANCEL,176,76,38,14
+END
+
+IMPOPT DIALOG DISCARDABLE  25, 74, 204, 73
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Seleccionar formato de importación"
+BEGIN
+    LISTBOX         id_ImpList,5,5,143,65,LBS_DISABLENOSCROLL | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "&Opciones...",id_ImpOpts,153,5,45,16
+    DEFPUSHBUTTON   "Aceptar",IDOK,153,35,45,16
+    PUSHBUTTON      "Cancelar",IDCANCEL,153,53,45,16
+END
+
+INOPT DIALOG DISCARDABLE  18, 37, 176, 101
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Opciones de entrada"
+FONT 10, "System"
+BEGIN
+    GROUPBOX        "Tipo de referencia por defecto",-1,3,3,168,56
+    CONTROL         "&Revista o publicación periódica",id_Article,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,8,18,160,10
+    CONTROL         "Li&bro",106,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,8,
+                    30,158,10
+    CONTROL         "&Informe, tesis u otro trabajo sin publicar",107,
+                    "Button",BS_AUTORADIOBUTTON | WS_TABSTOP,8,43,159,10
+    LTEXT           "Fec&ha por defecto:",-1,7,84,63,8,NOT WS_GROUP
+    EDITTEXT        id_DefYear,74,82,32,12
+    DEFPUSHBUTTON   "Aceptar",IDOK,133,62,39,16
+    PUSHBUTTON      "Cancelar",IDCANCEL,133,81,39,16
+END
+
+LISTEDIT DIALOG DISCARDABLE  18, 21, 204, 102
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Escoger formato de archivo por defecto"
+BEGIN
+    LISTBOX         id_CommonList,5,5,145,74,LBS_SORT | WS_VSCROLL
+    EDITTEXT        id_CommonEdit,5,84,146,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Cambiar",idb_Change,155,83,45,14
+    DEFPUSHBUTTON   "Aceptar",IDOK,155,4,45,14
+    PUSHBUTTON      "Eliminar",idb_Delete,155,48,45,14
+    PUSHBUTTON      "Cancelar",IDCANCEL,155,20,45,14
+    PUSHBUTTON      "&Añadir",idb_Add,155,65,45,14
+END
+
+LISTOPT DIALOG DISCARDABLE  14, 38, 257, 96
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Opciones de presentación en pantalla"
+BEGIN
+    CONTROL         "Mostrar título de la referencia",id_RefTitle,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,17,107,10
+    LTEXT           "Ancho de la columna de autores",-1,13,34,104,8
+    SCROLLBAR       ids_ClmnWdth,14,50,102,9,WS_TABSTOP
+    CONTROL         "Todos",id_AuthAll,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,153,21,74,10
+    CONTROL         "Sólo el primero",103,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,153,34,74,10
+    CONTROL         "&Dos/uno et als.",104,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,153,47,74,10
+    CONTROL         "Seleccionar &nuevos campos",id_SelectNew,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,16,77,102,10
+    DEFPUSHBUTTON   "Aceptar",IDOK,131,74,38,15
+    PUSHBUTTON      "Cancelar",IDCANCEL,173,74,38,15
+    PUSHBUTTON      "A&yuda",cm_Help,214,74,36,15
+    GROUPBOX        "Mostrar autores:",-1,147,4,102,60
+    CTEXT           "",idt_ClmnWdth,121,34,16,8
+    GROUPBOX        "Formato de presentación",-1,7,4,135,60,WS_GROUP
+END
+
+NEWSRCH DIALOG DISCARDABLE  8, 54, 246, 61
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Nueva búsqueda..."
+BEGIN
+    RTEXT           "Buscar en...",-1,22,4,55,8
+    COMBOBOX        id_SrchBy,85,3,150,59,CBS_DROPDOWNLIST | 
+                    CBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    RTEXT           "Clave de búsqueda:  ",-1,6,22,71,8
+    EDITTEXT        id_SrchFor,85,20,150,12
+    CONTROL         "&NO lógico",id_Not,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,8,36,50,12
+    CONTROL         "Sensible a las mayúsculas",id_Case,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,8,49,105,10
+    DEFPUSHBUTTON   "Aceptar",IDOK,158,44,34,15
+    PUSHBUTTON      "Cancelar",IDCANCEL,202,44,33,15
+END
+
+OPTSORT DIALOG DISCARDABLE  30, 57, 235, 86
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Criterios de ordenación de referencias"
+BEGIN
+    RTEXT           "&Primero:",-1,3,9,38,8
+    COMBOBOX        id_SortA,45,7,99,47,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        id_DSortA,147,7,78,39,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    RTEXT           "&Segundo:",-1,4,29,38,8
+    COMBOBOX        id_SortB,45,27,99,51,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        id_DSortB,147,27,78,37,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    RTEXT           "&Tercero:",-1,3,50,38,8
+    COMBOBOX        id_SortC,45,48,99,51,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        id_DSortC,147,48,78,47,CBS_DROPDOWNLIST | 
+                    CBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Nombres...",id_names,5,69,44,14
+    DEFPUSHBUTTON   "Aceptar",IDOK,88,69,44,14
+    PUSHBUTTON      "Cancelar",IDCANCEL,138,69,44,14
+    PUSHBUTTON      "A&yuda",cm_Help,188,69,44,14
+    CONTROL         "",-1,"Static",SS_GRAYFRAME,1,3,231,63
+END
+
+REGISTER DIALOG DISCARDABLE  18, 18, 205, 70
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Registrándose..."
+BEGIN
+    RTEXT           "&Nombre:",-1,36,13,48,8
+    EDITTEXT        ide_Name,87,11,109,12,ES_AUTOHSCROLL
+    RTEXT           "Número de &registro:",-1,9,31,75,8
+    EDITTEXT        ide_Code,87,29,109,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Aceptar",IDOK,113,53,43,14
+    PUSHBUTTON      "Cancelar",IDCANCEL,159,53,43,14
+    CONTROL         "",-1,"Static",SS_BLACKFRAME,4,5,197,43
+END
+
+NAGFIRST DIALOG DISCARDABLE  18, 19, 206, 102
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Bienvenido al Refs!"
+FONT 10, "System"
+BEGIN
+    DEFPUSHBUTTON   "Aceptar",IDOK,5,85,51,14
+    PUSHBUTTON      "Ayuda...",cm_Help,162,85,40,14
+    CTEXT           "Refs es shareware; no es un software público.  Esta copia no registrada funcionará durante 30 días. Después de este tiempo a parecerá un mensaje de advertencia, que permanecerá en pantalla durante un segundo por cada dia más de 30 que hayan trascurrido.",
+                    -1,10,9,187,43
+    LTEXT           "Pulse el botón de AYUDA para más información sobre como registrarse.",
+                    -1,8,59,192,20
+    CONTROL         "",-1,"Static",SS_BLACKFRAME,5,4,197,76
+END
+
+KEYWORDS DIALOG DISCARDABLE  18, 18, 253, 107
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Añadir Pálabra(s) Clave"
+BEGIN
+    LISTBOX         id_KeyList,7,26,89,60,LBS_SORT | LBS_MULTIPLESEL | 
+                    LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
+                    WS_TABSTOP
+    DEFPUSHBUTTON   "Añadir a las &referencias",IDOK,4,90,87,14
+    PUSHBUTTON      ">>&Editar>>",button_Edit,102,42,49,14
+    EDITTEXT        edit_Add,160,30,89,22,ES_AUTOHSCROLL | WS_HSCROLL
+    PUSHBUTTON      "<<  &Añadir  <<",button_Add,100,26,52,14
+    PUSHBUTTON      "&Eliminar",button_Del,100,58,52,14
+    PUSHBUTTON      "Guardar lista",button_Save,99,74,99,14
+    PUSHBUTTON      "Buscar en la ventana activa",idb_Scan,99,90,99,14
+    PUSHBUTTON      "Ayuda",cm_Help,204,74,45,14
+    PUSHBUTTON      "Cancelar",IDCANCEL,203,90,45,14
+    LTEXT           "Pálabras Clave en la lista inferior se añadirán a las referencias seleccionadas",
+                    -1,7,7,228,18
+END
+
+BIBNAME DIALOG DISCARDABLE  12, 32, 218, 44
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Nuevo formato de Bibliografía"
+BEGIN
+    EDITTEXT        id_FmtEdit,6,12,208,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Aceptar",1,131,27,38,14
+    PUSHBUTTON      "Cancelar",2,172,27,42,14
+    LTEXT           "¿Como se llamará el nuevo formato?",-1,6,2,209,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+EDIT_REF MENU DISCARDABLE 
+BEGIN
+    POPUP "&Referencia"
+    BEGIN
+        MENUITEM "&Adicionar a la bibliografía...", cm_AddToBib
+        MENUITEM "Adicionar ""Palabras Clave""...""", cm_AddKeyword
+        MENUITEM SEPARATOR
+        MENUITEM "&Copiar con formato",         cm_CopyFormatted
+        MENUITEM "Im&primir...",                cm_Print
+    END
+    POPUP "&Editar"
+    BEGIN
+        MENUITEM "&Deshacer\tCtrl+Z",           WM_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "&Cor&tar\tCtrl+X",            WM_CUT
+        MENUITEM "&Copiar\tCtrl+C",             WM_COPY
+        MENUITEM "&Pegar\tCtrl+V",              WM_PASTE
+        MENUITEM SEPARATOR
+        MENUITEM "&Revistas más comunes...",    cm_CJournals
+        MENUITEM "Li&bros más comunes...",      cm_CBooks
+        MENUITEM "&Informes más comunes...",    cm_CReports
+    END
+    MENUITEM "A&yuda",                      cm_Help
+END
+
+MAIN MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&Archivo"
+    BEGIN
+        MENUITEM "&Nuevo",                      cm_FileNew
+        MENUITEM "&Abrir...\tCtrl+O",           cm_FOpen
+        MENUITEM "&Guardar\tCtrl+S",            cm_FSave
+        MENUITEM "Guardar co&mo...",            cm_FSaveAs
+        MENUITEM SEPARATOR
+        MENUITEM "&Importar...",                cm_FImport
+        MENUITEM "&Exportar...",                cm_FExport
+        MENUITEM SEPARATOR
+        MENUITEM "Im&primir...",                cm_Print
+        MENUITEM SEPARATOR
+        MENUITEM "&Cerrar",                     cm_FClose
+        MENUITEM SEPARATOR
+        MENUITEM "&Salir\tAlt+F4",              cm_FExit
+    END
+    POPUP "&Editar"
+    BEGIN
+        MENUITEM "&Deshacer\tCtrl+Z",           WM_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cor&tar\tCtrl+X",             WM_CUT
+        MENUITEM "&Copiar\tCtrl+C",             WM_COPY
+        MENUITEM "&Pegar\tCtrl+V",              WM_PASTE
+    END
+    POPUP "&Referencia"
+    BEGIN
+        MENUITEM "&Nueva...\tF7",               cm_RefNew
+        MENUITEM "&Editar...\tF6",              cm_RefEdit
+        MENUITEM "Editar &autor...\tF2",        cm_EAuthor
+        MENUITEM SEPARATOR
+        MENUITEM "Añadir a la &bibliografía\tCtrl+B", cm_AddToBib
+        MENUITEM "Añadir &PalabraClave ...",    cm_AddKeyword
+        MENUITEM "&Seleccionar todas",          cm_SelectAll
+        MENUITEM SEPARATOR
+        MENUITEM "Eli&minar\tDel",              cm_RefDel
+    END
+    POPUP "&Buscar"
+    BEGIN
+        MENUITEM "Mostrar &todas las referencias", cm_RefAll
+        MENUITEM "Nueva &búsqueda...\tF3",      cm_RefSearch
+        MENUITEM SEPARATOR
+        MENUITEM "&Concretar búsqueda...",      cm_NarrowSrch
+        MENUITEM "E&xtender búsqueda...",       cm_ExpandSrch
+    END
+    POPUP "&Opciones"
+    BEGIN
+        MENUITEM "&Seleccionar formato de presentación..", cm_ListOpt
+        MENUITEM "&Ordenación...",              cm_OptSort
+        MENUITEM "&Búsqueda...",                cm_OptSrch
+        MENUITEM "&Ver automáticamente todas",  cm_AutoShowIt, CHECKED
+        MENUITEM "&Entrada por defecto...",     cm_OInput
+        MENUITEM "Co&nfirmación...",            cm_Confirm
+        POPUP "&Tipo de letra..."
+        BEGIN
+            MENUITEM "&Impresora...",               cm_PrintFont
+            MENUITEM "Base de &Datos...",           cm_DataFont
+            MENUITEM "Ventana de Edición",          cm_EditFont
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Mostrar bibliografía con &Formato", cm_BView
+        MENUITEM "For&mato de la Bibliografía...", cm_BFormat
+        MENUITEM "&Color para la Bibliografía...", cm_BibCol
+        MENUITEM SEPARATOR
+        MENUITEM "I&dioma...",                  cm_Language
+        MENUITEM "Forma&to de archivo por defecto", cm_FileFormat
+        MENUITEM SEPARATOR
+        MENUITEM "&Hacer copia de seguridad al guardar", cm_OptBak, CHECKED
+    END
+    POPUP "&Ventana"
+    BEGIN
+        MENUITEM "&Cascada\tShift + F5",        cm_Cascade
+        MENUITEM "&Mosaico\tShift + F4",        cm_Tile
+        MENUITEM "&Reagrupar iconos",           cm_Arrange
+    END
+    POPUP "A&yuda"
+    BEGIN
+        MENUITEM "&Contenido",                  cm_HelpIndex, HELP
+        MENUITEM "&Usando la Ayuda",            cm_HelpOnHelp
+        MENUITEM SEPARATOR
+        MENUITEM "&Información sobre Refs...",  cm_HelpAbout
+    END
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 7,8,1,0
+ PRODUCTVERSION 7,8,1,0
+ FILEFLAGSMASK 0x0L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040a04e4"
+        BEGIN
+            VALUE "CompanyName", "Tim Cutts\0"
+            VALUE "FileDescription", "REFES.DLL: Biblioteca en español\0"
+            VALUE "FileVersion", "7.8.1.0\0"
+            VALUE "InternalName", "REFES.DLL\0"
+            VALUE "LegalCopyright", "Copyright © Tim Cutts 1994-1996; All rights reserved.\0"
+            VALUE "OriginalFilename", "REFES.DLL\0"
+            VALUE "ProductName", "Refs\0"
+            VALUE "ProductVersion", "7.81\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x40a, 1252
+    END
+END
+
+#endif    // !_MAC
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""X:\\compilad\\msdev\\include\\windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""x:\\compilad\\msdev\\include\\ver.h""\r\n"
+    "#include ""refs.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    srt_Title               "Título"
+    srt_Keyword             "Palabras clave"
+    srt_TKA                 "Título, Palabras clave y Resumen"
+    srt_Author              "Autor"
+    srt_Journal             "Revista/Libro/Informe"
+    srt_Date                "Fecha"
+    srt_None                "Ninguna"
+    srt_Issuer              "Editorial"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    str_Title               "Título ="
+    str_Keyword             "Palabras Clave ="
+    str_TKA                 "Título, Palabras clave o Resumen ="
+    str_Author              "Autor = "
+    str_SJournal            "Revista = "
+    str_Date                "Fecha = "
+    str_All                 "Todas"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    cm_HelpIndex            "Como usar este programa"
+    cm_HelpOnHelp           "Como usar la ayuda de Windows"
+    cm_HelpAbout            "Información de este programa"
+    wrn_NeedSave            "El archivo en uso se ha modificado\n¿Quiere guardarlo?"
+    wrn_None                "Ninguna referencia satisface la búsqueda"
+    err_SrchStr             "Se requiere una palabra de búsqueda válida"
+    err_NoFile              "No se puede abrir el archivo de datos"
+    err_NoMem               "Memoria insuficiente"
+    err_BibFormat           "Un identificador de campo desconocido ha sido encontrado\nEste campo será ignorado"
+    err_ConfirmDel          "Referencias seleccionadas se eliminaran permanentemente\n ¿Realmente desea eliminarlas?"
+    err_BadRegister         "Número de registro inválido"
+    wrn_NoOptFunc           "Esta DLL de importación no tiene opciones"
+    wrn_Warning             "Atención!!!"
+    fmt_StatusBar           "Encontradas %lu referencias :\n%s"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    wrn_UnRgstr             "NO Registrado"
+    fmt_SavedRefs           "Guardadas %lu referencias"
+    cm_FExport              "Guardar en un archivo con diferente formato"
+    str_AndWord             "y "
+    str_Searching           "Buscando..."
+    str_Untitled            "Sin Título"
+    fmt_Importing           "Importadas %lu referencias"
+    msg_Registered1         "Todos las posibilidades del programas están ahora activadas"
+    msg_Registered2         "Muchas gracias por registrarse!"
+    str_Sorting             "Ordenando...%u%%"
+    err_BadSort             "No se puede ordenar por el mismo campo dos veces"
+    msg_SrchResults         "Resultados de la búsqueda"
+    wrn_Mouse               "Confirmar la acción del ratón?"
+    fmt_RefNo               "%s:%lu"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    cm_FileNew              "Crear un Archivo nuevo"
+    cm_FOpen                "Abrir un Archivo existente"
+    cm_FSave                "Guardar el Archivo actual"
+    cm_FSaveAs              "Guardar el Archivo actual con otro nombre ..."
+    cm_FExit                "Salir del Programa"
+    cm_FImport              "Abrir un archivo en formato externo"
+    cm_FClose               "Cerrar el archivo actual"
+    cm_RefNew               "Añadir una referencia nueva"
+    cm_RefEdit              "Ver o Editar una referencia"
+    cm_RefDel               "Eliminar la(s) referencia(s) selecccionada(s)"
+    cm_RefSearch            "Buscar en la base de datos completa, descartando la ventana actual"
+    cm_RefAll               "Mostrar la base de datos completa"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    err_NoPrnStart          "No se puede iniciar el trabajo de impresión"
+    err_PrnMem              "Memoria insuficiente para imprimir"
+    fmt_Page                "Pagina %u  "
+    err_Memory              "El programa no encuentra %u bytes disponibles\nIntente cerrar otras aplicaciones para liberar memoria\nSeleccione ""Reintentar"" para probar de nuevo.\nSeleccione ""Cancelar"" para abandonar la operación (Precaución se pueden perder datos)"
+    err_BadNameSep          "Separador de nombres de familia no debe ser un espacio"
+    cm_AutoShowIt           "Presentar automáticamente todas las referencias al abrir un Archivo"
+    cm_BibCol               "Escoge color para las referencias marcadas"
+    str_BibWndName          "Bibliografía"
+    cm_OptSort              "Define como ordenar las referencias"
+    cm_SelectAll            "Seleccionar todas las referencias de la ventana"
+    str_Ascending           "Ascendente"
+    str_Descending          "Descendente"
+    str_NarrowSrch          "Concretar Búsqueda..."
+    str_ExpandSrch          "Expandir Búsqueda..."
+    str_Journal             "&Revista:"
+    str_BookTitle           "&Libro:"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    cm_EAuthor              "Editar Autor o Fecha"
+    cm_NarrowSrch           "Buscar en los resultados mostrados en pantalla"
+    cm_ExpandSrch           "Buscar en la base de datos completa y añadir a la ventana actual"
+    cm_AddToBib             "Añadir referencia a la Bibliografía"
+    cm_BView                "Cambiar entre bibliografía con formato y modo pantalla"
+    cm_BFormat              "Escoge un formato para la  bibliografía"
+    cm_OptBak               "Copia la Base de Datos actual como .BAK al guardar?"
+    cm_ListOpt              "Cambia la lista principal de formatos de presentación"
+    cm_OInput               "Cambia la entrada por defecto"
+    cm_OptSrch              "Opciones para archivos de búsqueda"
+    cm_Language             "Escoge un idioma para usar en Refs..."
+    cm_Confirm              "Confirmar la opción de borrado"
+    cm_Print                "Imprime el contenido de la ventana en el formato por defecto"
+    cm_PrintFont            "Seleccionar el tipo de letra para la impresora"
+    cm_DataFont             "Seleccionar tipo de letra para Base de datos"
+    err_BibTooBig           "La lista de bibliografía ocupa más de 32K bit de texto.\nLa lista se truncará a esta longitud. \n Esta es una limitación del Windows 3.1. Disculpen!"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    str_Report              "&Informe, tesis. etc...:"
+    str_Searchable          "Habilitada para búsquedas"
+    str_ChooseExp           "Selecionar un formato de exportación..."
+    err_MaxFiles            "Se ha sobrepasado el número máximo de archivos"
+    str_DefaultFormat       "Seleccionar el archivo del archivo por defecto"
+    wrn_RefDirty            "Esta referencia ha sido modificada. ¿Desea guardar los cambios?"
+    cm_Register             "Registre su REFS ahora...."
+    nag_timeleft            "Usted puede continuar después de %u segundos"
+    cm_AddKeyword           "Añadir una Pálabra Clave a todas las referencias seleccionadas"
+    fmt_Scanning            "Buscando en %lu referencias"
+    str_Scanning            "Buscando..."
+    cm_EditFont             "Cambiar tipo de letra en la ventana de biblografía"
+    err_BibAlready          "Un formato con ese nombre ya existe"
+    err_CRInFmt             "Hay un final de linea in este formato.\nEsto no esta permitido. Use \\n para conseguir el mismo efecto"
+    str_DLLDescribe         "Español, tradicional"
+END
+
+#endif    // Spanish (Castilian) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

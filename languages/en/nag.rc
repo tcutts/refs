@@ -1,0 +1,16 @@
+#include "../inc/rc.h"
+NAG DIALOG 18, 19, 206, 102
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Please Register!"
+FONT 10, "System"
+BEGIN
+  DEFPUSHBUTTON "&Register...", id_BRegister, 5,85,51,14
+  PUSHBUTTON "&Don't register", IDOK, 90,85,71,14
+  PUSHBUTTON "&Help...", cm_Help, 162,85,40,14
+  LTEXT "Refs is shareware.  It is not free software.  You have now been using this copy for over 30 days.\nRegistering Refs will get rid of this reminder, and help buy the tools and incentive I need to carry on improving\nthis program!",
+  -1, 11, 7, 187, 42
+  CTEXT "Click the help button for more information.", -1, 7,65,192,7
+  CONTROL "", -1, "Static", SS_GRAYFRAME, 5,4,197,76
+  CTEXT "", 123, 10, 52, 189, 8
+END
+

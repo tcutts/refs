@@ -1,0 +1,604 @@
+#ifdef WIN32
+#include <windows.h>
+#include <winver.h>
+#else
+#include "d:\msvc\include\windows.h"
+#include "d:\msvc\include\ver.h"
+#endif
+#include "refs.h"
+
+EDITBIB DIALOG 18, 18, 218, 58
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+BEGIN
+  CONTROL "", id_FmtEdit, "EDIT", ES_LEFT | ES_MULTILINE | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL | WS_TABSTOP, 6, 14, 208, 24
+  DEFPUSHBUTTON "OK", IDOK, 89, 41, 38, 14, WS_CHILD | WS_VISIBLE | WS_TABSTOP | WS_GROUP
+  PUSHBUTTON "ｷｬﾝｾﾙ", IDCANCEL, 129, 41, 42, 14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+  PUSHBUTTON "ﾍﾙﾌﾟ(&H)", cm_Help, 173, 41, 42, 14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+  LTEXT "参考文献書式を編集して下さい。", -1, 6, 3, 209, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+END
+
+EDITREF DIALOG 26, 17, 327, 223
+STYLE WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_VSCROLL | WS_HSCROLL | WS_SYSMENU | WS_THICKFRAME | WS_MAXIMIZEBOX
+MENU EDIT_REF
+FONT 10, "System"
+BEGIN
+  RTEXT "題名(&T):", idt_Title, 1,4,33,9
+  EDITTEXT id_Title, 36, 3, 273, 21, ES_MULTILINE | WS_VSCROLL
+  RTEXT "", idt_BookJou, 57,28,69,8
+  CONTROL "", id_Journal, "COMBOBOX", CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP, 127, 26, 182, 157
+  RTEXT "巻(&V):", idt_Volume, 196, 42, 19, 8
+  EDITTEXT id_Volume, 218, 40, 38, 12, ES_AUTOHSCROLL
+  RTEXT "号(&N):", idt_VolNo, 261, 42, 18, 8
+  EDITTEXT id_Number, 282, 40, 27, 12, ES_AUTOHSCROLL
+  RTEXT "ページ(&P):", idt_Pages, 219, 56, 47, 8
+  EDITTEXT id_Pages, 269, 54, 40, 12, ES_AUTOHSCROLL
+  LTEXT "概要(&A):", idt_Abstract, 4,31,38,8
+  EDITTEXT id_Text, 3,41,189,172, ES_MULTILINE | ES_AUTOVSCROLL | WS_VSCROLL | 0x1000
+  RTEXT "出版社(&I):", idt_Publisher, 196, 70, 37, 8
+  EDITTEXT id_Publisher, 237, 68, 72, 12, ES_AUTOHSCROLL
+  CONTROL "編者(&D):", idt_Editor, "STATIC", NOT WS_GROUP, 196, 82, 25, 8
+  EDITTEXT id_Editor, 225, 82, 84, 25, ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL | 0x1000
+  LTEXT "出版社の所在地(&C):", idt_City, 196, 109, 112, 8
+  EDITTEXT id_City, 194, 119, 115, 25, ES_MULTILINE | ES_AUTOVSCROLL | WS_VSCROLL | 0x1000
+  LTEXT "キーワード(&K):", idt_Keywords, 196, 145, 111, 8
+  EDITTEXT id_Keywords, 194, 155, 115, 32, ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL | 0x1000
+  PUSHBUTTON "&<", id_GPrev, 209, 189, 26, 12
+  PUSHBUTTON "&>", id_GNext, 237, 189, 26, 12
+  PUSHBUTTON "O&K && New", id_OkNew, 209, 202, 54, 12
+  DEFPUSHBUTTON "OK", IDOK, 265, 189, 44, 12
+  PUSHBUTTON "ｷｬﾝｾﾙ", IDCANCEL, 265, 202, 44, 12
+END
+
+LANGDLG DIALOG 23, 18, 118, 64
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "言語を選択して下さい"
+BEGIN
+  LISTBOX id_LangList, 4, 20, 110, 25, LBS_NOTIFY | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL
+  DEFPUSHBUTTON "OK", IDOK, 28, 47, 42, 14
+  PUSHBUTTON "ｷｬﾝｾﾙ", IDCANCEL, 72, 47, 42, 14
+  LTEXT "利用できる言語:", -1, 4,6,114,8
+END
+
+SRCHOPT DIALOG DISCARDABLE  18, 18, 231, 42
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "検索オプション"
+BEGIN
+    CONTROL         "検索：英大・小文字区別(&S)",id_CaseDef,
+        "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,8,162,12
+    CONTROL         "新しいウィンドウを検索の対象として指定する(&W)",id_Searchable,"Button",
+        BS_AUTOCHECKBOX | WS_TABSTOP,12,21,162,12
+    DEFPUSHBUTTON   "OK",IDOK,185,6,42,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,185,22,42,14
+    CONTROL         "",-1,"Static",SS_BLACKFRAME,6,5,174,32
+END
+
+CONFIRM DIALOG 52, 66, 168, 101
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "確認オプション"
+BEGIN
+  CONTROL "確認しない(&N)", id_NeverDel, "Button", BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP, 9,15,147,10
+  CONTROL "レコードを二つ以上選択する場合のみ(&M)", id_MultipleDel, "Button", BS_AUTORADIOBUTTON | WS_TABSTOP, 9,28,147,10
+  CONTROL "常時(&W)", id_AlwaysDel, "Button", BS_AUTORADIOBUTTON | WS_TABSTOP, 9,42,147,10
+  CONTROL "ドラッグアンドドロップを確認する(&C)", id_MouseConf, "Button", BS_AUTOCHECKBOX | WS_TABSTOP, 3,66,156,12
+  DEFPUSHBUTTON "OK", IDOK, 93,83,32,15
+  PUSHBUTTON "ｷｬﾝｾﾙ", IDCANCEL, 127,83,38,15
+  CONTROL "レコードの削除を確認する:", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE | WS_GROUP, 3,3,162,59
+END
+
+DUPLICATE DIALOG DISCARDABLE  26, 17, 211, 125
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "重複レコード"
+BEGIN
+    PUSHBUTTON      "編集(&E)",id_DEdit,6,92,30,14
+    PUSHBUTTON      "著者を編集(&A)",id_DEditAuth,37,92,54,14
+    PUSHBUTTON      "スキップする(&D)",id_Ignore,92,92,57,14
+    PUSHBUTTON      "ﾍﾙﾌﾟ(&H)",cm_Help,92,107,57,14
+    EDITTEXT        104,9,5,195,54,ES_MULTILINE | ES_READONLY | WS_VSCROLL | WS_GROUP | NOT WS_TABSTOP
+    LTEXT           "このレコードは既に目標のデータベースに存在しています。レコードの内容を編集しないかぎり目標のデータベースに追加することはできません。",
+	-1,9,62,195,27
+    PUSHBUTTON      "ｲﾝﾎﾟｰﾄをｷｬﾝｾﾙ(&A)",IDCANCEL,6,107,85,14
+    PUSHBUTTON      "上書き(&O)",idb_Replace,150,92,54,14
+END
+
+ABORT DIALOG 18, 20, 140, 80
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Refs 印刷"
+BEGIN
+  DEFPUSHBUTTON "ｷｬﾝｾﾙ", IDCANCEL, 47,56,44,14
+  CTEXT "ファイル：", -1, 32,15,75,8
+  CTEXT "", idc_Filename, 11,23,117,8
+  CTEXT "をプリンターに送ります。", -1, 25,31,88,8
+  CONTROL "", -1, "Static", SS_GRAYFRAME, 4, 8, 133, 40
+END
+
+NAG DIALOG 18, 19, 206, 102
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "登録して下さい！"
+FONT 10, "System"
+BEGIN
+  DEFPUSHBUTTON "登録する(&R)...", id_BRegister, 5,85,51,14
+  PUSHBUTTON "登録しない(&D)", IDOK, 90,85,71,14
+  PUSHBUTTON "ﾍﾙﾌﾟ(&H)...", cm_Help, 162,85,40,14
+  LTEXT "Refs はシェアウェアです。登録しないとウィンドウは二つしか開けません。また、最大２００レコードまでしか利用できません。",
+  -1, 11, 7, 187, 42
+  CTEXT "登録情報を見るためにヘルプボタンを押して下さい。", -1, 7,65,192,7
+  CONTROL "", -1, "Static", SS_GRAYFRAME, 5,4,197,76
+  CTEXT "", 123, 10, 52, 189, 8
+END
+
+NAME DIALOG 90, 32, 144, 114
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "著者名を並べ替えるオプション"
+BEGIN
+  CONTROL "姓(&N)", id_cmpsur, "Button", BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP, 9,15,126,12
+  CONTROL "名(&G)", idr_firstname, "Button", BS_AUTORADIOBUTTON | WS_TABSTOP, 9,27,126,12
+  CONTROL "姓は最後に付ける(&L)", id_family, "Button", BS_AUTOCHECKBOX | WS_TABSTOP, 9,58,129,12
+  RTEXT "外国姓の後に付ける記号(&F):", -1, 9,76,110,8
+  EDITTEXT id_surname, 123,75,10,12
+  DEFPUSHBUTTON "OK", IDOK, 42, 97, 32, 14
+  PUSHBUTTON "ｷｬﾝｾﾙ", IDCANCEL, 75,97,37,14
+  PUSHBUTTON "ﾍﾙﾌﾟ", cm_Help, 113,97,28,14
+  GROUPBOX "姓", -1, 3,49,138,43, WS_TABSTOP
+  GROUPBOX "比較する部分:", -1, 3,3,138,43, WS_TABSTOP
+END
+
+ABOUT DIALOG 28, 31, 202, 100
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "プログラム情報..."
+FONT 8, "System"
+BEGIN
+  LTEXT "\251 TJR Cutts, 1993-5", -1, 117,6,66,8
+  DEFPUSHBUTTON "OK", IDOK, 9,80,92,13
+  CTEXT "Refs 7.8", 764, 25, 10, 60, 10
+  CTEXT "tjrc1@mole.bio.cam.ac.uk", -1, 106,15,87,8
+  LTEXT "ユーザー名:", -1, 16, 33, 61, 8
+  LTEXT "", id_RegisteredTo, 15, 47, 80, 25
+  CONTROL "", -1, "Static", SS_GRAYFRAME, 10, 7, 90, 16
+  CONTROL "", -1, "Static", SS_BLACKFRAME, 10, 30, 90, 45
+  LTEXT "", idt_Ver, 104, 30, 95, 10
+  LTEXT "", idt_Ver+1, 104, 40, 95, 10
+  LTEXT "", idt_Ver+2, 104, 50, 95, 10
+END
+
+BIBFMT DIALOG 18, 18, 229, 169
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "参考文献書式(&B)"
+FONT 8, "System"
+BEGIN
+  LTEXT "例:", -1, 4,56,51,8
+  CONTROL "", id_Sample, "EDIT", ES_LEFT | ES_MULTILINE | ES_READONLY | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL, 3, 65, 223, 82
+  DEFPUSHBUTTON "OK", IDOK, 116, 151, 32, 15, WS_CHILD | WS_VISIBLE | WS_TABSTOP | WS_GROUP
+  PUSHBUTTON "ｷｬﾝｾﾙ", IDCANCEL, 152, 151, 38, 15, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+  PUSHBUTTON "ﾍﾙﾌﾟ(&H)", cm_Help, 194, 151, 32, 15, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+  LISTBOX id_FmtList, 4, 4, 180, 48, LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP | WS_GROUP
+  PUSHBUTTON "編集(&E)...", id_FmtEdit, 188, 4, 38, 13, WS_CHILD | WS_VISIBLE | WS_TABSTOP | WS_GROUP
+  PUSHBUTTON "新規作成(&N)...", id_FmtNew, 188, 19, 38, 13, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+  PUSHBUTTON "削除(&D)", id_FmtDel, 188, 34, 38, 13, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+END
+
+CLEAN DIALOG 57, 38, 142, 26
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "ちょっとお待ち下さい"
+BEGIN
+  CONTROL "メモリーを整理しています...", id_LoadingRef, "STATIC", SS_CENTER | WS_CHILD | WS_VISIBLE, 15,8,111,8
+  CONTROL "", -1, "Static", SS_GRAYFRAME, 7,6,129,13
+END
+
+ETITLE DIALOG DISCARDABLE  35, 25, 208, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "著者、出版年、書物の種類を編集"
+BEGIN
+    LTEXT           "著者(&A):",-1,5,2,121,8
+    EDITTEXT        id_Authors,4,12,123,79,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL | 0x1000
+    RTEXT           "出版年(&Y):",-1,132,10,27,8
+    EDITTEXT        id_Year,162,8,42,12,ES_AUTOHSCROLL
+    GROUPBOX        "書物の種類(&S)",id_Source,131,23,73,49
+    CONTROL         "雑誌(&J)",id_Article,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,136,35,62,10
+    CONTROL         "単行本(&B)",id_Article+1,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP, 136,47,64,10
+    CONTROL         "論文集(&R)",id_Article+2,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP, 136,59,64,10
+    DEFPUSHBUTTON   "OK",IDOK,130,77,35,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,166,77,38,14
+END
+
+IMPOPT DIALOG DISCARDABLE  20, 27, 203, 73
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "変換するファイルの種類を選択して下さい..."
+BEGIN
+    LISTBOX         id_ImpList,5,5,143,65,LBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "ｵﾌﾟｼｮﾝ(&O)...",id_ImpOpts,153,5,45,16
+    DEFPUSHBUTTON   "OK",IDOK,153,35,45,16
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,153,53,45,16
+END
+
+INOPT DIALOG 18, 37, 178, 81
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "入力オプション"
+FONT 10, "System"
+BEGIN
+  GROUPBOX "書物の種類のデフォルト:", -1, 3,3,171,56
+  CONTROL "雑誌(&J)", id_Article, "Button", BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP, 8,18,160,10
+  CONTROL "単行本(&B)", id_Article+1, "Button", BS_AUTORADIOBUTTON | WS_TABSTOP, 8, 30,158,10
+  CONTROL "論文集・非出版物の論文(&R)", id_Article+2, "Button", BS_AUTORADIOBUTTON | WS_TABSTOP, 8,43,159,10
+  CONTROL "出版年のデフォルト(&D):", -1, "STATIC", NOT WS_GROUP, 3,66,54,8
+  EDITTEXT id_DefYear, 60,64,30,12
+  DEFPUSHBUTTON "OK", IDOK, 96,62,39,16
+  PUSHBUTTON "ｷｬﾝｾﾙ", IDCANCEL, 136,62,39,16
+END
+
+LISTEDIT DIALOG DISCARDABLE  18, 18, 203, 102
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+BEGIN
+    LISTBOX         id_CommonList,5,5,145,72,LBS_SORT | WS_VSCROLL
+    EDITTEXT        id_CommonEdit,5,84,146,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "変更(&C)",idb_Change,155,83,45,14
+    DEFPUSHBUTTON   "OK",IDOK,155,4,45,14
+    PUSHBUTTON      "削除(&D)",idb_Delete,155,48,45,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,155,20,45,14
+    PUSHBUTTON      "追加(&A)",idb_Add,155,65,45,14
+END
+
+LISTOPT DIALOG 9, 24, 211, 92
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "データベースリストオプション"
+BEGIN
+  CONTROL "題名を表\示(&R)", id_RefTitle, "Button", BS_AUTOCHECKBOX | WS_TABSTOP, 8,16,81,10
+  LTEXT "著者フィールドの幅(&W):", -1, 9,29,79,8
+  SCROLLBAR ids_ClmnWdth, 8,50,80,9, WS_TABSTOP
+  CONTROL "全著者(&A)", id_AuthAll, "Button", BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP, 108,19,93,10
+  CONTROL "主著者のみ(&F)", id_AuthAll+1, "Button", BS_AUTORADIOBUTTON | WS_TABSTOP, 108,32,93,10
+  CONTROL "２、１人＋et al(&T)", id_AuthAll+2, "Button", BS_AUTORADIOBUTTON | WS_TABSTOP, 108,45,93,10
+  CONTROL "新しいレコードを自動選択(&N)", id_SelectNew, "Button", BS_AUTOCHECKBOX | WS_TABSTOP, 6,75,87,10
+  DEFPUSHBUTTON "OK", IDOK, 95,74,32,15
+  PUSHBUTTON "ｷｬﾝｾﾙ", IDCANCEL, 129,74,38,15
+  PUSHBUTTON "ﾍﾙﾌﾟ(&H)", cm_Help, 169,74,39,15
+  GROUPBOX "著者名の表\示方法:", -1, 102,4,105,60
+  CTEXT "", idt_ClmnWdth, 38,40,16,8
+  CONTROL "表\示の書式:", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE | WS_GROUP, 4,4,88,60
+END
+
+NEWSRCH DIALOG 19, 18, 194, 61
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "新しい検索..."
+BEGIN
+  RTEXT "検索フィールド(&B):", -1, 3,4,48,8
+  CONTROL "", id_SrchBy, "COMBOBOX", CBS_DROPDOWNLIST | CBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP, 53,3,138,59
+  RTEXT "検索語(&F):", -1, 3,23,48,8
+  EDITTEXT id_SrchFor, 53,22,137,12
+  CONTROL "背反条件（&NOT）", id_Not, "Button", BS_AUTOCHECKBOX | WS_TABSTOP, 3,36,111,12
+  CONTROL "大・小文字区別(&S)", id_Case, "Button", BS_AUTOCHECKBOX | WS_TABSTOP, 3,48,111,10
+  DEFPUSHBUTTON "OK", IDOK, 119,43,34,15
+  PUSHBUTTON "ｷｬﾝｾﾙ", IDCANCEL, 154,43,36,15
+END
+
+OPTSORT DIALOG 42, 57, 223, 86
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "レコードを並べ替える"
+BEGIN
+  RTEXT "条件１(&F)", -1, 3,8,34,8
+  CONTROL "", id_SortA, "COMBOBOX", CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP, 40,7,99,47
+  CONTROL "", id_DSortA, "COMBOBOX", CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP, 142,7,78,39
+  RTEXT "条件２(&S)", -1, 3,29,34,8
+  CONTROL "", id_SortB, "COMBOBOX", CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP, 40,27,99,51
+  CONTROL "", id_DSortB, "COMBOBOX", CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP, 142,27,78,37
+  RTEXT "条件３(&T)", -1, 3,50,34,8
+  CONTROL "", id_SortC, "COMBOBOX", CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP, 40,48,99,51
+  CONTROL "", id_DSortC, "COMBOBOX", CBS_DROPDOWNLIST | CBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP, 142,48,78,47
+  PUSHBUTTON "著者名(&N)...", id_names, 5,69,51,14
+  DEFPUSHBUTTON "OK", IDOK, 86,69,44,14
+  PUSHBUTTON "ｷｬﾝｾﾙ", IDCANCEL, 131,69,44,14
+  PUSHBUTTON "ﾍﾙﾌﾟ(&H)", 998, 176,69,44,14
+  CONTROL "", -1, "Static", SS_GRAYFRAME, 3,3,217,63
+END
+
+REGISTER DIALOG DISCARDABLE  18, 18, 205, 70
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "登録..."
+BEGIN
+    RTEXT           "名前(&N):",-1,36,13,48,8
+    EDITTEXT        ide_Name,87,11,109,12,ES_AUTOHSCROLL
+    RTEXT           "登録コード(&R):",-1,9,31,75,8
+    EDITTEXT        ide_Code,87,29,109,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,115,53,43,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,159,53,43,14
+    CONTROL         "",-1,"Static",SS_BLACKFRAME,4,5,197,43
+END
+
+NAGFIRST DIALOG 20, 19, 204, 97
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Refsにようこそ!"
+FONT 10, "System"
+BEGIN
+  DEFPUSHBUTTON "OK", IDOK, 3,80,51,14
+  PUSHBUTTON "&Help...", cm_Help, 160,80,40,14
+  LTEXT "Refs is shareware; it is not free software.  This unregistered copy will function fully for 30 days.", -1, 8, 7, 186, 19
+  LTEXT "If, after that time, the program has not been registered a reminder prompt will appear, which will remain on screen for 30 seconds.  You can register Refs at any time between using the Register Refs item in the Help menu.", -1, 8, 27, 186, 34
+  LTEXT "Click the help button for more information on registering.", -1, 6,63,192,11
+  CONTROL "", -1, "Static", SS_BLACKFRAME, 3,2,197,76
+END
+
+KEYWORDS DIALOG 18, 18, 242, 107
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "キーワードを追加する"
+BEGIN
+  CONTROL "", id_KeyList, "LISTBOX", LBS_STANDARD | LBS_MULTIPLESEL | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 3,26,93,60
+  DEFPUSHBUTTON "ﾚｺｰﾄﾞに追加する", IDOK, 4,90,87,14
+  PUSHBUTTON ">> 編集(&E) >>", button_Edit, 99,26,48,14
+  CONTROL "", edit_Add, "EDIT", ES_LEFT | ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 150, 27, 89, 11
+  PUSHBUTTON "<<  追加(&A) <<", button_Add, 99,42,48,14
+  PUSHBUTTON "削除(&D)", button_Del, 99,58,48,14
+  PUSHBUTTON "保存(&S)", button_Save, 99,74,87,14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+  PUSHBUTTON "アクティブウィンドウのキーワードをリストする(&F)", idb_Scan, 99,90,87,14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+  PUSHBUTTON "ﾍﾙﾌﾟ(&H)", cm_Help, 189,74,45,14
+  PUSHBUTTON "終了(&C)", IDCANCEL, 189,90,45,14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+  LTEXT "選択されたキーワードをﾚｺｰﾄﾞに挿入します。", -1, 7,7,228,18
+END
+
+
+
+EDIT_REF MENU DISCARDABLE 
+BEGIN
+    POPUP "ﾚｺｰﾄﾞ(&R)"
+    BEGIN
+  MENUITEM "レコードを参考文献に追加する",        cm_AddToBib
+  MENUITEM "キーワードを追加すす(&K)...",            cm_AddKeyword
+  MENUITEM SEPARATOR
+  MENUITEM "書式も含めてコピー(&C)",             cm_CopyFormatted
+  MENUITEM "印刷(&P)...",                   cm_Print
+    END
+    POPUP "編集(&E)"
+    BEGIN
+  MENUITEM "元に戻す(&U)\tAlt+Backspace",               772
+  MENUITEM SEPARATOR
+  MENUITEM "カット(&T)\tCtrl+X",                768
+  MENUITEM "コピー(&C)\tCtrl+C",               769
+  MENUITEM "ペースト(&P)\tCtrl+V",              770
+  MENUITEM SEPARATOR
+  MENUITEM "常用雑誌リスト(&J)...",         cm_CJournals
+  MENUITEM "常用編著書リスト(&B)...",      cm_CBooks
+  MENUITEM "常用論文集・非出版物リスト(&R)...",    cm_CReports
+    END
+    MENUITEM "ﾍﾙﾌﾟ(&H)...",                    cm_Help
+END
+
+MAIN MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "ﾌｧｲﾙ(&F)"
+    BEGIN
+  MENUITEM "新規作成(&N)",                        cm_FileNew
+  MENUITEM "開く(&O)...",                    cm_FOpen
+  MENUITEM SEPARATOR
+  MENUITEM "保存(&S)",                       cm_FSave
+  MENUITEM "名前を付けて保存(&A)...",                 cm_FSaveAs
+  MENUITEM SEPARATOR
+  MENUITEM "ファイル変換・インポート(&I)...",                  cm_FImport
+  MENUITEM "ファイル変換・エクスポート(&E)...",                  cm_FExport
+  MENUITEM SEPARATOR
+  MENUITEM "印刷(&P)...",                   cm_Print
+  MENUITEM SEPARATOR
+  MENUITEM "閉じる(&C)",                      cm_FClose
+  MENUITEM SEPARATOR
+  MENUITEM "終了(&X)\tAlt+F4",               cm_FExit
+    END
+    POPUP "編集(&E)"
+    BEGIN
+  MENUITEM "元に戻す(&U)\tAlt+Backspace",               772
+  MENUITEM SEPARATOR
+  MENUITEM "カット(&T)\tCtrl+X",                768
+  MENUITEM "コピー(&C)\tCtrl+C",               769
+  MENUITEM "ペースト(&P)\tCtrl+V",              770
+    END
+    POPUP "ﾚｺｰﾄﾞ(&R)"
+    BEGIN
+  MENUITEM "新規レコードの追加(&N)...\tF7",                 cm_RefNew
+  MENUITEM "編集(&E)...\tF6",                cm_RefEdit
+  MENUITEM "著者を編集する(&A)...\tF2",         cm_EAuthor
+  MENUITEM SEPARATOR
+  MENUITEM "参考文献に追加する(&B)", cm_AddToBib
+  MENUITEM "キーワードを追加する(&K)...",            cm_AddKeyword
+  MENUITEM "すべてを選択(&S)",                 cm_SelectAll
+  MENUITEM SEPARATOR
+  MENUITEM "削除(&D)\tDel",                cm_RefDel
+    END
+    POPUP "検索(&S)"
+    BEGIN
+  MENUITEM "すべてのレコードを表\示(&A)",        cm_RefAll
+  MENUITEM "新しい検索(&S)...\tF3",          cm_RefSearch
+  MENUITEM SEPARATOR
+  MENUITEM "検索条件の絞り込み(&N)...",           cm_NarrowSrch
+  MENUITEM "別の検索結果の追加(&E)...",           cm_ExpandSrch
+    END
+    POPUP "ｵﾌﾟｼｮﾝ(&O)"
+    BEGIN
+  MENUITEM "データベース書式(&L)...",             cm_ListOpt
+  MENUITEM "並べ替え(&S)...",                 cm_OptSort
+  MENUITEM "検索(&R)...",               cm_OptSrch
+  MENUITEM "自動全表\示モード(&A)",              cm_AutoShowIt
+  MENUITEM "入力デフォルト(&I)...",          cm_OInput
+  MENUITEM "確認(&C)...",            cm_Confirm
+  POPUP "フォント(&F)"
+  BEGIN
+      MENUITEM "印刷用(&P)...",                 cm_PrintFont
+      MENUITEM "データベース表\示用(&D)...",                cm_DataFont
+      MENUITEM "編集ウィンドウ(&E)...",             cm_EditFont
+  END
+  MENUITEM SEPARATOR
+  MENUITEM "プレビュー形式で表\示する(&D)", cm_BView
+  MENUITEM "参考文献書式(&B)...",     cm_BFormat
+  MENUITEM "参考文献ウィンドウの色(&C)...", cm_BibCol
+  MENUITEM SEPARATOR
+  MENUITEM "言語(&N)...",                cm_Language
+  MENUITEM "ファイル種類のデフォルト(&t)...",     cm_FileFormat
+  MENUITEM SEPARATOR
+  MENUITEM "保存とバックアップ(&B)",               cm_OptBak
+    END
+    POPUP "ｳｨﾝﾄﾞｳ(&W)"
+    BEGIN
+  MENUITEM "カスケード表\示(&C)\tShift + F5",        cm_Cascade
+  MENUITEM "タイル表\示(&T)\tShift + F4",           cm_Tile
+  MENUITEM "アイコン再配置(&A)",              cm_Arrange
+    END
+    POPUP "ﾍﾙﾌﾟ(&H)"
+    BEGIN
+  MENUITEM "目次(&C)",                   cm_HelpIndex, HELP
+  MENUITEM "ヘルプの使い方(&U)",                 cm_HelpOnHelp
+  MENUITEM SEPARATOR
+  MENUITEM "Refsの情報(&A)...",              cm_HelpAbout
+    END
+END
+
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 7,8,1,0
+ PRODUCTVERSION 7,8,1,0
+ FILEFLAGSMASK 0x0L
+#ifdef _DEBUG
+ FILEFLAGS 0x3L
+#else
+ FILEFLAGS 0x2L
+#endif
+#ifdef WIN32
+ FILEOS VOS__WINDOWS32
+#else
+ FILEOS VOS__WINDOWS16
+#endif
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+  BLOCK "080904E4"
+  BEGIN
+      VALUE "CompanyName", "Tim Cutts\0"
+      VALUE "FileDescription", "English language library\0"
+      VALUE "FileVersion", "7.8.1\0","\0"
+      VALUE "InternalName", "REFJPN.DLL\0"
+      VALUE "LegalCopyright", "Copyright \251 Tim Cutts 1994-1996\0"
+      VALUE "OriginalFilename", "REFJPN.DLL\0"
+      VALUE "ProductName", "Refs\0"
+      VALUE "ProductVersion", "7.81\0"
+  END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+  VALUE "Translation", 0x809, 1252
+    END
+END
+
+
+STRINGTABLE PRELOAD MOVEABLE DISCARDABLE 
+BEGIN
+  srt_Title, "題名"
+  srt_Keyword, "キーワード"
+  srt_TKA, "題名・ キーワード・概要"
+  srt_Author, "著者"
+  srt_Journal, "雑誌・単行本・論文集の書名"
+  srt_Date, "出版年"
+  srt_None, "なし"
+  srt_Issuer, "出版社"
+  str_Title, "題名 = "
+  str_Keyword, "キーワード = "
+  str_TKA, "題名, キーワード、概要＝ "
+  str_Author, "著者(&A) = "
+  str_SJournal, "雑誌 = "
+  str_Date, "出版年 = "
+  str_All, "すべて "
+  cm_HelpIndex, "このプログラムの使い方"
+  cm_HelpOnHelp, "Windowsのオンラインヘルプの使い方"
+  cm_HelpAbout, "Refsについての情報"
+  wrn_NeedSave, "ファイルに変更があります。\n保存しますか？"
+  wrn_None, "指定の検索語が見つかりません。"
+  err_SrchStr, "検索語が必要です。"
+  err_NoFile, "このファイルは開けません。"
+  err_NoMem, "メモリーが足りません。"
+  err_BibFormat, "認識できないフィールドコードが見つかりました。\n無視します。"
+  err_ConfirmDel, "確認して下さい！\n選択した項目を消します。"
+  err_BadRegister, "登録番号が正しくありません。"
+  wrn_NoOptFunc, "指定したインポートDLLは「options function」がありません。"
+  wrn_Warning, "注意!"
+  fmt_StatusBar, "%lu レコードが見つかりました:\n%s"
+  wrn_UnRgstr, "まだ登録していません。"
+  fmt_SavedRefs, "保存したレコード: %lu"
+  cm_FExport, "ファイル種類を変更して保存する"
+  str_AndWord, "& "
+  str_Searching, "検索中..."
+  str_Untitled, "無題"
+  fmt_Importing, "インポートしたレコード: %lu"
+  msg_Registered1, "ただいまからRefsの機能\がすべて利用できます。"
+  msg_Registered2, "登録していただいてどうも有り難うございます！"
+  str_Sorting, "並べ替え中... %u%%"
+  err_BadSort, "一つのフィールドを複数の条件に指定できまへん！"
+  msg_SrchResults, "検索の結果"
+  wrn_Mouse, "実行してもいいですか？"
+  fmt_RefNo, "%s:%lu"
+  cm_FileNew, "新しいファイルを作成する"
+  cm_FOpen, "Refsファイルを開く"
+  cm_FSave, "ファイルを保存する"
+  cm_FSaveAs, "新しいファイル名を付けて、保存"
+  cm_FExit, "終了"
+  cm_FImport, "ファイル変換、インポート"
+  cm_FClose, "ファイルを閉じる"
+  cm_RefNew, "新しいレコードを追加する"
+  cm_RefEdit, "レコードを表\示・編集する"
+  cm_RefDel, "選択したレコードを削除する"
+  cm_RefSearch, "データベースの検索を実行し、新しいウィンドウを開く"
+  cm_RefAll, "データベースをすべて表\示する"
+  err_NoPrnStart, "プリントエラー"
+  err_PrnMem, "メモリーが足りないためにプリントできません。"
+  fmt_Page, "ページ %u  "
+  err_Memory, "メモリーエラー。%u バイトが必要です。\n必要ないアプリケーションを閉じ、.\nもう一同実行するために、\042Retry\042 を押して下さい。\n停止するために\042Cancel\042 を押して下さい　（データを失う可能性があります）。"
+  err_BadNameSep, "外国姓と名を区別するために空白を使ってはいけません。"
+  cm_AutoShowIt, "ファイルのオープンと同時にレコードをすべて表\示する"
+  cm_BibCol, "参考文献のウィンドウで項目を指定する色を選択する"
+  str_BibWndName, "参考文献"
+  cm_OptSort, "レコードの並べ替え方を指定する"
+  cm_SelectAll, "すべてのレコードを選択する"
+  str_Ascending, "昇順"
+  str_Descending, "降順"
+  str_NarrowSrch, "現在の検索結果リストで再び検索を実行する"
+  str_ExpandSrch, "元のデータベースから別の検索を実行し、結果を現在のウィンドウに加える"
+  str_Journal, "雑誌(&J):"
+  str_BookTitle, "書名(&B)"
+  cm_EAuthor, "著者・出版年フィールドを編集する"
+  cm_NarrowSrch, "現在の検索結果リストで再び検索を実行する"
+  cm_ExpandSrch, "元のデータベースから別の検索を実行し、結果を現在のウィンドウに加える"
+  cm_AddToBib, "レコードを参考文献に追加する"
+  cm_BView, "参考文献とデータベースのウィンドウ表\示を変更する"
+  cm_BFormat, "参考文献の書式を選択する"
+  cm_OptBak, "バックアップファイル（.BAK）を作成しますか？"
+  cm_ListOpt, "データベースリストの表\示オプションを変更する"
+  cm_OInput, "入力のデフォルトを変更する"
+  cm_OptSrch, "検索のオプション"
+  cm_Language, "Refsが利用する言語を選択する。"
+  cm_Confirm, "ドラッグアンドドロップ・削除を確認する"
+  cm_Print, "参考文献書式でプリントする"
+  cm_PrintFont, "プリンター用のフォントを選択して下さい。"
+  cm_DataFont, "データベース表\示用のフォントを選択して下さい。"
+  err_BibTooBig, "参考文献は大きすぎるため最初の32kしか作成できません。"
+  str_Report, "論文集(&R):"
+  str_Searchable, "検索に含める"
+  str_ChooseExp, "エクスポートファイル種類を選択して下さい..."
+  err_MaxFiles, "これ以上ファイルを開けません!"
+  str_DefaultFormat, "ファイル種類のデフォルトを選択して下さい。"
+  wrn_RefDirty, "ファイルの変更を保存しますか?"
+  cm_Register, "Refsを登録して下さい..."
+  nag_timeleft, "%u秒待って下さい。"
+  cm_AddKeyword, "選択されたﾚｺｰﾄﾞにキーワードを追加する。"
+  fmt_Scanning, "%lu ﾚｺｰﾄﾞを読んでいます。"
+  str_Scanning, "実行中..."
+  cm_EditFont, "編集ウィンドウのフォントを変更する。"
+  err_BibAlready, "このファイル名はもう存在しています!"
+  err_CRInFmt, "There is a line break in this format.\nThese are not allowed.  Use \\n instead."
+  str_DLLDescribe, "Japanese"
+END
+
+BIBNAME DIALOG 18, 18, 218, 44
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "新しい参考文献書式"
+BEGIN
+  CONTROL "", id_FmtEdit, "EDIT", ES_LEFT | ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 6, 12, 208, 12
+  DEFPUSHBUTTON "OK", IDOK, 131, 27, 38, 14, WS_CHILD | WS_VISIBLE | WS_TABSTOP | WS_GROUP
+  PUSHBUTTON "ｷｬﾝｾﾙ", IDCANCEL, 172, 27, 42, 14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+  LTEXT "参考文献書式名を付けて下さい。", -1, 6, 2, 209, 8
+END
+
+

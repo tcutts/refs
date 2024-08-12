@@ -1,0 +1,630 @@
+#ifdef WIN32
+#include <windows.h>
+#include <winver.h>
+#else
+#include "\msvc\include\windows.h"
+#include "\msvc\include\ver.h"
+#endif
+#include "refs.h"
+
+EDITBIB DIALOG 18, 18, 218, 88
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+BEGIN
+	CONTROL "", id_FmtEdit, "EDIT", ES_LEFT | ES_MULTILINE | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL | WS_TABSTOP, 6, 14, 208, 52
+	CONTROL "Да", IDOK, "BUTTON", WS_CHILD | WS_VISIBLE | WS_TABSTOP | WS_GROUP, 89, 70, 38, 14
+	PUSHBUTTON "Отмена", IDCANCEL, 129, 70, 42, 14
+	PUSHBUTTON "Справка", cm_Help, 173, 70, 42, 14
+	LTEXT "Правьте формат ссылки в этом окне", -1, 6, 3, 209, 8
+END
+
+EDITREF DIALOG 26, 17, 327, 223
+FONT 10,"Lucida Sans Unicode"
+STYLE WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_VSCROLL | WS_HSCROLL | WS_SYSMENU | WS_THICKFRAME | WS_MAXIMIZEBOX
+MENU EDIT_REF
+BEGIN
+	RTEXT "Заглавие:", idt_Title, 5, 8, 34, 9
+	EDITTEXT id_Title, 41, 3, 268, 21, ES_MULTILINE | WS_VSCROLL
+	RTEXT "", idt_BookJou, 57,28,69,8
+	CONTROL "", id_Journal, "COMBOBOX", CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP, 127, 26, 182, 157
+	RTEXT "Том:", idt_Volume, 196, 42, 19, 8
+	EDITTEXT id_Volume, 218, 40, 38, 12, ES_AUTOHSCROLL
+	RTEXT "&No:", idt_VolNo, 261, 42, 18, 8, SS_RIGHT | WS_CHILD | WS_VISIBLE | WS_GROUP
+	EDITTEXT id_Number, 282, 40, 27, 12, ES_AUTOHSCROLL
+	RTEXT "Страницы", idt_Pages, 219, 56, 47, 8
+	EDITTEXT id_Pages, 269, 54, 40, 12, ES_AUTOHSCROLL
+	LTEXT "Реферат:", idt_Abstract, 4,31,38,8
+	EDITTEXT id_Text, 3,41,189,172, ES_MULTILINE | ES_AUTOVSCROLL | WS_VSCROLL | 0x1000
+	RTEXT "Издатель:", idt_Publisher, 196, 70, 37, 8
+	EDITTEXT id_Publisher, 237, 68, 72, 12, ES_AUTOHSCROLL
+	CONTROL "Редактор:", idt_Editor, "STATIC", NOT WS_GROUP, 196, 82, 35, 8
+	EDITTEXT id_Editor, 234, 82, 75, 25, ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL | 0x1000
+	LTEXT "&Город /адрес:", idt_City, 196, 109, 112, 8
+	EDITTEXT id_City, 194, 119, 115, 25, ES_MULTILINE | ES_AUTOVSCROLL | WS_VSCROLL | 0x1000
+	LTEXT "Кл\376чевые слова", idt_Keywords, 196, 145, 111, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	EDITTEXT id_Keywords, 194, 155, 115, 32, ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL | 0x1000
+	PUSHBUTTON "&<", id_GPrev, 209, 189, 26, 12
+	PUSHBUTTON "&>", id_GNext, 237, 189, 26, 12
+	PUSHBUTTON "Да && новое", id_OkNew, 209, 202, 54, 12
+	DEFPUSHBUTTON "Да", IDOK, 265, 189, 44, 12
+	PUSHBUTTON "Отмена", IDCANCEL, 265, 202, 44, 12
+END
+
+LANGDLG DIALOG 23, 18, 118, 64
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Выберите \377зык"
+BEGIN
+	LISTBOX id_LangList, 4, 20, 110, 25, LBS_NOTIFY | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL
+	DEFPUSHBUTTON "Да", IDOK, 28, 47, 42, 14
+	PUSHBUTTON "Отмена", IDCANCEL, 72, 47, 42, 14
+	LTEXT "Доступны DLL", -1, 4,6,114,8
+END
+
+SRCHOPT DIALOG 18, 18, 231, 42
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Настройка поиска"
+BEGIN
+	CONTROL "Зависит от регистра", id_CaseDef, "Button", BS_AUTOCHECKBOX | WS_TABSTOP, 12,8,162,12
+	CONTROL "Искать в окнах", id_Searchable, "Button", BS_AUTOCHECKBOX | WS_TABSTOP, 12,21,162,12
+	DEFPUSHBUTTON "Да", IDOK, 185,6,42,14
+	PUSHBUTTON "Отмена", IDCANCEL, 185,22,42,14
+	CONTROL "", -1, "Static", SS_BLACKFRAME, 6,5,174,32
+END
+
+CONFIRM DIALOG 52, 66, 168, 101
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Настройка подтверждений"
+BEGIN
+	CONTROL "Не запрашивать", id_NeverDel, "Button", BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP, 9,15,147,10
+	CONTROL "Только при множественном удалении", id_MultipleDel, "Button", BS_AUTORADIOBUTTON | WS_TABSTOP, 9,28,147,10
+	CONTROL "Всегда", id_AlwaysDel, "Button", BS_AUTORADIOBUTTON | WS_TABSTOP, 9,42,147,10
+	CONTROL "Подтверждение при drag-n-drop", id_MouseConf, "Button", BS_AUTOCHECKBOX | WS_TABSTOP, 3,66,156,12
+	CONTROL "Да", IDOK, "BUTTON", BS_DEFPUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 93,83,32,15
+	CONTROL "Отмена", IDCANCEL, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 127,83,38,15
+	CONTROL "Подтверждение при удалениии ссылок", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE | WS_GROUP, 3,3,162,59
+END
+
+DUPLICATE DIALOG 26, 17, 211, 125
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Дубликат ссылки"
+BEGIN
+	PUSHBUTTON "Правка", id_DEdit, 7, 92, 31, 14
+	PUSHBUTTON "Автор(ы)", id_DEditAuth, 39, 92, 52, 14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+	PUSHBUTTON "Оставить", id_Ignore, 92,92,57,14
+	PUSHBUTTON "Справка", cm_Help, 92,107,57,14
+	EDITTEXT ide_Example, 9,5,195,54, ES_MULTILINE | ES_READONLY | WS_VSCROLL | WS_GROUP | NOT WS_TABSTOP
+	LTEXT "Эта ссылка уже есть в базе. Можно править ее, заменить или оставить.", -1, 8, 62, 195, 27
+	PUSHBUTTON "Отменить действие", IDCANCEL, 6,107,85,14
+	PUSHBUTTON "Заменить", idb_Replace, 150,92,54,14
+END
+
+ABORT DIALOG 18, 20, 140, 80
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Программа печатает"
+BEGIN
+	CONTROL "Отмена", IDCANCEL, "BUTTON", BS_DEFPUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 47,56,44,14
+	CONTROL "Посылаем данные", -1, "STATIC", SS_CENTER | WS_CHILD | WS_VISIBLE | WS_GROUP, 32,15,75,8
+	CTEXT "", idc_Filename, 11,23,117,8
+	CONTROL "в принтер", -1, "STATIC", SS_CENTER | WS_CHILD | WS_VISIBLE | WS_GROUP, 25,31,88,8
+	CONTROL "", -1, "Static", SS_GRAYFRAME, 4, 8, 133, 40
+END
+
+NAG DIALOG 18, 19, 206, 102
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Пожалуйста зарегистрируйтесь"
+FONT 10, "System"
+BEGIN
+	DEFPUSHBUTTON "Регистрировать", id_BRegister, 5, 85, 63, 14
+	PUSHBUTTON "Не регистрировать", IDOK, 88, 85, 71, 14
+	PUSHBUTTON "Справка", cm_Help, 162,85,40,14
+	LTEXT "Эта программа не бесплатна. Вы используете ее более 30 дней. Пожалуйста, зарегистрируйтесь. ", -1, 11, 7, 187, 42
+	CTEXT "Нажмите ""Справка"", чтобы узнать подробнее", -1, 7, 65, 192, 9
+	CONTROL "", -1, "Static", SS_GRAYFRAME, 5,4,197,76
+	CTEXT "", 123, 10, 52, 189, 8
+END
+
+NAME DIALOG 90, 32, 144, 114
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Сортировка по имени"
+BEGIN
+	CONTROL "Фамили\376", id_cmpsur, "Button", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 9,15,126,12
+	CONTROL "Им\377", idr_firstname, "Button", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 9,27,126,12
+	CONTROL "Фамили\377 после имени", id_family, "Button", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 9,58,129,12
+	RTEXT "После фамилии следует:", -1, 9,76,110,8
+	EDITTEXT id_surname, 123,75,10,12
+	DEFPUSHBUTTON "Да", IDOK, 35, 97, 32, 14
+	PUSHBUTTON "Отмена", IDCANCEL, 70, 97, 35, 14
+	PUSHBUTTON "Помощь", cm_Help, 109, 97, 31, 14
+	GROUPBOX "Фамили\377", -1, 3,49,138,43, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+	GROUPBOX "Сранивать", -1, 3,3,138,43
+END
+
+ABOUT DIALOG 28, 31, 202, 100
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "О программе"
+FONT 8, "System"
+BEGIN
+	LTEXT "\251 TJR Cutts, 1993-6", -1, 117,6,66,8
+	DEFPUSHBUTTON "Продолжить", IDOK, 9,80,92,13
+	CTEXT "Refs 7.8", 764, 25, 10, 60, 10
+	CTEXT "tjrc1@mole.bio.cam.ac.uk", -1, 106,15,87,8
+	LTEXT "Зарегистрировано:", -1, 16, 33, 69, 8
+	LTEXT "", id_RegisteredTo, 15, 47, 80, 25
+	CONTROL "", -1, "Static", SS_GRAYFRAME, 10, 7, 90, 16
+	CONTROL "", -1, "Static", SS_BLACKFRAME, 10, 30, 90, 45
+	LTEXT "", idt_Ver, 104, 30, 95, 10
+	LTEXT "Русифицировал А.Н.Челноков", idt_Ver +1, 104, 40, 95, 19
+	LTEXT "(2:5080/38.4)", idt_Ver +2, 104, 57, 95, 16
+END
+
+BIBFMT DIALOG 18, 18, 229, 169
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Формат библиографии"
+FONT 8, "System"
+BEGIN
+	CONTROL "Пример...", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 4,56,51,8
+	CONTROL "", id_Sample, "EDIT", ES_LEFT | ES_MULTILINE | ES_READONLY | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL, 3, 65, 223, 82
+	CONTROL "Продолжить", IDOK, "BUTTON", WS_CHILD | WS_VISIBLE | WS_TABSTOP | WS_GROUP, 99, 150, 49, 15
+	CONTROL "Отмена", IDCANCEL, "BUTTON", WS_CHILD | WS_VISIBLE | WS_TABSTOP, 152, 150, 38, 15
+	CONTROL "Справка", cm_Help, "BUTTON", WS_CHILD | WS_VISIBLE | WS_TABSTOP, 193, 150, 32, 15
+	LISTBOX id_FmtList, 4, 4, 180, 48, LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP | WS_GROUP
+	CONTROL "Править...", id_FmtEdit, "BUTTON", WS_CHILD | WS_VISIBLE | WS_TABSTOP | WS_GROUP, 188, 4, 38, 13
+	CONTROL "Новый...", id_FmtNew, "BUTTON", WS_CHILD | WS_VISIBLE | WS_TABSTOP, 188, 19, 38, 13
+	CONTROL "Удалить...", id_FmtDel, "BUTTON", WS_CHILD | WS_VISIBLE | WS_TABSTOP, 188, 34, 38, 13
+END
+
+CLEAN DIALOG 57, 38, 142, 26
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Секундочку..."
+BEGIN
+	CONTROL "Cleaning up memory...", id_LoadingRef, "STATIC", SS_CENTER | WS_CHILD | WS_VISIBLE, 15,8,111,8
+	CONTROL "", -1, "Static", SS_GRAYFRAME, 7,6,129,13
+END
+
+ETITLE DIALOG 35, 25, 208, 95
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Правка автора(ов), года и источника"
+BEGIN
+	LTEXT "&Автор(ы):", -1, 5,2,121,8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	EDITTEXT id_Authors, 4,12,123,79, ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL | 0x1000
+	RTEXT "Год:", -1, 132,10,27,8
+	EDITTEXT id_Year, 162,8,42,12, ES_AUTOHSCROLL
+	GROUPBOX "Источник", id_Source, 131,23,73,49
+	CONTROL "&Журнал", id_Article, "Button", BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP, 136,35,62,10
+	CONTROL "&Книга", id_Article +1, "Button", BS_AUTORADIOBUTTON | WS_TABSTOP, 136,47,64,10
+	CONTROL "&Отчет", id_Article +2, "Button", BS_AUTORADIOBUTTON | WS_TABSTOP, 136,59,64,10
+	DEFPUSHBUTTON "Да", IDOK, 130,77,35,14
+	PUSHBUTTON "Отмена", IDCANCEL, 166,77,38,14
+END
+
+IMPOPT DIALOG 20, 27, 203, 73
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Выберите формат импорта"
+BEGIN
+	LISTBOX id_ImpList, 5,5,143,65, LBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
+	PUSHBUTTON "&Настройка...", id_ImpOpts, 153,5,45,16
+	DEFPUSHBUTTON "Да", IDOK, 153,35,45,16
+	PUSHBUTTON "Отмена", IDCANCEL, 153,53,45,16
+END
+
+INOPT DIALOG 18, 37, 178, 81
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Настройка ввода "
+FONT 10, "System"
+BEGIN
+	GROUPBOX "Текущий источник", -1, 3,3,171,56
+	CONTROL "&Журнал или периодика", id_Article, "Button", BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP, 8,18,160,10
+	CONTROL "&Книга", id_Article +1, "Button", BS_AUTORADIOBUTTON | WS_TABSTOP, 8, 30,158,10
+	CONTROL "Отчет, диссертаци\377 и т. п. ", id_Article +2, "Button", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8,43,159,10
+	CONTROL "&Дата:", -1, "STATIC", NOT WS_GROUP, 31, 66, 26, 8
+	EDITTEXT id_DefYear, 60,64,30,12
+	DEFPUSHBUTTON "Да", IDOK, 96,62,39,16
+	PUSHBUTTON "Отмена", IDCANCEL, 136,62,39,16
+END
+
+LISTEDIT DIALOG 18, 18, 203, 102
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+BEGIN
+	LISTBOX id_CommonList, 5,5,145,72, LBS_SORT | WS_VSCROLL
+	EDITTEXT id_CommonEdit, 5,84,146,12, ES_AUTOHSCROLL
+	PUSHBUTTON "&Изменить", idb_Change, 155,83,45,14
+	DEFPUSHBUTTON "&Да", IDOK, 155,4,45,14
+	PUSHBUTTON "&Убрать", idb_Delete, 155,48,45,14
+	PUSHBUTTON "&Отмена", IDCANCEL, 155,20,45,14
+	PUSHBUTTON "&Добавить", idb_Add, 155,65,45,14
+END
+
+LISTOPT DIALOG 9, 24, 211, 92
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Настройка списка"
+BEGIN
+	CONTROL "Показать заголовок", id_RefTitle, "Button", BS_AUTOCHECKBOX | WS_TABSTOP, 8,16,81,10
+	LTEXT "&Ширина столбца автора:", -1, 7, 29, 83, 8
+	SCROLLBAR ids_ClmnWdth, 8,50,80,9, WS_TABSTOP
+	CONTROL "Все", id_AuthAll, "Button", BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP, 108,19,93,10
+	CONTROL "Только первый", id_AuthAll +1, "Button", BS_AUTORADIOBUTTON | WS_TABSTOP, 108,32,93,10
+	CONTROL "Два/Один и соавт.", id_AuthAll +2, "Button", BS_AUTORADIOBUTTON | WS_TABSTOP, 108,45,93,10
+	CONTROL "Выбрать новый", id_SelectNew, "Button", BS_AUTOCHECKBOX | WS_TABSTOP, 6,75,87,10
+	DEFPUSHBUTTON "Да", IDOK, 95,74,32,15
+	PUSHBUTTON "Отмена", IDCANCEL, 129,74,38,15
+	PUSHBUTTON "Справка", cm_Help, 169,74,39,15
+	GROUPBOX "Авторы:", -1, 102,4,105,60
+	CTEXT "", idt_ClmnWdth, 38,40,16,8
+	CONTROL "Формат", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE | WS_GROUP, 4,4,88,60
+END
+
+NEWSRCH DIALOG 19, 18, 194, 61
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Новый поиск..."
+BEGIN
+	RTEXT "Искать по:", -1, 3,4,48,8
+	CONTROL "", id_SrchBy, "COMBOBOX", CBS_DROPDOWNLIST | CBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP, 53,3,138,59
+	RTEXT "Найти:", -1, 3,23,48,8
+	EDITTEXT id_SrchFor, 53,22,137,12
+	CONTROL "Логическое НЕ", id_Not, "Button", BS_AUTOCHECKBOX | WS_TABSTOP, 3,36,111,12
+	CONTROL "Учитывать регистр", id_Case, "Button", BS_AUTOCHECKBOX | WS_TABSTOP, 3,48,111,10
+	DEFPUSHBUTTON "Да", IDOK, 119,43,34,15
+	PUSHBUTTON "Отмена", IDCANCEL, 154,43,36,15
+END
+
+OPTSORT DIALOG 25, 57, 240, 86
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Сортировать ссылки"
+BEGIN
+	RTEXT "Во-первых:", -1, 15, 9, 38, 8
+	CONTROL "", id_SortA, "COMBOBOX", CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP, 55, 7, 101, 51
+	CONTROL "", id_DSortA, "COMBOBOX", CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP, 159, 7, 78, 39
+	RTEXT "Во-вторых:", -1, 16, 29, 38, 8
+	CONTROL "", id_SortB, "COMBOBOX", CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP, 56, 27, 99, 51
+	CONTROL "", id_DSortB, "COMBOBOX", CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP, 159, 27, 78, 37
+	RTEXT "В-третьих:", -1, 17, 50, 37, 8
+	CONTROL "", id_SortC, "COMBOBOX", CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP, 55, 48, 101, 51
+	CONTROL "", id_DSortC, "COMBOBOX", CBS_DROPDOWNLIST | CBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP, 159, 48, 78, 47
+	PUSHBUTTON "Имена...", id_names, 22, 69, 51, 14
+	DEFPUSHBUTTON "Да", IDOK, 103, 69, 44, 14
+	PUSHBUTTON "Отмена", IDCANCEL, 148, 69, 44, 14
+	PUSHBUTTON "Справка", cm_Help, 193, 69, 44, 14
+	CONTROL "", -1, "Static", SS_GRAYFRAME, 13, 3, 224, 63
+END
+
+REGISTER DIALOG 18, 18, 205, 70
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Регистраци\377"
+BEGIN
+	RTEXT "Им\377", -1, 36,13,48,8, SS_RIGHT | WS_CHILD | WS_VISIBLE | WS_GROUP
+	EDITTEXT ide_Name, 87,11,109,12, ES_AUTOHSCROLL
+	RTEXT "Код регистрации", -1, 9,31,75,8
+	EDITTEXT ide_Code, 87,29,109,12, ES_AUTOHSCROLL
+	DEFPUSHBUTTON "Да", IDOK, 115,53,43,14
+	PUSHBUTTON "Отмена", IDCANCEL, 159,53,43,14
+	CONTROL "", -1, "Static", SS_BLACKFRAME, 4,5,197,43
+END
+
+NAGFIRST DIALOG 20, 19, 204, 97
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Добро пожаловать!"
+FONT 10, "System"
+BEGIN
+	DEFPUSHBUTTON "Да", IDOK, 3,80,51,14
+	PUSHBUTTON "Отмена", cm_Help, 160,80,40,14
+	LTEXT "Эта программа - shareware. Она работает без ограничений 30 дней. ", -1, 8, 7, 186, 19
+	LTEXT "Через 30 дней программа начнет показывать напоминание о регистрации на 30 с. при старте.", -1, 8, 27, 186, 34
+	LTEXT "Нажмите ""Справка"",  чтобы узнать подробнее", -1, 6,63,192,11
+	CONTROL "", -1, "Static", SS_BLACKFRAME, 3,2,197,76
+END
+
+KEYWORDS DIALOG 18, 18, 242, 107
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Добавить кл\376чевые слова"
+BEGIN
+	CONTROL "", id_KeyList, "LISTBOX", LBS_STANDARD | LBS_MULTIPLESEL | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 3,26,93,60
+	DEFPUSHBUTTON "Добавить к ссылкам", IDOK, 4,90,87,14
+	PUSHBUTTON ">> &Правка >>", button_Edit, 99,26,48,14
+	CONTROL "", edit_Add, "EDIT", ES_LEFT | ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 150, 27, 89, 11
+	PUSHBUTTON "<<  &Вкл.  <<", button_Add, 99,42,48,14
+	PUSHBUTTON "Убрать", button_Del, 99,58,48,14
+	PUSHBUTTON "Сохранить список", button_Save, 99,74,87,14
+	PUSHBUTTON "Просмотреть файл", idb_Scan, 99,90,87,14
+	PUSHBUTTON "Справка", cm_Help, 189,74,45,14
+	PUSHBUTTON "&Закрыть", IDCANCEL, 189,90,45,14
+	LTEXT "Кл\376чевые слова из этого списка будут добавлены к выбранным ссылкам", -1, 7,7,228,18, WS_CHILD | WS_VISIBLE | WS_GROUP
+END
+
+
+
+EDIT_REF MENU 
+BEGIN
+	POPUP "&Ссылка"
+	BEGIN
+		MENUITEM "&Поместить в список", cm_AddToBib
+		MENUITEM "Кл\376чевое &слово...", cm_AddKeyword
+		MENUITEM SEPARATOR
+		MENUITEM "&Копировать форматирование", cm_CopyFormatted
+		MENUITEM "&Печать...", cm_Print
+	END
+
+	POPUP "&Правка"
+	BEGIN
+		MENUITEM "&Отмена\tCtrl+Z", WM_UNDO
+		MENUITEM SEPARATOR
+		MENUITEM "В&ырезать\tCtrl+X", WM_CUT
+		MENUITEM "&Копировать\tCtrl+C", WM_COPY
+		MENUITEM "&Вклеить\tCtrl+V", WM_PASTE
+		MENUITEM SEPARATOR
+		MENUITEM "&Журналы...", cm_CJournals
+		MENUITEM "&Заголовки книг...", cm_CBooks
+		MENUITEM "За&головки отчетов...", cm_CReports
+	END
+
+	MENUITEM "&Помощь", cm_Help
+END
+
+MAIN MENU PRELOAD MOVEABLE DISCARDABLE 
+BEGIN
+	POPUP "&Файл"
+	BEGIN
+		MENUITEM "&Новый", cm_FileNew
+		MENUITEM "&Открыть...\tCtrl+O", cm_FOpen
+		MENUITEM SEPARATOR
+		MENUITEM "&Сохранить\tCtrl+S", cm_FSave
+		MENUITEM "Сохранить &как...", cm_FSaveAs
+		MENUITEM SEPARATOR
+		MENUITEM "&Импорт...", cm_FImport
+		MENUITEM "&Экспорт...", cm_FExport
+		MENUITEM SEPARATOR
+		MENUITEM "&Печать...", cm_Print
+		MENUITEM SEPARATOR
+		MENUITEM "&Закрыть", cm_FClose
+		MENUITEM SEPARATOR
+		MENUITEM "В&ыход\tAlt+F4", cm_FExit
+	END
+
+	POPUP "&Правка"
+	BEGIN
+		MENUITEM "&Отмена\tCtrl+Z", WM_UNDO
+		MENUITEM SEPARATOR
+		MENUITEM "В&ырезать\tCtrl+X", WM_CUT
+		MENUITEM "&Копировать\tCtrl+C", WM_COPY
+		MENUITEM "&Вклеить\tCtrl+V", WM_PASTE
+	END
+
+	POPUP "Сс&ылка"
+	BEGIN
+		MENUITEM "&Добавить...\tF7", cm_RefNew
+		MENUITEM "&Правка...\tF6", cm_RefEdit
+		MENUITEM "&Автор...\tF2", cm_EAuthor
+		MENUITEM SEPARATOR
+		MENUITEM "Добавить в &список\tCtrl+B", cm_AddToBib
+		MENUITEM "Добавить &кл\376чевое слово...", cm_AddKeyword
+		MENUITEM "В&ыделить все", cm_SelectAll
+		MENUITEM SEPARATOR
+		MENUITEM "&Удалить\tDel", cm_RefDel
+	END
+
+	POPUP "По&иск"
+	BEGIN
+		MENUITEM "Показать &все ссылки", cm_RefAll
+		MENUITEM "Новый &поиск...\tF3", cm_RefSearch
+		MENUITEM SEPARATOR
+		MENUITEM "&Сузить поиск...", cm_NarrowSrch
+		MENUITEM "&Расширить поиск...", cm_ExpandSrch
+	END
+
+	POPUP "&Настройки"
+	BEGIN
+		MENUITEM "Формат &списка...", cm_ListOpt
+		MENUITEM "С&ортировка...", cm_OptSort
+		MENUITEM "По&иск...", cm_OptSrch
+		MENUITEM "&Показывать все", cm_AutoShowIt
+		MENUITEM "&Ввод настроек...", cm_OInput
+		MENUITEM "Под&тверждение...", cm_Confirm
+		POPUP "&Шрифты"
+		BEGIN
+			MENUITEM "&Принтер...", cm_PrintFont
+			MENUITEM "&База данных...", cm_DataFont
+			MENUITEM "&Окно правки...", cm_EditFont
+		END
+
+		MENUITEM SEPARATOR
+		MENUITEM "Пока&зать форматированный список", cm_BView
+		MENUITEM "Формат &библиографии...", cm_BFormat
+		MENUITEM "Вы&деление цветом...", cm_BibCol
+		MENUITEM SEPARATOR
+		MENUITEM "&Язык...", cm_Language
+		MENUITEM "Файл форм&ата...", cm_FileFormat
+		MENUITEM SEPARATOR
+		MENUITEM "Сохранить &резервные копии", cm_OptBak
+	END
+
+	POPUP "&Окно"
+	BEGIN
+		MENUITEM "&Каскад\tShift + F5", cm_Cascade
+		MENUITEM "&Неперекрытые \tShift + F4", cm_Tile
+		MENUITEM "&Выстроить значки", cm_Arrange
+	END
+
+	POPUP "&Справка"
+	BEGIN
+		MENUITEM "&Содержание", cm_HelpIndex, HELP
+		MENUITEM "&Как использовать справку", cm_HelpOnHelp
+		MENUITEM SEPARATOR
+		MENUITEM "&О программе...", cm_HelpAbout
+	END
+
+END
+
+
+VS_VERSION_INFO VERSIONINFO 
+FILEVERSION 7,8,1,0
+PRODUCTVERSION 7,8,1,0
+FILEFLAGSMASK 0x0L
+FILEFLAGS 0x0L
+FILEOS VOS__WINDOWS16
+FILETYPE 0x2L
+FILESUBTYPE 0x0L
+BEGIN
+	BLOCK "StringFileInfo"
+	BEGIN
+		BLOCK "080904E4"
+		BEGIN
+			VALUE "CompanyName", "Tim Cutts\0"
+			VALUE "FileDescription", "Russian language library\0"
+			VALUE "FileVersion", "7.8.1.0\0","\0"
+			VALUE "InternalName", "REFSU.DLL\0"
+			VALUE "LegalCopyright", "Copyright \251 Tim Cutts 1994-1996\0"
+			VALUE "OriginalFilename", "REFSU.DLL\0"
+			VALUE "ProductName", "Refs\0"
+			VALUE "ProductVersion", "7.8.1\0"
+		END
+
+	END
+
+	BLOCK "VarFileInfo"
+	BEGIN
+		VALUE "Translation", 0x809, 1252
+	END
+
+END
+
+
+STRINGTABLE PRELOAD MOVEABLE DISCARDABLE 
+BEGIN
+	srt_Title, "Название"
+	srt_Keyword, "Кл\376чевое слово"
+	srt_TKA, "Заголовок, кл\376чевое слово и реферат"
+	srt_Author, "Автор"
+	srt_Journal, "Журнал/Название книги/Отчетt"
+	srt_Date, "Дата"
+	srt_None, "Ничего"
+	srt_Issuer, "Издатель"
+	str_Title, "Название = "
+	str_Keyword, "Кл\376чевое слово = "
+	str_TKA, "Название, кл\376чевое слово или рефеат = "
+	str_Author, "Автор = "
+	str_SJournal, "Журнал = "
+	str_Date, "Дата = "
+	str_All, "Все"
+	cm_HelpIndex, "Как использовать эту программу"
+	cm_HelpOnHelp, "Как использовать справку Windows"
+	cm_HelpAbout, "О программе"
+	wrn_NeedSave, "Файл изменен. \nСохранить?"
+	wrn_None, "Нет похожих ссылок"
+	err_SrchStr, "Строка поиска введена неверно"
+	err_NoFile, "Невозможно открыть файл данных"
+	err_NoMem, "Недостаточно пам\377ти"
+	err_BibFormat, "Неизвестный идентификатор\nИгнорируем это поле"
+	err_ConfirmDel, "Указанные ссылки будут удалены навсегда.\nПродолжить?"
+	err_BadRegister, "Неверный регистрационный номер"
+	wrn_NoOptFunc, "Этот фильтр импорта не настраиваем"
+	wrn_Warning, "Внимание!"
+	fmt_StatusBar, "Найдено %lu ссылок, удовлетвор\377\376щих:\n%s"
+	wrn_UnRgstr, "Нерегистририровано"
+	fmt_SavedRefs, "Сохранено %lu ссылок"
+	cm_FExport, "Сохран\377ем файл в другом формате"
+	str_AndWord, "и"
+	str_Searching, "Поиск..."
+	str_Untitled, "Без названи\377"
+	fmt_Importing, "Загружено  %lu ссылок"
+	msg_Registered1, "Напоминание прекращено, Ваш пароль установлен."
+	msg_Registered2, "Спасибо за регистрациЮ!"
+	str_Sorting, "Сортировка... %u%%"
+	err_BadSort, "Нельз\377 сортировать по одному и тому же пол\376!"
+	msg_SrchResults, "Результат поиска"
+	wrn_Mouse, "Разрешить  \042перетаскивание\042 объекта мышь\376?,"
+	fmt_RefNo, "%s:%lu"
+	cm_FileNew, "Создаем новый файл"
+	cm_FOpen, "Открываем существу\376щий файл в текущем формате"
+	cm_FSave, "Сохран\377ем текущий файл в формате по умолчани\376"
+	cm_FSaveAs, "Сохран\377ем текущий файл под новым именем в текущем формате"
+	cm_FExit, "Заканчиваем работу"
+	cm_FImport, "Открываем файл в другом формате"
+	cm_FClose, "Закрываем текущий файл"
+	cm_RefNew, "Добавить нову\376 ссылку"
+	cm_RefEdit, "Правка / просмотр ссылки"
+	cm_RefDel, "Удалить выбранное"
+	cm_RefSearch, "Создать новое окно поиска"
+	cm_RefAll, "Показать базу целиком"
+	err_NoPrnStart, "Не удалось напечатать"
+	err_PrnMem, "Недостаточно пам\377ти дл\377 печати"
+	fmt_Page, "стр. %u  "
+	err_Memory, "Не могу  найти %u байт пам\377ти.\n\nПопробуйте закрыть другие программы.\n\nВыберите \042Retry\042 попробовать еще раз.\n\nВыберите \042Отмена\042 чтобы прекратить. Это может привести к потере данных.."
+	err_BadNameSep, "Разделитель фамилии не должен быть пробелом"
+	cm_AutoShowIt, "Автоматически показать все ссылки после открыти\377 файла"
+	cm_BibCol, "Выбрать цвет дл\377 выделени\377 ссылок"
+	str_BibWndName, "Бибилиографи\377"
+	cm_OptSort, "Определить сортировку списка"
+	cm_SelectAll, "Выбрать все ссылки в текщем окне"
+	str_Ascending, "По возрастани\376"
+	str_Descending, "По убывани\376"
+	str_NarrowSrch, "Сузить поиск"
+	str_ExpandSrch, "Расширить поиск"
+	str_Journal, "&Журнал:"
+	str_BookTitle, "&Название кникги:"
+	cm_EAuthor, "Правка имени автора и даты"
+	cm_NarrowSrch, "Искать среди результатов текущего поиска"
+	cm_ExpandSrch, "Искать по всей базе"
+	cm_AddToBib, "Добавить ссылку в библиографи\376"
+	cm_BView, "Перекл\376чить  режим отображени\377 библиографии"
+	cm_BFormat, "Выбрать формат библиографии"
+	cm_OptBak, "Копировать прежн\376\376 верси\376 файла в файл .BAK при сохранении?"
+	cm_ListOpt, "Изменить формат основного списка"
+	cm_OInput, "Изменить установки ввода"
+	cm_OptSrch, "Установки поиска"
+	cm_Language, "Выбор \377зыка инерфейса"
+	cm_Confirm, "Устанвки подтверждений удалени\377 и переноса"
+	cm_Print, "Печать ссылок в текущем формате библиографии"
+	cm_PrintFont, "Выбор шрифта дл\377 принтера"
+	cm_DataFont, "Выбор шрифта дл\377 окна базы данных"
+	err_BibTooBig, "Форматирование этого списка литературы создает текст более 32Кб.\n\nСписок литературы будет укорочен до этой длины.\nЭто ограничение  Windows 3.1, увы!"
+	str_Report, "&Отчетt, диссертаци\377 и т.д.:"
+	str_Searchable, "Доступно дл\377 поиска"
+	str_ChooseExp, "Выберите формат дл\377 экспорта..."
+	err_MaxFiles, "Открыто слишком много файлов!"
+	str_DefaultFormat, "Выберите файл формата по умолчани\376"
+	wrn_RefDirty, "Ссылка изменена.\nСохранить изменени\377?"
+	cm_Register, "Зарегистрируйте Refs скорее..."
+	nag_timeleft, "Подождите еще %u секунд."
+	cm_AddKeyword, "Добавить кл\376чевое слово ко всем выбранным ссылкам"
+	fmt_Scanning, "Просмотрено %lu ссылок"
+	str_Scanning, "Просмотр..."
+	cm_EditFont, "Измените шрифт в окне правки"
+	err_BibAlready, "Такое название формата уже есть!"
+	err_CRInFmt, "Возвраткаретки неиспользуйте.\n.Вставьте вместонего \\n ."
+        str_DLLDescribe, "Russian"
+
+END
+
+BIBNAME DIALOG 18, 18, 218, 44
+FONT 10,"Lucida Sans Unicode"
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Новый формат библиографии"
+BEGIN
+	CONTROL "", id_FmtEdit, "EDIT", ES_LEFT | ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 6, 12, 208, 12
+	CONTROL "Да", IDOK, "BUTTON", WS_CHILD | WS_VISIBLE | WS_TABSTOP | WS_GROUP, 131, 27, 38, 14
+	CONTROL "Отмена", IDCANCEL, "BUTTON", WS_CHILD | WS_VISIBLE | WS_TABSTOP, 172, 27, 42, 14
+	CONTROL "Введите название формата", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 6, 2, 209, 8
+END
+
+
+
+

@@ -1,0 +1,118 @@
+%A Bischoff, ER
+%A Ponstingl, H
+%D 1991
+%T Catalysis of guanine nucleotide exchange on ran by the mitotic regulator RCC1
+%J Nature
+%V 354
+%P 80
+%K RCC1, pim1, spi1, ras, ran
+%X RCC1 is a mitotic regulator from BHK with homology to pim1 in pombe.  
+HeLa RCC1 is complexed to a 25kDa protein related to ras, and is GTP/GDP binding, called ran.  The pombe homolog is spi1.  
+RCC1 acts on ran in the same way as nucleotide exchange factors act on ras, exchanging GTP for GDP, activating ras.  Ran.GTP is presumably activated (and GTP hydrolysed) by an as yet unidentified GAP analog.  
+RCC1 has not been shown to vary in activity over the cell cycle, although yeast has shown a link of misosis to S phase involving pim1.  Spi1 overexpression rescues pim1-, though not pim1del.  Probably due to compensatory levels of Spi1.GTP
+
+%A Caldecott, KW
+%A et al
+%D 1994
+%T An interaction between the mammalian DNA repair protein XRCC1 and DNA Ligase III
+%J Mol. Cell Biol.
+%V 14
+%N 1
+%P 68-76
+%K XRCC1, DNA Ligase III, EM9
+%X cDNA of XRCC1 fully corrected phenotype of EM9, as far as SCEs were concerned.  Copurified with DNA ligase III activity.  Suggests a complex.  Returns ligase III activity to normal in EM9 cells
+
+%A Dasso, M
+%D 1993
+%T RCC1 in the cell cycle: the regulator of chromosome condensation takes on new roles
+%J TIBS
+%V 18
+%P 96-101
+%K RCC1, tsBN2, pim1, spi1
+%X Review:  functions of RCC1
+RCC1 is the only gene found so far in the detection of unreplicated DNA that binds chromatin.  PCC in tsBN2 is a genuine attempt at mitosis: nuclear envelope breakdown, spindle formation, MPF activation all occur.
+tsBN2 at restr. temp. also inhibits transcription, though not as rapidly as replication.
+RCC1 is lost from DNA at mitosis.  Release also occurs following treatment with DNA intercalating agents.
+Human RCC1 complements ts but not null mutations of the S. cerevisiae gene PRP20/SRM1/MTR1.  This gene was found through several screenings:
+SRM1 - Mating pathway, PRP20 - mRNA splicing and 3' end formation, MTR1 - mRNA export from nucleus
+Yeast homolog is pim1.
+No cell cycle specific expression observed; control is probably by post-translational modification.
+All RCC1 homologs display interphase nuclear localisation, and all except SRM1 are displaced from DNA at mitosis.
+Structure:  N-terminal basic DNA binding region, followed by 7 tandem repeats each 50-60 aa.  Drosophila homolog has additional C-terminal region.
+DNA binding is not essential for activity (although activity is much lower).  Neither is it sufficient; mutants in activity are known which still bind DNA.
+Binds to highly abundant protein ran (25:1 excess).  GAP protein is still not known,
+
+%A Dasso, M
+%A Nishitani, H
+%A et al
+%D 1992
+%T RCC1, a Regulator of Mitosis, Is Essential for DNA Replication
+%J MCB
+%V 12
+%P 3337-3345
+%K BHK, PCC, RCC1, replication
+%X ts BHK mutants go into S phase PCC
+Depletion in Xenopus egg extracts prevents replication of added sperm DNA.  No effect on replication of ssDNA => not part of replication apparatus, but possibly part of the initiation of replication.  
+see Seino et al (92) for further work on ts BHK mutants, and Dasso (93) for review.
+
+%A Haynes, RH
+%D 1985
+%T Molecular mechanisms in genetic stability and change:  The role of deoxyribonucleotide pool balance
+%B Genetic Consequences of Nucleotide Pool Imbalance
+%I Plenum Press
+%C New York
+%P 1-23
+%K dNTP, mutation
+%X Introduction to the book.  Notes in file.  dNTP pool bias leads to reduced replication fidelity and chromatic aberrations.  Mutants in biosynthesis can be 'mutator' strains.
+Some mutagens may act through causing nucleotide pool imbalance
+
+%A Ljungquist, S
+%A et al
+%D 1994
+%T Altered DNA Ligase III activity in the CHO EM9 mutant
+%J Mut. Res.
+%V 314
+%N 2
+%P 177-186
+%K EM9, XRCC1, DNA Ligase III, Bloom's Syndrome
+%X Cell strain shows similarities to Bloom's syndrome.  They *do* complement each other.  (Ray, 1987)  Ligase I activity is slightly lower in EM9 than in its parent line AA8 (Chan, 87).  XRCC1 is *not* DNA Ligase III (Yoo et al, 92)
+
+%A Seino, H
+%A Hisamoto, N
+%A Uzawa, S
+%A Sekiguchi, T
+%A Nishimoto, T
+%D 1992
+%T DNA binding domain of RCC1 protein is not essential for coupling mitosis with DNA replication
+%J J Cell Sci
+%V 102
+%P 393-400
+%K RCC1, tsBN2 mutant
+%X If the N terminal DNA binding domain was removed it was still just as effective at rescuing the BHK21 derivative tsBN2 as wt RCC1.  However the localisation of the truncated protein was not as confined to the nucleus.  Sucrose gradients showed delN-RCC1 to be bound to nucleosomal proteins.  N terminal has a nuclear localisation sequence, perhaps?
+
+%A Seino, H
+%A Nishitani, H
+%A Seki, T
+%A Hisamoto, N
+%A Tazunoki, T
+%A Shiraki, N
+%A Ohtsubo, M
+%D 1991
+%T Rcc1 is a nuclear-protein required for coupling activation of cdc2 kinase with dna-synthesis and for start of the cell-cycle
+%J Cold spring harbor symposia on quantitative biology 
+%C Kyushu univ,grad sch med sci,dept molec biol/fukuoka 812//japan/
+%V 56
+%P 367-375
+%K unread, Article, Temperature-sensitive mutants, Chromosome condensation, Gene rcc1, Binding protein, Bhk-cells, Mutation, Mitosis, Complementation, Homolog, Onset
+
+%A Seki, T
+%A Ohba, T
+%A Azuma, Y
+%A Nishimoto, T
+%A Dasso, M
+%D 1994
+%T The role of RCC1 in DNA replication and nuclear formation:  studies in Xenopus extracts using mutant ran protein
+%R Second Anglo-Japanese Cell Cycle Workshop
+%K poster, RCC1, nuclear assembly
+%X Nuclear assembly in Xenopus extracts is defective without RCC1.  GTP Ran is also essential for nuclear assembly
+

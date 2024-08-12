@@ -1,0 +1,12 @@
+FERICD DIALOG 27, 22, 274, 185
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "FERIC Refs"
+BEGIN
+	LTEXT "This version of REFS has been licensed by FERIC for the express purpose of displaying FERIC\222s  publication list. If you use the software for any other purpose, you are required to purchase a separate licence from its author.", -1, 6, 82, 258, 26, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "FERIC a obtenu une licence d'exploitation de cette version du logiciel REFS dans le but exprès d'afficher la liste des publications de FERIC.", -1, 6, 111, 258, 17, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "Les personnes désirant utiliser le logiciel à toute autre fin sont priées d'acheter de l'auteur une licence séparée.", -1, 6, 128, 258, 17, WS_CHILD | WS_VISIBLE | WS_GROUP
+	DEFPUSHBUTTON "OK", IDOK, 193, 168, 78, 14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+	PUSHBUTTON "FERIC Information in &English", cm_Help, 4, 152, 161, 14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+	PUSHBUTTON "Information de FERIC en &Français", cm_Help -1, 4, 168, 161, 14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+	PUSHBUTTON "&Register Refs...", id_BRegister, 193, 152, 78, 14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+END

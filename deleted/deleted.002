@@ -1,0 +1,17 @@
+[ -f ~/7832-$1.ZIP ] && {
+  rm ~ftp/users/timc/refs/test/*.ZIP
+
+  mv -v ~/7832-$1.ZIP ~ftp/users/timc/refs/test/78BETA95-$1.ZIP
+  mv -v ~/78$1.ZIP ~ftp/users/timc/refs/test
+  mv -v ~/FERIC$1.ZIP ~ftp/users/timc/refs/test
+  mv -v ~/RDK78.ZIP ~ftp/users/timc/refs/test/RDK78-$1.ZIP
+
+  cd ~ftp/users/timc/refs/test
+  ln -sf 78BETA95-$1.ZIP 78BETA95.ZIP
+  ls -l
+  cd ..
+  ln -sf test/78$1.ZIP REFS78.ZIP
+  ln -sf test/78BETA95-$1.ZIP REFS3278.ZIP 
+  ln -sf test/RDK78-$1.ZIP RDK78.ZIP
+  cd -
+}

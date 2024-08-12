@@ -1,0 +1,12 @@
+Capabilities that will be required of Refs bibliography OLE objects:
+
+1.  Change bibliography format style
+2.  Change the sorting method
+3.  Open the database itself for editing
+
+It will need to support:
+
+IUnknown
+IDataObject
+
+CLSID for Refs Bibligraphies:  {fad458c0-69cf-11cf-a108-0020af398bb4}

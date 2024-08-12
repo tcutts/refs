@@ -1,0 +1,63 @@
+#include "rc.h"
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 7,9,0,0
+ PRODUCTVERSION 7,9,0,0
+ FILEFLAGSMASK 0x0L
+ FILEFLAGS 0x3L
+#ifdef WIN32
+ FILEOS VOS__WINDOWS32
+#else
+ FILEOS VOS__WINDOWS16
+#endif
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+ BEGIN
+   BLOCK "StringFileInfo"
+   BEGIN
+     BLOCK "080904E4"
+     BEGIN
+       VALUE "CompanyName", "Tim Cutts\0"
+       VALUE "FileDescription", "English language library\0"
+       VALUE "FileVersion", "7.9\0","\0"
+       VALUE "InternalName", "REFEN.DLL\0"
+       VALUE "LegalCopyright", "Copyright \251 Tim Cutts 1994-1997\0"
+       VALUE "OriginalFilename", "REFEN.DLL\0"
+       VALUE "ProductName", "Refs\0"
+       VALUE "ProductVersion", "7.81\0"
+     END
+   END
+   BLOCK "VarFileInfo"
+   BEGIN
+     VALUE "Translation", 0x809, 1252
+   END
+ END
+
+#include "abort.dlg"
+#include "about.dlg"
+#include "bibfmt.dlg"
+#include "bibname.dlg"
+#include "clean.dlg"
+#include "confirm.dlg"
+#include "dupl.dlg"
+#include "editbib.dlg"
+#include "editref.dlg"
+#include "etitle.dlg"
+#include "impopt.dlg"
+#include "inopt.dlg"
+#include "keywords.dlg"
+#include "lang.dlg"
+#include "listedit.dlg"
+#include "listopt.dlg"
+#include "nag.dlg"
+#include "nagfirst.dlg"
+#include "name.dlg"
+#include "newsrch.dlg"
+#include "optsort.dlg"
+#include "register.dlg"
+
+#include "ermenu.rc"
+#include "mainmenu.rc"
+
+#include "enstr.rc"
+

@@ -1,0 +1,5 @@
+This directory contains the source for the REFEN.DLL
+library that came with Refs.  If you do not have a
+suitable compiler yourself, you can always just
+translate the resource file (RENGLISH.RC) and send
+that to me for me to build.

@@ -1,0 +1,27 @@
+#include "../inc/rc.h"
+EDIT_REF MENU 
+BEGIN
+	POPUP "&Reference"
+	BEGIN
+		MENUITEM "&Add to bibliography", cm_AddToBib
+		MENUITEM "Add &keywords...", cm_AddKeyword
+		MENUITEM SEPARATOR
+		MENUITEM "&Copy formatted", cm_CopyFormatted
+		MENUITEM "&Print...", cm_Print
+	END
+
+	POPUP "&Edit"
+	BEGIN
+		MENUITEM "&Undo\tCtrl+Z", WM_UNDO
+		MENUITEM SEPARATOR
+		MENUITEM "Cu&t\tCtrl+X", WM_CUT
+		MENUITEM "&Copy\tCtrl+C", WM_COPY
+		MENUITEM "&Paste\tCtrl+V", WM_PASTE
+		MENUITEM SEPARATOR
+		MENUITEM "Common &Journals...", cm_CJournals
+		MENUITEM "Common &Book titles...", cm_CBooks
+		MENUITEM "Common &Report titles...", cm_CReports
+	END
+
+	MENUITEM "&Help", cm_Help
+END

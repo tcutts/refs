@@ -1,0 +1,12 @@
+#include "../inc/rc.h"
+
+ABORT DIALOG 18, 20, 140, 80
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Refs Printing"
+BEGIN
+  DEFPUSHBUTTON "Cancel", IDCANCEL, 47,56,44,14
+  CTEXT "Sending", -1, 32,15,75,8
+  CTEXT "", idc_Filename, 11,23,117,8
+  CTEXT "to the printer", -1, 25,31,88,8
+  CONTROL "", -1, "Static", SS_GRAYFRAME, 4, 8, 133, 40
+END

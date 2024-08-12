@@ -1,0 +1,40 @@
+NAME Refs
+
+DESCRIPTION 'FERIC Custom Refs Database 7.8 © TJR Cutts 1995'
+
+EXETYPE WINDOWS
+
+STUB 'WINSTUB.EXE'
+
+CODE MOVEABLE DISCARDABLE
+
+DATA MOVEABLE MULTIPLE
+
+HEAPSIZE 8192
+STACKSIZE 8192
+
+EXPORTS
+
+DuplProc @1
+CleanProc @2
+RefFrameProc @5
+EListProc @7
+EditRef @8
+EAuthors @9
+AbortDlg @10
+AbortProc @11
+ImpDlgProc @12
+NameOptProc @13
+SrtOptProc @14
+SetLangProc @15
+InOptProc @17
+LOptProc @18
+SrchOptProc @19
+RegProc @20
+RefChildProc @22
+OpenHook @23
+SrchDlg @24
+COptProc @26
+BibFmtProc @28
+TimeNagProc @29
+KeyProc @30

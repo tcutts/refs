@@ -1,0 +1,53 @@
+:Base refs32.hlp
+:Title Refs 7.9
+1 Introduction
+2 Welcome to Refs!=Intro
+2 The toolbar=Toolbar
+1 How to...
+2 Manage references
+3 Add a new reference=AddRef
+3 Edit a reference=EditRef
+3 Delete a reference=DelRef
+3 Print a reference=PrintRef
+3 Sort references=OptSort
+3 Copy or move references between files=CopyMove
+2 Manage your keywords
+3 Manage your keywords=KeyList
+2 Search for references
+3 Search for references=FindRef
+3 Advanced searching using regular expressions=regexp
+2 Use the bibliography
+3 Create and manage a bibliography=Biblio
+3 Create or modify bibliography formats=BibSyntax
+3 RTF Tutorial=RTFTut
+2 Import data from other sources
+3 Adding and removing import filters=AddImport
+3 Using import filters=Import
+2 Transferring information to other programs
+2 Transfer information to other programs=Transfer
+1 Frequently Asked Questions
+2 Crashes
+3 Help!  Refs caused a GPF in module XXX.FLT!  Is this a bug in Refs?=GPFFlt
+2 Formatting
+3 How can I put bold and italics in my documents?=BoldItalic
+2 Importing data
+3 Refs won't import my MedLine literature search!  Why not?=MedLine
+3 Refs still won't import my foreign data!=TextFiles
+3 I got a REF file from a friend and all the foreign characters are wrong!=OEMAnsi
+2 Miscellaneous
+3 Refs only has three document types - can we have some more?=DocTypes
+3 Refs won't let me change my document type!  It keeps resetting to 'Journal'.  Why?=DefType
+2 You still haven't answered my question!
+3 What to do...=Quest
+1 Technical Information
+2 Background=Tech
+2 Running Refs on a Network=network
+2 Programming Information
+3 The Import Filter API=DLLinterface
+3 RIMPEXP.DLL support functions=RImpExp
+1 Ordering and Registration
+2 Licence Information=Licence
+2 Order form=OrderFrm
+1 Other Stuff
+2 About the author=About
+2 Credits and Acknowledgements=Credits

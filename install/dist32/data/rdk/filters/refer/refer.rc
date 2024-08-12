@@ -1,0 +1,49 @@
+#ifdef WIN32
+#include <winver.h>
+#else
+#include <windows.h>
+#include <ver.h>
+#endif
+
+VS_VERSION_INFO VERSIONINFO 
+FILEVERSION 1, 1, 0, 1
+PRODUCTVERSION 7, 8, 1, 0
+FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+FILEFLAGS VS_FF_PRERELEASE
+FILEOS VOS__WINDOWS16
+FILETYPE VFT_DLL
+BEGIN
+	BLOCK "StringFileInfo"
+	BEGIN
+		BLOCK "080904E4"
+		BEGIN
+			VALUE "CompanyName", "Tim Cutts\0"
+			VALUE "FileDescription", "REFER Library\0"
+			VALUE "FileVersion", "1.1.0.1\0"
+			VALUE "InternalName", "REFER.FLT\0"
+			VALUE "LegalCopyright", "Copyright © Tim Cutts 1992-1996\0"
+			VALUE "OriginalFilename", "REFER.FLT\000"
+			VALUE "ProductName", "Refs\0"
+			VALUE "ProductVersion", "7.81\0"
+		END
+
+	END
+
+	BLOCK "VarFileInfo"
+	BEGIN
+		VALUE "Translation", 0x809, 1252
+	END
+END
+
+OPTS DIALOG 18, 18, 158, 120
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "BSD refer filter"
+BEGIN
+	DEFPUSHBUTTON "OK", IDOK, 82, 103, 34, 14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+	PUSHBUTTON "Cancel", IDCANCEL, 119, 103, 35, 14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+	CONTROL "&OEM to ANSI conversion", 101, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 34, 32, 92, 12
+	CTEXT "Refer Filter Version 1.1", -1, 24, 13, 106, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	CONTROL "Text", -1, "STATIC", SS_BLACKFRAME | WS_CHILD | WS_VISIBLE | WS_GROUP, 13, 7, 130, 21
+	LTEXT "Select this option if you are reading refer files with accented characters created by a non-Windows application, or saving such files for use in a non-Windows application.", 102, 8, 48, 142, 33, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "Turn this option off unless you really need it.", 103, 8, 82, 139, 17, WS_CHILD | WS_VISIBLE | WS_GROUP
+END

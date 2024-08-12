@@ -1,0 +1,28 @@
+rem ...edit 32-bit text files...
+start /max /wait notepad install\dist32\disk1\readme.txt
+
+rem ...copy 32 bit bits...
+echo 32-bit version files...
+rem copy WinRel\REFS32.EXE 	install\dist32\data\NT
+copy Win95_Re\REFS32.EXE	install\dist32\data\95
+copy Help\REFS32.HLP		install\dist32\data\HELP
+copy WinRel\REFEN.DLL		install\dist32\data\COMMON
+copy WinRel\REFER.FLT		install\dist32\data\COMMON
+copy WinRel\RIMPEXP.DLL		install\dist32\data\COMMON
+copy WinRel\*.FLT		install\dist32\data\FILTERS
+del				install\dist32\data\FILTERS\refer.flt
+xcopy /s rdk\*.*		install\dist32\data\RDK
+
+del install\dist32\data\LANG\refdeu.dll
+if x%2==x goto nolangs2
+copy WinRel\REFDEU.DLL		install\dist32\data\LANG
+:nolangs2
+
+rem ...compress 32 bit data files...
+pushd install\dist32
+del data\data.z
+
+f:\installshield\program\icomp -i data\*.* data\data.z
+copy data\data.z disk1
+del data\data.z
+popd

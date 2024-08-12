@@ -1,0 +1,37 @@
+[Options]
+TITLE=Refs 7.81 Help
+COMPRESS=FALSE
+ROOT=D:\DATA\REFS\Help
+BMROOT=D:\DATA\REFS\Help\Pics
+COPYRIGHT=Refs 7.81 Help, © TJR Cutts, 1993-6
+REPORT=YES
+BUILD=(Standard | win16) & ~Feric
+
+[Files]
+refs.rtf
+howto.rtf
+tech.rtf
+faq.rtf
+
+[Config]
+BrowseButtons()
+CreateButton("p_order", "  &Order Form  ", "JumpContext(`REFS.HLP', 10)")
+
+[BuildTags]
+Feric
+Standard
+win16
+win32
+
+[Map]
+
+EditRef         1
+OptSort         2
+Licence         3
+ListOpt         4
+BibSyntax       5
+Duplicate       6
+NameSort        7
+PrintRef        8
+KeyList         9
+OrderFrm	10

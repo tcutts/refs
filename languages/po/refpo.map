@@ -1,0 +1,318 @@
+
+ REFEN
+
+ Start     Length     Name                   Class
+ 0001:0000 00000H     REFEN_TEXT             CODE 16-bit
+ 0001:0000 0074EH     _TEXT                  CODE 16-bit
+           at offset 00000H 000FEH bytes from D:\MSVC\LIB\ldllcew.lib (windows\crt0.asm)
+           at offset 000FEH 0002CH bytes from D:\MSVC\LIB\ldllcew.lib (windows\stubmain.asm)
+           at offset 0012AH 000E3H bytes from D:\MSVC\LIB\ldllcew.lib (dos\crt0dat.asm)
+           at offset 0020EH 00023H bytes from D:\MSVC\LIB\ldllcew.lib (dos\crt0msg.asm)
+           at offset 00232H 00097H bytes from D:\MSVC\LIB\ldllcew.lib (dos\stdenvp.asm)
+           at offset 002CAH 0004EH bytes from D:\MSVC\LIB\ldllcew.lib (dos\nmsghdr.asm)
+           at offset 00318H 00006H bytes from D:\MSVC\LIB\ldllcew.lib (crt0fp.asm)
+           at offset 0031EH 0002DH bytes from D:\MSVC\LIB\ldllcew.lib (dos\stdalloc.asm)
+           at offset 0034CH 00010H bytes from D:\MSVC\LIB\ldllcew.lib (windows\windgrp.asm)
+           at offset 0035CH 00001H bytes from D:\MSVC\LIB\ldllcew.lib (nearstub.asm)
+           at offset 0035EH 0004CH bytes from D:\MSVC\LIB\ldllcew.lib (windows\fatal.asm)
+           at offset 003AAH 00117H bytes from D:\MSVC\LIB\ldllcew.lib (growseg.asm)
+           at offset 004C2H 00014H bytes from D:\MSVC\LIB\ldllcew.lib (windows\windgrpx.c)
+           at offset 004D6H 000C8H bytes from D:\MSVC\LIB\ldllcew.lib (fmalloc.asm)
+           at offset 0059EH 00081H bytes from D:\MSVC\LIB\ldllcew.lib (newseg.asm)
+           at offset 00620H 0000DH bytes from D:\MSVC\LIB\ldllcew.lib (fdata.asm)
+           at offset 0062EH 0007CH bytes from D:\MSVC\LIB\ldllcew.lib (searchsg.asm)
+           at offset 006AAH 0002AH bytes from D:\MSVC\LIB\ldllcew.lib (freelist.asm)
+           at offset 006D4H 00034H bytes from D:\MSVC\LIB\ldllcew.lib (initseg.asm)
+           at offset 00708H 00036H bytes from D:\MSVC\LIB\ldllcew.lib (linkseg.asm)
+
+ 0001:074E 00054H     WEP_TEXT               CODE 16-bit
+           at offset 00000H 0003CH bytes from D:\MSVC\LIB\ldllcew.lib (windows\wep.asm)
+           at offset 0003CH 00018H bytes from D:\MSVC\LIB\ldllcew.lib (windows\stubwep.asm)
+
+ 0001:07B0 0002FH     COMDAT_SEG1            CODE 16-bit
+           at offset 00000H 00012H bytes from REFEN.OBJ (d:\data\refs\refen.c)
+           at offset 00012H 00011H bytes from REFEN.OBJ (d:\data\refs\refen.c)
+           at offset 00024H 0000BH bytes from REFEN.OBJ (d:\data\refs\refen.c)
+
+ 0002:0000 00010H     NULL                   BEGDATA 16-bit
+           at offset 00000H 00010H bytes from D:\MSVC\LIB\ldllcew.lib (windows\crt0.asm)
+
+ 0002:0010 00072H     _DATA                  DATA 16-bit
+           at offset 00000H 00015H bytes from D:\MSVC\LIB\ldllcew.lib (windows\crt0.asm)
+           at offset 00016H 00044H bytes from D:\MSVC\LIB\ldllcew.lib (dos\crt0dat.asm)
+           at offset 0005AH 00004H bytes from D:\MSVC\LIB\ldllcew.lib (dos\crt0msg.asm)
+           at offset 0005EH 00002H bytes from D:\MSVC\LIB\ldllcew.lib (growseg.asm)
+           at offset 00060H 00004H bytes from D:\MSVC\LIB\ldllcew.lib (fmalloc.asm)
+           at offset 00064H 0000EH bytes from D:\MSVC\LIB\ldllcew.lib (fdata.asm)
+
+ 0002:0082 0000EH     CDATA                  DATA 16-bit
+           at offset 00000H 0000EH bytes from D:\MSVC\LIB\ldllcew.lib (dos\crt0dat.asm)
+
+ 0002:0090 00000H     XIFB                   DATA 16-bit
+ 0002:0090 00000H     XIF                    DATA 16-bit
+ 0002:0090 00000H     XIFE                   DATA 16-bit
+ 0002:0090 00000H     XIB                    DATA 16-bit
+ 0002:0090 00000H     XI                     DATA 16-bit
+ 0002:0090 00000H     XIE                    DATA 16-bit
+ 0002:0090 00000H     XPB                    DATA 16-bit
+ 0002:0090 00000H     XP                     DATA 16-bit
+ 0002:0090 00000H     XPE                    DATA 16-bit
+ 0002:0090 00000H     XCB                    DATA 16-bit
+ 0002:0090 00000H     XC                     DATA 16-bit
+ 0002:0090 00000H     XCE                    DATA 16-bit
+ 0002:0090 00000H     XCFB                   DATA 16-bit
+ 0002:0090 00000H     XCFCRT                 DATA 16-bit
+ 0002:0090 00000H     XCF                    DATA 16-bit
+ 0002:0090 00000H     XCFE                   DATA 16-bit
+ 0002:0090 00000H     XIFCB                  DATA 16-bit
+ 0002:0090 00000H     XIFU                   DATA 16-bit
+ 0002:0090 00000H     XIFL                   DATA 16-bit
+ 0002:0090 00000H     XIFM                   DATA 16-bit
+ 0002:0090 00000H     XIFCE                  DATA 16-bit
+ 0002:0090 00000H     DBDATA                 DATA 16-bit
+ 0002:0090 00000H     CONST                  CONST 16-bit
+ 0002:0090 00008H     HDR                    MSG 16-bit
+           at offset 00000H 00008H bytes from D:\MSVC\LIB\ldllcew.lib (dos\nmsghdr.asm)
+
+ 0002:0098 000D4H     MSG                    MSG 16-bit
+           at offset 00000H 000A5H bytes from D:\MSVC\LIB\ldllcew.lib (dos\crt0msg.asm)
+           at offset 000A5H 0002FH bytes from D:\MSVC\LIB\ldllcew.lib (crt0fp.asm)
+
+ 0002:016C 00002H     PAD                    MSG 16-bit
+           at offset 00000H 00002H bytes from D:\MSVC\LIB\ldllcew.lib (dos\crt0msg.asm)
+           at offset 00000H 00002H bytes from D:\MSVC\LIB\ldllcew.lib (dos\nmsghdr.asm)
+           at offset 00000H 00002H bytes from D:\MSVC\LIB\ldllcew.lib (crt0fp.asm)
+
+ 0002:016E 00001H     EPAD                   MSG 16-bit
+           at offset 00000H 00001H bytes from D:\MSVC\LIB\ldllcew.lib (dos\nmsghdr.asm)
+
+ 0002:0170 00000H     _BSS                   BSS 16-bit
+ 0002:0170 00000H     XOB                    BSS 16-bit
+ 0002:0170 00000H     XO                     BSS 16-bit
+ 0002:0170 00000H     XOE                    BSS 16-bit
+ 0002:0170 00000H     XOFB                   BSS 16-bit
+ 0002:0170 00000H     XOF                    BSS 16-bit
+ 0002:0170 00000H     XOFE                   BSS 16-bit
+
+ Origin   Group
+ 0002:0   DGROUP
+
+ Address   Export                  Alias
+
+ 0001:07B0 DESCRIBE                DESCRIBE
+ 0001:07C2 LIBMAIN                 LIBMAIN
+ 0001:04D2 ___ExportedStub         ___ExportedStub
+
+  Address         Publics by Name
+
+ 0001:07D4       ??_C@_0L@IFLM@Portuguese?$AA@
+                    ??_C@_0L@IFLM@Portuguese?$AA@
+
+ 0001:07B0       DESCRIBE
+ 0000:0000  Imp  DOS3CALL             (KERNEL.102)
+ 0000:0000  Imp  FATALAPPEXIT         (KERNEL.137)
+ 0000:0000  Imp  FATALEXIT            (KERNEL.1)
+ 0000:0000  Imp  GETDOSENVIRONMENT    (KERNEL.131)
+ 0000:0000  Imp  GETMODULEUSAGE       (KERNEL.48)
+ 0000:0000  Imp  GETVERSION           (KERNEL.3)
+ 0000:0000  Imp  GLOBALALLOC          (KERNEL.15)
+ 0000:0000  Imp  GLOBALFREE           (KERNEL.17)
+ 0000:0000  Imp  GLOBALLOCK           (KERNEL.18)
+ 0000:0000  Imp  GLOBALREALLOC        (KERNEL.16)
+ 0000:0000  Imp  GLOBALSIZE           (KERNEL.20)
+ 0000:0000  Imp  GLOBALUNLOCK         (KERNEL.19)
+ 0000:0000  Imp  INITTASK             (KERNEL.91)
+ 0001:07C2       LIBMAIN
+ 0000:0000  Imp  LOCALINIT            (KERNEL.4)
+ 0000:0000  Imp  LOCKSEGMENT          (KERNEL.23)
+ 0002:0004       rsrvptrs
+ 0001:074E       WEP
+ 0002:001F       _aseghi
+ 0002:001D       _aseglo
+ 0002:0170       _edata
+ 0002:0170       _end
+ 0002:0034       _errno
+ 0002:0010       _STKHQQ
+ 0000:9876  Abs  __acrtmsg
+ 0000:9876  Abs  __acrtused
+ 0000:D6D6  Abs  __aDBdoswp
+ 0002:006A       __adbgmsg
+ 0000:D6D6  Abs  __aDBused
+ 0002:0026       __aintdiv
+ 0002:006E       __amblksiz
+ 0001:0378       __amsg_exit
+ 0001:0054       __astart
+ 0001:0182       __cexit
+ 0002:0067       __child
+ 0001:013A       __cinit
+ 0001:036E       __cintDIV
+ 0002:003F       __cpumode
+ 0001:01E1       __ctermsub
+ 0001:0193       __c_exit
+ 0002:001C       __dllinit
+ 0002:0040       __doserrno
+ 0002:0170       __edata
+ 0002:0170       __end
+ 0002:005E       __environ
+ 0002:0069       __exitflag
+ 0002:002A       __fac
+ 0001:04E6       __ffree
+ 0001:021E       __FF_MSGBANNER
+ 0002:0074       __fheap
+ 0001:04B1       __findlast
+ 0001:0507       __fmalloc
+ 0002:0084       __fpinit
+ 0000:9876  Abs  __fptaskdata
+ 0001:0328       __fptrap
+ 0001:0630       __freefarheap
+ 0001:06BA       __freelist
+ 0001:035C       __GetDGROUP
+ 0001:03BA       __growseg
+ 0002:0012       __hModule
+ 0001:044B       __incseg
+ 0001:06E4       __initseg
+ 0001:0718       __linkseg
+ 0002:0018       __lpszCmdLine
+ 0001:032E       __myalloc
+ 0001:036C       __nearstub
+ 0001:05AE       __newseg
+ 0002:0042       __nfile
+ 0001:02DA       __NMSG_TEXT
+ 0001:0311       __NMSG_WRITE
+ 0001:00F6       __nomain
+ 0002:0040       __oserr
+ 0002:0044       __osfile
+ 0002:003B       __osmajor
+ 0002:003A       __osminor
+ 0002:003E       __osmode
+ 0002:003A       __osver
+ 0002:003C       __osversion
+ 0002:0062       __pgmptr
+ 0002:0070       __pnhFarHeap
+ 0001:063E       __searchseg
+ 0001:0242       __setenvp
+ 0000:0001  Abs  __sizec
+ 0000:0001  Abs  __sized
+ 0001:010E       __stubmain
+ 0001:078A       __STUBWEP
+ 0002:0036       __umaskval
+ 0002:0014       __wDataSeg
+ 0001:0010       __wflags
+ 0002:0016       __wHeapSize
+ 0000:0000  Imp  __WINFLAGS           (KERNEL.178)
+ 0002:0039       __winmajor
+ 0002:0038       __winminor
+ 0002:0038       __winver
+ 0002:0023       ___aDBrterr
+ 0002:0021       ___aDBswpflg
+ 0002:0058       ___argc
+ 0002:005A       ___argv
+ 0001:04D2       ___ExportedStub
+
+  Address         Publics by Value
+
+ 0000:0000  Imp  __WINFLAGS           (KERNEL.178)
+ 0000:0000  Imp  INITTASK             (KERNEL.91)
+ 0000:0000  Imp  LOCKSEGMENT          (KERNEL.23)
+ 0000:0000  Imp  GETDOSENVIRONMENT    (KERNEL.131)
+ 0000:0000  Imp  GLOBALFREE           (KERNEL.17)
+ 0000:0000  Imp  GLOBALALLOC          (KERNEL.15)
+ 0000:0000  Imp  GLOBALREALLOC        (KERNEL.16)
+ 0000:0000  Imp  FATALEXIT            (KERNEL.1)
+ 0000:0000  Imp  GLOBALUNLOCK         (KERNEL.19)
+ 0000:0000  Imp  DOS3CALL             (KERNEL.102)
+ 0000:0000  Imp  GETVERSION           (KERNEL.3)
+ 0000:0000  Imp  FATALAPPEXIT         (KERNEL.137)
+ 0000:0000  Imp  GLOBALLOCK           (KERNEL.18)
+ 0000:0000  Imp  GLOBALSIZE           (KERNEL.20)
+ 0000:0000  Imp  LOCALINIT            (KERNEL.4)
+ 0000:0000  Imp  GETMODULEUSAGE       (KERNEL.48)
+ 0000:0001  Abs  __sizec
+ 0000:0001  Abs  __sized
+ 0000:9876  Abs  __acrtused
+ 0000:9876  Abs  __acrtmsg
+ 0000:9876  Abs  __fptaskdata
+ 0000:D6D6  Abs  __aDBdoswp
+ 0000:D6D6  Abs  __aDBused
+ 0001:0010       __wflags
+ 0001:0054       __astart
+ 0001:00F6       __nomain
+ 0001:010E       __stubmain
+ 0001:013A       __cinit
+ 0001:0182       __cexit
+ 0001:0193       __c_exit
+ 0001:01E1       __ctermsub
+ 0001:021E       __FF_MSGBANNER
+ 0001:0242       __setenvp
+ 0001:02DA       __NMSG_TEXT
+ 0001:0311       __NMSG_WRITE
+ 0001:0328       __fptrap
+ 0001:032E       __myalloc
+ 0001:035C       __GetDGROUP
+ 0001:036C       __nearstub
+ 0001:036E       __cintDIV
+ 0001:0378       __amsg_exit
+ 0001:03BA       __growseg
+ 0001:044B       __incseg
+ 0001:04B1       __findlast
+ 0001:04D2       ___ExportedStub
+ 0001:04E6       __ffree
+ 0001:0507       __fmalloc
+ 0001:05AE       __newseg
+ 0001:0630       __freefarheap
+ 0001:063E       __searchseg
+ 0001:06BA       __freelist
+ 0001:06E4       __initseg
+ 0001:0718       __linkseg
+ 0001:074E       WEP
+ 0001:078A       __STUBWEP
+ 0001:07B0       DESCRIBE
+ 0001:07C2       LIBMAIN
+ 0001:07D4       ??_C@_0L@IFLM@Portuguese?$AA@
+                    ??_C@_0L@IFLM@Portuguese?$AA@
+
+ 0002:0004       rsrvptrs
+ 0002:0010       _STKHQQ
+ 0002:0012       __hModule
+ 0002:0014       __wDataSeg
+ 0002:0016       __wHeapSize
+ 0002:0018       __lpszCmdLine
+ 0002:001C       __dllinit
+ 0002:001D       _aseglo
+ 0002:001F       _aseghi
+ 0002:0021       ___aDBswpflg
+ 0002:0023       ___aDBrterr
+ 0002:0026       __aintdiv
+ 0002:002A       __fac
+ 0002:0034       _errno
+ 0002:0036       __umaskval
+ 0002:0038       __winminor
+ 0002:0038       __winver
+ 0002:0039       __winmajor
+ 0002:003A       __osver
+ 0002:003A       __osminor
+ 0002:003B       __osmajor
+ 0002:003C       __osversion
+ 0002:003E       __osmode
+ 0002:003F       __cpumode
+ 0002:0040       __oserr
+ 0002:0040       __doserrno
+ 0002:0042       __nfile
+ 0002:0044       __osfile
+ 0002:0058       ___argc
+ 0002:005A       ___argv
+ 0002:005E       __environ
+ 0002:0062       __pgmptr
+ 0002:0067       __child
+ 0002:0069       __exitflag
+ 0002:006A       __adbgmsg
+ 0002:006E       __amblksiz
+ 0002:0070       __pnhFarHeap
+ 0002:0074       __fheap
+ 0002:0084       __fpinit
+ 0002:0170       __end
+ 0002:0170       __edata
+ 0002:0170       _end
+ 0002:0170       _edata
+
+Program entry point at 0001:0054

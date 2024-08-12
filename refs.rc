@@ -1,0 +1,145 @@
+#include "inc/config.h"
+
+#ifdef WIN32
+#  include <windows.h>
+#  include <winver.h>
+#else
+#  include <windows.h>
+#  include <ver.h>
+#endif
+
+#include "inc/refs.h"
+
+#ifdef FERIC
+
+FERICP BITMAP "ferics.bmp"
+#include "feric.dlg"
+
+#else
+
+#ifdef SPLASH
+
+  #include "splash.dlg"
+
+  #ifdef GONG
+    SPLSH BITMAP "gong.bmp"
+  #else
+    #ifdef WIN32
+      SPLSH BITMAP "splash32.bmp"
+    #else
+      SPLSH BITMAP "splash16.bmp"
+    #endif
+  #endif
+#endif
+
+#endif
+
+#ifdef CC_TOOLBAR
+IDB_TOOLBAR BITMAP "toolbar.bmp"
+#endif
+
+BOOKMASK BITMAP "bookmask.bmp"
+BOOK BITMAP "book.bmp"
+ARTMASK BITMAP "artmask.bmp"
+ARTICLE BITMAP "article.bmp"
+REP BITMAP "report.bmp"
+REPMASK BITMAP "repmask.bmp"
+
+1 ICON "refs.ico"
+2 ICON "refdata.ico"
+#ifdef WIN32
+3 ICON "reffile.ico"
+#endif
+
+SINGLE CURSOR "single.cur"
+MULTIPLE CURSOR "multi.cur"
+
+KEYS ACCELERATORS MOVEABLE 
+BEGIN
+  "S", cm_FSave, VIRTKEY, CONTROL
+  "O", cm_FOpen, VIRTKEY, CONTROL
+  VK_F7, cm_RefNew, VIRTKEY
+  "B", cm_AddToBib, VIRTKEY, CONTROL
+  "C", WM_COPY, VIRTKEY, CONTROL
+  VK_INSERT, WM_COPY, VIRTKEY, CONTROL
+  "X", WM_CUT, VIRTKEY, CONTROL
+  VK_DELETE, WM_CUT, VIRTKEY, SHIFT
+  "V", WM_PASTE, VIRTKEY, CONTROL
+  VK_INSERT, WM_PASTE, VIRTKEY, SHIFT
+  "Z", WM_UNDO, VIRTKEY, CONTROL
+  VK_BACK, WM_UNDO, VIRTKEY, ALT
+  VK_F4, cm_Tile, VIRTKEY, SHIFT
+  VK_F5, cm_Cascade, VIRTKEY, SHIFT
+  VK_RETURN, cm_RefEdit, VIRTKEY, NOINVERT
+  VK_RETURN, cm_EAuthor, VIRTKEY, NOINVERT, CONTROL
+  VK_F2, cm_EAuthor, VIRTKEY
+  VK_F6, cm_RefEdit, VIRTKEY
+  VK_DELETE, cm_RefDel, VIRTKEY, NOINVERT
+  VK_F3, cm_RefSearch, VIRTKEY
+  VK_F1, cm_HelpIndex, VIRTKEY
+END
+
+VS_VERSION_INFO VERSIONINFO LOADONCALL MOVEABLE
+#ifdef MODAL_EDIT
+FILEVERSION 7, 8, 1, 12
+#else
+FILEVERSION 7, 9, 0, 0
+#endif
+PRODUCTVERSION 7, 8, 1, 0
+FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+#ifdef FERIC
+FILEFLAGS VS_FF_SPECIALBUILD
+#else
+FILEFLAGS 0x0
+#endif
+#ifdef WIN32
+FILEOS VOS__WINDOWS32
+#else
+FILEOS VOS__WINDOWS16
+#endif
+FILETYPE VFT_APP
+FILESUBTYPE VFT2_UNKNOWN
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "080904E4"
+    BEGIN
+      VALUE "CompanyName", "Tim Cutts\0"
+#ifdef FERIC
+      VALUE "FileDescription", "Main Refs program, FERIC version\0"
+#else
+#ifdef WIN32
+      VALUE "FileDescription", "REFS32.EXE: Main program\0"
+#else
+      VALUE "FileDescription", "REFS.EXE: Main program\0"
+#endif
+#endif
+#ifdef MODAL_EDIT
+      VALUE "FileVersion", "7.8.1.12\0"
+#else
+      VALUE "FileVersion", "7.9.0.0\0"
+#endif
+#ifdef WIN32
+      VALUE "InternalName", "REFS32.EXE\0"
+#else
+      VALUE "InternalName", "REF.EXE\0"
+#endif
+      VALUE "LegalCopyright", "© Tim Cutts 1992-1997; All rights reserved.\0"
+#ifdef WIN32
+      VALUE "OriginalFilename", "REFS32.EXE\0"
+#else
+      VALUE "OriginalFilename", "REFS.EXE\0"
+#endif
+#ifdef FERIC
+      VALUE "ProductName", "FERIC Refs\0"
+#else
+      VALUE "ProductName", "Refs\0"
+#endif
+      VALUE "ProductVersion", "7.8.1\0"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN 
+    VALUE "Translation", 0x809, 1252
+  END
+END

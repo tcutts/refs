@@ -1,0 +1,17 @@
+#include "../inc/rc.h"
+ETITLE DIALOG 35, 25, 208, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+FONT 10, "Arial"
+CAPTION "Edit author(s), year and source"
+BEGIN
+    LTEXT           "&Author(s):",-1,5,2,121,8
+    EDITTEXT        id_Authors,4,12,123,79,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL | 0x1000
+    RTEXT           "&Year:",-1,132,10,27,8
+    EDITTEXT        id_Year,162,8,42,12,ES_AUTOHSCROLL
+    GROUPBOX        "&Source",id_Source,131,23,73,49
+    CONTROL         "in &Journal",id_Article,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,136,35,62,10
+    CONTROL         "in &Book",id_Article+1,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP, 136,47,64,10
+    CONTROL         "&report",id_Article+2,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP, 136,59,64,10
+    DEFPUSHBUTTON   "OK",IDOK,130,77,35,14
+    PUSHBUTTON      "Cancel",IDCANCEL,166,77,38,14
+END

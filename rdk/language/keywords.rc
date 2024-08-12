@@ -1,0 +1,18 @@
+#include "../inc/rc.h"
+KEYWORDS DIALOG 18, 18, 242, 107
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+FONT 10, "Arial"
+CAPTION "Add keyword(s)"
+BEGIN
+  CONTROL "", id_KeyList, "LISTBOX", LBS_STANDARD | LBS_MULTIPLESEL | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 3,26,93,60
+  DEFPUSHBUTTON "Add to &reference", IDOK, 4,90,87,14
+  PUSHBUTTON ">> &Edit >>", button_Edit, 99,26,48,14
+  CONTROL "", edit_Add, "EDIT", ES_LEFT | ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 150, 27, 89, 11
+  PUSHBUTTON "<<  &Add  <<", button_Add, 99,42,48,14
+  PUSHBUTTON "&Delete", button_Del, 99,58,48,14
+  PUSHBUTTON "&Save list", button_Save, 99,74,87,14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+  PUSHBUTTON "Scan active &file", idb_Scan, 99,90,87,14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+  PUSHBUTTON "&Help", cm_Help, 189,74,45,14
+  PUSHBUTTON "&Close", IDCANCEL, 189,90,45,14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+  LTEXT "Keywords selected in the list box below will be added to the selected references", -1, 7,7,228,18
+END

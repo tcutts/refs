@@ -1,0 +1,109 @@
+Filter source...
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+Filter includes...
+        1 file(s) copied.
+        1 file(s) copied.
+Lib16...
+The system cannot find the file specified.
+Lib32...
+        1 file(s) copied.
+Language includes...
+        1 file(s) copied.
+        1 file(s) copied.
+Language source...
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+The system cannot find the file specified.
+
+PKZIP (R)   FAST!   Create/Update Utility   Version 2.04g   02-01-93
+Copr. 1989-1993 PKWARE Inc.  All Rights Reserved.  Shareware Version
+PKZIP Reg. U.S. Pat. and Tm. Off.   Patent No. 5,051,745
+
+þ 80486 CPU detected.
+þ XMS version 2.00 detected.
+þ DPMI version 0.90 detected.
+þ Using Maximum Compression.
+
+Updating ZIP: INSTALL/RDK79.ZIP
+Updating: RDK/README.TXT                   Deflating %  00 (39%), done.
+Updating: RDK/FILTERS/                     Storing   ( 0%), done.
+Updating: RDK/LANGUAGE/                    Storing   ( 0%), done.
+Updating: RDK/FILTERS/REFER/               Storing   ( 0%), done.
+Updating: RDK/FILTERS/C/                   Storing   ( 0%), done.
+Updating: RDK/FILTERS/PASCAL/              Storing   ( 0%), done.
+Updating: RDK/FILTERS/FILTERS.TXT          Deflating %  00 (19%), done.
+Updating: RDK/FILTERS/REFER/REFER.C        Deflating %  00 (71%), done.
+Updating: RDK/FILTERS/REFER/REFER.H        Deflating %  00 (65%), done.
+Updating: RDK/FILTERS/REFER/REFER.RC       Deflating %  00 (53%), done.
+Updating: RDK/FILTERS/REFER/REFER.MAK      Deflating %  00 (60%), done.
+Updating: RDK/FILTERS/REFER/REFER32.MAK    Deflating %  00 (82%), done.
+Updating: RDK/FILTERS/REFER/REFER.DEF      Deflating %  00 (38%), done.
+Updating: RDK/FILTERS/C/LIB16/             Storing   ( 0%), done.
+Updating: RDK/FILTERS/C/LIB32/             Storing   ( 0%), done.
+Updating: RDK/FILTERS/C/RIMPEXP.H          Deflating %  00 (72%), done.
+Updating: RDK/FILTERS/C/IMPTFR.H           Deflating %  00 (48%), done.
+Updating: RDK/FILTERS/C/LIB16/RIMPEXP.LIB  Deflating %  00 (80%), done.
+Updating: RDK/FILTERS/C/LIB32/RIMPEXP.LIB  Deflating %  00 (90%), done.
+Updating: RDK/FILTERS/PASCAL/IMPTFR.PAS    Deflating %  00 (62%), done.
+Updating: RDK/FILTERS/PASCAL/RIMPEXP.PAS   Deflating %  00 (68%), done.
+Updating: RDK/LANGUAGE/RENGLISH.RC         Deflating %  00 (63%), done.
+Updating: RDK/LANGUAGE/REFS.H              Deflating %  00 (81%), done.
+Updating: RDK/LANGUAGE/REFEN.C             Deflating %  00 (49%), done.
+Updating: RDK/LANGUAGE/LANGUAGE.TXT        Deflating %  00 (12%), done.
+Updating: RDK/LANGUAGE/CONFIG.H            Deflating %  00 (55%), done.
+Updating: RDK/LANGUAGE/ABORT.RC            Deflating %  00 (27%), done.
+Updating: RDK/LANGUAGE/ABOUT.RC            Deflating %  00 (43%), done.
+Updating: RDK/LANGUAGE/BIBFMT.RC           Deflating %  00 (56%), done.
+Updating: RDK/LANGUAGE/BIBNAME.RC          Deflating %  00 (38%), done.
+Updating: RDK/LANGUAGE/CLEAN.RC            Deflating %  00 (25%), done.
+Updating: RDK/LANGUAGE/CONFIRM.RC          Deflating %  00 (48%), done.
+Updating: RDK/LANGUAGE/DUPL.RC             Deflating %  00 (44%), done.
+Updating: RDK/LANGUAGE/EDITBIB.RC          Deflating %  00 (46%), done.
+Updating: RDK/LANGUAGE/EDITREF.RC          Deflating %  00 (61%), done.
+Updating: RDK/LANGUAGE/ENSTR.RC            Deflating %  00 (60%), done.
+Updating: RDK/LANGUAGE/ERMENU.RC           Deflating %  00 (57%), done.
+Updating: RDK/LANGUAGE/ETITLE.RC           Deflating %  00 (51%), done.
+Updating: RDK/LANGUAGE/IMPOPT.RC           Deflating %  00 (35%), done.
+Updating: RDK/LANGUAGE/INOPT.RC            Deflating %  00 (44%), done.
+Updating: RDK/LANGUAGE/KEYWORDS.RC         Deflating %  00 (50%), done.
+Updating: RDK/LANGUAGE/LANG.RC             Deflating %  00 (30%), done.
+Updating: RDK/LANGUAGE/LISTEDIT.RC         Deflating %  00 (46%), done.
+Updating: RDK/LANGUAGE/LISTOPT.RC          Deflating %  00 (51%), done.
+Updating: RDK/LANGUAGE/MAINMENU.RC         Deflating %  00 (69%), done.
+Updating: RDK/LANGUAGE/NAG.RC              Deflating %  00 (36%), done.
+Updating: RDK/LANGUAGE/NAGFIRST.RC         Deflating %  00 (37%), done.
+Updating: RDK/LANGUAGE/NAME.RC             Deflating %  00 (47%), done.
+Updating: RDK/LANGUAGE/OPTSORT.RC          Deflating %  00 (61%), done.
+Updating: RDK/LANGUAGE/REGISTER.RC         Deflating %  00 (42%), done.
+Updating: RDK/LANGUAGE/NEWSRCH.RC          Deflating %  00 (47%), done.
+Updating: RDK/LANGUAGE/SRCHOPT.RC          Deflating %  00 (32%), done.

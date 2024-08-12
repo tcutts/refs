@@ -1,0 +1,817 @@
+// Size of components.
+#define SIZE_REQ_SAMPLES          10000
+#define SIZE_REQ_BIDS             25000
+#define SIZE_REQ_MEDLINE          35000
+#define SIZE_REQ_PROCITE          35000
+#define SIZE_REQ_PROGRAM         250000
+#define SIZE_REQ_HELP            150000
+#define SIZE_REQ_UTILS            20000
+#define SIZE_REQ_RDK              80000
+#define SIZE_REQ_GERMAN           50000
+#define SIZE_REQ_SPANISH          50000
+#define SIZE_REQ_PORTUGUESE       50000
+#define SIZE_REQ_JAPANESE         50000
+#define SIZE_REQ_RUSSIAN	  50000
+
+#define APP_NAME                "Refs"
+#define PROGRAM_GROUP_NAME      "Refs"
+#define APPBASE_PATH            "TJRC\\Refs\\"
+#define COMPANY_NAME            "TJRC"
+#define PRODUCT_NAME            "Refs 7.8.1"
+#define PRODUCT_VERSION         "7.8.1"
+#define PRODUCT_KEY             "refs32.exe"
+#define UNINSTALL_KEY           "RefsV78"
+#define APPBASE_DIR95           "Program Files"
+#define BASE_REGISTRYNT         "Software\\Microsoft\\Windows NT\\CurrentVersion\\App Paths\\"
+#define BASE_REGISTRY95         "Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\"
+
+#ifdef OLE
+#define REG_CLSID               "{FAD458C0-69CF-11CF-A108-0020AF398BB4}"
+#define REG_PROGID              "TJRC.RefsBib"
+#define REG_CURVER              ".1"
+#define REG_CLSNAME             "Refs Bibliography 1.0"
+#endif
+
+#define STR_COMPLETE95 "by selecting the 'Refs' icon in the Programs menu.\n\n"
+#define STR_COMPLETENT "by double-clicking the 'Refs' icon in the 'Refs' group.\n\n"
+
+declare
+
+	// Global variable declarations.
+	STRING  svGrp, szMsg, szFileSet, szTitle, szAppPath;
+	STRING  szProgram, szTemp, svUninstLogFile, szRegKey;
+	STRING  svMainDirectory[ _MAX_STRING ];
+	BOOL    bSpaceOk, bGoBack;
+	NUMBER  nResult, nStatusId, nType;
+
+	
+	// Boolean includes that do not take space:
+	BOOL    bIncludeFilters, bIncludeLanguages;
+
+	// Main include groups
+	BOOL    bIncludeProgram, bIncludeSamples, bIncludeHelp, bIncludeUtils, bIncludeRDK;
+
+	// Filter include groups
+	BOOL    bIncludeMedline, bIncludeBIDS, bIncludeProCite;
+
+	// Language include groups
+	BOOL    bIncludeRussian, bIncludeGerman, bIncludeSpanish, bIncludeJapanese, bIncludePortuguese;
+
+	// running under NT or 95?
+	BOOL    bWinNT;
+	BOOL    bWant95;
+	BOOL    bWantNT;
+	BOOL    bWantNTNS;
+	BOOL    bInst95;
+
+	// Function declarations.
+	prototype SetupScreen();
+	prototype CheckRequirements();
+	prototype CheckSpaceRequirements( number, number, number, number, number, number, number, number, number, number, number, number, number, string );
+	prototype CreateRegDBEntries();
+
+program
+
+StartHere:
+	Disable( BACKGROUND );
+
+	// Set up the installation screen.
+	SetupScreen();
+
+	// Set installation info., which is required for registry entries.
+	InstallationInfo( COMPANY_NAME, PRODUCT_NAME, PRODUCT_VERSION, PRODUCT_KEY );
+
+// Create a Welcome dialog.
+WelcomeDlg:
+	Disable( BACKBUTTON );
+	Welcome( "Welcome", 0 );
+	Enable( BACKBUTTON );
+
+	// Test target system proper configuration.
+	CheckRequirements();
+
+	// Ask user for a destination location for the installation.
+GetTargetDirectory:
+
+	svMainDirectory = TARGETDISK ^ APPBASE_DIR95 ^ APPBASE_PATH;
+
+	szMsg = "";
+	if ( AskDestPath( "Choose Destination Location", szMsg,
+			  svMainDirectory, 0 ) = BACK ) then
+	   goto WelcomeDlg;
+	endif;
+
+	nType = TYPICAL;
+
+	bIncludeProgram  = TRUE;
+	bIncludeHelp = TRUE;
+	bIncludeUtils    = FALSE;
+	bIncludeRDK = FALSE;
+
+	bIncludeFilters = FALSE;
+	bIncludeLanguages = FALSE;
+
+	bIncludeBIDS = TRUE;
+	bIncludeMedline = TRUE;
+	bIncludeProCite = FALSE;
+
+#ifndef LANGS
+	bIncludeGerman = FALSE;
+	bIncludePortuguese = FALSE;
+	bIncludeSpanish = FALSE;
+	bIncludeRussian = FALSE;
+	bIncludeJapanese = FALSE;
+#endif
+
+DetermineUserSelection:
+
+	bWantNT = bWinNT;
+	bWant95 = !bWinNT;
+	bWantNTNS = FALSE;
+
+	nType = SetupType( "Setup Type", "", svMainDirectory, nType, 0 );
+	if ( nType = BACK ) then goto GetTargetDirectory; endif;
+
+	bGoBack = FALSE;
+
+	switch (nType)
+	case TYPICAL:
+	     bIncludeSamples  = TRUE;
+	     bIncludeUtils = TRUE;
+#ifdef LANGS
+	     bIncludeGerman = TRUE;
+	     bIncludePortuguese = TRUE;
+	bIncludeSpanish = TRUE;
+	bIncludeRussian = TRUE;
+	bIncludeJapanese = TRUE;
+#endif
+	case COMPACT:
+	     bIncludeSamples  = FALSE;
+	     bIncludeHelp = FALSE;
+	     bIncludeBIDS = FALSE;
+	     bIncludeMedline = FALSE;
+#ifdef LANGS
+	     bIncludeGerman = FALSE;
+	     bIncludePortuguese = FALSE;
+	bIncludeSpanish = FALSE;
+	bIncludeRussian = FALSE;
+	bIncludeJapanese = FALSE;
+#endif
+	case CUSTOM:
+	     bIncludeSamples  = FALSE;
+	     bIncludeLanguages = FALSE;
+	     bIncludeFilters = TRUE;
+
+	endswitch;
+
+	bInst95 = TRUE;
+
+DetermineComponents:
+	
+	if (nType != CUSTOM) then
+	  if (bGoBack) then
+	    goto DetermineUserSelection;
+	  else
+	    goto CheckForSpace;
+	  endif;
+	endif;
+
+	bGoBack=FALSE;
+	
+	SetDialogTitle( DLG_ASK_OPTIONS, "Select Refs Components" );
+
+	szMsg = "Select the components that you wish to install.\n"+
+		"If the check box is unchecked, that component will not be "+
+		"installed. Click Next to continue with the installation.";
+
+#ifdef LANGS
+	nResult = AskOptions( NONEXCLUSIVE, szMsg,
+			      "&On-Line Help Files", bIncludeHelp,
+			      "E&xample Refer File", bIncludeSamples,
+			      "Other &file format support (Medline etc)", bIncludeFilters,
+			      "Run Refs in &languages other than English", bIncludeLanguages,
+			      "Mac and Unix &text translation tools", bIncludeUtils,
+			      "Refs &Development Kit", bIncludeRDK );
+#else
+	nResult = AskOptions( NONEXCLUSIVE, szMsg,
+			      "&On-Line Help Files", bIncludeHelp,
+			      "E&xample Refer File", bIncludeSamples,
+			      "Other &file format support (Medline etc)", bIncludeFilters,
+			      "Mac and Unix &text translation tools", bIncludeUtils,
+			      "Refs &Development Kit", bIncludeRDK );
+#endif
+
+	if ( nResult = BACK ) then goto DetermineUserSelection; endif;
+
+	// Handle user clicking Cancel button.
+	if (nResult = CANCEL) then
+	   if (AskYesNo( "Are you sure you would like to exit setup?", NO ) = YES) then
+	      abort;
+	   else
+	      bGoBack = TRUE;
+	   endif;
+	endif;
+
+	if (bGoBack) then goto DetermineUserSelection; endif;
+
+#ifdef LANGS
+DetermineLanguages:
+	// Ask for languages
+	if (bIncludeLanguages = FALSE) then
+	  if (bGoBack) then
+	    goto DetermineComponents;
+	  else
+	    goto DetermineFilters;
+	  endif;
+	endif;
+	
+	bGoBack = FALSE;
+	SetDialogTitle( DLG_ASK_OPTIONS, "Select Languages to support" );
+
+	szMsg = "Select the languages that you wish to run Refs in.\n"+
+		"If the check box is unchecked, that language will not be "+
+		"available. Click Next to continue with the installation.";
+
+	nResult = AskOptions( NONEXCLUSIVE, szMsg,
+			     "&German", bIncludeGerman,
+			     "&Japanese (needs Japanese Windows)", bIncludeJapanese,
+			     "&Portuguese (Brazilian)", bIncludePortuguese,
+			     "&Russian (needs Russian Windows)" , bIncludeRussian);
+
+	if ( nResult = BACK ) then bGoBack = TRUE; endif;
+
+	// Handle user clicking Cancel button.
+	if (nResult = CANCEL) then
+	  if (AskYesNo( "Are you sure you would like to exit setup?", NO ) = YES) then
+	     abort;
+	  else
+	     bGoBack = TRUE;
+	  endif;
+	endif;
+
+	if (bGoBack) then goto DetermineComponents; endif;
+#endif // LANGS
+
+DetermineFilters:
+	// Ask for filters
+	if (bIncludeFilters = FALSE) then goto CheckForSpace; endif;
+
+	bGoBack = FALSE;
+	SetDialogTitle( DLG_ASK_OPTIONS, "Select file formats to support" );
+
+	szMsg = "Select the filters that you wish to install.\n"+
+		"If the check box is unchecked, that format will not be "+
+		"supported. Click Next to continue with the installation.";
+
+	nResult = AskOptions( NONEXCLUSIVE, szMsg,
+			     "&Medline", bIncludeMedline,
+			     "BIDS (&ISI)", bIncludeBIDS,
+			     "&ProCite (alpha test)", bIncludeProCite );
+
+	if ( nResult = BACK ) then bGoBack = TRUE; endif;
+
+	// Handle user clicking Cancel button.
+	if (nResult = CANCEL) then
+	  if (AskYesNo( "Are you sure you would like to exit setup?", NO ) = YES) then
+	     abort;
+	  else
+	     bGoBack = TRUE;
+	  endif;
+	endif;
+
+	if (bGoBack) then
+#ifdef LANGS
+	  goto DetermineLanguages;
+#else
+	  goto DetermineComponents;
+#endif
+	endif;
+
+
+CheckForSpace:
+	// Check to see if target system meets space requirements.
+	bSpaceOk = CheckSpaceRequirements( bIncludeSamples,
+					   bIncludeProgram,
+					   bIncludeHelp,
+					   bIncludeMedline,
+					   bIncludeBIDS,
+					   bIncludeProCite,
+					   bIncludeUtils,
+					   bIncludeGerman,
+					   bIncludePortuguese,
+					   bIncludeJapanese,
+					   bIncludeSpanish,
+					   bIncludeRussian,
+					   bIncludeRDK,
+					   svMainDirectory );
+
+	// Ask user to try again if not enough space available.
+	if (bSpaceOk = FALSE) then goto DetermineUserSelection; endif;
+
+FolderSelection:
+	if ( bWinNT ) then
+	   svGrp = PROGRAM_GROUP_NAME;
+
+	   // Allow user to modify folder name.
+	   if ( SelectFolder( "Folder Selection", svGrp, svGrp ) = BACK ) then
+	      goto DetermineUserSelection;
+	   endif;
+	endif;
+
+FileTransferSetup:
+
+	// Prepare InstallSHIELD to record deinstallation information.
+	DeinstallStart( svMainDirectory, svUninstLogFile, UNINSTALL_KEY, 0 );
+	RegDBSetItem( REGDB_UNINSTALL_NAME, APP_NAME );
+
+	// Set registry App Paths key information for the main application.
+	szAppPath = svMainDirectory;
+	RegDBSetItem( REGDB_APPPATH, szAppPath );
+	szProgram = svMainDirectory ^ "refs32.exe";
+	RegDBSetItem( REGDB_APPPATH_DEFAULT, szProgram );
+
+	// Define the "General" file set.
+	szFileSet = "General";
+	TARGETDIR = svMainDirectory;
+
+	FileSetBeginDefine( szFileSet );
+
+	  SetStatusWindow( -1, "Copying program files..." );
+
+	  // Always copy README & related files, located at
+	  // the root level in the DATA.Z library file.
+	  CompressGet( "data.z", "*.*", COMP_NORMAL );
+
+	  if (bIncludeProgram) then
+	     TARGETDIR = svMainDirectory;
+			 if (bInst95) then
+			   CompressGet( "data.z", "95\\*.*", COMP_UPDATE_VERSION );
+			 endif;
+	     CompressGet( "data.z", "common\\*.*", COMP_UPDATE_VERSION );
+	  endif;
+
+	  if (bIncludeSamples) then
+	     TARGETDIR = svMainDirectory ^ "SAMPLES";
+	     CompressGet( "data.z", "samples\\*.*", COMP_UPDATE_VERSION );
+	  endif;
+
+	  if (bIncludeHelp) then
+	     TARGETDIR = svMainDirectory;
+	     CompressGet( "data.z", "help\\*.*", COMP_UPDATE_VERSION );
+	  endif;
+
+	  if (bIncludeMedline) then
+	    TARGETDIR = svMainDirectory;
+	    CompressGet( "data.z", "filters\\medline.flt", COMP_UPDATE_VERSION );
+	  endif;
+
+	  if (bIncludeBIDS) then
+	    TARGETDIR = svMainDirectory;
+	    CompressGet( "data.z", "filters\\bids.flt", COMP_UPDATE_VERSION );
+	  endif;
+
+	  if (bIncludeProCite) then
+	    TARGETDIR = svMainDirectory;
+	    CompressGet( "data.z", "filters\\procite.flt", COMP_UPDATE_VERSION );
+	  endif;
+
+	  if (bIncludeUtils) then
+	    TARGETDIR = svMainDirectory;
+	    CompressGet( "data.z", "utils\\*.*", COMP_UPDATE_VERSION );
+	  endif;
+
+#ifdef LANGS
+	  if (bIncludeGerman) then
+	    TARGETDIR = svMainDirectory;
+	    CompressGet( "data.z", "lang\\refdeu.dll", COMP_UPDATE_VERSION );
+	  endif;
+
+	  if (bIncludePortuguese) then
+	    TARGETDIR = svMainDirectory;
+	    CompressGet( "data.z", "lang\\refpo.dll", COMP_UPDATE_VERSION );
+	  endif;
+
+	  if (bIncludeSpanish) then
+	    TARGETDIR = svMainDirectory;
+	    CompressGet( "data.z", "lang\\refes.dll", COMP_UPDATE_VERSION );
+	  endif;
+
+	  if (bIncludeJapanese) then
+	    TARGETDIR = svMainDirectory;
+	    CompressGet( "data.z", "lang\\refjpn.dll", COMP_UPDATE_VERSION );
+	  endif;
+
+	  if (bIncludeRussian) then
+	    TARGETDIR = svMainDirectory;
+	    CompressGet( "data.z", "lang\\refsu32.dll", COMP_UPDATE_VERSION );
+	  endif;
+
+#endif
+
+	  if (bIncludeRDK) then
+	    TARGETDIR = svMainDirectory ^ "RDK";
+	    CompressGet( "data.z", "rdk\\*.*", COMP_UPDATE_DATE | INCLUDE_SUBDIR );
+	  endif;
+
+	FileSetEndDefine( szFileSet );
+
+DoFileTransfer:
+	// Set up progress indicator and information gauge.
+	Enable( STATUSDLG );
+	StatusUpdate( ON, 100 );
+
+	// Perform the file set.
+	nResult = FileSetPerformEz( szFileSet, 0 );
+
+	switch (nResult)
+
+	case FS_DONE: // Successful completion.
+
+	case FS_CREATEDIR: // Create directory error.
+	     MessageBox( "Unable to create a directory under " + TARGETDIR + "."+
+			 "Please check write access to this directory.", SEVERE );
+	     abort;
+
+	case FS_FILENOTINLIB:
+	     MessageBox("A file was not found in the library.  Contact the author.", SEVERE);
+	     abort;
+
+	case FS_GENERROR:
+	     MessageBox("An unknown error occurred during processing. Contact the author.", SEVERE);
+	     abort;
+
+	case FS_OPERROR:
+	     MessageBox("An error occurred during the process of copying or decompressing files.  Contact the author.", SEVERE);
+	     abort;
+
+	case FS_PACKAGING:
+	     MessageBox("A file was not listed in the packaging list.  Contact the author.", SEVERE);
+	     abort;
+
+	default: // Group all other errors under default label.
+	     NumToStr( szTemp, nResult );
+	     MessageBox( "General file transfer error."+
+			  "Please check your target location and try again."+
+			  "\n\n Error Number:"+szTemp, SEVERE );
+
+	     abort;
+	endswitch;
+
+SetRegistryEntries:
+
+	CreateRegDBEntries( );
+
+	Delay(2);
+	Disable( FEEDBACK_FULL );
+	Disable( STATUSDLG );
+
+	// Create program groups (folders) and icons.
+
+CreateFolderIcons:
+	SetStatusWindow( 95, "Creating Folder and Icons...." );
+
+	if ( bWinNT ) then
+	   CreateProgramFolder( svGrp );
+	   ShowProgramFolder( svGrp, SW_SHOW );
+	   LongPathToShortPath( svMainDirectory );
+	   Delay(1);
+	endif;
+
+	TARGETDIR = svMainDirectory;
+
+	if (bIncludeProgram) then
+	   szProgram = TARGETDIR ^ "REFS32.EXE";
+	   if ( bWinNT ) then
+	      AddFolderIcon( svGrp, APP_NAME, szProgram,
+			     TARGETDIR,
+			     "", 0, "", REPLACE );
+	   else
+	      LongPathToQuote( szProgram, TRUE );
+	      AddFolderIcon( "", APP_NAME, szProgram,
+			     TARGETDIR,
+			     "", 0, "", REPLACE );
+	   endif;
+	   Delay( 1 );
+	endif;
+
+	if ( bWinNT ) then
+	   if ( bIncludeSamples ) then
+	     AddFolderIcon( svGrp, "Example Refer File",
+	       szProgram + " " + TARGETDIR ^ "SAMPLES\\TEST.REF",
+	       TARGETDIR,
+	       "", 0, "", REPLACE );
+	   endif;
+
+	   AddFolderIcon( svGrp, "Refs Readme File",
+			  "WRITE.EXE " + TARGETDIR ^ "README.WRI",
+			  TARGETDIR,
+			  "", 0, "", REPLACE );
+	   Delay( 1 );
+
+	   szProgram = WINDIR ^ "UNINST.EXE";
+	   LongPathToShortPath( szProgram );
+	   LongPathToShortPath( svUninstLogFile );
+	   AddFolderIcon( svGrp, "UnInstall Refs",
+			  szProgram + " -f" + svUninstLogFile,
+			  WINDIR,
+			  "", 0, "", REPLACE );
+	   Delay( 1 );
+	endif;
+
+	// Announce setup complete and offer to read README file.
+
+	SetStatusWindow( 100, "Installation complete." );
+
+	SetDialogTitle(DLG_ASK_YESNO, "Installation Complete");
+
+	szMsg = "Setup is complete.  You may run the installed program ";
+	if ( bWinNT ) then
+	   szMsg = szMsg + STR_COMPLETENT;
+	else
+	   szMsg = szMsg + STR_COMPLETE95;
+	endif;
+ 
+	MessageBeep( 0 );
+	MessageBox( szMsg, INFORMATION);
+
+	exit;
+
+
+/*---------------------------------------------------------------------------*\
+ *
+ * Function:  SetupScreen
+ *
+ *  Purpose:  This function will set up the screen look.  This includes
+ *            colors, fonts, text to be displayed, etc.
+ *
+ *
+ *    Input:
+ *
+ *  Returns:
+ *
+ * Comments:
+\*---------------------------------------------------------------------------*/
+
+function SetupScreen()
+	begin
+
+	  Enable( INDVFILESTATUS );
+
+	  SetTitle( APP_NAME + " " + PRODUCT_VERSION + " Setup", 28, WHITE );
+
+	  SetTitle( "Setup", 0, BACKGROUNDCAPTION ); // Caption bar text.
+
+	  Enable( BACKGROUND );
+
+	end;
+
+
+/*---------------------------------------------------------------------------*\
+ *
+ * Function:  CheckRequirements
+ *
+ *  Purpose:  This function will check all minimum requirements for the
+ *            application being installed.  If any fail, then the user
+ *            is informed and the installation is terminated.
+ *
+ *
+ *    Input:
+ *
+ *  Returns:
+ *
+ * Comments:
+\*---------------------------------------------------------------------------*/
+
+function CheckRequirements()
+	  number  nvDx, nvDy;
+	  number nvResult;
+	  STRING szResult;
+	begin
+
+	  // Determine if target system uses NT or Windows 95.
+	  GetSystemInfo( WINMAJOR, nvResult, szResult );
+	  bWinNT = TRUE;
+	  if (nvResult = 4) then
+	     bWinNT = FALSE; // Running Windows 95.
+	  endif;
+
+	  // Check screen resolution.
+	  GetExtents( nvDx, nvDy );
+	  if (nvDy < 480) then
+	     MessageBox( "This program requires VGA or better resolution.", WARNING );
+	     exit;
+	  endif;
+
+	end;
+
+/*---------------------------------------------------------------------------*\
+ *
+ * Function:  CheckSpaceRequirements
+ *
+ *  Purpose:  This function will check space requirements based on the
+ *            elements being installed.
+ *
+ *    Input:
+ *
+ *  Returns:
+ *
+ * Comments:
+\*---------------------------------------------------------------------------*/
+
+function CheckSpaceRequirements( bIncludeSamples,
+				 bIncludeProgram,
+				 bIncludeHelp,
+				 bIncludeMedline,
+				 bIncludeBIDS,
+				 bIncludeProCite,
+				 bIncludeUtils,
+				 bIncludeGerman,
+				 bIncludeSpanish,
+				 bIncludePortuguese,
+				 bIncludeJapanese,
+				 bIncludeRussian,
+				 bIncludeRDK,
+				 szDir )
+	  number  nSizeRequired;
+	begin
+
+	  nSizeRequired = 0;
+
+	  // Determine total size.
+	  if (bIncludeSamples) then
+	    nSizeRequired = nSizeRequired + SIZE_REQ_SAMPLES;
+	  endif;
+
+	  if (bIncludeHelp) then
+	    nSizeRequired = nSizeRequired + SIZE_REQ_HELP;
+	  endif;
+
+	  if (bIncludeProgram) then
+	    nSizeRequired = nSizeRequired + SIZE_REQ_PROGRAM;
+	  endif;
+
+	  if (bIncludeMedline) then
+	    nSizeRequired = nSizeRequired + SIZE_REQ_MEDLINE;
+	  endif;
+
+	  if (bIncludeBIDS) then
+	    nSizeRequired = nSizeRequired + SIZE_REQ_BIDS;
+	  endif;
+
+	  if (bIncludeProCite) then
+	    nSizeRequired = nSizeRequired + SIZE_REQ_PROCITE;
+	  endif;
+
+	  if (bIncludeUtils) then
+	    nSizeRequired = nSizeRequired + SIZE_REQ_UTILS;
+	  endif;
+
+	  if (bIncludeGerman) then
+	    nSizeRequired = nSizeRequired + SIZE_REQ_GERMAN;
+	  endif;
+
+	  if (bIncludeJapanese) then
+	    nSizeRequired = nSizeRequired + SIZE_REQ_GERMAN;
+	  endif;
+
+	  if (bIncludePortuguese) then
+	    nSizeRequired = nSizeRequired + SIZE_REQ_GERMAN;
+	  endif;
+
+	  if (bIncludeSpanish) then
+	    nSizeRequired = nSizeRequired + SIZE_REQ_GERMAN;
+	  endif;
+
+	  if (bIncludeRussian) then
+	    nSizeRequired = nSizeRequired + SIZE_REQ_GERMAN;
+	  endif;
+
+	  if (bIncludeRDK) then
+	    nSizeRequired = nSizeRequired + SIZE_REQ_RDK;
+	  endif;
+
+	  // Check space on target drive.
+	  bSpaceOk = TRUE;
+	  if (GetDiskSpace( szDir ) < nSizeRequired) then
+	     szMsg = "There is not enough space available on the disk\n" +
+		     "'" + svMainDirectory + "' \n" +
+		     "Please free up some space or change the target location\n" +
+		     "to a different disk";
+	     MessageBeep(0);
+	     MessageBox( szMsg, WARNING );
+	     bSpaceOk = FALSE;
+	  endif;
+
+	  return bSpaceOk;
+	end;
+
+
+/*---------------------------------------------------------------------------*\
+ *
+ * Function:  CreateRegDBEntries
+ *
+ *  Purpose:  This function will create necessary keys and values for
+ *            the sample program.
+ *
+ *    Input:
+ *
+ *  Returns:
+ *
+ * Comments:
+\*---------------------------------------------------------------------------*/
+
+function CreateRegDBEntries()
+	string szKey[255], szValue, szQuestion, szDemo, szProgram;
+		NUMBER nReturn;
+begin
+
+	// Create the .REF file association
+
+		RegDBSetDefaultRoot( HKEY_CLASSES_ROOT );
+
+		nReturn = YES;
+
+		if (RegDBKeyExist(".REF")=0) then
+		  SetDialogTitle(DLG_ASK_YESNO, "Registry query");
+		  szQuestion = "The .REF file extension is already used by a program\n" +
+			       "Do you want Refs to override this?";
+		  nReturn = AskYesNo(szQuestion, NO);
+		  if (nReturn = YES) then
+		    RegDBDeleteKey(".REF");
+		  endif;
+		endif;
+
+		if (nReturn = YES) then
+
+		  szKey = ".REF";
+		  RegDBCreateKeyEx(szKey, "");
+		  RegDBSetKeyValueEx(szKey, "", REGDB_STRING, "reffile", -1);
+
+		  szKey = "reffile\\shell\\open\\command";
+		  RegDBCreateKeyEx(szKey, "");
+		  RegDBSetKeyValueEx(szKey, "", REGDB_STRING, svMainDirectory ^ "refs32.exe %1", -1);
+
+		  szKey = "reffile\\DefaultIcon";
+		  RegDBCreateKeyEx(szKey, "");
+		  RegDBSetKeyValueEx(szKey, "", REGDB_STRING, svMainDirectory ^ "refs32.exe,2", -1);
+
+		  szKey= "reffile";
+		  RegDBSetKeyValueEx(szKey, "", REGDB_STRING, "BSD refer format bibliography", -1);
+
+#ifdef OLE
+		// OLE stuff
+
+		  szKey = REG_PROGID + REG_CURVER;
+		  RegDBCreateKeyEx(szKey, "");
+		  RegDBSetKeyValueEx(szKey, "", REGDB_STRING, REG_CLSNAME, -1);
+
+		  szKey = REG_PROGID + REG_CURVER;
+		  RegDBCreateKeyEx(szKey, "");
+		  RegDBSetKeyValueEx(szKey, "", REGDB_STRING, REG_CLSNAME, -1);
+
+		  szKey = REG_PROGID;
+		  RegDBCreateKeyEx(szKey, "");
+		  RegDBSetKeyValueEx(szKey, "", REGDB_STRING, "Refs Bibliography", -1);
+
+		  szKey = REG_PROGID + "\\CurVer";
+		  RegDBCreateKeyEx(szKey, "");
+		  RegDBSetKeyValueEx(szKey, "", REGDB_STRING, REG_PROGID + REG_CURVER, -1);
+
+		  szKey = "CLSID\\" + REG_CLSID;
+		  RegDBCreateKeyEx(szKey, "");
+		  RegDBSetKeyValueEx(szKey, "", REGDB_STRING, REG_CLSNAME, -1);
+
+		  szKey = "CLSID\\"+ REG_CLSID + "\\ProgID";
+		  RegDBCreateKeyEx(szKey, "");
+		  RegDBSetKeyValueEx(szKey, "", REGDB_STRING, REG_PROGID + REG_CURVER, -1);
+
+		  szKey = "CLSID\\"+ REG_CLSID + "\\VersionIndependentProgID";
+		  RegDBCreateKeyEx(szKey, "");
+		  RegDBSetKeyValueEx(szKey, "", REGDB_STRING, REG_PROGID, -1);
+#endif
+
+		endif;
+	
+	// Create the formats example keys
+
+	RegDBSetDefaultRoot( HKEY_LOCAL_MACHINE );
+
+	// Create PRODUCT_KEY key.
+	szKey = "SOFTWARE\\" + COMPANY_NAME + "\\" + APP_NAME + "\\Formats";
+
+	RegDBCreateKeyEx( szKey, "" );
+
+		RegDBSetKeyValueEx( szKey, "TeX", REGDB_STRING, "<A@ ><D(@), ><T``@'', ><J{\\\\it @} ><V{\\\\bf @} ><P@>\\n\\n", -1); 
+		RegDBSetKeyValueEx( szKey, "Nature", REGDB_STRING, "<A@  ><J@ ><V@, ><P@ ><D(@)>\\n\\n", -1); 
+		RegDBSetKeyValueEx( szKey, "Trends in Cell Biology (RTF)", REGDB_STRING,
+		  "[{\\\\rtf1\\\\ansi ][}]<A1cA and /S, /N, /@ ><D(@) ><J{\\\\i @} ><V@ ><P@>\\n\\\\par\\n", -1);
+		RegDBSetKeyValueEx( szKey, "PNAS (RTF)", REGDB_STRING,
+		  "[{\\\\rtf1\\\\ansi ][}]<A1A & /S, /N, /@ ><D(@) ><J{\\\\i @} ><V{\\\\b @}, ><P@>\\n\\\\par\\n", -1);
+		RegDBSetKeyValueEx( szKey, "Printing", REGDB_STRING, "<A2@, ><D(@)>\\n\\n<J@ ><V@ ><N/@ ><P@><T\\n\\n\"@\"><K\\n@><X\\n\\n@\\n>\\n\\n", -1); 
+		RegDBSetKeyValueEx( szKey, "NestExample", REGDB_STRING, "<J<A1@, >@><B\"@\": <A2@, ><IPublisher: @. >>\\n\\n", -1); 
+		RegDBSetKeyValueEx( szKey, "RTF", REGDB_STRING,
+		  "[{\\\\rtf1\\\\ansi ][}]<A@ ><D(@), ><T{\\\\i\"@\"}, ><J@ ><V{\\\\b @} ><P @>{\\\\par}{\\\\par}\\n\\n", -1); 
+		RegDBSetKeyValueEx( szKey, "RNRTF", REGDB_STRING,
+		  "[{\\\\rtf1\\\\ansi ][}]<A@ ><D(@)>: <T\"@\"<B in <E@ (ed.), >>><J, {\\\\i @}<V, vol. @><N, no. @>><B{\\\\i @}<I, @><C, @>><T<P, pp. @>>{\\\\par}{\\\\par}\\n\\n", -1); 
+
+end;

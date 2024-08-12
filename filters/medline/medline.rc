@@ -1,0 +1,54 @@
+#include <windows.h>
+#ifdef WIN32
+#include <winver.h>
+#else
+#include <ver.h>
+#endif
+
+OPTS DIALOG 8, 44, 261, 142
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Medline options"
+BEGIN
+	CONTROL "&Split source (SO) field", 103, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 6, 35, 85, 12
+	CONTROL "Remove &hyphens", 104, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 6, 90, 85, 12
+	CONTROL "Add ""&unread"" keyword", 105, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 141, 36, 84, 12
+	CONTROL "Put unknown fields in &abstract", 106, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 141, 49, 109, 12
+	DEFPUSHBUTTON "OK", IDOK, 165, 123, 43, 14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+	PUSHBUTTON "Cancel", IDCANCEL, 212, 123, 43, 14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+	CONTROL "Version 4.4 © TJR Cutts, 1993-7", -1, "STATIC", WS_CHILD | WS_VISIBLE | WS_GROUP, 9, 8, 117, 18
+	CONTROL "", -1, "static", SS_GRAYFRAME | WS_CHILD | WS_VISIBLE, 5, 5, 126, 24
+	LTEXT "Some MedLine variants put lots of information in the SO field.  This option enables code to try to extract this information.  If it fails, it will just leave it alone.", -1, 6, 47, 120, 41, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "Some Medline formats use hyphens instead of spaces in some fields.  This option converts them back to spaces.", -1, 6, 102, 120, 35, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "This option causes fields not recognised to be included with the abstract.  Otherwise they are ignored.", -1, 141, 63, 110, 34, WS_CHILD | WS_VISIBLE | WS_GROUP
+END
+
+VS_VERSION_INFO VERSIONINFO 
+FILEVERSION 4, 5, 0, 0
+PRODUCTVERSION 7, 8, 1, 0
+FILEFLAGS VS_FF_PRERELEASE
+#ifdef WIN32
+FILEOS VOS__WINDOWS32
+#else
+FILEOS VOS__WINDOWS16
+#endif
+FILETYPE VFT_DLL
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "080904E4"
+    BEGIN
+      VALUE "CompanyName", "Tim Cutts\0"
+      VALUE "FileDescription", "MedLine filter\0"
+      VALUE "FileVersion", "4.5\0"
+      VALUE "InternalName", "MEDLINE.FLT\0"
+      VALUE "LegalCopyright", "Copyright © Tim Cutts 1994-1997\0"
+      VALUE "OriginalFilename", "MEDLINE.FLT\0"
+      VALUE "ProductName", "Refs\0"
+      VALUE "ProductVersion", "7.8.1\0"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN 
+    VALUE "Translation", 0x809, 1252
+  END 
+END

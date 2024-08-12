@@ -1,0 +1,623 @@
+
+ Medline
+
+ Start     Length     Name                   Class
+ 0001:0000 00000H     MEDLINE_TEXT           CODE 16-bit
+ 0001:0000 006D8H     WSSCANF_TEXT           CODE 16-bit
+           at offset 00000H 00661H bytes from WSSCANF.OBJ (d:\data\src\sscanf\wsscanf.c)
+           at offset 00662H 00016H bytes from WSSCANF.OBJ (d:\data\src\sscanf\wsscanf.c)
+           at offset 00678H 00017H bytes from WSSCANF.OBJ (d:\data\src\sscanf\wsscanf.c)
+           at offset 00690H 00014H bytes from WSSCANF.OBJ (d:\data\src\sscanf\wsscanf.c)
+           at offset 006A4H 00034H bytes from WSSCANF.OBJ (d:\data\src\sscanf\wsscanf.c)
+
+ 0001:06D8 00B7AH     _TEXT                  CODE 16-bit
+           at offset 00000H 000FEH bytes from d:\msvc\lib\ldllcew.lib (windows\crt0.asm)
+           at offset 000FEH 00003H bytes from d:\msvc\lib\ldllcew.lib (atol.asm)
+           at offset 00102H 0001CH bytes from d:\msvc\lib\ldllcew.lib (itoa.asm)
+           at offset 0011EH 00032H bytes from d:\msvc\lib\ldllcew.lib (strchr.asm)
+           at offset 00150H 00045H bytes from d:\msvc\lib\ldllcew.lib (strdup.asm)
+           at offset 00196H 0006BH bytes from d:\msvc\lib\ldllcew.lib (strstr.asm)
+           at offset 00202H 00022H bytes from d:\msvc\lib\ldllcew.lib (almul.asm)
+           at offset 00224H 0002CH bytes from d:\msvc\lib\ldllcew.lib (windows\stubmain.asm)
+           at offset 00250H 000E3H bytes from d:\msvc\lib\ldllcew.lib (dos\crt0dat.asm)
+           at offset 00334H 00023H bytes from d:\msvc\lib\ldllcew.lib (dos\crt0msg.asm)
+           at offset 00358H 00097H bytes from d:\msvc\lib\ldllcew.lib (dos\stdenvp.asm)
+           at offset 003F0H 000C8H bytes from d:\msvc\lib\ldllcew.lib (fmalloc.asm)
+           at offset 004B8H 0003CH bytes from d:\msvc\lib\ldllcew.lib (strcpy.asm)
+           at offset 004F4H 00019H bytes from d:\msvc\lib\ldllcew.lib (strlen.asm)
+           at offset 0050EH 00056H bytes from d:\msvc\lib\ldllcew.lib (atox.asm)
+           at offset 00564H 00063H bytes from d:\msvc\lib\ldllcew.lib (xtoa.asm)
+           at offset 005C8H 00032H bytes from d:\msvc\lib\ldllcew.lib (lmul.asm)
+           at offset 005FAH 0004EH bytes from d:\msvc\lib\ldllcew.lib (dos\nmsghdr.asm)
+           at offset 00648H 00081H bytes from d:\msvc\lib\ldllcew.lib (newseg.asm)
+           at offset 006CAH 0000DH bytes from d:\msvc\lib\ldllcew.lib (fdata.asm)
+           at offset 006D8H 00117H bytes from d:\msvc\lib\ldllcew.lib (growseg.asm)
+           at offset 007F0H 00006H bytes from d:\msvc\lib\ldllcew.lib (crt0fp.asm)
+           at offset 007F6H 0002DH bytes from d:\msvc\lib\ldllcew.lib (dos\stdalloc.asm)
+           at offset 00824H 00010H bytes from d:\msvc\lib\ldllcew.lib (windows\windgrp.asm)
+           at offset 00834H 00001H bytes from d:\msvc\lib\ldllcew.lib (nearstub.asm)
+           at offset 00836H 0007CH bytes from d:\msvc\lib\ldllcew.lib (searchsg.asm)
+           at offset 008B2H 0004CH bytes from d:\msvc\lib\ldllcew.lib (windows\fatal.asm)
+           at offset 008FEH 0002AH bytes from d:\msvc\lib\ldllcew.lib (freelist.asm)
+           at offset 00928H 00014H bytes from d:\msvc\lib\ldllcew.lib (windows\windgrpx.c)
+           at offset 0093CH 00034H bytes from d:\msvc\lib\ldllcew.lib (initseg.asm)
+           at offset 00970H 00036H bytes from d:\msvc\lib\ldllcew.lib (linkseg.asm)
+           at offset 009A6H 0009EH bytes from d:\msvc\lib\ldllcew.lib (eof.c)
+           at offset 00A44H 000C8H bytes from d:\msvc\lib\ldllcew.lib (dos\lseek.asm)
+           at offset 00B0CH 0005DH bytes from d:\msvc\lib\ldllcew.lib (dos\dosret.asm)
+
+ 0001:1260 0122FH     COMDAT_SEG1            CODE 16-bit
+           at offset 00000H 00047H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 00048H 0012BH bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 00174H 004C2H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 00636H 000A4H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 006DAH 006C2H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 00D9CH 00012H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 00DAEH 00012H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 00DC0H 00062H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 00E22H 00056H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 00E78H 000C8H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 00F40H 00040H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 00F80H 00031H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 00FB2H 00078H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 0102AH 00007H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 01032H 00003H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 01036H 00002H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 01038H 00024H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 0105CH 00031H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 0108EH 00028H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 010B6H 0001DH bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 010D4H 0001DH bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 010F2H 00009H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 010FCH 0002BH bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 01128H 00033H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 0115CH 0002AH bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 01186H 00022H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 011A8H 00004H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 011ACH 00008H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 011B4H 00008H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 011BCH 00008H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 011C4H 00006H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 011CAH 00003H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 011CEH 00007H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 011D6H 0000FH bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 011E6H 00043H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+           at offset 0122AH 00005H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+
+ 0002:0000 00010H     NULL                   BEGDATA 16-bit
+           at offset 00000H 00010H bytes from d:\msvc\lib\ldllcew.lib (windows\crt0.asm)
+
+ 0002:0010 00192H     _DATA                  DATA 16-bit
+           at offset 00000H 00008H bytes from WSSCANF.OBJ (d:\data\src\sscanf\wsscanf.c)
+           at offset 00008H 00015H bytes from d:\msvc\lib\ldllcew.lib (windows\crt0.asm)
+           at offset 0001EH 00101H bytes from d:\msvc\lib\ldllcew.lib (ctype.asm)
+           at offset 00120H 00044H bytes from d:\msvc\lib\ldllcew.lib (dos\crt0dat.asm)
+           at offset 00164H 00004H bytes from d:\msvc\lib\ldllcew.lib (dos\crt0msg.asm)
+           at offset 00168H 00004H bytes from d:\msvc\lib\ldllcew.lib (fmalloc.asm)
+           at offset 0016CH 0000EH bytes from d:\msvc\lib\ldllcew.lib (fdata.asm)
+           at offset 0017AH 00002H bytes from d:\msvc\lib\ldllcew.lib (growseg.asm)
+           at offset 0017CH 00014H bytes from d:\msvc\lib\ldllcew.lib (dos\dosret.asm)
+           at offset 00190H 00002H bytes from d:\msvc\lib\ldllcew.lib (seekfast.asm)
+
+ 0002:01A2 0000EH     CDATA                  DATA 16-bit
+           at offset 00000H 0000EH bytes from d:\msvc\lib\ldllcew.lib (dos\crt0dat.asm)
+
+ 0002:01B0 00000H     XIFB                   DATA 16-bit
+ 0002:01B0 00000H     XIF                    DATA 16-bit
+ 0002:01B0 00000H     XIFE                   DATA 16-bit
+ 0002:01B0 00000H     XIB                    DATA 16-bit
+ 0002:01B0 00000H     XI                     DATA 16-bit
+ 0002:01B0 00000H     XIE                    DATA 16-bit
+ 0002:01B0 00000H     XPB                    DATA 16-bit
+ 0002:01B0 00000H     XP                     DATA 16-bit
+ 0002:01B0 00000H     XPE                    DATA 16-bit
+ 0002:01B0 00000H     XCB                    DATA 16-bit
+ 0002:01B0 00000H     XC                     DATA 16-bit
+ 0002:01B0 00000H     XCE                    DATA 16-bit
+ 0002:01B0 00000H     XCFB                   DATA 16-bit
+ 0002:01B0 00000H     XCFCRT                 DATA 16-bit
+ 0002:01B0 00000H     XCF                    DATA 16-bit
+ 0002:01B0 00000H     XCFE                   DATA 16-bit
+ 0002:01B0 00000H     XIFCB                  DATA 16-bit
+ 0002:01B0 00000H     XIFU                   DATA 16-bit
+ 0002:01B0 00000H     XIFL                   DATA 16-bit
+ 0002:01B0 00000H     XIFM                   DATA 16-bit
+ 0002:01B0 00000H     XIFCE                  DATA 16-bit
+ 0002:01B0 00000H     DBDATA                 DATA 16-bit
+ 0002:01B0 00000H     CONST                  CONST 16-bit
+ 0002:01B0 00008H     HDR                    MSG 16-bit
+           at offset 00000H 00008H bytes from d:\msvc\lib\ldllcew.lib (dos\nmsghdr.asm)
+
+ 0002:01B8 000D4H     MSG                    MSG 16-bit
+           at offset 00000H 000A5H bytes from d:\msvc\lib\ldllcew.lib (dos\crt0msg.asm)
+           at offset 000A5H 0002FH bytes from d:\msvc\lib\ldllcew.lib (crt0fp.asm)
+
+ 0002:028C 00002H     PAD                    MSG 16-bit
+           at offset 00000H 00002H bytes from d:\msvc\lib\ldllcew.lib (dos\crt0msg.asm)
+           at offset 00000H 00002H bytes from d:\msvc\lib\ldllcew.lib (dos\nmsghdr.asm)
+           at offset 00000H 00002H bytes from d:\msvc\lib\ldllcew.lib (crt0fp.asm)
+
+ 0002:028E 00001H     EPAD                   MSG 16-bit
+           at offset 00000H 00001H bytes from d:\msvc\lib\ldllcew.lib (dos\nmsghdr.asm)
+
+ 0002:0290 00036H     _BSS                   BSS 16-bit
+           at offset 00000H 00036H bytes from MEDLINE.OBJ (d:\data\refs\medline.c)
+
+ 0002:02C6 00000H     XOB                    BSS 16-bit
+ 0002:02C6 00000H     XO                     BSS 16-bit
+ 0002:02C6 00000H     XOE                    BSS 16-bit
+ 0002:02C6 00000H     XOFB                   BSS 16-bit
+ 0002:02C6 00000H     XOF                    BSS 16-bit
+ 0002:02C6 00000H     XOFE                   BSS 16-bit
+ 0002:02D0 00016H     c_common               BSS 16-bit
+
+ Origin   Group
+ 0002:0   DGROUP
+
+ Address   Export                  Alias
+
+ 0001:200E GETSPECS                GETSPECS
+ 0001:2212 LIBMAIN                 LIBMAIN
+ 0001:193A LOADREF                 LOADREF
+ 0001:21A0 OPTS                    OPTS
+ 0001:21E0 WEP                     WEP
+ 0001:1FFC WHOAMI                  WHOAMI
+ 0001:1010 ___ExportedStub         ___ExportedStub
+
+  Address         Publics by Name
+
+ 0001:2296       ??_C@_01KKJH@?$AB?$AA@
+                    ??_C@_01KKJH@?$AB?$AA@
+
+ 0001:242A       ??_C@_02GDLA@?$DL?5?$AA@
+                    ??_C@_02GDLA@?$DL?5?$AA@
+
+ 0001:2292       ??_C@_02PIMC@?$AN?6?$AA@
+                    ??_C@_02PIMC@?$AN?6?$AA@
+
+ 0001:2408       ??_C@_03EKCM@Opt?$AA@
+                    ??_C@_03EKCM@Opt?$AA@
+
+ 0001:248A       ??_C@_04EJME@OPTS?$AA@
+                    ??_C@_04EJME@OPTS?$AA@
+
+ 0001:2424       ??_C@_05JBKM@?$CF?$FL?9?$FN?$AA?$AA@
+                    ??_C@_05JBKM@?$CF?$FL?9?$FN?$AA?$AA@
+
+ 0001:242E       ??_C@_06IBHE@unread?$AA@
+                    ??_C@_06IBHE@unread?$AA@
+
+ 0001:228A       ??_C@_06KEGF@?$AN?6?7?3?5?9?$AA@
+                    ??_C@_06KEGF@?$AN?6?7?3?5?9?$AA@
+
+ 0001:2414       ??_C@_07BPLO@?9?9?9?9?9?9?9?$AA@
+                    ??_C@_07BPLO@?9?9?9?9?9?9?9?$AA@
+
+ 0001:241C       ??_C@_07GLP@MEDLINE?$AA@
+                    ??_C@_07GLP@MEDLINE?$AA@
+
+ 0001:240C       ??_C@_07HDHG@MedLine?$AA@
+                    ??_C@_07HDHG@MedLine?$AA@
+
+ 0001:2352       ??_C@_08BALA@?$CIEditor?$CJ?$AA@
+                    ??_C@_08BALA@?$CIEditor?$CJ?$AA@
+
+ 0001:2334       ??_C@_0BN@FPLO@?$CF?$FL?$FO?4?$FN?4?5?$CF?$FL0?99?$FN?5?$DL?5?$CFd?5?3?5?$CF?$FL0?99?9?$FN?$AA@
+                    ??_C@_0BN@FPLO@?$CF?$FL?$FO?4?$FN?4?5?$CF?$FL0?99?$FN?5?$DL?5?$CFd?5?3?5?$CF?$FL0?99?9?$FN?$AA@
+
+ 0001:2316       ??_C@_0BN@JCCM@?$CF?$FL?$FO?4?$FN?4?5?$CF?$FL0?99?$FN?5?0?5?$CFd?5?0?5?$CF?$FL0?99?9?$FN?$AA@
+                    ??_C@_0BN@JCCM@?$CF?$FL?$FO?4?$FN?4?5?$CF?$FL0?99?$FN?5?0?5?$CFd?5?0?5?$CF?$FL0?99?9?$FN?$AA@
+
+ 0001:23E6       ??_C@_0CC@DDIA@?5?$CF?$FL0?99?$FN?5?0?5?$CF?$FL?$FO0?99?$FN?$CF?$FL0?99?9?$FN?5pp?4?5?$FL?$FO?$AA@
+                    ??_C@_0CC@DDIA@?5?$CF?$FL0?99?$FN?5?0?5?$CF?$FL?$FO0?99?$FN?$CF?$FL0?99?9?$FN?5pp?4?5?$FL?$FO?$AA@
+
+ 0001:2298       ??_C@_0CE@PGFM@?$CF?$FL?$FO0?99?$FN?$CF?$FL?$FO?$DL?$FN?$DL?5?$CFd?5?$CI?5?$CF?$FL?$FO?$CJ?$FN?$CJ?5?3?5?$CF?$FL0?9@
+                    ??_C@_0CE@PGFM@?$CF?$FL?$FO0?99?$FN?$CF?$FL?$FO?$DL?$FN?$DL?5?$CFd?5?$CI?5?$CF?$FL?$FO?$CJ?$FN?$CJ?5?3?5?$CF?$FL0?9@
+
+ 0001:22EE       ??_C@_0CI@LKMM@?$CF?$FL?$FO?4?$FN?4?5?$CF?$FL0?99?$FN?5?0?5?$CFd?5?3?5?$CF?$FL0?99?9?1?$FN?5?0?5@
+                    ??_C@_0CI@LKMM@?$CF?$FL?$FO?4?$FN?4?5?$CF?$FL0?99?$FN?5?0?5?$CFd?5?3?5?$CF?$FL0?99?9?1?$FN?5?0?5@
+
+ 0001:23BC       ??_C@_0CK@ICHI@?5?$CF?$FL0?99?$FN?5?0?$CF?$FL?$FO0?99?$FN?$CF?$FL0?99?9?$FN?5pp?4?5?$DL?5?$CF?$FL@
+                    ??_C@_0CK@ICHI@?5?$CF?$FL0?99?$FN?5?0?$CF?$FL?$FO0?99?$FN?$CF?$FL0?99?9?$FN?5pp?4?5?$DL?5?$CF?$FL@
+
+ 0001:235C       ??_C@_0CL@DPKM@?$CF?$FL?$FO?3?$FN?3?5?$CF?$FL?$FO0?99?$FN?$CF?$FL0?99?$FN?0?5?$CF?$FL0?99?9?$FN?$DL?$CF?$FL@
+                    ??_C@_0CL@DPKM@?$CF?$FL?$FO?3?$FN?3?5?$CF?$FL?$FO0?99?$FN?$CF?$FL0?99?$FN?0?5?$CF?$FL0?99?9?$FN?$DL?$CF?$FL@
+
+ 0001:22BC       ??_C@_0DB@HGGN@?$CF?$FL?$FO?4?$FN?4?$CF?$FL0?99?$FN?5?0?5No?4?5?$CF?$FL0?99?9?1?$FN?0?5?$CF?$FL0@
+                    ??_C@_0DB@HGGN@?$CF?$FL?$FO?4?$FN?4?$CF?$FL0?99?$FN?5?0?5No?4?5?$CF?$FL0?99?9?1?$FN?0?5?$CF?$FL0@
+
+ 0001:2388       ??_C@_0DD@OOBC@?$CF?$FL?$FO?4?$FN?4?5?$CF?$FL?$FO?0?$FN?0?5?$CF?$FL0?99?$FN?0?5?$CF?$FL?$FO?4?$FN?4?5?$CF?$FL?$FO@
+                    ??_C@_0DD@OOBC@?$CF?$FL?$FO?4?$FN?4?5?$CF?$FL?$FO?0?$FN?0?5?$CF?$FL0?99?$FN?0?5?$CF?$FL?$FO?4?$FN?4?5?$CF?$FL?$FO@
+
+ 0001:2446       ??_C@_0ED@GFFH@MedLine?5text?5file?5?$CI?$CK?4med?0?5?$CK?4mdl?$CJ@
+                    ??_C@_0ED@GFFH@MedLine?5text?5file?5?$CI?$CK?4med?0?5?$CK?4mdl?$CJ@
+
+ 0001:2436       ??_C@_0P@INOF@MedLine?5format?$AA@
+                    ??_C@_0P@INOF@MedLine?5format?$AA@
+
+ 0000:0000  Imp  CHECKDLGBUTTON       (USER.97)
+ 0000:0000  Imp  DIALOGBOX            (USER.87)
+ 0000:0000  Imp  DOS3CALL             (KERNEL.102)
+ 0000:0000  Imp  ENDDIALOG            (USER.88)
+ 0000:0000  Imp  FATALAPPEXIT         (KERNEL.137)
+ 0000:0000  Imp  FATALEXIT            (KERNEL.1)
+ 0000:0000  Imp  GETBUFSZ             (RIMPEXP.GETBUFSZ)
+ 0000:0000  Imp  GETCONFIGINT         (RIMPEXP.GETCONFIGINT)
+ 0000:0000  Imp  GETDOSENVIRONMENT    (KERNEL.131)
+ 0000:0000  Imp  GETMODULEUSAGE       (KERNEL.48)
+ 0001:200E       GETSPECS
+ 0000:0000  Imp  GETVERSION           (KERNEL.3)
+ 0000:0000  Imp  GLOBALALLOC          (KERNEL.15)
+ 0000:0000  Imp  GLOBALFREE           (KERNEL.17)
+ 0000:0000  Imp  GLOBALLOCK           (KERNEL.18)
+ 0000:0000  Imp  GLOBALREALLOC        (KERNEL.16)
+ 0000:0000  Imp  GLOBALSIZE           (KERNEL.20)
+ 0000:0000  Imp  GLOBALUNLOCK         (KERNEL.19)
+ 0000:0000  Imp  INITTASK             (KERNEL.91)
+ 0000:0000  Imp  ISDLGBUTTONCHECKED   (USER.98)
+ 0001:2212       LIBMAIN
+ 0001:193A       LOADREF
+ 0000:0000  Imp  LOCALINIT            (KERNEL.4)
+ 0000:0000  Imp  LOCKSEGMENT          (KERNEL.23)
+ 0000:0000  Imp  LSTRCAT              (KERNEL.89)
+ 0000:0000  Imp  LSTRCPY              (KERNEL.88)
+ 0001:20D8       OPTPROC
+ 0001:21A0       OPTS
+ 0000:0000  Imp  READLINE             (RIMPEXP.READLINE)
+ 0002:0004       rsrvptrs
+ 0000:0000  Imp  SETCONFIGINT         (RIMPEXP.SETCONFIGINT)
+ 0001:21E0       WEP
+ 0001:1FFC       WHOAMI
+ 0001:12A8       _AddStuff
+ 0002:0027       _aseghi
+ 0002:0025       _aseglo
+ 0001:07E6       _atol
+ 0002:02E0       _BufSz
+ 0002:0290       _edata
+ 0002:02E6       _end
+ 0002:02D0       _EoF
+ 0002:013E       _errno
+ 0001:1260       _FirstNonWhite
+ 0001:0662       _HexToDec
+ 0002:02E4       _hInst
+ 0001:0678       _Inc
+ 0002:02D6       _Opt
+ 0001:2082       _Opt_OnCommand
+ 0001:2020       _Opt_OnInitDialog
+ 0002:02D2       _p
+ 0001:1896       _RemoveHyphens
+ 0001:13D4       _SplitSource
+ 0002:0018       _STKHQQ
+ 0001:0806       _strchr
+ 0001:0BA0       _strcpy
+ 0001:0BDC       _strlen
+ 0001:087E       _strstr
+ 0002:0016       _szCBrackSet
+ 0002:0010       _szSBrackSet
+ 0002:02D8       _tstr1
+ 0002:02DC       _tstr2
+ 0001:0690       _UnInc
+ 0001:06A4       _WhiteOut
+ 0001:0000       _wsscanf
+ 0000:9876  Abs  __acrtmsg
+ 0000:9876  Abs  __acrtused
+ 0000:D6D6  Abs  __aDBdoswp
+ 0002:0174       __adbgmsg
+ 0000:D6D6  Abs  __aDBused
+ 0001:08EA       __aFFalmul
+ 0001:08EA       __aFFaulmul
+ 0001:0CB0       __aFlmul
+ 0001:0CB0       __aFulmul
+ 0002:0130       __aintdiv
+ 0002:018A       __amblksiz
+ 0001:0FA4       __amsg_exit
+ 0001:072C       __astart
+ 0001:0BF6       __catox
+ 0001:0980       __cexit
+ 0002:0171       __child
+ 0001:0938       __cinit
+ 0001:0F9A       __cintDIV
+ 0001:0C4C       __cltoasub
+ 0002:0149       __cpumode
+ 0001:09DF       __ctermsub
+ 0002:002E       __ctype
+ 0002:002E       __ctype_
+ 0001:0C59       __cxtoa
+ 0001:0991       __c_exit
+ 0002:0024       __dllinit
+ 0002:014A       __doserrno
+ 0001:11F4       __dosret0
+ 0001:1213       __dosretax
+ 0001:1201       __dosreturn
+ 0002:0290       __edata
+ 0002:02E6       __end
+ 0002:0168       __environ
+ 0001:108E       __eof
+ 0002:0173       __exitflag
+ 0002:0134       __fac
+ 0001:0AD8       __ffree
+ 0001:0A1C       __FF_MSGBANNER
+ 0002:017C       __fheap
+ 0001:0EB7       __findlast
+ 0001:0AF9       __fmalloc
+ 0002:01A4       __fpinit
+ 0000:9876  Abs  __fptaskdata
+ 0001:0ED8       __fptrap
+ 0001:0DB2       __freefarheap
+ 0001:0FE6       __freelist
+ 0001:0F0C       __GetDGROUP
+ 0001:0DC0       __growseg
+ 0002:001A       __hModule
+ 0001:0E51       __incseg
+ 0001:1024       __initseg
+ 0001:07EA       __itoa
+ 0001:1058       __linkseg
+ 0002:0020       __lpszCmdLine
+ 0001:112C       __lseek
+ 0002:01A0       __lseekchk
+ 0001:1225       __maperror
+ 0001:0EDE       __myalloc
+ 0001:0F1C       __nearstub
+ 0001:0D30       __newseg
+ 0002:014C       __nfile
+ 0001:0CE2       __NMSG_TEXT
+ 0001:0D19       __NMSG_WRITE
+ 0001:07CE       __nomain
+ 0002:014A       __oserr
+ 0002:014E       __osfile
+ 0002:0145       __osmajor
+ 0002:0144       __osminor
+ 0002:0148       __osmode
+ 0002:0144       __osver
+ 0002:0146       __osversion
+ 0002:016C       __pgmptr
+ 0002:0178       __pnhFarHeap
+ 0001:0F1E       __searchseg
+ 0001:0A40       __setenvp
+ 0000:0001  Abs  __sizec
+ 0000:0001  Abs  __sized
+ 0001:0838       __strdup
+ 0001:090C       __stubmain
+ 0002:0140       __umaskval
+ 0002:001C       __wDataSeg
+ 0001:06E8       __wflags
+ 0002:001E       __wHeapSize
+ 0000:0000  Imp  __WINFLAGS           (KERNEL.178)
+ 0002:0143       __winmajor
+ 0002:0142       __winminor
+ 0002:0142       __winver
+ 0002:002B       ___aDBrterr
+ 0002:0029       ___aDBswpflg
+ 0002:0162       ___argc
+ 0002:0164       ___argv
+ 0001:1010       ___ExportedStub
+
+  Address         Publics by Value
+
+ 0000:0000  Imp  GLOBALALLOC          (KERNEL.15)
+ 0000:0000  Imp  ENDDIALOG            (USER.88)
+ 0000:0000  Imp  GETVERSION           (KERNEL.3)
+ 0000:0000  Imp  READLINE             (RIMPEXP.READLINE)
+ 0000:0000  Imp  CHECKDLGBUTTON       (USER.97)
+ 0000:0000  Imp  GLOBALSIZE           (KERNEL.20)
+ 0000:0000  Imp  GETDOSENVIRONMENT    (KERNEL.131)
+ 0000:0000  Imp  GLOBALFREE           (KERNEL.17)
+ 0000:0000  Imp  GLOBALUNLOCK         (KERNEL.19)
+ 0000:0000  Imp  INITTASK             (KERNEL.91)
+ 0000:0000  Imp  ISDLGBUTTONCHECKED   (USER.98)
+ 0000:0000  Imp  FATALEXIT            (KERNEL.1)
+ 0000:0000  Imp  FATALAPPEXIT         (KERNEL.137)
+ 0000:0000  Imp  GETMODULEUSAGE       (KERNEL.48)
+ 0000:0000  Imp  LOCALINIT            (KERNEL.4)
+ 0000:0000  Imp  LSTRCAT              (KERNEL.89)
+ 0000:0000  Imp  GETCONFIGINT         (RIMPEXP.GETCONFIGINT)
+ 0000:0000  Imp  GLOBALLOCK           (KERNEL.18)
+ 0000:0000  Imp  DOS3CALL             (KERNEL.102)
+ 0000:0000  Imp  __WINFLAGS           (KERNEL.178)
+ 0000:0000  Imp  SETCONFIGINT         (RIMPEXP.SETCONFIGINT)
+ 0000:0000  Imp  GETBUFSZ             (RIMPEXP.GETBUFSZ)
+ 0000:0000  Imp  LOCKSEGMENT          (KERNEL.23)
+ 0000:0000  Imp  DIALOGBOX            (USER.87)
+ 0000:0000  Imp  GLOBALREALLOC        (KERNEL.16)
+ 0000:0000  Imp  LSTRCPY              (KERNEL.88)
+ 0000:0001  Abs  __sized
+ 0000:0001  Abs  __sizec
+ 0000:9876  Abs  __acrtmsg
+ 0000:9876  Abs  __fptaskdata
+ 0000:9876  Abs  __acrtused
+ 0000:D6D6  Abs  __aDBused
+ 0000:D6D6  Abs  __aDBdoswp
+ 0001:0000       _wsscanf
+ 0001:0662       _HexToDec
+ 0001:0678       _Inc
+ 0001:0690       _UnInc
+ 0001:06A4       _WhiteOut
+ 0001:06E8       __wflags
+ 0001:072C       __astart
+ 0001:07CE       __nomain
+ 0001:07E6       _atol
+ 0001:07EA       __itoa
+ 0001:0806       _strchr
+ 0001:0838       __strdup
+ 0001:087E       _strstr
+ 0001:08EA       __aFFaulmul
+ 0001:08EA       __aFFalmul
+ 0001:090C       __stubmain
+ 0001:0938       __cinit
+ 0001:0980       __cexit
+ 0001:0991       __c_exit
+ 0001:09DF       __ctermsub
+ 0001:0A1C       __FF_MSGBANNER
+ 0001:0A40       __setenvp
+ 0001:0AD8       __ffree
+ 0001:0AF9       __fmalloc
+ 0001:0BA0       _strcpy
+ 0001:0BDC       _strlen
+ 0001:0BF6       __catox
+ 0001:0C4C       __cltoasub
+ 0001:0C59       __cxtoa
+ 0001:0CB0       __aFulmul
+ 0001:0CB0       __aFlmul
+ 0001:0CE2       __NMSG_TEXT
+ 0001:0D19       __NMSG_WRITE
+ 0001:0D30       __newseg
+ 0001:0DB2       __freefarheap
+ 0001:0DC0       __growseg
+ 0001:0E51       __incseg
+ 0001:0EB7       __findlast
+ 0001:0ED8       __fptrap
+ 0001:0EDE       __myalloc
+ 0001:0F0C       __GetDGROUP
+ 0001:0F1C       __nearstub
+ 0001:0F1E       __searchseg
+ 0001:0F9A       __cintDIV
+ 0001:0FA4       __amsg_exit
+ 0001:0FE6       __freelist
+ 0001:1010       ___ExportedStub
+ 0001:1024       __initseg
+ 0001:1058       __linkseg
+ 0001:108E       __eof
+ 0001:112C       __lseek
+ 0001:11F4       __dosret0
+ 0001:1201       __dosreturn
+ 0001:1213       __dosretax
+ 0001:1225       __maperror
+ 0001:1260       _FirstNonWhite
+ 0001:12A8       _AddStuff
+ 0001:13D4       _SplitSource
+ 0001:1896       _RemoveHyphens
+ 0001:193A       LOADREF
+ 0001:1FFC       WHOAMI
+ 0001:200E       GETSPECS
+ 0001:2020       _Opt_OnInitDialog
+ 0001:2082       _Opt_OnCommand
+ 0001:20D8       OPTPROC
+ 0001:21A0       OPTS
+ 0001:21E0       WEP
+ 0001:2212       LIBMAIN
+ 0001:228A       ??_C@_06KEGF@?$AN?6?7?3?5?9?$AA@
+                    ??_C@_06KEGF@?$AN?6?7?3?5?9?$AA@
+
+ 0001:2292       ??_C@_02PIMC@?$AN?6?$AA@
+                    ??_C@_02PIMC@?$AN?6?$AA@
+
+ 0001:2296       ??_C@_01KKJH@?$AB?$AA@
+                    ??_C@_01KKJH@?$AB?$AA@
+
+ 0001:2298       ??_C@_0CE@PGFM@?$CF?$FL?$FO0?99?$FN?$CF?$FL?$FO?$DL?$FN?$DL?5?$CFd?5?$CI?5?$CF?$FL?$FO?$CJ?$FN?$CJ?5?3?5?$CF?$FL0?9@
+                    ??_C@_0CE@PGFM@?$CF?$FL?$FO0?99?$FN?$CF?$FL?$FO?$DL?$FN?$DL?5?$CFd?5?$CI?5?$CF?$FL?$FO?$CJ?$FN?$CJ?5?3?5?$CF?$FL0?9@
+
+ 0001:22BC       ??_C@_0DB@HGGN@?$CF?$FL?$FO?4?$FN?4?$CF?$FL0?99?$FN?5?0?5No?4?5?$CF?$FL0?99?9?1?$FN?0?5?$CF?$FL0@
+                    ??_C@_0DB@HGGN@?$CF?$FL?$FO?4?$FN?4?$CF?$FL0?99?$FN?5?0?5No?4?5?$CF?$FL0?99?9?1?$FN?0?5?$CF?$FL0@
+
+ 0001:22EE       ??_C@_0CI@LKMM@?$CF?$FL?$FO?4?$FN?4?5?$CF?$FL0?99?$FN?5?0?5?$CFd?5?3?5?$CF?$FL0?99?9?1?$FN?5?0?5@
+                    ??_C@_0CI@LKMM@?$CF?$FL?$FO?4?$FN?4?5?$CF?$FL0?99?$FN?5?0?5?$CFd?5?3?5?$CF?$FL0?99?9?1?$FN?5?0?5@
+
+ 0001:2316       ??_C@_0BN@JCCM@?$CF?$FL?$FO?4?$FN?4?5?$CF?$FL0?99?$FN?5?0?5?$CFd?5?0?5?$CF?$FL0?99?9?$FN?$AA@
+                    ??_C@_0BN@JCCM@?$CF?$FL?$FO?4?$FN?4?5?$CF?$FL0?99?$FN?5?0?5?$CFd?5?0?5?$CF?$FL0?99?9?$FN?$AA@
+
+ 0001:2334       ??_C@_0BN@FPLO@?$CF?$FL?$FO?4?$FN?4?5?$CF?$FL0?99?$FN?5?$DL?5?$CFd?5?3?5?$CF?$FL0?99?9?$FN?$AA@
+                    ??_C@_0BN@FPLO@?$CF?$FL?$FO?4?$FN?4?5?$CF?$FL0?99?$FN?5?$DL?5?$CFd?5?3?5?$CF?$FL0?99?9?$FN?$AA@
+
+ 0001:2352       ??_C@_08BALA@?$CIEditor?$CJ?$AA@
+                    ??_C@_08BALA@?$CIEditor?$CJ?$AA@
+
+ 0001:235C       ??_C@_0CL@DPKM@?$CF?$FL?$FO?3?$FN?3?5?$CF?$FL?$FO0?99?$FN?$CF?$FL0?99?$FN?0?5?$CF?$FL0?99?9?$FN?$DL?$CF?$FL@
+                    ??_C@_0CL@DPKM@?$CF?$FL?$FO?3?$FN?3?5?$CF?$FL?$FO0?99?$FN?$CF?$FL0?99?$FN?0?5?$CF?$FL0?99?9?$FN?$DL?$CF?$FL@
+
+ 0001:2388       ??_C@_0DD@OOBC@?$CF?$FL?$FO?4?$FN?4?5?$CF?$FL?$FO?0?$FN?0?5?$CF?$FL0?99?$FN?0?5?$CF?$FL?$FO?4?$FN?4?5?$CF?$FL?$FO@
+                    ??_C@_0DD@OOBC@?$CF?$FL?$FO?4?$FN?4?5?$CF?$FL?$FO?0?$FN?0?5?$CF?$FL0?99?$FN?0?5?$CF?$FL?$FO?4?$FN?4?5?$CF?$FL?$FO@
+
+ 0001:23BC       ??_C@_0CK@ICHI@?5?$CF?$FL0?99?$FN?5?0?$CF?$FL?$FO0?99?$FN?$CF?$FL0?99?9?$FN?5pp?4?5?$DL?5?$CF?$FL@
+                    ??_C@_0CK@ICHI@?5?$CF?$FL0?99?$FN?5?0?$CF?$FL?$FO0?99?$FN?$CF?$FL0?99?9?$FN?5pp?4?5?$DL?5?$CF?$FL@
+
+ 0001:23E6       ??_C@_0CC@DDIA@?5?$CF?$FL0?99?$FN?5?0?5?$CF?$FL?$FO0?99?$FN?$CF?$FL0?99?9?$FN?5pp?4?5?$FL?$FO?$AA@
+                    ??_C@_0CC@DDIA@?5?$CF?$FL0?99?$FN?5?0?5?$CF?$FL?$FO0?99?$FN?$CF?$FL0?99?9?$FN?5pp?4?5?$FL?$FO?$AA@
+
+ 0001:2408       ??_C@_03EKCM@Opt?$AA@
+                    ??_C@_03EKCM@Opt?$AA@
+
+ 0001:240C       ??_C@_07HDHG@MedLine?$AA@
+                    ??_C@_07HDHG@MedLine?$AA@
+
+ 0001:2414       ??_C@_07BPLO@?9?9?9?9?9?9?9?$AA@
+                    ??_C@_07BPLO@?9?9?9?9?9?9?9?$AA@
+
+ 0001:241C       ??_C@_07GLP@MEDLINE?$AA@
+                    ??_C@_07GLP@MEDLINE?$AA@
+
+ 0001:2424       ??_C@_05JBKM@?$CF?$FL?9?$FN?$AA?$AA@
+                    ??_C@_05JBKM@?$CF?$FL?9?$FN?$AA?$AA@
+
+ 0001:242A       ??_C@_02GDLA@?$DL?5?$AA@
+                    ??_C@_02GDLA@?$DL?5?$AA@
+
+ 0001:242E       ??_C@_06IBHE@unread?$AA@
+                    ??_C@_06IBHE@unread?$AA@
+
+ 0001:2436       ??_C@_0P@INOF@MedLine?5format?$AA@
+                    ??_C@_0P@INOF@MedLine?5format?$AA@
+
+ 0001:2446       ??_C@_0ED@GFFH@MedLine?5text?5file?5?$CI?$CK?4med?0?5?$CK?4mdl?$CJ@
+                    ??_C@_0ED@GFFH@MedLine?5text?5file?5?$CI?$CK?4med?0?5?$CK?4mdl?$CJ@
+
+ 0001:248A       ??_C@_04EJME@OPTS?$AA@
+                    ??_C@_04EJME@OPTS?$AA@
+
+ 0002:0004       rsrvptrs
+ 0002:0010       _szSBrackSet
+ 0002:0016       _szCBrackSet
+ 0002:0018       _STKHQQ
+ 0002:001A       __hModule
+ 0002:001C       __wDataSeg
+ 0002:001E       __wHeapSize
+ 0002:0020       __lpszCmdLine
+ 0002:0024       __dllinit
+ 0002:0025       _aseglo
+ 0002:0027       _aseghi
+ 0002:0029       ___aDBswpflg
+ 0002:002B       ___aDBrterr
+ 0002:002E       __ctype
+ 0002:002E       __ctype_
+ 0002:0130       __aintdiv
+ 0002:0134       __fac
+ 0002:013E       _errno
+ 0002:0140       __umaskval
+ 0002:0142       __winver
+ 0002:0142       __winminor
+ 0002:0143       __winmajor
+ 0002:0144       __osver
+ 0002:0144       __osminor
+ 0002:0145       __osmajor
+ 0002:0146       __osversion
+ 0002:0148       __osmode
+ 0002:0149       __cpumode
+ 0002:014A       __oserr
+ 0002:014A       __doserrno
+ 0002:014C       __nfile
+ 0002:014E       __osfile
+ 0002:0162       ___argc
+ 0002:0164       ___argv
+ 0002:0168       __environ
+ 0002:016C       __pgmptr
+ 0002:0171       __child
+ 0002:0173       __exitflag
+ 0002:0174       __adbgmsg
+ 0002:0178       __pnhFarHeap
+ 0002:017C       __fheap
+ 0002:018A       __amblksiz
+ 0002:01A0       __lseekchk
+ 0002:01A4       __fpinit
+ 0002:0290       _edata
+ 0002:0290       __edata
+ 0002:02D0       _EoF
+ 0002:02D2       _p
+ 0002:02D6       _Opt
+ 0002:02D8       _tstr1
+ 0002:02DC       _tstr2
+ 0002:02E0       _BufSz
+ 0002:02E4       _hInst
+ 0002:02E6       _end
+ 0002:02E6       __end
+
+Program entry point at 0001:072c

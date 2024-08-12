@@ -1,0 +1,120 @@
+In message <1.5.4.32.1996/05/16 065135.008c3ba8@mole.bio.cam.ac.uk>
+   "Re: About delimitation of records in REF7.8"
+   "Tim Cutts <tjrc1@mole.bio.cam.ac.uk>" wrote.
+
+> At 19:11 15/05/96 -0700, you wrote:
+> >Dear Dr. Cutts:
+> >I am very pleased today to find out a well defined database.  It has a nice 
+> >interface!!  I have one question to you before my registration, though.  
+> >Actually, I could not import the downloaded MEDLINE file properly, because of 
+> >delimitation problem.
+> 
+> What source are you downloading Medline from?  There are a number of things
+> you need to check.  Sometimes this is called 'tagged' format:
+> 
+> 1)  The fields must all start with a two letter code, for example:
+> 
+> AU  - Dewdney PE
+> TI  - A GALACTIC CHIMNEY IN THE PERSEUS ARM OF THE MILKY WAY
+> SO  - Nature 1996 Apr 25;380(6576):687-689
+> MH  - H-i shells.  O-stars.  Terminal velocities.  Interstellar-medium.
+> 
+> 2)  Check that the file is in MS-DOS text format.  If you downloaded it from
+> a UNIX or Macintosh machine, it might be in a different format.
+> 
+> Send me a small sample file and I'll tell you.
+> 
+> >Although you mentioned about the field marks, I could not 
+> >find how to delimit records.  Because I am not a programmer, would you please 
+> >help me to translate my text file to a appropriate style for REFS, using EXCEL 
+> >or WORD?
+> 
+> You don't need to use Excel or Word to do it.  Refs should be able to read
+> the text file directly.
+> 
+> >I would appreciate hearing from you.  Thank you very much for your 
+> >kind attention to this communication and taking your time.  
+> 
+> No problem.
+> 
+> Your sincerely,
+> 
+> Tim Cutts
+> 
+
+Thank you very much for your prompt reply!!  I should have explained more about what I 
+tried, sorry.  I downloaded files via the internet from the library, so it is already 
+converted to MSDOS format by the mailer software in my PC, I think.  The server in the 
+library may be a UNIX machine, I tried UNIX2DOS.COM < MYFILE > OUTPUT, which attouch 
+the CTRL-M at the end of the lines, but it did not contribute at all to make my file 
+read by REFS.  Please take a look of the next sample file.  It has a tagged format as 
+you expected.  Each field is started with 2 letter marker followed by 2 spaces, which 
+I can search and replace with WORD or EXCEL into %A space or anything you design.  The 
+problem is NOT the end of each line but the marker of the end of each record.  In this 
+file it is delimited return-return-ZZ-return.  If I import this file as a MEDLINE 
+format, abstract(except the last record), year and pages appear in correct windows, 
+but others do not.  If I try REF format, all the fields other than abstract come out 
+in the abstract window.  I tried editing refer.flt to change '%%A %S' to '%PA %S", but 
+it made no change.  Those are all I tried.  Thank you very much for taking your time 
+to do this boring job.  I look forward to hearing from you again.  
+
+Sincerely yours,
+Shugo Suwazono
+
+1.
+AN  96107859
+DB  MEDLINE
+DT  ARTICLE - Journal Article
+PA  Leon FE
+PA  Arimura K
+PA  Arimura Y
+PA  Sonoda Y
+PA  Suwazono S
+PA  Osame M
+AT  Clinical neurophysiological comparative study on HTLV-1 associated
+    myelopathy/tropical spastic paraparesis
+JT  Archives of Medical Research
+TA  Arch Med Res
+DP  1995 Winter
+VO  26
+NR  4
+PG  397-403
+LA  English
+AB  In order to determine the neurophysiological characteristics of
+    HTLV-1-associated myelopathy/tropical spastic paraparesis (HAM/TSP)
+    throughout the world, we analyzed and compared the most common clinical
+    neurophysiological studies (CNPS) performed in this entity from those
+    places with a high prevalence and interesting regional differences were
+    noted. (skip) Such differences could likely be due to the action of the
+    so-called environmental co-factors present in each of these areas which
+    should be promptly investigated
+ZZ
+
+2.
+AN  96093972
+DB  MEDLINE
+DT  ARTICLE - Clinical Trial; Controlled Clinical Trial; Journal Article
+PA  Nishida S
+PA  Nakamura M
+PA  Miyazaki M
+PA  Suwazono S
+PA  Honda M
+PA  Nagamine T
+PA  Shibasaki H
+AT  Construction of a morphological filter for detecting an event-related
+    potential P300 in single sweep EEG record in children
+JT  Medical Engineering and Physics
+TA  Med Eng Phys
+DP  1995 Sep
+VO  17
+NR  6
+PG  425-30
+LA  English
+AB  A morphological filter for single sweep records of event-related potential
+    (ERP) obtained in an auditory oddball paradigm, especially P300 waveform,
+    was constructed. By combining four basic operations; erosion, dilation,
+    opening and closing, we could derive a desired filter whose properties fit
+    the current objectives. (skip)
+ZZ
+
+

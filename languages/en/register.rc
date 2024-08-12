@@ -1,0 +1,14 @@
+#include "../inc/rc.h"
+REGISTER DIALOG 18, 18, 205, 70
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+FONT 10, "Arial"
+CAPTION "Registration..."
+BEGIN
+    RTEXT           "&Name:",-1,36,13,48,8
+    EDITTEXT        ide_Name,87,11,109,12,ES_AUTOHSCROLL
+    RTEXT           "&Registration code:",-1,9,31,75,8
+    EDITTEXT        ide_Code,87,29,109,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,115,53,43,14
+    PUSHBUTTON      "Cancel",IDCANCEL,159,53,43,14
+    CONTROL         "",-1,"Static",SS_BLACKFRAME,4,5,197,43
+END

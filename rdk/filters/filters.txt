@@ -1,0 +1,11 @@
+Directory layout:
+
+REFER\		C source code to the REFER.FLT filter.
+		Visual C++ 1.52 and 2.1 makefiles.
+
+C\		C/C++ header files
+
+C\LIB16\	16-bit RIMPEXP.LIB
+C\LIB32\	32-bit RIMPEXP.LIB
+
+PASCAL\		Borland Pascal units

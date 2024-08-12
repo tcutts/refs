@@ -1,0 +1,49 @@
+; This file is maintained by HCW. Do not modify this file directly.
+
+[OPTIONS]
+HCW=0
+COMPRESS=12 Hall Zeck
+LCID=0x809 0x0 0x0 ;English (United Kingdom)
+REPORT=Yes
+TITLE=Refs 7.8.1
+CNT=.\refs32.cnt
+COPYRIGHT=Refs 7.8.1 Help, © TJR Cutts, 1993-7
+BMROOT=Pics
+ROOT=.
+HLP=.\REFS32.hlp
+
+[FILES]
+refs.rtf
+howto.rtf
+tech.rtf
+faq.rtf
+
+[BUILDTAGS]
+Feric
+Standard
+win16
+win32
+
+[MAP]
+BibSyntax=5
+Duplicate=6
+EditRef=1
+KeyList=9
+Licence=3
+ListOpt=4
+NameSort=7
+OptSort=2
+OrderFrm=10
+PrintRef=8
+regexp=11
+
+[CONFIG]
+BrowseButtons()
+CreateButton("p_order", " &Order Form ", "JumpContext(`REFS32.HLP', 10)")
+
+[EXCLUDE]
+Feric
+win16
+
+[INCLUDE]
+win32

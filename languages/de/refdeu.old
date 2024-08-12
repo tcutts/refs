@@ -1,0 +1,603 @@
+#ifdef WIN32
+#include <windows.h>
+#include <winver.h>
+#else
+#include "d:\msvc\include\windows.h"
+#include "d:\msvc\include\ver.h"
+#endif
+#include "refs.h"
+
+EDITBIB DIALOG 18, 18, 218, 58
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+{
+ LTEXT "Format für Bibliographie:", -1, 6, 3, 209, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+ EDITTEXT id_FmtEdit, 6, 14, 208, 24, ES_LEFT | ES_MULTILINE | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL | WS_TABSTOP
+ DEFPUSHBUTTON "OK", 1, 89, 41, 38, 14, BS_DEFPUSHBUTTON | WS_GROUP | WS_TABSTOP
+ PUSHBUTTON "Abbrechen", 2, 129, 41, 42, 14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+ PUSHBUTTON "&Hilfe", cm_Help, 173, 41, 42, 14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+}
+
+BIBNAME DIALOG 18, 18, 218, 44
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Neues Format für Bibliographie"
+{
+ LTEXT "Wie soll dieses Format bezeichnet werden?", -1, 6, 2, 209, 8
+ EDITTEXT id_FmtEdit, 6, 12, 208, 12, ES_LEFT | ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP
+ DEFPUSHBUTTON "OK", 1, 131, 27, 38, 14, BS_DEFPUSHBUTTON | WS_GROUP | WS_TABSTOP
+ PUSHBUTTON "Abbrechen", 2, 172, 27, 42, 14, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+}
+
+BIBFMT DIALOG 18, 18, 157, 169
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Format für Bibliographie"
+FONT 8, "System"
+{
+ LTEXT "Beispiel:", -1, 4,56,51,8
+ EDITTEXT id_Sample, 3,65,151,82, ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | WS_BORDER | WS_VSCROLL | WS_TABSTOP
+ DEFPUSHBUTTON "Ok", IDOK, 3, 151, 38, 15, BS_DEFPUSHBUTTON | WS_GROUP | WS_TABSTOP
+ PUSHBUTTON "Abbrechen", IDCANCEL, 43, 151, 38, 15
+ PUSHBUTTON "&Hilfe", cm_Help, 83, 151, 38, 15
+ LISTBOX id_FmtList, 4, 4, 104, 48, LBS_STANDARD | LBS_NOINTEGRALHEIGHT | WS_GROUP | WS_TABSTOP
+ PUSHBUTTON "&Bearbeiten...", id_FmtEdit, 110, 4, 45, 13, WS_GROUP | WS_TABSTOP
+ PUSHBUTTON "&Neu...", id_FmtNew, 110, 19, 45, 13, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+ PUSHBUTTON "&Löschen", id_FmtDel, 110, 34, 45, 13, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+}
+
+KEYWORDS DIALOG 18, 18, 242, 107
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Schlüsselwort(e) hinzufügen"
+{
+ LTEXT "Unten ausgewählte Schlüsselworte werden den ausgewählten Referenzen hinzugefügt:", -1, 4, 4, 228, 18, WS_GROUP
+ LISTBOX id_KeyList, 4, 23, 93, 53, LBS_SORT | LBS_MULTIPLESEL |
+LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL |
+WS_TABSTOP
+ PUSHBUTTON ">> &Bearbeiten >>", button_Edit, 99, 23, 58, 14, WS_GROUP | WS_TABSTOP
+ EDITTEXT edit_Add, 159, 23, 82, 12, ES_AUTOHSCROLL
+ PUSHBUTTON "<<  &Dazu  <<", button_Add, 99, 39, 58, 14
+ PUSHBUTTON "&Löschen", button_Del, 99, 55, 58, 14
+ DEFPUSHBUTTON "Zur &Referenz dazu", IDOK, 7, 85, 87, 14, BS_DEFPUSHBUTTON | WS_GROUP | WS_TABSTOP
+ PUSHBUTTON "Liste &speichern", button_Save, 99, 76, 87, 14, WS_GROUP | WS_TABSTOP
+ PUSHBUTTON "&Aktive Datei durchsuchen", idb_Scan, 99, 91, 87, 14
+ PUSHBUTTON "&Hilfe", cm_Help, 188, 76, 53, 14
+ PUSHBUTTON "Abbrechen", IDCANCEL, 188, 91, 53, 14
+}
+
+EDITREF DIALOG 11, 13, 315, 215
+STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME | WS_MAXIMIZEBOX
+MENU EDIT_REF
+FONT 10, "System"
+{
+ CONTROL "&Titel:", idt_Title, "STATIC", SS_RIGHT | WS_CHILD | WS_VISIBLE | WS_GROUP, 1, 4, 20, 9
+ CONTROL "", id_Title, "EDIT", ES_LEFT | ES_MULTILINE | ES_AUTOVSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 24, 3, 288, 21
+ CONTROL "", idt_BookJou, "STATIC", SS_RIGHT | WS_CHILD | WS_VISIBLE | WS_GROUP, 60, 28, 69, 8
+ CONTROL "", id_Journal, "COMBOBOX", CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_CHILD | WS_VISIBLE | WS_VSCROLL | WS_TABSTOP, 132, 26, 182, 157
+ CONTROL "&Band: (Jahrgang)", idt_Volume, "STATIC", SS_RIGHT | WS_CHILD | WS_VISIBLE | WS_GROUP, 189, 43, 36, 16
+ CONTROL "", id_Volume, "EDIT", ES_LEFT | ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 225, 40, 43, 12
+ CONTROL "N&r:", idt_VolNo, "STATIC", SS_RIGHT | WS_CHILD | WS_VISIBLE | WS_GROUP, 272, 42, 11, 8
+ CONTROL "", id_Number, "EDIT", ES_LEFT | ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 286, 40, 27, 12
+ CONTROL "&Seiten:", idt_Pages, "STATIC", SS_RIGHT | WS_CHILD | WS_VISIBLE | WS_GROUP, 246, 56, 24, 8
+ CONTROL "", id_Pages, "EDIT", ES_LEFT | ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 273, 54, 40, 12
+ CONTROL "&Abstract:", idt_Abstract, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 4, 31, 38, 8
+ CONTROL "", id_Text, "EDIT", ES_LEFT | ES_MULTILINE | ES_AUTOVSCROLL | ES_WANTRETURN | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL | WS_TABSTOP, 3, 41, 181, 172
+ CONTROL "&Verlag:", idt_Publisher, "STATIC", SS_RIGHT | WS_CHILD | WS_VISIBLE | WS_GROUP, 201, 70, 36, 8
+ CONTROL "", id_Publisher, "EDIT", ES_LEFT | ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 241, 68, 72, 12
+ CONTROL "&Herausgeber:", idt_Editor, "STATIC", SS_RIGHT | WS_CHILD | WS_VISIBLE, 191, 82, 44, 8
+ CONTROL "", id_Editor, "EDIT", ES_LEFT | ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL | WS_TABSTOP, 236, 82, 77, 25
+ CONTROL "&Ort (der Publikation)/Adresse:", idt_City, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 197, 109, 115, 8
+ CONTROL "", id_City, "EDIT", ES_LEFT | ES_MULTILINE | ES_AUTOVSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL | WS_TABSTOP, 197, 119, 115, 25
+ CONTROL "&Stichworte:", idt_Keywords, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 197, 144, 114, 8
+ CONTROL "", id_Keywords, "EDIT", ES_LEFT | ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL | WS_TABSTOP, 197, 153, 115, 34
+ CONTROL "&<", id_GPrev, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 221, 188, 22, 12
+ CONTROL "&>", id_GNext, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 244, 188, 22, 12
+ CONTROL "OK", IDOK, "BUTTON", BS_DEFPUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 267, 188, 44, 12
+ CONTROL "OK und &Neu", id_OkNew, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 221, 201, 45, 12
+ CONTROL "Abbrechen", IDCANCEL, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 267, 201, 44, 12
+}
+
+LANGDLG DIALOG 23, 18, 121, 79
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Sprache auswählen"
+FONT 8, "System"
+{
+ CONTROL "", id_LangList, "LISTBOX", LBS_NOTIFY | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL, 4, 16, 69, 58
+ CONTROL "OK", IDOK, "BUTTON", BS_DEFPUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 76, 44, 42, 14
+ CONTROL "Abbrechen", IDCANCEL, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 76, 59, 42, 14
+ CONTROL "&Verfügbare Sprach-DLLs:", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 4, 5, 116, 8
+}
+
+SRCHOPT DIALOG 10, 20, 214, 51
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Optionen - Suchen"
+{
+ CONTROL "", -1, "STATIC", SS_BLACKFRAME | WS_CHILD | WS_VISIBLE | WS_GROUP, 6, 5, 157, 41
+ CONTROL "&Groß- und Kleinschreibung beim Suchen", id_CaseDef, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 12, 10, 146, 12
+ CONTROL "beachten", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE, 21, 21, 83, 8
+ CONTROL "&Fenster standardmäßig durchsuchen", id_Searchable, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 12, 29, 146, 12
+ CONTROL "OK", IDOK, "BUTTON", BS_DEFPUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 168, 16, 42, 14
+ CONTROL "Abbrechen", IDCANCEL, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE, 168, 32, 42, 14
+}
+
+CONFIRM DIALOG 52, 66, 117, 101
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Optionen - Bestätigen"
+{
+ CONTROL "&nie", id_NeverDel, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 8, 15, 99, 10
+ CONTROL "nur bei &mehrfacher Auswahl", id_MultipleDel, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 8, 28, 102, 10
+ CONTROL "&immer", id_AlwaysDel, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 8, 42, 99, 10
+ CONTROL "&Bestätigung nach Drag&&Drop", id_MouseConf, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 3, 66, 111, 12
+ CONTROL "OK", IDOK, "BUTTON", BS_DEFPUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 38, 83, 32, 15
+ CONTROL "Abbrechen", IDCANCEL, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE, 72, 83, 42, 15
+ CONTROL "Löschen bestätigen:", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE | WS_GROUP, 3, 3, 109, 59
+}
+
+DUPLICATE DIALOG 27, 17, 210, 135
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Doppelte Referenz"
+{
+ CONTROL "", 104, "EDIT", ES_LEFT | ES_MULTILINE | ES_READONLY | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL | WS_GROUP | WS_TABSTOP, 8, 5, 195, 24
+ CONTROL "Diese Referenz existiert bereits in der Zieldatei.\nSie können sie entweder bearbeiten, die bestehende Referenz mit ihr überschreiben, oder sie nicht in die Zieldatei aufnehmen.", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE, 8, 34, 195, 35
+ CONTROL "Unter bestimmten Bedingungen verbessert ein Bearbeiten die Situation nicht, und es gibt keine Alternative.\nEine detailierte Beschreibung findet sich in der Hilfe-Datei.", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE, 8, 72, 195, 26
+ CONTROL "&Bearbeiten", id_DEdit, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 8, 101, 66, 14
+ CONTROL "&Autoren bearbeiten", id_DEditAuth, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE, 8, 117, 66, 14
+ CONTROL "&Überschreiben", idb_Replace, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE, 79, 101, 66, 14
+ CONTROL "&Nicht aufnehmen", id_Ignore, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE, 79, 117, 66, 14
+ CONTROL "&Hilfe", cm_Help, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 155, 101, 51, 14
+ CONTROL "Abbrechen", IDCANCEL, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE, 155, 117, 51, 14
+}
+
+ABORT DIALOG 14, 67, 140, 64
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Drucken"
+{
+ CONTROL "Abbrechen", IDCANCEL, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 47, 45, 42, 14
+ CONTROL "Schicke Daten", -1, "STATIC", SS_CENTER | WS_CHILD | WS_VISIBLE | WS_GROUP, 31, 15, 75, 8
+ CONTROL "", 50, "STATIC", SS_CENTER | WS_CHILD | WS_VISIBLE | WS_GROUP, 12, 23, 117, 8
+ CONTROL "zum Drucker...", -1, "STATIC", SS_CENTER | WS_CHILD | WS_VISIBLE | WS_GROUP, 26, 23, 88, 8
+ CONTROL "", -1, "STATIC", SS_GRAYFRAME | WS_CHILD | WS_VISIBLE, 5, 8, 129, 29
+}
+
+NAG DIALOG 18, 17, 206, 104
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Bitte registrieren Sie!"
+FONT 10, "System"
+{
+ CONTROL "&Registrieren...", id_BRegister, "BUTTON", BS_DEFPUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 5, 86, 62, 14
+ CONTROL "&Nicht registrieren", IDOK, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 105, 86, 62, 14
+ CONTROL "&Hilfe...", cm_Help, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 170, 86, 32, 14
+ CONTROL "Refs ist Shareware.  Diese nicht registrierte Kopie hat eine maximale Kapazität von 200 Referenzen in\n2 geöffneten Dateien.", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 9, 6, 187, 24
+ CONTROL "Durch die Registrierung wird die volle Version mit einer Kapazität von 4.1 Million Einträgen pro Datei, beliebig vielen geöffneten Dateien und ohne dieses Fenster aktiviert.", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 9, 33, 185, 32
+ CONTROL "Für mehr Information wählen Sie bitte Hilfe.", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 9, 68, 151, 8
+ CONTROL "MAIN", -1, "STATIC", SS_ICON | WS_CHILD | WS_VISIBLE, 179, 61, 16, 16
+ CONTROL "", -1, "STATIC", SS_GRAYFRAME | WS_CHILD | WS_VISIBLE, 5, 3, 197, 79
+}
+
+NAME DIALOG 90, 32, 144, 117
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Optionen - Namen sortieren"
+{
+ CONTROL "&Nachnamen", id_cmpsur, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 16, 15, 115, 12
+ CONTROL "ersten &angegebenen Namen", idr_firstname, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE, 16, 27, 115, 12
+ CONTROL "...steht normalerweise am &Ende", id_family, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 9, 58, 126, 12
+ CONTROL "...wird gefolgt von:", -1, "STATIC", SS_RIGHT | WS_CHILD | WS_VISIBLE | WS_GROUP, 30, 77, 90, 8
+ CONTROL "", id_surname, "EDIT", ES_LEFT | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 123, 75, 10, 12
+ CONTROL "OK", IDOK, "BUTTON", BS_DEFPUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 5, 97, 39, 14
+ CONTROL "Abbrechen", IDCANCEL, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE, 47, 97, 40, 14
+ CONTROL "Hilfe", cm_Help, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 99, 97, 40, 14
+ CONTROL "Nachname", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE | WS_GROUP, 5, 49, 133, 43
+ CONTROL "Vergleiche", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE | WS_GROUP, 6, 3, 131, 43
+}
+
+EDIT_REF MENU 
+{
+ POPUP "&Referenz"
+ {
+  MENUITEM "Zur Bibliographie &hinzufügen", cm_AddToBib
+  MENUITEM "&Schlüsselworte hinzufügen..", cm_AddKeyword
+  MENUITEM SEPARATOR
+  MENUITEM "&Kopieren (Format für Bibliographie)", cm_CopyFormatted
+  MENUITEM "&Drucken...", cm_Print
+ }
+
+ POPUP "&Bearbeiten"
+ {
+  MENUITEM "&Rückgängig\tAlt+Rück", 772
+  MENUITEM SEPARATOR
+  MENUITEM "&Ausschneiden\tStrg+X", 768
+  MENUITEM "&Kopieren\tStrg+C", 769
+  MENUITEM "&Einfügen\tStrg+V", 770
+  MENUITEM SEPARATOR
+  MENUITEM "Häufige &Journals...", cm_CJournals
+  MENUITEM "Häufige &Buchtitel...", cm_CBooks
+  MENUITEM "Häufige &Berichttitel...", cm_CReports
+ }
+
+ MENUITEM "&Hilfe...", cm_Help
+}
+
+
+MAIN MENU PRELOAD MOVEABLE DISCARDABLE 
+{
+ POPUP "&Datei"
+ {
+  MENUITEM "&Neu", cm_FileNew
+  MENUITEM "Ö&ffnen...\tStrg+O", cm_FOpen
+  MENUITEM SEPARATOR
+  MENUITEM "S&peichern\tStrg+S", cm_FSave
+  MENUITEM "Speichern &unter...", cm_FSaveAs
+  MENUITEM SEPARATOR
+  MENUITEM "&Importieren...", cm_FImport
+  MENUITEM "&Exportieren...", cm_FExport
+  MENUITEM SEPARATOR
+  MENUITEM "&Drucken...", cm_Print
+  MENUITEM SEPARATOR
+  MENUITEM "&Schließen", cm_FClose
+  MENUITEM SEPARATOR
+  MENUITEM "&Beenden\tAlt+F4", cm_FExit
+ }
+
+ POPUP "&Bearbeiten"
+ {
+  MENUITEM "&Rückgängig\tAlt+Rück", 772
+  MENUITEM SEPARATOR
+  MENUITEM "&Ausschneiden\tStrg+X", 768
+  MENUITEM "&Kopieren\tStrg+C", 769
+  MENUITEM "&Einfügen\tStrg+V", 770
+ }
+
+ POPUP "&Referenz"
+ {
+  MENUITEM "&Neu...\tF7", cm_RefNew
+  MENUITEM "&Bearbeiten...\tF6", cm_RefEdit
+  MENUITEM "&Autor bearbeiten...\tF2", cm_EAuthor
+  MENUITEM SEPARATOR
+  MENUITEM "Zur Bibliographie &hinzufügen", cm_AddToBib
+  MENUITEM "&Schlüsselworte hinzufügen...", cm_AddKeyword
+  MENUITEM "&Alle auswählen", cm_SelectAll
+  MENUITEM SEPARATOR
+  MENUITEM "Löschen\tEntf", cm_RefDel
+ }
+
+ POPUP "&Suche"
+ {
+  MENUITEM "&Alle Referenzen", cm_RefAll
+  MENUITEM "Neue &Suche beginnen...\tF3", cm_RefSearch
+  MENUITEM SEPARATOR
+  MENUITEM "Suche &einschränken...", cm_NarrowSrch
+  MENUITEM "Suche er&weitern...", cm_ExpandSrch
+ }
+
+ POPUP "&Optionen"
+ {
+  MENUITEM "Format für &Listen...", cm_ListOpt
+  MENUITEM "S&ortierung...", cm_OptSort
+  MENUITEM "&Suchen...", cm_OptSrch
+  MENUITEM "&Automatisch alle anzeigen", cm_AutoShowIt
+  MENUITEM "&Eingabe...", cm_OInput
+  MENUITEM "&Bestätigen...", cm_Confirm
+  POPUP "S&chrift"
+  {
+   MENUITEM "&Druckausgabe...", cm_PrintFont
+   MENUITEM "&Dateifenster...", cm_DataFont
+   MENUITEM "&Eingabefenster...", cm_EditFont
+  }
+
+  MENUITEM SEPARATOR
+  MENUITEM "Formatierte &Bibliographie anzeigen", cm_BView
+  MENUITEM "&Format für Bibliographie...", cm_BFormat
+  MENUITEM "Far&be für Bibliographie...", cm_BibCol
+  MENUITEM SEPARATOR
+  MENUITEM "S&prache...", cm_Language
+  MENUITEM SEPARATOR
+  MENUITEM "Sicherungs&kopien erstellen", cm_OptBak
+ }
+
+ POPUP "&Fenster"
+ {
+  MENUITEM "Über&lappend\tShift + F5", cm_Cascade
+  MENUITEM "&Nebeneinander\tShift + F4", cm_Tile
+  MENUITEM "&Symbole anordnen", cm_Arrange
+ }
+
+ POPUP "&Hilfe"
+ {
+  MENUITEM "&Index", cm_HelpIndex, HELP
+  MENUITEM "&Hilfe benutzen", cm_HelpOnHelp
+  MENUITEM SEPARATOR
+  MENUITEM "&Über Refs...", cm_HelpAbout
+ }
+
+}
+
+
+ABOUT DIALOG 28, 31, 214, 87
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Über..."
+{
+ CTEXT "Refs 7.8", -1, 7, 11, 38, 10
+ CONTROL "", -1, "STATIC", SS_GRAYFRAME | WS_CHILD | WS_VISIBLE, 5, 7, 41, 16
+ CONTROL "", -1, "STATIC", SS_BLACKFRAME | WS_CHILD | WS_VISIBLE, 5, 28, 96, 41
+ LTEXT "Registriert an", -1, 8, 35, 60, 8
+ LTEXT "", id_RegisteredTo, 9, 49, 80, 15
+ RTEXT "\xA9 TJR Cutts, 1993-95", -1, 103, 5, 108, 8
+ RTEXT "tjrc1@mole.bio.cam.ac.uk", -1, 103, 13, 108, 8
+ RTEXT "Übersetzung: Gerald Pfeifer", -1, 103, 26, 108, 8
+ RTEXT "e9025064@student.tuwien.ac.at", -1, 103, 34, 108, 8
+ LTEXT "", idt_Ver, 116, 50, 95, 10
+ LTEXT "", idt_Ver +1, 116, 58, 95, 10
+ LTEXT "", idt_Ver +2, 116, 66, 95, 10
+ DEFPUSHBUTTON "OK", IDOK, 5, 70, 96, 13
+}
+
+
+
+
+CLEAN DIALOG 57, 38, 142, 25
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Bitte warten"
+{
+ CONTROL "Speicher wird gelöscht...", id_LoadingRef, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE, 29, 8, 85, 8
+ CONTROL "", -1, "STATIC", SS_GRAYFRAME | WS_CHILD | WS_VISIBLE, 7, 6, 129, 13
+}
+
+ETITLE DIALOG 35, 25, 208, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Autor, Datum und Quelle bearbeiten"
+{
+ LTEXT "&Autor(en):", -1, 5, 2, 121, 8
+ EDITTEXT id_Authors, 4, 12, 123, 79, ES_LEFT | ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL | WS_TABSTOP
+ RTEXT "&Jahr:", -1, 132, 10, 27, 8
+ EDITTEXT id_Year, 162, 8, 42, 12, ES_LEFT | ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP
+ GROUPBOX "&Quelle", id_Source, 131, 23, 73, 49, BS_GROUPBOX | WS_CHILD | WS_VISIBLE
+ CONTROL "&Journal", id_Article, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 136, 35, 62, 10
+ CONTROL "&Buch", id_Article +1, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 136, 47, 64, 10
+ CONTROL "Be&richt", id_Article +2, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 136, 59, 64, 10
+ DEFPUSHBUTTON "OK", IDOK, 130, 77, 35, 14
+ PUSHBUTTON "Abbrechen", IDCANCEL, 166, 77, 38, 14
+}
+
+
+IMPOPT DIALOG 38, 18, 195, 73
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Format für den Import auswählen"
+{
+ CONTROL "", id_ImpList, "LISTBOX", LBS_NOTIFY | LBS_DISABLENOSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL | WS_TABSTOP, 5, 5, 143, 65
+ CONTROL "&Optionen...", id_ImpOpts, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 150, 5, 42, 16
+ CONTROL "OK", IDOK, "BUTTON", BS_DEFPUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 150, 35, 42, 16
+ CONTROL "Abbrechen", IDCANCEL, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 150, 53, 42, 16
+}
+
+
+INOPT DIALOG 18, 37, 176, 103
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Optionen - Eingabe"
+FONT 10, "System"
+{
+ CONTROL " vorgeschlagene Quelle", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE, 3, 3, 168, 56
+ CONTROL "&Journal oder publiziertes Periodikum", id_Article, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 8, 18, 160, 10
+ CONTROL "&Buch", id_Article +1, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 30, 158, 10
+ CONTROL "Be&richt, Diss. oder andere unpublizierte Arbeit", id_Article +2, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 43, 159, 10
+ CONTROL "vorgeschlagenes &Datum:", -1, "STATIC", SS_RIGHT | WS_CHILD | WS_VISIBLE, 3, 67, 83, 8
+ CONTROL "", id_DefYear, "EDIT", ES_LEFT | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 89, 65, 32, 12
+ CONTROL "OK", IDOK, "BUTTON", BS_DEFPUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 132, 64, 39, 16
+ CONTROL "Abbrechen", IDCANCEL, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 132, 83, 39, 16
+}
+
+LISTEDIT DIALOG 18, 18, 193, 102
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+{
+ CONTROL "", id_CommonList, "LISTBOX", LBS_STANDARD | WS_CHILD | WS_VISIBLE, 5, 5, 135, 72
+ CONTROL "", id_CommonEdit, "EDIT", ES_LEFT | ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 5, 84, 135, 12
+ CONTROL "&Ändern", idb_Change, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 147, 83, 43, 14
+ CONTROL "OK", IDOK, "BUTTON", BS_DEFPUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 147, 4, 43, 14
+ CONTROL "&Löschen", idb_Delete, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 147, 48, 43, 14
+ CONTROL "Abbrechen", IDCANCEL, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 147, 20, 43, 14
+ CONTROL "&Dazu", idb_Add, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 147, 65, 43, 14
+}
+
+
+LISTOPT DIALOG 9, 40, 195, 102
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Format für Listen"
+{
+ CONTROL "&Titel anzeigen", id_RefTitle, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 16, 81, 10
+ CONTROL "Breite der Autorenspalte:", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 7, 29, 83, 8
+ CONTROL "", ids_ClmnWdth, "SCROLLBAR", SBS_HORZ | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 50, 87, 9
+ CONTROL "&alle", id_AuthAll, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 111, 16, 74, 10
+ CONTROL "nur den &ersten", id_AuthAll +1, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 111, 32, 74, 10
+ CONTROL "&zwei/einen et al", id_AuthAll +2, "BUTTON", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 111, 47, 74, 10
+ CONTROL "Neue Referenzen &selektieren", id_SelectNew, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 6, 71, 103, 10
+ CONTROL "OK", IDOK, "BUTTON", BS_DEFPUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 66, 84, 37, 15
+ CONTROL "Abbrechen", IDCANCEL, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 105, 84, 42, 15
+ CONTROL "&Hilfe", cm_Help, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 149, 84, 42, 15
+ CONTROL "Autoren zeigen:", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE | WS_GROUP, 106, 4, 84, 59
+ CONTROL "", idt_ClmnWdth, "STATIC", SS_CENTER | WS_CHILD | WS_VISIBLE | WS_GROUP, 44, 40, 16, 8
+ CONTROL " Darstellungsformat", -1, "BUTTON", BS_GROUPBOX | WS_CHILD | WS_VISIBLE | WS_GROUP, 4, 4, 96, 60
+}
+
+NEWSRCH DIALOG 25, 18, 188, 61
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Neue Suche beginnen"
+{
+ CONTROL "Suche &in:", -1, "STATIC", SS_RIGHT | WS_CHILD | WS_VISIBLE | WS_GROUP, 2, 4, 43, 8
+ CONTROL "", id_SrchBy, "COMBOBOX", CBS_DROPDOWNLIST | CBS_NOINTEGRALHEIGHT | WS_CHILD | WS_VISIBLE | WS_VSCROLL | WS_TABSTOP, 47, 3, 138, 59
+ CONTROL "Suche &nach:", -1, "STATIC", SS_RIGHT | WS_CHILD | WS_VISIBLE | WS_GROUP, 3, 23, 42, 8
+ CONTROL "", id_SrchFor, "EDIT", ES_LEFT | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 47, 22, 138, 12
+ CONTROL "Logisches &NICHT", id_Not, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 10, 36, 99, 12
+ CONTROL "Groß-/Kleinschreibung", id_Case, "BUTTON", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 10, 48, 91, 10
+ CONTROL "OK", IDOK, "BUTTON", BS_DEFPUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 104, 43, 40, 15
+ CONTROL "Abbrechen", IDCANCEL, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 146, 43, 40, 15
+}
+
+
+OPTSORT DIALOG 39, 57, 226, 86
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Referenzen sortieren"
+{
+ CONTROL "&Erstens", -1, "STATIC", SS_RIGHT | WS_CHILD | WS_VISIBLE, 6, 8, 29, 8
+ CONTROL "", id_SortA, "COMBOBOX", CBS_DROPDOWNLIST | WS_CHILD | WS_VISIBLE | WS_VSCROLL | WS_TABSTOP, 36, 7, 99, 47
+ CONTROL "", id_DSortA, "COMBOBOX", CBS_DROPDOWNLIST | WS_CHILD | WS_VISIBLE | WS_VSCROLL | WS_TABSTOP, 138, 7, 78, 39
+ CONTROL "&Zweitens", -1, "STATIC", SS_RIGHT | WS_CHILD | WS_VISIBLE, 6, 29, 29, 8
+ CONTROL "", id_SortB, "COMBOBOX", CBS_DROPDOWNLIST | WS_CHILD | WS_VISIBLE | WS_VSCROLL | WS_TABSTOP, 36, 27, 99, 51
+ CONTROL "", id_DSortB, "COMBOBOX", CBS_DROPDOWNLIST | WS_CHILD | WS_VISIBLE | WS_VSCROLL | WS_TABSTOP, 138, 27, 78, 37
+ CONTROL "&Drittens", -1, "STATIC", SS_RIGHT | WS_CHILD | WS_VISIBLE, 6, 50, 29, 8
+ CONTROL "", id_SortC, "COMBOBOX", CBS_DROPDOWNLIST | WS_CHILD | WS_VISIBLE | WS_VSCROLL | WS_TABSTOP, 36, 48, 99, 51
+ CONTROL "", id_DSortC, "COMBOBOX", CBS_DROPDOWNLIST | CBS_NOINTEGRALHEIGHT | WS_CHILD | WS_VISIBLE | WS_VSCROLL | WS_TABSTOP, 138, 48, 78, 47
+ CONTROL "&Namen...", id_names, "BUTTON", BS_PUSHBUTTON | BS_LEFTTEXT | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 4, 69, 38, 14
+ CONTROL "OK", IDOK, "BUTTON", BS_DEFPUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 89, 69, 44, 14
+ CONTROL "Abbrechen", IDCANCEL, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE, 134, 69, 44, 14
+ CONTROL "&Hilfe", 998, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE, 179, 69, 44, 14
+ CONTROL "", -1, "STATIC", SS_GRAYFRAME | WS_CHILD | WS_VISIBLE | WS_GROUP, 3, 3, 220, 63
+}
+
+
+REGISTER DIALOG 18, 18, 205, 70
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Registrierung..."
+{
+ CONTROL "&Name:", -1, "STATIC", SS_RIGHT | WS_CHILD | WS_VISIBLE | WS_GROUP, 36, 13, 48, 8
+ CONTROL "", ide_Name, "EDIT", ES_LEFT | ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 87, 11, 109, 12
+ CONTROL "&Registriernummer:", -1, "STATIC", SS_RIGHT | WS_CHILD | WS_VISIBLE | WS_GROUP, 9, 31, 75, 8
+ CONTROL "", ide_Code, "EDIT", ES_LEFT | ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 87, 29, 109, 12
+ CONTROL "OK", IDOK, "BUTTON", BS_DEFPUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 112, 53, 44, 14
+ CONTROL "Abbrechen", IDCANCEL, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 157, 53, 44, 14
+ CONTROL "MAIN", -1, "STATIC", SS_BLACKFRAME | WS_CHILD | WS_VISIBLE, 4, 5, 197, 43
+}
+
+VS_VERSION_INFO VERSIONINFO 
+FILEVERSION 7,8,0,6
+PRODUCTVERSION 7,8,0,0
+FILEFLAGSMASK 0x0L
+FILEFLAGS 0x2L
+FILEOS VOS__WINDOWS16
+FILETYPE 0x2L
+FILESUBTYPE 0x0L
+{
+ BLOCK "StringFileInfo"
+ {
+  BLOCK "080904E4"
+  {
+   VALUE "CompanyName", "Tim Cutts, Gerald Pfeifer\0"
+   VALUE "FileDescription", "German language library\0"
+   VALUE "FileVersion", "7.8.0.6\0","\0"
+   VALUE "InternalName", "REFDEU.DLL\0"
+   VALUE "LegalCopyright", "Copyright \251 Tim Cutts 1994-1995, Translation Copyright \251 Gerald Pfeifer 1994-1995\0"
+   VALUE "OriginalFilename", "REFEN.DLL\0"
+   VALUE "ProductName", "Refs\0"
+   VALUE "ProductVersion", "7.8\0"
+  }
+
+ }
+
+ BLOCK "VarFileInfo"
+ {
+  VALUE "Translation", 0x809, 1252
+ }
+
+}
+
+STRINGTABLE PRELOAD MOVEABLE DISCARDABLE 
+{
+ srt_Title, "Titel"
+ srt_Keyword, "Stichwort"
+ srt_TKA, "Titel, Stichwort und Abstract"
+ srt_Author, "Autor"
+ srt_Journal, "Journal/Buchtitel/Bericht"
+ srt_Date, "Datum"
+ srt_None, "Keine"
+ srt_Issuer, "Herausgeber"
+ str_Title, "Titel = "
+ str_Keyword, "Stichwort = "
+ str_TKA, "Titel, Stichwort oder Abstract = "
+ str_Author, "Autor = "
+ str_SJournal, "Journal = "
+ str_Date, "Datum = "
+ str_All, "Alle "
+ cm_HelpIndex, "Bedienungsanleitung und Information für dieses Programm"
+ cm_HelpOnHelp, "Bedienungsanleitung zur Verwendung der Hilfe"
+ err_AuthorField, "Das Feld Autor kann nicht leer sein."
+ cm_HelpAbout, "Über diese Programm"
+ wrn_NeedSave, "Die aktuelle Datei wurde geändert.\nWollen Sie sie speichern?"
+ wrn_None, "Keine passenden Referenzen wurden gefunden."
+ err_SrchStr, "Das ist kein gültiger Suchtext."
+ err_NoFile, "Kann Datei nicht öffnen."
+ err_NoMem, "Speichermangel"
+ err_BibFormat, "Unbekannte Feldbezeichnung\nDiese Feld wird ignoriert."
+ err_ConfirmDel, "Die ausgewählten Referenzen werden permament gelöscht.\nSind Sie sicher?"
+ err_BadRegister, "Ungültige Registriernummer!"
+ wrn_NoOptFunc, "Dieser Import-Filter hat keine Optionen."
+ wrn_Warning, "Achtung!"
+ fmt_StatusBar, "%lu Referenzen erfüllen\n%s"
+ wrn_UnRgstr, "Nicht registriert"
+ fmt_SavedRefs, "%lu Referenzen gespeichert"
+ cm_FExport, "Datei in einem anderen Format speichern"
+ str_AndWord, "und "
+ str_Searching, "Suche..."
+ str_Untitled, "Ohne Namen"
+ fmt_Importing, "%lu Referenzen geladen"
+ msg_Registered1, "Alle Funktionen diese Programmes sind nun voll verfügbar."
+ msg_Registered2, "Danke für's Registrieren!"
+ str_Sorting, "Sortiere... %u%%"
+ err_BadSort, "Es kann nicht doppelt nach einem Feld sortiert werden!"
+ msg_SrchResults, "Suchergebnisse"
+ wrn_Mouse, "Ausführen von Mausaktion bestätigen?"
+ fmt_RefNo, "%s:%lu"
+ cm_FileNew, "Eine neue Datei anlegen"
+ cm_FOpen, "Eine bestehende Datei öffnen"
+ cm_FSave, "Die aktuelle Datei speichern"
+ cm_FSaveAs, "Die aktuelle Datei unter einem neuen Namen speichern"
+ cm_FExit, "Dieses Programm beenden"
+ cm_FImport, "Eine Datei in einem Fremdformat öffnen"
+ cm_FClose, "Die aktuelle Datei schließen"
+ cm_RefNew, "Eine neue Referenz anlegen"
+ cm_RefEdit, "Referenz anzeigen oder bearbeiten"
+ cm_RefDel, "Die ausgewählten(n) Referenze(n) löschen"
+ cm_RefSearch, "Ein neues Suchfenster anlegen"
+ cm_RefAll, "Alle Referenzen anzeigen"
+ err_NoPrnStart, "Kann Druckauftrag nicht starten."
+ err_PrnMem, "Zuwenig Speicher zum Drucken."
+ fmt_Page, "Seite %u  "
+ err_Memory, "Konnte %u Byte Speicher nicht belegen.\nVersuchen Sie, andere Programme zu beenden, um den freien Speicher zu vergrößern.\nWählen Sie \042Wiederholen\042, um diese Operation zu wiederholen,\noder wählen Sie\042Abbrechen\042. (Dabei können Daten verloren gehen.)"
+ err_BadNameSep, "Das Trennzeichen für Familiennamen darf kein Leerzeichen sein."
+ cm_AutoShowIt, "Beim Öffnen einer Datei automatisch alle Referenzen anzeigen?"
+ cm_BibCol, "Farbe für die in der Biblographie verwendeten Referenzen auswählen"
+ str_BibWndName, "Bibliographie"
+ cm_OptSort, "Sortierreihenfolge für Referenzen angeben"
+ cm_SelectAll, "Alle Referenzen im aktuellen Fenster auswählen"
+ str_Ascending, "Aufsteigend"
+ str_Descending, "Absteigend"
+ str_NarrowSrch, "Suche einschränken"
+ str_ExpandSrch, "Suche erweitern"
+ str_Journal, "&Journal:"
+ str_BookTitle, "&Buchtitel:"
+ cm_EAuthor, "Autor und Datum bearbeiten"
+ cm_NarrowSrch, "Im Ergebnis der letzten Suche weitersuchen"
+ cm_ExpandSrch, "Gesamte Datei durchsuchen, Ergebnis zur aktuellen Anzeige hinzufügen"
+ cm_AddToBib, "Referenz zur Bibliographie hinzufügen"
+ cm_BView, "Darstellung zwischen Bibliographie und Liste wechseln"
+ cm_BFormat, "Format für die Bibliographie auswählen"
+ cm_OptBak, "Beim Speichern vorige Version als Sicherheitskopie .BAK aufbewahren?"
+ cm_ListOpt, "Format für die Darstellungen von Listen ändern"
+ cm_OInput, "(Vor)Einstellungen für die Eingabe ändern"
+ cm_OptSrch, "Suchoptionen"
+ cm_Language, "Sprache auswählen, die Refs benutzen soll"
+ cm_Confirm, "Verschiedene Bestätigungen ein-/ausschalten"
+ cm_Print, "Referenzen in aktuellem Format drucken"
+ cm_PrintFont, "Schriftart für Druckausgabe auswählen"
+ cm_DataFont, "Schriftart für Dateifenster auswählen"
+ err_BibTooBig, "Das Formatieren dieser Bibliographie erzeugt mehr als 32K Text.\n\nDie Bibliographie wird an dieser Stelle abgeschnitten.\nDas ist auf eine Einschränkung in Windows 3.1 zurückzuführen!"
+ str_Report, "&Bericht, Diss. usw:"
+ str_Searchable, "durchsuchen"
+ str_ChooseExp, "Format für den Export auswählen..."
+ err_MaxFiles, "Maximale Anzahl offener Dateien erreicht!"
+ str_DefaultFormat, "Standardmäßiges Dateiformat wählen"
+ wrn_RefDirty, "Diese Referenz wurde verändert.\nÄnderungen beibehalten?"
+ cm_Register, "Registrieren Sie Refs jetzt..."
+ nag_timeleft, "Sie können nach %u Sekunden weiterarbeiten."
+ cm_AddKeyword, "Schlüsselwort allen ausgewählten Referenzen hinzufügen"
+ fmt_Scanning, "%lu Referenzen durchsucht"
+ str_Scanning, "Durchsuchen..."
+ cm_EditFont, "Schriftart für Eingabefenster auswählen"
+ err_BibAlready, "Ein Format dieses Namens existiert bereits!"
+ err_CRInFmt, "Zeilenumbrüche in Formaten sind nicht erlaubt. Verwenden Sie \\n stattdessen."
+ str_DLLDescribe, "Deutsch"
+}

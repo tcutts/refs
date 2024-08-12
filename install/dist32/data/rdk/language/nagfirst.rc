@@ -1,0 +1,14 @@
+#include "../inc/rc.h"
+NAGFIRST DIALOG 20, 19, 204, 97
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Welcome to Refs!"
+BEGIN
+  DEFPUSHBUTTON "OK", IDOK, 3,80,51,14
+  PUSHBUTTON "&Help...", cm_Help, 160,80,40,14
+  LTEXT "Refs is shareware; it is not free software.  This unregistered copy will function fully for 30 days.", -1, 8, 7, 186, 19
+  LTEXT "If, after that time, the program has not been registered a reminder prompt will appear, which will remain on screen for 30 seconds.  You can register Refs at any time between using the Register Refs item in the Help menu.", -1, 8, 27, 186, 34
+  LTEXT "Click the help button for more information on registering.", -1, 6,63,192,11
+  CONTROL "", -1, "Static", SS_BLACKFRAME, 3,2,197,76
+END
+
+

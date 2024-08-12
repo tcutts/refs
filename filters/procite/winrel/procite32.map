@@ -1,0 +1,245 @@
+ procite
+
+ Timestamp is 33457a44 (Fri Apr 04 22:01:40 1997)
+
+ Preferred load address is 10000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00001d3dH .text                   CODE
+ 0002:00000000 00000578H .bss                    DATA
+ 0003:00000000 00000470H .rdata                  DATA
+ 0004:00000000 00001138H .data                   DATA
+ 0004:00001138 00000004H .CRT$XCA                DATA
+ 0004:0000113c 00000004H .CRT$XCZ                DATA
+ 0004:00001140 00000004H .CRT$XIA                DATA
+ 0004:00001144 00000004H .CRT$XIZ                DATA
+ 0004:00001148 00000004H .CRT$XPA                DATA
+ 0004:0000114c 00000004H .CRT$XPZ                DATA
+ 0004:00001150 00000004H .CRT$XTA                DATA
+ 0004:00001154 00000004H .CRT$XTZ                DATA
+ 0005:00000000 00000050H .idata$2                DATA
+ 0005:00000050 00000028H .idata$3                DATA
+ 0005:00000078 000000a8H .idata$4                DATA
+ 0005:00000120 000000a8H .idata$5                DATA
+ 0005:000001c8 000002aaH .idata$6                DATA
+ 0006:00000000 00000079H .edata                  DATA
+ 0007:00000000 000000acH .rsrc$01                DATA
+ 0007:000000b0 000003e4H .rsrc$02                DATA
+
+  Address         Publics by Value              Rva+Base   Lib:Object
+
+ 0001:00000000       _LoadRef                   10001000 f procite.obj
+ 0001:00000180       _WhoAmI                    10001180 f procite.obj
+ 0001:00000190       _GetSpecs                  10001190 f procite.obj
+ 0001:000001a0       _Opt_OnInitDialog          100011a0 f procite.obj
+ 0001:000001d0       _Opt_OnCommand             100011d0 f procite.obj
+ 0001:00000210       _OptProc@16                10001210 f procite.obj
+ 0001:00000270       _Opts                      10001270 f procite.obj
+ 0001:000002b0       _DllMain@12                100012b0 f procite.obj
+ 0001:00000350       _SplitRecord               10001350 f procite.obj
+ 0001:00000530       _ProcessKeywords           10001530 f procite.obj
+ 0001:000005b0       _CheckVer                  100015b0 f procite.obj
+ 0001:00000620       _ProcessNames              10001620 f procite.obj
+ 0001:0000065e       _VerQueryValueA@16         1000165e f version:VERSION.dll
+ 0001:00000664       _GetFileVersionInfoA@16    10001664 f version:VERSION.dll
+ 0001:0000066a       _GetFileVersionInfoSizeA@8 1000166a f version:VERSION.dll
+ 0001:00000670       _ReadLine                  10001670   rimpexp32:RImpExp.dll
+ 0001:00000676       _GetConfigInt              10001676   rimpexp32:RImpExp.dll
+ 0001:0000067c       _SetConfigInt              1000167c   rimpexp32:RImpExp.dll
+ 0001:00000682       _GetBufSz                  10001682   rimpexp32:RImpExp.dll
+ 0001:00000688       _free                      10001688 f LIBCMT:free.obj
+ 0001:000006a9       __free_lk                  100016a9 f LIBCMT:free.obj
+ 0001:00000711       _malloc                    10001711 f LIBCMT:malloc.obj
+ 0001:00000724       __nh_malloc                10001724 f LIBCMT:malloc.obj
+ 0001:0000076f       __malloc_lk                1000176f f LIBCMT:malloc.obj
+ 0001:00000807       __heap_split_block         10001807 f LIBCMT:malloc.obj
+ 0001:0000084c       _strstr                    1000184c f LIBCMT:strstr.obj
+ 0001:000008ac       _strchr                    100018ac f LIBCMT:strchr.obj
+ 0001:000008d1       __CRT_INIT@12              100018d1 f LIBCMT:dllcrt0.obj
+ 0001:000009a9       __DllMainCRTStartup@12     100019a9 f LIBCMT:dllcrt0.obj
+ 0001:00000a76       __amsg_exit                10001a76 f LIBCMT:dllcrt0.obj
+ 0001:00000a96       __mtinitlocks              10001a96 f LIBCMT:mlock.obj
+ 0001:00000ab7       __mtdeletelocks            10001ab7 f LIBCMT:mlock.obj
+ 0001:00000b10       __lock                     10001b10 f LIBCMT:mlock.obj
+ 0001:00000b78       __unlock                   10001b78 f LIBCMT:mlock.obj
+ 0001:00000b8e       __heap_init                10001b8e f LIBCMT:heapinit.obj
+ 0001:00000bb5       __heap_term                10001bb5 f LIBCMT:heapinit.obj
+ 0001:00000c70       ___getempty                10001c70 f LIBCMT:heapinit.obj
+ 0001:00000c95       __heap_abort               10001c95 f LIBCMT:hpabort.obj
+ 0001:00000ca0       __heap_search              10001ca0 f LIBCMT:heapsrch.obj
+ 0001:00000d90       __heap_grow                10001d90 f LIBCMT:heapgrow.obj
+ 0001:00000e7a       __heap_grow_region         10001e7a f LIBCMT:heapgrow.obj
+ 0001:00000f27       __heap_free_region         10001f27 f LIBCMT:heapgrow.obj
+ 0001:00000f61       __cinit                    10001f61 f LIBCMT:crt0dat.obj
+ 0001:00000f91       __exit                     10001f91 f LIBCMT:crt0dat.obj
+ 0001:00000fa2       __cexit                    10001fa2 f LIBCMT:crt0dat.obj
+ 0001:0000103c       __lockexit                 1000203c f LIBCMT:crt0dat.obj
+ 0001:00001047       __unlockexit               10002047 f LIBCMT:crt0dat.obj
+ 0001:00001072       __mtinit                   10002072 f LIBCMT:tidtable.obj
+ 0001:000010d3       __mtterm                   100020d3 f LIBCMT:tidtable.obj
+ 0001:000010f4       __freeptd                  100020f4 f LIBCMT:tidtable.obj
+ 0001:00001195       __setenvp                  10002195 f LIBCMT:stdenvp.obj
+ 0001:00001260       __setargv                  10002260 f LIBCMT:stdargv.obj
+ 0001:0000155e       __setmbcp                  1000255e f LIBCMT:mbctype.obj
+ 0001:00001743       ___initmbctable            10002743 f LIBCMT:mbctype.obj
+ 0001:0000174e       __ioinit                   1000274e f LIBCMT:ioinit.obj
+ 0001:00001840       __FF_MSGBANNER             10002840 f LIBCMT:crt0msg.obj
+ 0001:00001866       __NMSG_WRITE               10002866 f LIBCMT:crt0msg.obj
+ 0001:000018c2       __heap_addblock            100028c2 f LIBCMT:heapadd.obj
+ 0001:00001b79       _calloc                    10002b79 f LIBCMT:calloc.obj
+ 0001:00001bc9       __heap_findaddr            10002bc9 f LIBCMT:findaddr.obj
+ 0001:00001c34       __strdup                   10002c34 f LIBCMT:strdup.obj
+ 0001:00001c34       _strdup                    10002c34 f LIBCMT:strdup.obj
+ 0001:00001c5c       _strlen                    10002c5c f LIBCMT:strlen.obj
+ 0001:00001cac       _strcat                    10002cac f LIBCMT:strcat.obj
+ 0001:00001cb0       _strcpy                    10002cb0   LIBCMT:strcat.obj
+ 0002:00000184       _hInst                     10003184   <common>
+ 0002:00000190       _r                         10003190   <common>
+ 0002:0000024c       _EoF                       1000324c   <common>
+ 0002:00000250       _tstr1                     10003250   <common>
+ 0002:00000254       _tstr2                     10003254   <common>
+ 0002:00000258       _Opt                       10003258   <common>
+ 0002:0000025c       _BufSz                     1000325c   <common>
+ 0002:00000260       ___onexitend               10003260   <common>
+ 0002:00000264       __FPinit                   10003264   <common>
+ 0002:00000268       ___onexitbegin             10003268   <common>
+ 0002:0000026c       __heap_descpages           1000326c   <common>
+ 0002:00000270       __heap_regions             10003270   <common>
+ 0002:00000570       __acmdln                   10003570   <common>
+ 0002:00000574       __pRawDllMain              10003574   <common>
+ 0003:00000000       _DocTypes                  10004000   procite.obj
+ 0003:00000008       _Mappings                  10004008   procite.obj
+ 0004:00000000       ??_C@_02PIMC@?$AN?6?$AA@   10005000   procite.obj
+ 0004:00000004       ??_C@_06IBHE@unread?$AA@   10005004   procite.obj
+ 0004:0000000c       ??_C@_07LOD@ProCite?$AA@   1000500c   procite.obj
+ 0004:00000014       ??_C@_03EKCM@Opt?$AA@      10005014   procite.obj
+ 0004:00000018       ??_C@_0P@KBFK@ProCite?5format?$AA@ 10005018   procite.obj
+ 0004:00000028       ??_C@_0ED@NMHL@ProCite?5text?5file?5?$CI?$CK?4asc?0?5?$CK?4dat?$CJ@ 10005028   procite.obj
+ 0004:0000006c       ??_C@_04EJME@OPTS?$AA@     1000506c   procite.obj
+ 0004:00000074       ??_C@_02DILL@?$CFs?$AA@    10005074   procite.obj
+ 0004:00000078       ??_C@_03NLJK@?$CC?0?$CC?$AA@ 10005078   procite.obj
+ 0004:0000007c       ??_C@_01PCFE@?2?$AA@       1000507c   procite.obj
+ 0004:00000080       ??_C@_0M@DECO@RIMPEXP?4DLL?$AA@ 10005080   procite.obj
+ 0004:0000008c       ??_C@_02FCOO@?1?1?$AA@     1000508c   procite.obj
+ 0004:00000090       __pnhHeap                  10005090   LIBCMT:malloc.obj
+ 0004:00000098       __aenvptr                  10005098   LIBCMT:dllcrt0.obj
+ 0004:0000009c       __wenvptr                  1000509c   LIBCMT:dllcrt0.obj
+ 0004:000000a0       __aexit_rtn                100050a0   LIBCMT:dllcrt0.obj
+ 0004:000000a8       __locktable                100050a8   LIBCMT:mlock.obj
+ 0004:000005b0       __heap_desc                100055b0   LIBCMT:heapinit.obj
+ 0004:000005c4       __heap_resetsize           100055c4   LIBCMT:heapinit.obj
+ 0004:000005c8       __amblksiz                 100055c8   LIBCMT:heapinit.obj
+ 0004:000005cc       __heap_regionsize          100055cc   LIBCMT:heapinit.obj
+ 0004:000005d0       __heap_maxregsize          100055d0   LIBCMT:heapinit.obj
+ 0004:000005d4       __newmode                  100055d4   LIBCMT:_newmode.obj
+ 0004:000005d8       __umaskval                 100055d8   LIBCMT:crt0dat.obj
+ 0004:000005dc       __osver                    100055dc   LIBCMT:crt0dat.obj
+ 0004:000005e0       __winver                   100055e0   LIBCMT:crt0dat.obj
+ 0004:000005e4       __winmajor                 100055e4   LIBCMT:crt0dat.obj
+ 0004:000005e8       __winminor                 100055e8   LIBCMT:crt0dat.obj
+ 0004:000005ec       ___argc                    100055ec   LIBCMT:crt0dat.obj
+ 0004:000005f0       ___argv                    100055f0   LIBCMT:crt0dat.obj
+ 0004:000005f4       ___wargv                   100055f4   LIBCMT:crt0dat.obj
+ 0004:000005f8       __environ                  100055f8   LIBCMT:crt0dat.obj
+ 0004:000005fc       ___initenv                 100055fc   LIBCMT:crt0dat.obj
+ 0004:00000600       __wenviron                 10005600   LIBCMT:crt0dat.obj
+ 0004:00000604       ___winitenv                10005604   LIBCMT:crt0dat.obj
+ 0004:00000608       __pgmptr                   10005608   LIBCMT:crt0dat.obj
+ 0004:0000060c       __wpgmptr                  1000560c   LIBCMT:crt0dat.obj
+ 0004:00000610       __exitflag                 10005610   LIBCMT:crt0dat.obj
+ 0004:00000614       __C_Termination_Done       10005614   LIBCMT:crt0dat.obj
+ 0004:00000618       ___tlsindex                10005618   LIBCMT:tidtable.obj
+ 0004:00000620       __mbctype                  10005620   LIBCMT:mbctype.obj
+ 0004:00000724       ___mbcodepage              10005724   LIBCMT:mbctype.obj
+ 0004:00000728       ___mblcid                  10005728   LIBCMT:mbctype.obj
+ 0004:00000730       ___mbulinfo                10005730   LIBCMT:mbctype.obj
+ 0004:00000838       __nhandle                  10005838   LIBCMT:ioinit.obj
+ 0004:00000840       __osfile                   10005840   LIBCMT:ioinit.obj
+ 0004:00000940       __osfhnd                   10005940   LIBCMT:ioinit.obj
+ 0004:00000d40       __pipech                   10005d40   LIBCMT:ioinit.obj
+ 0004:000010a8       __adbgmsg                  100060a8   LIBCMT:crt0msg.obj
+ 0004:000010b0       __XcptActTab               100060b0   LIBCMT:winxfltr.obj
+ 0004:00001128       __First_FPE_Indx           10006128   LIBCMT:winxfltr.obj
+ 0004:0000112c       __Num_FPE                  1000612c   LIBCMT:winxfltr.obj
+ 0004:00001130       __XcptActTabSize           10006130   LIBCMT:winxfltr.obj
+ 0004:00001134       __XcptActTabCount          10006134   LIBCMT:winxfltr.obj
+ 0004:00001138       ___xc_a                    10006138   LIBCMT:crt0init.obj
+ 0004:0000113c       ___xc_z                    1000613c   LIBCMT:crt0init.obj
+ 0004:00001140       ___xi_a                    10006140   LIBCMT:crt0init.obj
+ 0004:00001144       ___xi_z                    10006144   LIBCMT:crt0init.obj
+ 0004:00001148       ___xp_a                    10006148   LIBCMT:crt0init.obj
+ 0004:0000114c       ___xp_z                    1000614c   LIBCMT:crt0init.obj
+ 0004:00001150       ___xt_a                    10006150   LIBCMT:crt0init.obj
+ 0004:00001154       ___xt_z                    10006154   LIBCMT:crt0init.obj
+ 0005:00000000       __IMPORT_DESCRIPTOR_VERSION 10007000   version:VERSION.dll
+ 0005:00000014       __IMPORT_DESCRIPTOR_KERNEL32 10007014   kernel32:KERNEL32.dll
+ 0005:00000028       __IMPORT_DESCRIPTOR_USER32 10007028   user32:USER32.dll
+ 0005:0000003c       RImpExp_IMPORT_DESCRIPTOR  1000703c   rimpexp32:RImpExp.dll
+ 0005:00000050       __NULL_IMPORT_DESCRIPTOR   10007050   version:VERSION.dll
+ 0005:00000064       NULL_IMPORT_DESCRIPTOR     10007064   rimpexp32:RImpExp.dll
+ 0005:00000120       __imp__DeleteCriticalSection@4 10007120   kernel32:KERNEL32.dll
+ 0005:00000124       __imp__EnterCriticalSection@4 10007124   kernel32:KERNEL32.dll
+ 0005:00000128       __imp__WriteFile@20        10007128   kernel32:KERNEL32.dll
+ 0005:0000012c       __imp__GetStartupInfoA@4   1000712c   kernel32:KERNEL32.dll
+ 0005:00000130       __imp__lstrcpyA@8          10007130   kernel32:KERNEL32.dll
+ 0005:00000134       __imp__lstrcatA@8          10007134   kernel32:KERNEL32.dll
+ 0005:00000138       __imp__LeaveCriticalSection@4 10007138   kernel32:KERNEL32.dll
+ 0005:0000013c       __imp__ExitProcess@4       1000713c   kernel32:KERNEL32.dll
+ 0005:00000140       __imp__GetStdHandle@4      10007140   kernel32:KERNEL32.dll
+ 0005:00000144       __imp__GetCPInfo@8         10007144   kernel32:KERNEL32.dll
+ 0005:00000148       __imp__GetOEMCP@0          10007148   kernel32:KERNEL32.dll
+ 0005:0000014c       __imp__GetACP@0            1000714c   kernel32:KERNEL32.dll
+ 0005:00000150       __imp__GetModuleFileNameA@12 10007150   kernel32:KERNEL32.dll
+ 0005:00000154       __imp__TlsGetValue@4       10007154   kernel32:KERNEL32.dll
+ 0005:00000158       __imp__TlsFree@4           10007158   kernel32:KERNEL32.dll
+ 0005:0000015c       __imp__TlsAlloc@0          1000715c   kernel32:KERNEL32.dll
+ 0005:00000160       __imp__GetEnvironmentStrings@0 10007160   kernel32:KERNEL32.dll
+ 0005:00000164       __imp__GetCommandLineA@0   10007164   kernel32:KERNEL32.dll
+ 0005:00000168       __imp__GetVersion@0        10007168   kernel32:KERNEL32.dll
+ 0005:0000016c       __imp__InitializeCriticalSection@4 1000716c   kernel32:KERNEL32.dll
+ 0005:00000170       __imp__GetFileType@4       10007170   kernel32:KERNEL32.dll
+ 0005:00000174       __imp__TlsSetValue@8       10007174   kernel32:KERNEL32.dll
+ 0005:00000178       __imp__VirtualFree@12      10007178   kernel32:KERNEL32.dll
+ 0005:0000017c       __imp__VirtualAlloc@16     1000717c   kernel32:KERNEL32.dll
+ 0005:00000180       __imp__GetLastError@0      10007180   kernel32:KERNEL32.dll
+ 0005:00000184       __imp__GetCurrentThreadId@0 10007184   kernel32:KERNEL32.dll
+ 0005:00000188       \177KERNEL32_NULL_THUNK_DATA 10007188   kernel32:KERNEL32.dll
+ 0005:0000018c       __imp__GetBufSz            1000718c   rimpexp32:RImpExp.dll
+ 0005:00000190       __imp__SetConfigInt        10007190   rimpexp32:RImpExp.dll
+ 0005:00000194       __imp__GetConfigInt        10007194   rimpexp32:RImpExp.dll
+ 0005:00000198       __imp__ReadLine            10007198   rimpexp32:RImpExp.dll
+ 0005:0000019c       \177RImpExp_NULL_THUNK_DATA 1000719c   rimpexp32:RImpExp.dll
+ 0005:000001a0       __imp__wsprintfA           100071a0   user32:USER32.dll
+ 0005:000001a4       __imp__DialogBoxParamA@20  100071a4   user32:USER32.dll
+ 0005:000001a8       __imp__IsDlgButtonChecked@8 100071a8   user32:USER32.dll
+ 0005:000001ac       __imp__CheckDlgButton@12   100071ac   user32:USER32.dll
+ 0005:000001b0       __imp__EndDialog@8         100071b0   user32:USER32.dll
+ 0005:000001b4       \177USER32_NULL_THUNK_DATA 100071b4   user32:USER32.dll
+ 0005:000001b8       __imp__VerQueryValueA@16   100071b8   version:VERSION.dll
+ 0005:000001bc       __imp__GetFileVersionInfoSizeA@8 100071bc   version:VERSION.dll
+ 0005:000001c0       __imp__GetFileVersionInfoA@16 100071c0   version:VERSION.dll
+ 0005:000001c4       \177VERSION_NULL_THUNK_DATA 100071c4   version:VERSION.dll
+ 0006:00000000       procite_EXPORTS            10008000   procite32.exp
+
+ entry point at        0001:000009a9
+
+ Static symbols
+
+ 0001:00001b10       __before                   10002b10 f LIBCMT:heapadd.obj
+ 0001:000014c0       _getSystemCP               100024c0 f LIBCMT:mbctype.obj
+ 0001:000014fb       _CPtoLCID                  100024fb f LIBCMT:mbctype.obj
+ 0001:0000153a       _setSBCS                   1000253a f LIBCMT:mbctype.obj
+ 0001:000012f6       _parse_cmdline             100022f6 f LIBCMT:stdargv.obj
+ 0001:00000fb1       _doexit                    10001fb1 f LIBCMT:crt0dat.obj
+ 0001:00001052       __initterm                 10002052 f LIBCMT:crt0dat.obj
+ 0001:00000df6       __heap_new_region          10001df6 f LIBCMT:heapgrow.obj
+ 0001:00000c1a       __heap_grow_emptylist      10001c1a f LIBCMT:heapinit.obj
+
+FIXUPS: 1a77 9 fffffc9c 16 9 c 42 f e e 1d 57 fffffe63 c a 21 722 75 d
+FIXUPS: 1efc d c 32 fffffd51 ffffffe2 fffffe6a 44 10 a 19 a fffffd7a 40
+FIXUPS: 1928 9 1b 5 5 5 23 5 5 12 55 12 10 5 15 cf7 e 16 fffffb59 12 10
+FIXUPS: 22da fffffef2 15 2a 11 fffffe58 19 47 51 10 10 10 10 10 9 fffffdf9
+FIXUPS: 1f89 11 f b 57 12 c 16 b fffffd8e fffff802 19 40 1d 15ed 8 c ffffff2e
+FIXUPS: 2b91 2b fffffd23 10 10 18 a1 3e 24 d 41 34 fffffdaa 18 fffffd0c
+FIXUPS: 2575 14 13 7 a9 78 1e 24 15 ffffe910 14 2b 47 51 4b e 52 8a 26
+FIXUPS: 12a4 28 e 10 b 13 2e 3a 3a a6 b 12 17 b 10 b 17 b 2b 4b 38 47

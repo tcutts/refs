@@ -1,0 +1,17 @@
+*.dll
+*.exe
+*.flt
+*.sbr
+*.hlp
+bin16
+bin32
+lib16
+lib32
+win95_de*
+Win95_Re*
+*.zip
+refs.aps
+Bionet.software
+maps
+*.gz
+users.txt

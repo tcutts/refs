@@ -1,0 +1,785 @@
+{\rtf1\ansi \deff5\deflang1033{\fonttbl{\f0\froman\fcharset0\fprq2 Tms Rmn{\*\falt Times New Roman};}{\f1\froman\fcharset2\fprq2 Symbol;}{\f2\fswiss\fcharset0\fprq2 Helv{\*\falt Arial};}{\f3\fmodern\fcharset0\fprq1 Courier;}
+{\f4\froman\fcharset0\fprq2 Times New Roman;}{\f5\fswiss\fcharset0\fprq2 Arial;}{\f6\froman\fcharset0\fprq2 MS Serif;}{\f7\fswiss\fcharset0\fprq2 MS Sans Serif;}{\f8\froman\fcharset0\fprq2 Times;}{\f9\fswiss\fcharset0\fprq2 Helvetica;}
+{\f10\fswiss\fcharset0\fprq2 System;}{\f11\fmodern\fcharset0\fprq1 Courier New;}{\f12\froman\fcharset0\fprq2 New York;}{\f13\fswiss\fcharset0\fprq2 Geneva;}{\f14\fswiss\fcharset0\fprq2 AvantGarde;}{\f15\froman\fcharset0\fprq2 ITC Bookman;}
+{\f16\fswiss\fcharset0\fprq2 Helvetica-Narrow;}{\f17\froman\fcharset0\fprq2 NewCenturySchlbk;}{\f18\froman\fcharset0\fprq2 Palatino;}{\f19\froman\fcharset0\fprq2 ZapfChancery;}{\f20\fdecor\fcharset2\fprq2 ZapfDingbats;}{\f21\fnil\fcharset2\fprq2 Marlett;}
+{\f22\fmodern\fcharset0\fprq1 Lucida Console;}{\f23\fswiss\fcharset0\fprq2 Lucida Sans Unicode;}{\f24\fnil\fcharset2\fprq2 Wingdings;}{\f25\froman\fcharset2\fprq2 MT Extra;}{\f26\fswiss\fcharset0\fprq2 Arial Narrow;}
+{\f27\fswiss\fcharset0\fprq2 Arial Black;}{\f28\fswiss\fcharset0\fprq2 Arial Rounded MT Bold;}{\f29\froman\fcharset0\fprq2 Book Antiqua;}{\f30\froman\fcharset0\fprq2 Bookman Old Style;}{\f31\fswiss\fcharset0\fprq2 Century Gothic;}
+{\f32\froman\fcharset0\fprq2 Century Schoolbook;}{\f33\fnil\fcharset2\fprq2 Monotype Sorts;}{\f34\fswiss\fcharset0\fprq2 Haettenschweiler;}{\f35\fdecor\fcharset0\fprq2 Algerian;}{\f36\fdecor\fcharset0\fprq2 Braggadocio;}
+{\f37\fswiss\fcharset0\fprq2 Britannic Bold;}{\f38\fscript\fcharset0\fprq2 Brush Script MT;}{\f39\fdecor\fcharset0\fprq2 Colonna MT;}{\f40\fdecor\fcharset0\fprq2 Desdemona;}{\f41\froman\fcharset0\fprq2 Footlight MT Light;}
+{\f42\froman\fcharset0\fprq2 Garamond;}{\f43\fswiss\fcharset0\fprq2 Impact;}{\f44\fdecor\fcharset0\fprq2 Kino MT;}{\f45\froman\fcharset0\fprq2 Wide Latin;}{\f46\fscript\fcharset0\fprq2 Matura MT Script Capitals;}{\f47\fdecor\fcharset0\fprq2 Playbill;}
+{\f48\fmodern\fcharset2\fprq1 MS LineDraw;}{\f49\froman\fcharset255\fprq2 Roman;}{\f50\fscript\fcharset255\fprq2 Script;}{\f51\fmodern\fcharset255\fprq2 Modern;}{\f52\fswiss\fcharset0\fprq1 MS Dialog;}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;
+\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;
+\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}{\stylesheet{\nowidctlpar \f5\fs20\lang2057 \snext0 Normal;}{\s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \sbasedon0\snext0 heading 1;}{\s2\sb120\nowidctlpar 
+\b\f5\cf9\lang2057 \sbasedon0\snext0 heading 2;}{\s3\li360\nowidctlpar \b\f5\lang2057 \sbasedon0\snext17 heading 3;}{\s4\li360\nowidctlpar \f5\ul\lang2057 \sbasedon0\snext17 heading 4;}{\s5\li720\nowidctlpar \b\f5\fs20\lang2057 \sbasedon0\snext17 
+heading 5;}{\s6\li720\nowidctlpar \f5\fs20\ul\lang2057 \sbasedon0\snext17 heading 6;}{\s7\li720\nowidctlpar \i\f5\fs20\lang2057 \sbasedon0\snext17 heading 7;}{\s8\li720\nowidctlpar \i\f5\fs20\lang2057 \sbasedon0\snext17 heading 8;}{\s9\li720\nowidctlpar 
+\i\f5\fs20\lang2057 \sbasedon0\snext17 heading 9;}{\*\cs10 \additive Default Paragraph Font;}{\*\cs15 \additive\f5\fs16\up6\lang2057 \sbasedon10 footnote reference;}{\s16\nowidctlpar \f5\fs20\lang2057 \sbasedon0\snext16 footnote text;}{
+\s17\li720\nowidctlpar \f5\fs20\lang2057 \sbasedon0\snext17 Normal Indent;}{\*\cs18 \additive\super \sbasedon10 endnote reference;}{\s19\sa120\sl-120\slmult1\nowidctlpar \f5\fs20 \sbasedon0\snext19 TableSpace;}}{\info{\author TJR Cutts}
+{\operator Tim Cutts}{\creatim\yr1993\mo10\dy1\hr18\min2}{\revtim\yr1997\mo2\dy7\hr16\min26}{\version2}{\edmins2}{\nofpages34}{\nofwords6987}{\nofchars39829}{\*\company Dept of Biochemistry, University of Cambridge}{\vern57431}}\margl1440\margr1440 
+\widowctrl\ftnbj\aenddoc\hyphcaps0 \fet0\sectd \sbknone\linex0\headery709\footery709\colsx709\endnhere {\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl3
+\pndec\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang{\pntxta )}}{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}
+{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}\pard\plain \s1\sb120\sa120\widctlpar 
+\cbpat16 \b\i\f4\fs48\cf2\lang2057 {\cs15 *{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 *} Standard;win16}#{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} HowTo}${\footnote \pard\plain \s16\widctlpar 
+\f5\fs20\lang2057 {\cs15\fs16\up6 $} How To Do It}K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} how to?}} How do I do this?
+\par \pard\plain \s2\sb120\widctlpar \b\f5\cf9\lang2057 How to...
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par \tab {\strike Add a new reference}{\v AddRef}
+\par \tab {\strike Edit a reference}{\v EditRef}
+\par \tab {\strike Delete a reference}{\v DelRef}
+\par 
+\par \tab {\strike Manage your keyword list}{\v KeyList}
+\par 
+\par \tab {\strike Search for references}{\v FindRef}
+\par \tab {\strike Create and manage a bibliography}{\v Biblio}
+\par 
+\par \tab {\strike Print a reference}{\v PrintRef}
+\par \tab {\strike Transfer information to other applications}{\v Transfer}
+\par 
+\par \tab {\strike Import references from a foreign file format}{\v Import}
+\par \tab {\strike Add or remove import libraries}{\v AddImport}
+\par \tab {\strike Copy or move references between open file windows}{\v CopyMove}
+\par 
+\par \tab {\strike Customise }{\i\strike Refs}{\v Custom}
+\par \tab {\strike Sort References}{\v OptSort}
+\par 
+\par \tab {\strike Toolbar Shortcuts}{\v Toolbar}
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15 *{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 *} Feric;win16}#{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} HowTo
+}${\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 $} How To Do It}K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} how to?}} How do I do this?
+\par \pard\plain \widctlpar \f5\fs20\lang2057 {\strike Information for FERIC users}{\v FERIC}
+\par \pard\plain \s2\sb120\widctlpar \b\f5\cf9\lang2057 How to...
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par \tab {\strike Add a new reference}{\v AddRef}
+\par \tab {\strike Edit a reference}{\v EditRef}
+\par \tab {\strike Delete a reference}{\v DelRef}
+\par 
+\par \tab {\strike Manage your keyword list}{\v KeyList}
+\par 
+\par \tab {\strike Search for references}{\v FindRef}
+\par \tab {\strike Create and manage a bibliography}{\v Biblio}
+\par 
+\par \tab {\strike Print a reference}{\v PrintRef}
+\par \tab {\strike Transfer information to other applications}{\v Transfer}
+\par 
+\par \tab {\strike Import references from a foreign file format}{\v Import}
+\par \tab {\strike Add or remove import libraries}{\v AddImport}
+\par \tab {\strike Copy or move references between open file windows}{\v CopyMove}
+\par 
+\par \tab {\strike Customise }{\i\strike Refs}{\v Custom}
+\par \tab {\strike Sort References}{\v OptSort
+\par }
+\par \tab {\strike Toolbar Shortcuts}{\v Toolbar}
+\par 
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15\f5\fs16\up6 #{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} Toolbar}${\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 
+$} Toolbar shortcuts}K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} how to?;shortcuts;toolbar}}{\fs16\up6  }The Toolbar
+\par \pard\plain \widctlpar \f5\fs20\lang2057 Like many Windows programs, {\i Refs} has a toolbar.  This is not available for users of Windows 3.1, but for {\i Refs} 16-bit users running Windows for Workgroups and all 32-bit {\i Refs} version users.
+\par 
+\par {\i Refs} for Windows 95 has ToolTips which show you what each button does by leaving the mouse pointer over the button for a second or so.  However, this facility is not available in {\i Refs}
+ for Windows 3.1, so here is a summary of the toolbar buttons and their menu command and accelerator equivalents:
+\par 
+\par \trowd \trgaph108\trleft-108\trbrdrb\brdrs\brdrw30 \clbrdrb\brdrs\brdrw15 \cellx612\clbrdrb\brdrs\brdrw15 \cellx2052\clbrdrb\brdrs\brdrw15 \cellx5220 \pard \widctlpar\intbl {\b Tool\cell Accelerator\cell Menu Command\cell }\pard \widctlpar\intbl {\b \row 
+}\trowd \trgaph108\trleft-108 \cellx612\cellx2052\cellx5220 \pard \widctlpar\intbl \{bmcwd fnew.bmp\}\cell \cell File, New\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl \{bmcwd fopen.bmp\}\cell Ctrl+O\cell File, Open\cell \pard \widctlpar\intbl 
+\row \pard \widctlpar\intbl \{bmcwd fsave.bmp\}\cell Ctrl+S\cell File, Save\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl \{bmcwd fprint.bmp\}\cell \cell File, Print\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl \cell \cell \cell 
+\pard \widctlpar\intbl \row \pard \widctlpar\intbl \{bmcwd ecut.bmp\}\cell Ctrl+X\cell Edit, Cut\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl \{bmcwd ecopy.bmp\}\cell Ctrl+C\cell Edit, Copy\cell \pard \widctlpar\intbl \row \pard 
+\widctlpar\intbl \{bmcwd epaste.bmp\}\cell Ctrl+V\cell Edit, Paste\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl \cell \cell \cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl \{bmcwd rnew.bmp\}\cell F7\cell Reference, New\cell \pard 
+\widctlpar\intbl \row \pard \widctlpar\intbl \{bmcwd radd2bib.bmp\}\cell Ctrl+B\cell Reference, Add to bibliography\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl \{bmcwd ofmted.bmp\}\cell \cell Options, display formatted bibliography\cell \pard 
+\widctlpar\intbl \row \pard \widctlpar\intbl \cell \cell \cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl \{bmcwd snew.bmp\}\cell F3\cell Search, New Search\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl \{bmcwd snarr.bmp\}\cell \cell 
+Search, Narrow search\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl \{bmcwd sexp.bmp\}\cell \cell Search, Expand search\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl \cell \cell \cell \pard \widctlpar\intbl \row \trowd 
+\trgaph108\trleft-108 \cellx612\cellx2052\cellx5220 \pard \widctlpar\intbl \{bmcwd hindex.bmp\}\cell \cell Help, Contents\cell \pard \widctlpar\intbl \row \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15\f5\fs16\up6 #
+{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} CopyMove}${\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 $} Copying/Moving references between files}K{\footnote \pard\plain \s16\widctlpar 
+\f5\fs20\lang2057 {\cs15\fs16\up6 K} how to?;copying;pasting}}{\fs16\up6  }Copying and moving references between open files
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+You might want to transfer references from one file to another, for example if you wanted to maintain separate databases on different topics whose subjects happened to overlap somewhat.  Or you might want to transfer references from an on-line search you 
+just imported to an exiting {\i Refs} file.  This is easily accomplished with either the mouse or keyboard, as follows:
+\par 
+\par Keyboard:  Select the references you wish to copy or move, in a file window.  Then use {\b Cut/Copy/Paste} from the edit menu to copy or move the references to another file window.  This procedure does {\b not}
+ use the clipboard, so you can't paste references into other applications this way, I'm afraid.
+\par 
+\par Mouse:{\f24\fs28 \tab }Select the references you wish to copy or move.  Then click on your selection with the {\b right}
+ mouse button.  The cursor changes to a reference card, or a stack of them.  Now drag to the target window and release the mouse button. 
+\par \pard \fi-360\li360\widctlpar 
+\par \pard \widctlpar By default, references are copied, not moved.  If you wish to move the references and remove them from the original file, hold down the {\b shift}
+ key while dragging (specifically, the shift key must be down when you release the right mouse button).
+\par 
+\par You can set {\i Refs} to ask you for confirmation of mouse drag operations under the {\b Options, Confirmation...} command.
+\par 
+\par Drag and drop also works to the bibliography window, if it exists.
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15\f5\fs16\up6 #{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} Biblio}${\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 $
+} Using bibliographies}K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} bibliography;how to?}}{\fs16\up6  }Creating and using a bibliography
+\par \pard\plain \widctlpar \f5\fs20\lang2057 The contents of the bibliography are maintained by the program regardless of closing, opening and creating new files, so you can easily compile a bibliography from several source databases.
+\par 
+\par \pard\plain \s2\sb120\nowidctlpar \b\f5\cf9\lang2057 Adding references from database windows
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par {\pntext\pard\plain\f5\fs20 1. \tab}\pard \fi-283\li283\nowidctlpar{\*\pn \pnlvlbody\pndec\pnb0\pni0\pnf5\pnfs20\pnstart1\pnindent283\pnhang{\pntxta . }}Select the references you wish to add to the bibliography.
+\par {\pntext\pard\plain\f5\fs20 2. \tab}Choose {\b Reference, Add to bibliography}, or use the toolbar button ({\b\fs28\cf2 +}).  If the Bibliography was previously empty, a bibliography window will be created automatically.
+\par \pard \nowidctlpar 
+\par \pard\plain \s2\sb120\nowidctlpar \b\f5\cf9\lang2057 Adding references to the bibliography while editing the reference
+\par \pard\plain \nowidctlpar \f5\fs20\lang2057 
+\par The menu item {\b File, add to bibliography} is a toggle; if the item is checked, the reference is in the bibliography, and choosing the command will remove the reference from the bibliography rather than adding it.
+\par \pard \widctlpar 
+\par References currently in the bibliography are shown a different colour from the others.  In the bibliography window, different colouring is also used.  Coloured references are also to be found in a currently open file, whereas normal colouring indicates th
+at the file this reference is from has been closed, or the reference has been deleted from that file.  Either way, the bibliography has the sole remaining copy of the reference in memory, and deleting it will be permanent.
+\par 
+\par To remove references from the bibliography, select the bibliography window.  You may now use {\b Reference, Delete}
+ as usual to remove the references.  However, in this case the references are not removed from memory unless they are not from any of the currently open files.  If the deletion results in the bibliography becoming empty, the bibliography
+ window is automatically destroyed.
+\par 
+\par To empty the bibliography, simply close the bibliography window.
+\par 
+\par The bibliography window can display its contents in two ways; either as a reference database very similar to normal database windows, or as formatted text for editing and copying to the clipboard.  You can toggle between these displays with the {\b 
+Options, Display formatted bibliography} command.  This window displays your file in the currently selected printer font, so you can use this as a crude form of print preview.
+\par 
+\par Depending on the state of this toggle, you can save the bibliography contents as either a database or as a standard text file, using {\b File, Save As}.
+\par 
+\par New bibliography formats can be created and entered using {\b Options, bibliography format}.  See {\strike bibliography format syntax}{\v BibSyntax} for details.
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15\f5\fs16\up6 #{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} AddImport}${\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {
+\cs15\fs16\up6 $} Adding/removing import DLLs}K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} importing files;customizing}}{\b0\i0\f2\fs16\cf0\up6  }Adding/removing import/export filters
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+The Import/Export feature is designed to be easily expandable with new formats.  Covered so far are MedLine, BioSys, Current Contents, Chemical Abstracts, Refer and BIDS, although of these Refer is at present the only one with export capability.  This hel
+p file also contains information for programmers wishing to write their own import filters.  See {\strike Import filter Interface}{\v DLLinterface}  for details.
+\par 
+\par Please note that Current Contents and Chemical Abstracts are currently only available as 16-bit filters, and will not work with the 32-bit version.
+\par 
+\par Letting Refs know about new filters is easily accomplished.  You don't need to do anything!  The filter should have the filetype of {\b FLT}.  Just copy it into your {\i Refs} directory, and {\i Refs} will find it automatically.
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15\f5\fs16\up6 #{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} Import}${\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 $
+} Importing other format databases}K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} importing files;opening files;how to?}}Importing/exporting other database formats
+\par \pard\plain \widctlpar \f5\fs20\lang2057 {\i Refs} can theoretically read references from any reference file format.  Each format needs to have an import filter written for it (such as BIDS.FLT), to deal with the foreign format.  {\i Refs}
+ can deal with up to 32 foreign formats.  At present, I have written such filters only for ISI (BIDS) and Medline.  Several forms of Medline are supported, including Biosys, WinSpirs and the on-line service.
+\par 
+\par Filters for the {\strike Chemical Abstracts}{\v ChemAb} and Current Contents Reference Manager are also included in the 16-bit version of {\i Refs}, and they were written by Mats Valli.  I do not know when he will produce 32-bit versions.
+\par 
+\par \pard \fi-360\li360\widctlpar 1.\tab Select {\b File, Import... }and a dialog will appear listing the available formats known to {\i Refs}.  This will look something like the following diagram.  Select a format, and choose {\b OK}.
+\par 
+\par \pard \qc\fi-360\li360\widctlpar \{bmcwd impexp.bmp\}
+\par \pard \widctlpar 
+\par \pard \fi-360\li360\widctlpar 2.\tab Some filters may have an options function.  If so, the {\b Options}
+ button will be available to allow you to call this function.  This typically displays version information and allows you to modify the filter's behaviour.
+\par \pard \widctlpar 
+\par \pard \fi-360\li360\widctlpar 3.\tab Choose {\b OK.  }Double-clicking the desired format will also close the dialog box, as if you'd selected it and then clicked {\b OK}.
+\par \pard \widctlpar 
+\par \pard \fi-360\li360\widctlpar 4.\tab Select the file to import in the next dialog box.
+\par \pard \widctlpar 
+\par \pard \fi-360\li360\widctlpar 5.\tab {\i Refs}
+ will then import the file as well as the filter can manage.  Imports may well lose some information, depending on the capabilities of the format being imported.  The imported file will appear as a new database window.
+\par 
+\par \pard \widctlpar Programmers wishing to write their own import filters are referred to the {\strike Import filter Interface}{\v DLLinterface} section.
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15\f5\fs16\up6 #{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} FindRef}${\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 
+$} Finding a reference}K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} how to?;searching;finding}}{\fs16\up6  }How to find a reference
+\par \pard\plain \fi-504\li504\widctlpar \f5\fs20\lang2057 1.\tab 
+Check whether the windows you want to search are searchable, and adjust as necessary.  This is done with the check-box in the bottom left of each database window.  If the box is checked the window will be searched.
+\par 
+\par 2.\tab Select {\b New search...} from the {\b Search }menu, press {\b F3}, or choose the search toolbar button.
+\par \pard \widctlpar 
+\par \pard \fi-504\li504\widctlpar 3.\tab From the {\b Search By} combo box choose the type of search you wish to perform.
+\par \pard \widctlpar 
+\par \pard \fi-504\li504\widctlpar 4.\tab In the {\b Search For} box type the string you wish to search for.
+\par \pard \widctlpar 
+\par \pard \fi-504\li504\widctlpar 5.\tab Use the three check-boxes to tell {\i Refs} whether to search case sensitively, whether to search for all references {\i except} those satisfying your conditions, and thirdly whether to {\strike 
+search using regular expressions}{\v regexp} for added flexibility.  If this third box is checked, {\i Refs}
+ will treat the string you are searching for as a regular expression to use, otherwise it will simply look for the text you give.  Regular expression matching is much more sophisticated, but slower.
+\par 
+\par {\pntext\pard\plain\f5\fs20 6. \tab}\pard \fi-283\li283\widctlpar{\*\pn \pnlvlbody\pndec\pnb0\pni0\pnf5\pnfs20\pnstart6\pnindent283\pnhang{\pntxta . }}Choose {\b OK}
+.  A new window will then show all references matching your criteria.  This window will automatically be marked non-searchable, unless it is saved as a file later.  The title bar initially contains a description of how the references were found, until it 
+is saved as a file, when it becomes a normal file window.
+\par \pard \widctlpar 
+\par Note that the new window does not contain copies of the data in the original files; it contains pointers to the original data.  This means that if you edit a reference in a search wi
+ndow, it will also be updated in the file from which it originally came (as long as that file is still open).
+\par \pard \fi-540\li540\widctlpar 
+\par 7.\tab You're not content with the results?  Too many references?  You can restrict the search, by now selecting {\b  Search, Narrow search...}
+  This will repeat steps 2-4, but this time will perform the search only on those references you found last time (i.e., those which are currently displayed).
+\par 
+\par \tab Too few results?  What if you want those references with either DNA or RNA in the title?  You could search for NA, but this would turn up all sorts of junk.  Instead, search for DNA, then select {\b Search, Expand search...}
+  Again, this repeats steps 2-4, but this time search for RNA.  The existing search is kept and any new references found which are not already in the list are added to it.
+\par 
+\par \pard\plain \s2\sb120\widctlpar \b\f5\cf9\lang2057 Description of search criteria
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par When a search is made, the new window has the criteria used to find the references in its title bar.
+\par Each criterion is contained in braces {\b \{ \}} and combined by the symbols {\b +} and {\b ,}.
+\par 
+\par \tab {\b +}\tab References in both sets (logical AND)
+\par \tab {\b ,}\tab References in either set (logical OR)
+\par 
+\par In addition, the expression inside the braces may contain a {\b !} which indicates that the search was for references that did {\i not} match the criteria.  For example:
+\par 
+\par \{\{ Author = "Fred" \} + \{ Date = !"1991"\}\} , \{ Author = "Joe" \}
+\par 
+\par This search now contains all references written by Fred (but not in 1991), plus all those by Joe.  This was generated by searching for Author Fred, then Narrow Search, select logical NOT and Date 1991, and finally Expand Search for Author Joe.
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15\f5\fs16\up6 #{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} regexp}${\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 $
+} Regular expressions}K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} how to?;searching;finding}}{\fs16\up6  }Searching using regular expressions
+\par \pard\plain \widctlpar \f5\fs20\lang2057 {\i Refs} can perform more sophisticated pattern matching using UNIX-style {\i regular expressions}
+.  It uses the UNIX type of regular expression since this is considerably more powerful than regular expression routines commonly found in Windows programs.
+\par 
+\par \pard\plain \s2\sb120\nowidctlpar \b\f5\cf9\lang2057 Regular expression syntax
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par Regular expressions take a little effort to learn, but once mastered they allow you to search for some really quite complex conditions.  The following information is taken from the original UNIX manual page for this regular expression library.
+\par 
+\par 1.\tab A regular expression is zero or more {\i branches} separated by \lquote |\rquote 
+.  It matches anything that matches one of the branches (so you can use this for looking for one expression OR another, as an alternative to searching once and then using Expand Search).
+\par 
+\par 2.\tab A branch is zero or more {\i pieces}, concatenated.  It matches these pieces in order.
+\par 
+\par 3.\tab A piece is an {\i atom} possibly followed by \lquote *\rquote , \lquote +\rquote  or \lquote ?\rquote .  An atom followed by \lquote *\rquote  matches 0 or more matches of the atom.  \lquote +\rquote  matches 1 or more matches of the atom, \lquote 
+?\rquote  matches 1 match of the atom or no match.
+\par \pard \nowidctlpar 
+\par 4.\tab An atom can be a character, which will be matched exactly, or a number of special constructs as laid out below:
+\par 
+\par \trowd \trgaph108\trleft-108 \cellx1440\cellx9468 \pard \nowidctlpar\intbl {\b .\cell }Matches any single character\cell \pard \widctlpar\intbl \row \trowd \trgaph108\trleft-108 \cellx1440\cellx9468 \pard \nowidctlpar\intbl {\b (}{\b\i regexp}{\b )\cell }
+Matches the complete regular expression within the parentheses\cell \pard \widctlpar\intbl \row \pard \nowidctlpar\intbl {\b ^\cell }The beginning of the field being searched\cell \pard \widctlpar\intbl \row \pard \nowidctlpar\intbl {\b $\cell }
+The end of the field being searched\cell \pard \widctlpar\intbl \row \pard \nowidctlpar\intbl {\b [}{\b\i range}{\b ]\cell }Matches any of a range of characters  (see below)\cell \pard \widctlpar\intbl \row \pard \nowidctlpar\intbl {\b \\n\cell }
+Matches a newline\cell \pard \widctlpar\intbl \row \pard \nowidctlpar\intbl {\b \\\\\cell }Matches a single \\\cell \pard \widctlpar\intbl \row \pard \nowidctlpar\intbl {\b \\(\cell }Matches a single (\cell \pard \widctlpar\intbl \row \trowd 
+\trgaph108\trleft-108 \cellx1440\cellx9468 \pard \nowidctlpar\intbl {\b \\)\cell }Matches a single )\cell \pard \widctlpar\intbl \row \pard \nowidctlpar 
+\par Note that characters that might otherwise be interpreted as special (any of + . * ( ) $ ^ [ ] or \\ ) must be preceded by a \\ if you want to match the character itself, and not its regexp meaning.  For example, (96) matches anything with \lquote 96
+\rquote  in it.  To match only things containing \lquote (96)\rquote  you need \lquote \\(96\\)\rquote .
+\par 
+\par 5.\tab A range can be any group of characters ( e.g. \lquote [aeiou]\rquote  for all the vowels ) or certain groups of characters, for instance \lquote [0-9]\rquote  will match any digit.  To match a \lquote -\lquote 
+ in a range, make it the first or last character in the range, eg [a-z-] matches all lowercase letters and \lquote -\lquote .  To match anything {\b except} what\rquote s in the range, use a ^, e.g. [^aeiou] will match any character that is not a vowel.
+
+\par 
+\par \pard\plain \s2\sb120\nowidctlpar \b\f5\cf9\lang2057 Examples
+\par \pard\plain \nowidctlpar \f5\fs20\lang2057 
+\par This is quite complex, so here are some examples:
+\par 
+\par To search for anything mentioning the word \lquote colour\rquote  in either British or American spelling, use {\b colou?r} or {\b col(o|ou)r} both of which will achieve the desired result.
+\par 
+\par To search for all references mentioning either cdc25 or wee1, you might use {\b (cdc25|wee1)}
+\par 
+\par To match any author whose name begins with F and ends with m, you might use {\b F[^, ]m}
+\par 
+\par Or to match DNA sequences of at least three base pairs you could use: {\b [ACGT][ACGT][ACGT]+}
+\par You could even look for more complex sequences:  {\b TATA[AGCT]*A[GC]T} matches TATA followed by any number of nucleotides followed by A followed by G or C followed by T.
+\par 
+\par \pard\plain \s2\sb120\nowidctlpar \b\f5\cf9\lang2057 The regular expression library REGEXP.DLL
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par {\i Refs} uses a 
+regular expression library originally written by Henry Spencer of the University of Toronto, but modified by me to run under Windows, rather than its original UNIX environment.  The original source code for this is widely available on the Internet.
+  Contact me for more details, or if you want to include this library in your own programs.
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15\f5\fs16\up6 #{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} AddRef}${\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 $
+} Adding a new reference}K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} how to?;adding references}}How to add a new reference
+\par \pard\plain \fi-504\li504\widctlpar \f5\fs20\lang2057 1.\tab Choose the database to which you wish to add the reference
+\par 
+\par 2.\tab Choose {\b Reference, New... }or press {\b F7}.
+\par \pard \widctlpar 
+\par \pard \fi-504\li504\widctlpar 3.\tab A dialog box will appear for you to enter author and date for the reference, as follows:
+\par 
+\par \pard \qc\fi-504\li504\widctlpar \{bmcwd eauthor.bmp\}
+\par \pard \fi-504\li504\widctlpar 
+\par The Author field {\i must} be filled.  The UNIX refer format does not require this, but since the program usually sorts by Author name before sorting by year and then title, it's fairly important!  Besides, {\i somebody} must have written it!
+\par 
+\par 4.\tab Select one of the option buttons for the document type.  Journal is the default (although this can be changed).  The only difference this makes is to save a %J, %B or %R field.  See {\strike technical notes}{\v Tech}
+ for more information on UNIX refer file field identifiers.
+\par \pard \widctlpar 
+\par \pard \fi-504\li504\widctlpar 5.\tab Choose {\b OK}
+\par \pard \widctlpar 
+\par \pard \fi-504\li504\widctlpar 6.\tab A second dialog box will appear for you to enter the title, journal or book title as decided in Step 3, and notes for the current reference, as for {\strike editing a reference}{\v EditRef}.
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15\f5\fs16\up6 #{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} EditRef}${\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 
+$} Editing or Viewing a reference}K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} editing;viewing;how to?}}{\fs16\up6  }How to edit or view a reference
+\par \pard\plain \fi-360\li360\widctlpar \f5\fs20\lang2057 1.\tab Select the reference you are interested in and then select {\b Reference, Edit...}
+\par \pard \li360\widctlpar 
+\par \pard \fi-720\li720\widctlpar \tab Double-click on the reference you are interested in the main list or press {\b F6}.
+\par \pard \widctlpar 
+\par The following screen appears:
+\par 
+\par \pard \qc\widctlpar \{bmcwd edit.bmp\}
+\par \pard \widctlpar 
+\par \pard \fi-504\li504\widctlpar 2.\tab Choose {\b Cancel} to go back to the main list, or {\b OK} if you want the reference to be updated to its current displayed contents (i.e. if you've just edited it).  You can also choose {\b OK and New}
+ which will update the current reference and go straight to a new author entry screen (as if you'd chosen {\b OK} and then {\b Reference, New}.
+\par 
+\par \tab Choosing the buttons marked with arrows moves to the previous/next reference in the currently active display.  It is equivalent to choosing {\b Cancel} and then double-clicking the neighbouring reference.
+\par 
+\par \tab Note that you can add keywords from your {\strike keyword list}{\v KeyList} with {\b Reference, Add keywords}.
+\par \pard \widctlpar 
+\par {\b NB:}  You cannot edit or view a reference if more than one is selected in the main list.
+\par 
+\par Your most frequently used journals/book titles/reports are listed in the drop down combo box, so you can choose one with the mouse.  This encourages consistency.  See {\strike editing the common journal/book/report list}{\v CJList}.
+\par 
+\par If you wish to change the author, year or document type (book or journal) you cannot do this from the standard reference form you have just called up.  To do this, close the reference form and then:
+\par 
+\par Hold down {\b Ctrl} and double-click the reference, select {\b Reference, Edit author...}  or press {\b F2}.
+\par 
+\par Please note:
+\par 
+\par (a)\tab Windows\'ae multi-line edit controls all allow carriage returns to be entered using {\b Ctrl + Enter}.  {\b Do not do this!}  If the field accepts carriage returns (without using {\b Ctrl}), then you may insert them.  In other fields, using {\b 
+Ctrl + Enter} will cause confusion when saving the file, and text following the carriage return will be reloaded as part of the abstract!  {\i Refs} removes such inappropriate carriage returns automatically.
+\par 
+\par (b)\tab If you wish to insert tab characters in your abstract field (or any other field), you must use {\b Ctrl + Tab}, since {\b Tab} alone moves the input focus to the next control in the dialog.
+\par 
+\par {\pntext\pard\plain\f5\fs20 (c) \tab}\pard \fi-283\li283\widctlpar{\*\pn \pnlvlbody\pnlcltr\pnb0\pni0\pnf5\pnfs20\pnstart3\pnindent283\pnhang{\pntxtb (}{\pntxta ) }}
+If (and only if) you are going to be saving the file with REFER.FLT, which is the default, the following applies:
+\par \pard \widctlpar 
+\par To enter unsupported fields such as %0 (other) just type them {\b on a new line} in the abstract field.  For instance if the abstract edit box when viewing the reference contains:
+\par {\f3\fs24 
+\par \tab This is your abstract
+\par \tab %O unknown data
+\par 
+\par }This will produce the correct refer file of:
+\par 
+\par \tab %X This is your abstract.
+\par \tab %O unknown data
+\par 
+\par Be careful of duplicating entries this way.  If you put a %T field in here, and your title field has something in it, both will be saved as %T lines.  When this is next loaded by {\i Refs}
+, the second %T entry (the one in the abstract) will be ignored and subsequently lost!  I don't know how other programs would behave.  This is the case for all duplicated fields, except %A (Author) and %E (Editor), which are duplicated for each name anywa
+y.
+\par 
+\par (d)\tab The Keyword field should have your keywords on separate lines, without blank lines between them.  The same applies to the author field.  Each author should occupy a separate line with no blank lines.
+\par 
+\par (e)\tab Refs depends on the Journal/Book title/Report field to determine when loading what the type of the reference is.  Without this information, Refs will assume the reference to be from a journal when reading the file.
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15\f5\fs16\up6 #{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} DelRef}${\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 $
+} Deleting references}K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} how to?;deleting}}{\fs16\up6  }How to delete a reference
+\par \pard\plain \widctlpar \f5\fs20\lang2057 Select the reference(s) you wish to delete.
+\par 
+\par Then press {\b Del(ete)} or select {\b Reference, Delete}.  Depending on your options settings, Refs may ask you to confirm the deletion.  See {\strike list options}{\v ListOpt} for details.
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15\f5\fs16\up6 #{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} PrintRef}${\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {
+\cs15\fs16\up6 $} Printing a reference}K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} printing;how to?}}{\fs16\up6  }How to print references
+\par \pard\plain \widctlpar \f5\fs20\lang2057 You can print references from both editing windows and from file windows.
+\par 
+\par \pard\plain \s2\sb120\widctlpar \b\f5\cf9\lang2057 Edit window:
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par Choose {\b Reference, Print} and the viewed reference will be updated and then printed in the current {\strike bibliography format}{\v Biblio}.
+\par 
+\par \pard\plain \s2\sb120\widctlpar \b\f5\cf9\lang2057 Database window:
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par Choose {\b File, Print}.  In the print dialog box that appears, you can choose to print either {\b All} or {\b Selection}.  The latter will be greyed if no references are selected in the current window.  Again. t
+his prints the contents of the window in the current bibliography format.
+\par 
+\par References are printed in plain text.  No formatting options such as bold or italics are available.  However, you can select the font used for printing from the main Refs menu, under {\b Options, Fonts, Printer}.
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15\f5\fs16\up6 #{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} Transfer}${\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {
+\cs15\fs16\up6 $} Transferring information}K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} how to?;copying;deleting;pasting;clipboard}}{\fs16\up6  }Transferring information to/from other applications
+\par \pard\plain \widctlpar \f5\fs20\lang2057 Transferring information to word-processors is best done as follows:
+\par 
+\par \pard \fi-360\li360\sa120\widctlpar 1.\tab Add the references you want transferred to the bibliography
+\par 2.\tab Choose a format for display
+\par 3.\tab Display the formatted bibliography
+\par 4.\tab Edit it if you wish
+\par 5.\tab Select as much as you wish to copy from the bibliography window
+\par 6.\tab Choose {\b Edit, Copy} to place the selected information in the clipboard
+\par 7.\tab Now you can paste it into any application that supports text pasting from the clipboard (in other words, almost anything!)
+\par 8.\tab You can also use the {\b Save as...} option to save the entire formatted bibliography as a text file.  If you use
+ a bibliography format that creates RTF files, you should save the file with the extension '.RTF', rather than '.TXT'  this can be used as a crude way of formatting your bibliography nicely for the word-processor.  However, in order to do this, you will n
+eed to know how to write RTF (not something I'd recommend to the faint-hearted!).
+\par 
+\par \pard \sa120\widctlpar You can copy individual formatted references to the clipboard when viewing them; select {\b Reference, Copy formatted.} If the current bibliography format is an RTF format, {\i Refs} w
+ill set the clipboard format appropriately, so that you can paste the reference into a word-processor with all its bold, italics and so on intact.
+\par \pard \widctlpar You can also cut and paste directly to any edit box, in either the reference or author forms:
+\par Select the text you wish to copy, or place the insertion point where you wish to paste.
+\par 
+\par Use standard Windows\'ae Cut/Copy/Paste keys.  These are:
+\par 
+\par Cut:\tab Ctrl+X
+\par Copy:\tab Ctrl+C
+\par Paste:\tab Ctrl+V
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15\f5\fs16\up6 #{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} Custom}${\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 $
+} Customising Refs}K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} customizing;language;how to?}}{\fs16\up6  }Customising Refs: The Options menu
+\par \pard\plain \widctlpar \f5\fs20\lang2057 {\strike Options, List format...}{\v ListOpt}
+\par 
+\par {\strike Options, Sorting...}{\v OptSort}{\b 
+\par 
+\par Options, Auto view all}  This option allows you to control whether Refs automatically displays the references for a file immediately after loading it.   This can take some time with large files.
+\par 
+\par {\b Options, Input defaults...}
+\par 
+\par Allows you to specify the default date used when creating a new reference, and the default source for references (book, journal or report).
+\par 
+\par {\b Options, Confirmation...}
+\par 
+\par This dialog controls whether {\i Refs} prompts you when you try to delete references, or drag them to another database window with the mouse.  These settings act globally.
+\par 
+\par {\b Options, Fonts...}  These three items allow you to define the font used by Refs for printing, the editing dialog and for displaying database windows.  The printer font is also used for displaying the formatted bibliography.
+\par 
+\par {\b Options, Bibliography format...} Choose how references will be formatted in the bibliography window.  See {\strike bibliography format syntax}{\v BibSyntax} for details.
+\par 
+\par {\b Options, Colour bibliography items...} When a reference has been added to the bibliography, it changes colour in the main list.  Use this dialog box to choose what that colour should be.
+\par \pard \sb240\widctlpar {\b Options, Language...} Pops up a dialog asking you to choose which language DLL to use.  The language will change immediately.{\b 
+\par Options, Default file format...} This pops up a dialog asking you which file format you wish to use by default.  It presents you with a list of those filters installed
+ that have both loading and saving capability.  At the moment only REFER.FLT has both, so this is the only file format available in this dialog.
+\par {\b Options, Save backups}  Choose whether to make backup files when saving.
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15\f5\fs16\up6 #{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} BibSyntax}${\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {
+\cs15\fs16\up6 $} Bibliography format syntax}K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} technical;bibliography;customizing}}{\fs16\up6  }Bibliography format syntax
+\par \pard\plain \widctlpar \f5\fs20\lang2057 These formats are stored in REFS.INI (in {\i Refs} for Windows\'ae 3.1), or in the HKEY_CURRENT_USER part of the Registry in the Windows NT\'99 and Windows\'ae 95 version.
+\par 
+\par To create a new format, or change an existing one, choose {\b Options, Bibliography format}.  The following dialog will appear:
+\par 
+\par \pard \qc\widctlpar \{bmcwd bibfmt.bmp\}
+\par \pard \widctlpar 
+\par To create a new format choose {\b New} or to edit one select the format to edit and choose {\b Edit}.  Each format must have a unique name, and when creating a new one {\i Refs} will complain if you use a name that already exists.
+\par 
+\par A format line looks something like:
+\par {\f3 
+\par [prefix][suffix]<A}{\i\f3 N}{\f3 @, ><T@>\\n< J@, ><V@><N/@ ><P@ ><D(@)>
+\par }
+\par \pard\plain \s2\sb120\widctlpar \b\f5\cf9\lang2057 Prefix and suffix sections:
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par There may be one (prefix only) or two (prefix and su
+ffix) of these sections.  The characters inside these sections are attached at the beginning or end of the completed set of formatted references.  This is primarily for use in creating bibliographies in document processing languages, such as RTF or TeX.  
+If these are present, the [ character must be either (a) the first character in the format, or (b) immediately follow the ] of the prefix section.  Otherwise, Refs will begin interpreting as the main reference format string.  So:
+\par 
+\par {\f3 [foo\\n][bar] Hello.\\n
+\par }
+\par Will format as:
+\par 
+\par {\f4 foo
+\par Hello.
+\par .
+\par .
+\par .
+\par bar
+\par }
+\par Whereas
+\par 
+\par {\f3 [foo\\n] [bar] Hello.\\n
+\par }
+\par will format as:
+\par 
+\par {\f4 foo
+\par [bar] Hello.
+\par .
+\par .
+\par .
+\par }
+\par \pard\plain \s2\sb120\widctlpar \b\f5\cf9\lang2057 How fields work:
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par The uppercase letters ABCDEIJKNPRTVX are the {\b field tags } and have the same meanings as they do in the Refer file format.  See {\strike Technical notes}{\v Tech}
+ for an explanation of the tag meanings.  They are mostly fairly self evident.  Once the field has been determined, the remaining characters are literally copied (with some exceptions, see {\b Special characters }below), so if your reference
+ has Date field of '1992', {\f3 <D(@)>} will produce '(1992)' when formatted, and nothing if the date field is empty.
+\par 
+\par Fields begin with a <.  The next character must be a valid field tag character, or an exclamation mark.  If it is an exclamation mark, the next character must be the field tag, and then this field will only be formatted if the field is {\i not}
+ filled.  If this field does or does not exist, as appropriate, in the reference, the other characters in the field will be printed until a > is encountered, ot
+herwise parsing continues to the matching > character, so the field and any nested fields are missed out (see {\b Nesting fields }
+below).  The symbol @ indicates where in the field to insert the field text itself, unless the field tag was preceded by an exclamation mark, in which case the @ character itself is added.
+\par 
+\par \pard\plain \s2\sb120\widctlpar \b\f5\cf9\lang2057 Sub-formatting of Author and Editor fields:
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par The tag characters 'A' and 'E' may be followed by a detailed format specification.  The general structure is:
+\par 
+\par <A[{\i type}[{\i options}]\'85>
+\par 
+\par Where {\i type} is the number 1, 2 or 3, which correspond to the three Author formatting options available in the {\strike Main List Options}{\v ListOpt} dialog as follows:
+\par 
+\par \trowd \trgaph108\trleft-108 \cellx1080\cellx5130 \pard \widctlpar\intbl {\b Type\cell Description\cell }\pard \widctlpar\intbl {\b \row }\trowd \trgaph108\trleft-108 \cellx1080\cellx5130 \pard \widctlpar\intbl 1\cell All authors\cell \pard 
+\widctlpar\intbl \row \pard \widctlpar\intbl 2\cell First author only\cell \pard \widctlpar\intbl \row \trowd \trgaph108\trleft-108 \cellx1080\cellx5130 \pard \widctlpar\intbl 3\cell 
+If there are one or two authors, their names.  If there are more, the first author plus {\i  et al}\cell \pard \widctlpar\intbl \row \pard \widctlpar 
+\par After this number you can place one or more options.  {\i Refs} will keep reading characters as options until it finds a character that is not an option.  Lo
+wercase options are on/off switches, which reverse whatever the default is for that option.  The upper case options A, E, N, and S specify strings.  These are read up to the first / character.  If you need a / character, you must escape it with a backslas
+h like so:  \\/  The option characters are:
+\par 
+\par 
+\par \trowd \trgaph108\trleft-108 \cellx990\cellx4320\cellx7200 \pard \widctlpar\intbl {\b Option\cell Meaning\cell Default\cell }\pard \widctlpar\intbl \row \trowd \trgaph108\trleft-108 \cellx990\cellx4320\cellx7200 \pard \widctlpar\intbl a\cell Don\rquote 
+t put an \lquote and\rquote  before the final author\rquote s name \cell {\i Refs} does this for {\i type} 1 and 3\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl c\cell Convert names to all capitals\cell Leave names as they are.\cell \pard 
+\widctlpar\intbl \row \pard \widctlpar\intbl e\cell Don\rquote t add {\i et al} in {\i type }2\cell \cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl I\cell Put initials before the surname 
+\par {\fs16 Ignored if }{\i\fs16 n}{\fs16  is specified}\cell Initials come afterwards\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl n\cell Don\rquote t apply name-splitting logic
+\par {\fs16 The options }{\i\fs16 s, i}{\fs16  and }{\i\fs16 S}{\fs16  will be ignored if }{\i\fs16 n}{\fs16  is specified.}\cell By default, {\i Refs} will use code to guess which part of the name is the surname and which are the initials\cell \pard 
+\widctlpar\intbl \row \pard \widctlpar\intbl s\cell Show surname only
+\par {\fs16 Ignored if }{\i\fs16 n}{\fs16  is specified}\cell Show both surname and initials\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl A\cell Word to use for \lquote and\rquote \cell A and / (note spaces)\cell \pard \widctlpar\intbl \row \pard 
+\widctlpar\intbl E\cell Word to use for \lquote et al\rquote \cell E et al/\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl N\cell Separator to use between names\cell N, /\cell \pard \widctlpar\intbl \row \trowd \trgaph108\trleft-108 \cellx990
+\cellx4320\cellx7200 \pard \widctlpar\intbl S\cell Separator to use between surname and initials.
+\par {\fs16 Ignored if }{\i\fs16 i}{\fs16  or }{\i\fs16 n}{\fs16  is specified
+\par }\cell S, /\cell \pard \widctlpar\intbl \row \pard \widctlpar 
+\par Consider the authors:
+\par 
+\par Tim Cutts
+\par Fred Bloggs
+\par Doe, J
+\par 
+\par Here are some examples of the sort of things you can do:
+\par 
+\par \trowd \trgaph108\trleft-108 \cellx2430\cellx6120 \pard \widctlpar\intbl {\b Example\cell Result\cell }\pard \widctlpar\intbl \row \trowd \trgaph108\trleft-108 \cellx2430\cellx6120 \pard \widctlpar\intbl <A1@>\cell Cutts, Tim, Bloggs, Fred and Doe, J
+\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl <A2@>\cell Cutts, Tim\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl <A3@>\cell Cutts, Tim et al\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl <A1i@>\cell 
+Tim Cutts, Fred Bloggs and J Doe\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl <A1aN; /@>\cell Cutts, Tim; Bloggs, Fred; Doe, J\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl <A3cE and others/S_/@>\cell CUTTS_TIM and others\cell \pard 
+\widctlpar\intbl \row \trowd \trgaph108\trleft-108 \cellx2430\cellx6120 \pard \widctlpar\intbl <A1aN\\//@>\cell Cutts, Tim/Bloggs, Fred/Doe, J\cell \pard \widctlpar\intbl \row \pard\plain \s2\sb120\widctlpar \b\f5\cf9\lang2057 
+\par Fields can be nested.
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par For example:
+\par 
+\par <B@ <T@ , ><A1@, ><E2 Editor: @>>
+\par 
+\par is valid if you only want fields formatted like this if it's a book.  Nesting can be done to any level (within reason - you can run out of stack space if you do it too much).
+\par 
+\par \pard\plain \s2\sb120\widctlpar \b\f5\cf9\lang2057 Special characters:
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par To insert a carriage return in the string, use '\\n'.
+\par 
+\par To insert a literal @, < or > without using their special function, precede them with a \\.  \\\\ will produce a single \\ in the formatted text.  This will be required if you are entering RTF formatting commands into the string.  See below for details.
+
+\par 
+\par Note that {\i Refs} does not automatically place a new line at the end of each reference.  You should add \\n to the end of the format string for this to happen, or \{\\\\par\} if you are using RTF.
+\par 
+\par \pard\plain \s2\sb120\widctlpar \b\f5\cf9\lang2057 Character formatting; bold, italics and so on:
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par There is no way to create bold or italic type, since {\i Refs} creates ANSI text, as used in Notepad.  However, if you are creating bibliography files for TeX, RTF or some other document processor that uses plain text source files it {\i is}
+ possible, as long as you understand how they work!  I have included TeX and RTF example format lines.  The latter works well with most Windows\'ae word-processors (it certainly works with Word for Windows, and Windows 95\rquote 
+s WordPad), and should in theory allow you to put a fo
+rmatted bibliography into any word-processor capable of reading Rich Text Format.  To do this yourself, you'll need to learn RTF, sorry!  However, an astonishingly helpful chap called Ian Carpenter has written a {\strike short tutorial}{\v RTFTut}
+, geared to the use of RTF in {\i Refs}.
+\par 
+\par Long term plans are to change {\i Refs} throughout so that it uses RTF itself to allow such formatting, but I don't really have the time for this at present, and it will never be added to the 16-bit version.
+\par \pard \nowidctlpar 
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15\f5\fs16\up6 #{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} ListOpt}${\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 
+$} Main display options}K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} customizing}}{\fs16\up6  }List Options Dialog
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par \pard \qc\widctlpar \{bmcwd listopt.bmp\}
+\par \pard \widctlpar 
+\par This dialog governs how the references are displayed in the main list; how wide the column for author names is, how many author names to display, and whether to also display the title of the reference.
+\par 
+\par The {\b Select new items} check box controls whether a newly created reference is automatically selected afterwards.
+\par 
+\par These settings are stored on a per window basis.  The last choices made determine those saved to your {\i Refs} configuration, and also will be the options the next created window will have.
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15\f5\fs16\up6 #{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} OptSort}${\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 
+$} Sorting Options Dialog}K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} customizing;sorting}} Sorting options
+\par \pard\plain \widctlpar \f5\fs20\lang2057 This dialog enables you to select how your references are sorted.
+\par 
+\par {\i Refs} will first makes comparisons between references on the basis of the first field.  If these are the same it will then try the second field and so on.
+\par 
+\par For each comparison you can choose which field to sort on, and whether you want ascending or descending order.  The default is to sort Author (Ascending), Date (Ascending), Title (Ascending).
+\par 
+\par As with the {\strike list options dialog box}{\v ListOpt}, these options are saved on a per-window basis, and the most recently given options are saved to the INI file and used to sort new files, and files being loaded.
+\par 
+\par There is a sub-dialog of this box, which you get by pressing the {\b\strike Names...}{\strike  button}{\v NameSort}.  This changes settings on the way {\i Refs} interprets names in the author and editor fields.
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15\f5\fs16\up6 #{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} NameSort}${\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {
+\cs15\fs16\up6 $} Options for sorting names}K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} customizing;sorting}} Sorting by name
+\par \pard\plain \widctlpar \f5\fs20\lang2057 This dialog box gives some options that you can change to affect how {\i Refs} interprets and sorts by the names given for authors and editors.
+\par 
+\par \pard \qc\widctlpar \{bmcwd namesort.bmp\}
+\par \pard \widctlpar 
+\par As with the other sorting options, these options are stored on a per-window basis, and the most recently chosen options are used for defaults in new files and saved to your {\i Refs}
+ configuration when you exit the program. The two radio buttons are the two main comparison methods:
+\par 
+\par \pard\plain \s2\sb120\widctlpar \b\f5\cf9\lang2057 First given name{\b0 
+\par }\pard\plain \widctlpar \f5\fs20\lang2057 This is how {\i Refs}
+ used to sort all the time.  It is a plain comparison of the two author entries.  If you enter all your authors as, say 'Smith, J', then this will work perfectly for you.  It is very much faster than the next method.
+\par 
+\par \pard\plain \s2\sb120\widctlpar \b\f5\cf9\lang2057 Family name
+\par \pard\plain \widctlpar \f5\fs20\lang2057 {\i Refs} uses the remaining options to try to work out which word in the name is the fam
+ily name, compare that first, and then compare the first name and/or initials.  First it checks whether you have explicitly put the family name first.  You do this by putting a separator in the name.  By default this separator is a comma, but it can be an
+y single character other than a space or tab.  If {\i Refs}
+ finds the separator, it assumes that everything before the separator is the family name, and everything after it is the first name and initials.  If Refs does not find the separator, it looks at the next option to see what to do next.
+\par 
+\par \pard\plain \s2\sb120\widctlpar \b\f5\cf9\lang2057 Examples
+\par \pard\plain \widctlpar \f5\fs20\lang2057 If you set 'surname usually last' and have a ',' separator {\i Refs} will interpret names as follows:
+\par "Cutts, Tim" \tab Family name: "Cutts" \tab First name and initials "Tim"
+\par "Tim Cutts" \tab Family name: "Cutts" \tab First name and initials "Tim"
+\par "Cutts" \tab Family name: "Cutts" \tab First name and initials: none
+\par \pard\plain \s3\li360\widctlpar \b\f5\lang2057 {\b0\fs20 
+\par }\pard\plain \s2\sb120\widctlpar \b\f5\cf9\lang2057 Family name usually last
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par {\i Refs}
+ looks at this setting to establish whether in  your language, you usually write the family name last (the English do, the Chinese don't, for example).  Either way, it assumes that the last or first word in the name, as appropriate, is the family name, an
+d sorts on that basis.
+\par 
+\par {\b\cf6 NB:}
+\par {\i Refs} does not do this perfectly.  {\i Refs} will guess wrong for names like 'de Montfort' or others where there is more than one word in the surname.  {\i Refs} will see the family name (for sorting purposes, anyway) as 'Montfort'.  For su
+ch names you will have to put the family name first followed by a separator if you want it to be sorted by the first word of the family name.  Family names with hyphens, such as 'Fotherington-Smythe', do not have this problem.
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15\f5\fs16\up6 #{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} ChemAb}${\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 $
+} Chemical Abstracts Import Notes}K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} importing files}} The Chemical Abstracts Import filter
+\par \pard\plain \widctlpar \f5\fs20\lang2057 This filter is only available with the 16-bit version of {\i Refs}, sorry.
+\par 
+\par The following notes are from the author of the Chemical Abstracts filter, Mats Valli:
+\par 
+\par {\f4 Chemical Abstracts (CA) 
+is not consistent in the way references to reports, books and patents are stored. Therefore only journals will be imported correctly, that is the Pages, Vol, VolNo and Journal are separated. For other types of references all this information is stored in 
+the Journal field.  I will try to work this out in a later version.
+\par 
+\par When searching CA the following command should be issued before starting the search: 
+\par SET HIGHLIGHTING OFF
+\par 
+\par When displaying answers in CA the command D BIB ABS KW or D ALL should be used.
+\par 
+\par If data fields are longer than the filter allows they will be truncated and a message will appear saying so.
+\par }\pard \li720\widctlpar 
+\par \pard\plain \s2\sb120\widctlpar \b\f5\cf9\lang2057 Amendments with version 1.11:
+\par \pard\plain \li720\widctlpar \f5\fs20\lang2057 
+\par \pard \widctlpar {\f4 General options are:
+\par Selective import - displays the next reference and asks whether it should be imported or not. The Import button imports the reference (:-)) and the Next button skips the reference and displays the next. The all button imports all remaining references and 
+the Stop button stops importing new references. The one currently displayed will not be imported.
+\par Cut bibliography - functions as before. If the import filter does not manage to cut the bibliographic data properly, deselect this option.
+\par Truncation alert - If selected a warning message will appear if a data field must be truncated to fit within the allocated memory.
+\par 
+\par Keyword options are:
+\par }{\i\f4 Source}{\f4  - The Chemical Abstracts volume reference will be included as a keyword.
+\par }{\i\f4 Document type}{\f4  - The document type will be included as a keyword.
+\par }{\i\f4 Language}{\f4  - The language, abbreviated CA-style, will be included as keyword.  '/LA' will be added to the abbreviated language code.  This makes it easy to include or exclude languages in a search.
+\par }{\i\f4 Indexing terms}{\f4 
+ - Besides using keywords, CA uses indexing terms.  These include the CA registration numbers for chemical compounds among other things.  The number of keywords will usually be much higher if the indexing terms are included.  This option requires that the
+ references has been displayed by the command D ALL in the CA search.
+\par 
+\par Another enhancement involves the REFS.INI file.
+ In the [NKW] section it is now possible to include one or more consecutive lines beginning with the keyword 'NotKeyWords='.  All words, separated by a blank, listed after the equal-to sign will be excluded as keywords.  Indexing terms (see above) usually
+ include words like 'and', 'or' and 'from'.  These can now easily be excluded from being imported as keywords.
+\par 
+\par NB. The file to be imported may not contains results from File Registry in CA. If it does, the filter will not work properly.
+\par }
+\par {\f11 Mats Valli\tab \tab \tab E-mail: mats@sunsp1.sc.fukuoka-u.ac.jp
+\par }\pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15\f5\fs16\up6 #{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} CJList}${\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 
+$} Editing the Common Lists}K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} customizing}} Editing the Common Journal, Book and Report Lists
+\par \pard\plain \widctlpar \f5\fs20\lang2057 While viewing or editing a reference, select {\b Edit, Common Journals...} or the appropriate menu command for the list you wish to edit.  A dialog box will appear, as follows:
+\par 
+\par Selecting an existing entry in the list will copy it into the edit box below the list.  You can either choose the {\b Delete} button to get rid of it from the
+ list (though it stays in the edit box in case you change your mind), or you can edit it and press {\b Change} to replace the original version in the list box.
+\par 
+\par Thirdly you can press {\b Add} to add the new item to the list without affecting those already there.
+\par 
+\par Choosing {\b OK} will save the new settings to your {\i Refs} configuration.  {\b 
+It will also update the combo box in the editing window if you change the list for the current reference type.  In this case you will lose any changes you made to the journal/book title before editing the list.
+\par }\pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15\f5\fs16\up6 #{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} KeyList}${\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {
+\cs15\fs16\up6 $} Adding keywords}K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} customizing;keywords}} Adding keywords to references
+\par \pard\plain \widctlpar \f5\fs20\lang2057 Most people like to have a set of standard keywords which they use again and again.  This makes searching for references on a certain topic very fast and effective.  {\i Refs}
+ provides you with the following dialog box for this purpose:
+\par 
+\par \pard \qc\widctlpar \{bmcwd keywords.bmp\}
+\par \pard \widctlpar 
+\par The Add Keywords dialog serves two purposes:
+\par 
+\par 1)  Adding keywords to one or more references.
+\par 2)  Updating the keyword list
+\par 
+\par To add a new keyword to the list, type the keyword in the edit control at top right, and then click the {\b Add} button.  This puts the keyword in the list {\b but not in the reference}.
+\par 
+\par You can generate a list of all the keywords in the current file by choosing {\b Scan active file}.
+\par 
+\par Choosing {\b Save list }will write the contents of the list box to your {\i Refs} configuration as your keyword list.
+\par 
+\par If one or more keywords are selected you can choose the {\b Delete }button to remove them from the list.
+\par 
+\par If you wish to edit a keyword, select it, and choose the {\b Edit} button.  It will be removed from the list and placed in the edit box for editing.  Choose {\b Add} to put it back when you are ready.
+\par 
+\par \pard\plain \s1\sb120\sa120\widctlpar \cbpat16 \b\i\f4\fs48\cf2\lang2057 \page {\cs15\b0\i0\f5\fs16\up6 #{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 #} RTFTut}} {\cs15\b0\i0\f5\fs16\up6 ${\footnote \pard\plain \s16\widctlpar 
+\f5\fs20\lang2057 {\cs15\fs16\up6 $} Bibliography formatting using RTF}} {\cs15\b0\i0\f5\fs16\up6 K{\footnote \pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 K} Bibliography formatting using RTF}} {\cs15\b0\i0\f5\fs16\up6 +{\footnote 
+\pard\plain \s16\widctlpar \f5\fs20\lang2057 {\cs15\fs16\up6 +} bib-rtf}}Bibliography formatting using RTF
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par The following tutorial was written by Ian Carpenter:
+\par 
+\par Whilst {\i Refs} can currently only e
+xport data in a pure ANSI text format, it is possible to apply simple formatting commands to the bibliography output by using Rich Text Format (RTF). This is a pure text format defined by Microsoft to allow formatted data transfer between applications. Wo
+rd for Windows and most other common Windows\'ae
+ word processors can export and import documents in this format without losing much formatting information. Unfortunately the RTF specification (version 1.4) is a 101 page document with 866 different control word
+s! Hence, this short and simple guide to formatting using RTF.
+\par 
+\par \pard\plain \s2\sb120\nowidctlpar \b\f5\cf9\lang2057 RTF file structure
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par An RTF file consists of two main parts: the header and the document. The header indicates that the file is in RTF format and includes some document information such as character set, font table, file table, colour table and a stylesheet. For the simple fo
+rmatting that is generally required for bibliographies not all of these entries are needed.
+\par 
+\par Control words within an RTF file signify formatting properties. These properties may be applied to the whole file or just to a portion of the document. A {\i group} is a part of the file that is enclosed with curly brackets \{\}
+. Any control words within a group only apply to the information in that group. An entire RTF file is considered a group and must be enclosed in braces.
+\par 
+\par \pard\plain \s2\sb120\nowidctlpar \b\f5\cf9\lang2057 Control word syntax
+\par \pard\plain \widctlpar \f5\fs20\lang2057 {\b\fs24 
+\par }All control words take the following form:
+\par 
+\par \pard \qc\widctlpar {\b\fs24 \\LetterSequence}{\b\i\fs24 <}{\b\fs24 Delimiter}{\b\i\fs24 >
+\par }\pard \widctlpar 
+\par Note that a backslash begins each control word. In the {\i Refs} format specification a backslash can be inserted by adding {\b TWO} backslashes (because \\ on its own has some special meanings in the bibliography format syntax).
+\par 
+\par The LetterSequence is made up of lowercase alphabetic characters between "a" and "z" inclusive. RTF is case sensitive, and all RTF control words must be in lowercase.
+\par 
+\par The Delimiter marks the end of an RTF control word, and can be one of the following:
+\par \pard \fi-360\li720\widctlpar\tx720 {\f1 \'b7\tab }A space. In this case, the space is part of the control word. The space does not appear in the document.
+\par {\f1 \'b7\tab }
+A digit or a hyphen (-), which indicates that a numeric parameter follows. The subsequent digital sequence is then delimited by a space or any character other than a letter or a digit. The parameter can be a positive or a negative number. The range of the
+ values for the number is \_32767 through 32767. 
+\par {\f1 \'b7\tab }Any character other than a letter or a digit. In this case, the delimiting character terminates the control word but is not actually part of the control word.
+\par \pard \widctlpar 
+\par Any characters following the delimiter, including spaces, will appear in the document. For this reason, you should use spaces only where necessary; do not use spaces merely to break up RTF code.
+\par 
+\par \pard\plain \s2\sb120\nowidctlpar \b\f5\cf9\lang2057 Header structure
+\par \pard\plain \widctlpar \f5\fs20\lang2057 {\b\fs24 
+\par }This looks complicated, I know.  Don\rquote t worry\'85 there are some examples coming up to help you!  To allow the setting of font name, font size and general font properties the control words required in the header are:
+\par 
+\par \trowd \trgaph108\trleft-108\trbrdrb\brdrs\brdrw15 \cellx1440\cellx8460 \pard \widctlpar\intbl {\b Control word\cell Description\cell }\pard \widctlpar\intbl {\b \row }\trowd \trgaph108\trleft-108 \cellx1440\cellx8460 \pard \sb120\widctlpar\intbl {\b \\
+rtf1}\cell Defines the RTF format and gives the version number (1 is the current major version number)\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl {\b \\ansi}\cell Defines the character set. \\ansi is the default. Other possible sets are:
+\line \\mac\tab Apple Macintosh\line \\pc\tab IBM PC code page 437\line \\pca \tab IBM PC code page 850, used by IBM Personal System/2{\fs12 \'ae} \cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl {\b \\fonttbl}\cell '\{' {\b \\}{\b\fs8 \~}{\b 
+fonttbl }(<fontinfo> | ('\{' <fontinfo> '\}'))+  '\}'\line Defines a font table containing each font to be used in the document, in the following format:\line {\b <fontinfo>}\tab <fontnum><fontfamily><fcharset><fprq><fontname>\cell \pard \widctlpar\intbl 
+\row \pard \widctlpar\intbl {\b \\f}{\b\i N}{\b \cell }Set the font number to {\i N}. This number is used to refer to the font in the rest of the document.\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl {\b \\f}{\b\i FAMILY}{\b \cell }
+Set the font family. A font family allows applications to attempt to intelligently choose fonts if the exact font is not present on the reading system. RTF uses the following control words to describe the various font families.
+\par {\b 
+\par nil}\tab \tab Unknown or default font
+\par {\b roman}\tab \tab Roman, proportionally spaced serif font
+\par {\b swiss}\tab \tab Swiss, proportionally spaced sans serif fonts
+\par {\b modern}\tab Fixed-pitch serif and sans serif fonts
+\par {\b script}\tab \tab Script fonts
+\par {\b decor}\tab \tab Decorative fonts
+\par {\b tech}\tab \tab Technical, symbol, and mathematical fonts
+\par {\b bidi}\tab \tab Arabic, Hebrew, or other bidirectional font
+\par \cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl {\b \\fcharset0\cell }Set the character set. The default ANSI character set is 0.\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl {\b \\fprq}{\b\i N}{\b \cell }
+Specify the pitch of the font, from the following values:
+\par 0\tab Default pitch
+\par 1\tab Fixed pitch
+\par 2\tab Variable pitch\cell \pard \widctlpar\intbl \row \trowd \trgaph108\trleft-108 \cellx1440\cellx8460 \pard \widctlpar\intbl {\b <fontname>\cell }The name of the font\cell \pard \widctlpar\intbl \row \pard \widctlpar 
+\par When using common fonts such as Time New Roman or Courier, font substitution is unlikely to be required and the font family, character set and pitch can be omitted.
+\par 
+\par \pard\plain \s2\sb120\nowidctlpar \b\f5\cf9\lang2057 Reference formatting
+\par \pard\plain \widctlpar \f5\fs20\lang2057 
+\par Various control words can be inserted in a reference format to alter the font formatting of parts of the reference. In order to just affect one or more fields, those fields must be in a group i.e. enclosed in curly brackets. Some of the most useful contro
+l words are:
+\par 
+\par \trowd \trgaph108\trleft-108\trbrdrb\brdrs\brdrw15 \cellx900\cellx6750 \pard \sa120\widctlpar\intbl {\b Control word\cell Description\cell }\pard \widctlpar\intbl {\b \row }\trowd \trgaph108\trleft-108 \cellx900\cellx6750 \pard \widctlpar\intbl {\b \\f}{
+\b\i N}\cell Set the current font to number {\i N} (from the font table)\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl {\b \\fs}{\b\i N}\cell Set font size in half-points (the default is 24)\cell \pard \widctlpar\intbl \row \pard 
+\widctlpar\intbl {\b \\b}\cell Bold\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl {\b \\caps}\cell All capitals\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl {\b \\i}\cell Italic\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl 
+{\b \\ul}\cell Continuous underline. \\ul0 turns off all underlining.\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl {\b \\uld}\cell Dotted underline.\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl {\b \\uldb}\cell Double underline.
+\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl {\b \\ulnone}\cell Stops all underlining.\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl {\b \\ulw}\cell Word underline.\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl {\b \\dn}{
+\b\i N}\cell Subscript position in half-points (the default is 6).\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl {\b \\sub}\cell Subscripts text and shrinks point size according to font information.\cell \pard \widctlpar\intbl \row \pard 
+\widctlpar\intbl {\b \\up}{\b\i N}\cell Superscript position in half-points (the default is 6).\cell \pard \widctlpar\intbl \row \pard \widctlpar\intbl {\b \\super}\cell Superscripts text and shrinks point size according to font information.\cell \pard 
+\widctlpar\intbl \row \trowd \trgaph108\trleft-108 \cellx900\cellx6750 \pard \widctlpar\intbl {\b \\par}\cell New paragraph\cell \pard \widctlpar\intbl \row \pard \widctlpar 
+\par \pard\plain \s2\sb120\nowidctlpar \b\f5\cf9\lang2057 Examples
+\par \pard\plain \widctlpar \f5\fs20\lang2057 {\b\fs24 
+\par }All these examples use three different fonts that demonstrate various font characteristics and are supplied with Microsoft Windows\'ae. These are:
+\par 
+\par \pard \fi-2520\li3240\sl-320\slmult1\widctlpar\tx3240 {\fs28 Arial} \tab (swiss family, sans serif, variable pitch)
+\par {\f11\fs28 Courier New}\tab (modern family, serif, fixed pitch).
+\par {\f4\fs28 Times New Roman}\tab (roman family, serif, variable pitch)
+\par \pard \widctlpar 
+\par {\b\cf9 \tab Example 1 - Plain Times New Roman}{\b 
+\par }
+\par Based upon the simple RTF reference format supplied with {\i Refs}, we can add a font table with just Time New Roman and set the standard font to Times New Roman at 14 points. As thi
+s is a very common font we omit the font family, character set and pitch for simplicity. Other formatting included here is the journal or book title in italics and the volume number in bold. The double paragraph marks at the end create a blank line betwee
+n references. The final {\f11 \\n\\n} inserts a blank line between the references in the formatted bibliography window.
+\par 
+\par {\f11 RTF2=[\{\\\\rtf1\\ansi \{\\\\fonttbl\{\\\\f0 Times New Roman;\}\}\\\\f0\\\\fs28 ][\}]<A@ ><D(@)>, <T"@"<B in <E@ (ed.), >>><J, \{\\\\i @\}<V, vol. \{\\\\b @\}><N, no. @>><B\{\\\\i @\}<I, @><C, @>><T<P, pp. @>>\{\\\\par\}\{\\\\par\}\\n\\n
+\par }
+\par This will produce output of the following form:
+\par 
+\par {\f4\fs28 Carpenter, I.D. and Maropoulos, P.G. (1994), "A novel machinability assessor for ferrous alloys" in Case, K. and Newman, S. (ed.), }{\i\f4\fs28 Proceedings 10th National Conference on Manufacturing Research}{\f4\fs28 
+, Francis & Taylor, Loughborough, UK, pp. 632-636
+\par 
+\par Shaw, M.C. (1984), }{\i\f4\fs28 Metal Cutting Principles}{\f4\fs28 , Oxford University Press
+\par 
+\par Zhang, J.H. and Hinduja, S. (1995), "Determination of the optimum tool set for a given batch of turned components", }{\i\f4\fs28 Annals of the CIRP}{\f4\fs28 , vol. }{\b\f4\fs28 44}{\f4\fs28 , no. 1, pp. 445-450
+\par }{\fs28 
+\par }{\b\cf9 \tab Example 2 - Multiple fonts and sizes}{\b 
+\par 
+\par }
+To format with more than one font the font table must be expanded. This example features a default font of 15 point Arial, with the title in 14 point italic Times New Roman. The authors are underlined and the page numbers are in 13 point bold Courier New.
+ Note that in order for all titles to appear the same, formatting must be applied to both the T field (journal title) and the B field (book title). Thus:
+\par 
+\par {\f11 RTF3=[\{\\\\rtf1\\ansi \{\\\\fonttbl\{\\\\f0\\\\froman\\\\fcharset0\\\\fprq2 Times New Roman;\}\{\\\\f1\\\\fswiss\\\\fcharset0\\\\fprq2 Arial;\}\{\\\\f2\\\\fmodern\\\\fcharset0\\\\fprq1 Courier New;\}\}\\\\f1\\\\fs30 ][\}]<A\{\\\\ul @\} ><D(@)>, <T
+\{\\\\f0\\\\fs28\\\\i "@"\}<B in <E@ (ed.), >>><J,  @<V, vol. @><N, no. @>><B\{\\\\f0\\\\fs28\\\\i @\}<I, @><C, @>><T<P, pp. \{\\\\f2\\\\fs26\\\\b @\}>>\{\\\\par\}\{\\\\par\}\\n\\n
+\par }
+\par This will produce output of the following form (this is only an example!):
+\par 
+\par {\fs30\ul Carpenter, I.D. and Maropoulos, P.G.}{\fs30  (1994), }{\i\f4\fs28 "A novel machinability assessor for ferrous alloys"}{\fs30  in Case, K. and Newman, S. (ed.), }{\i\fs28 Proceedings 10th National Conference on Manufacturing Research}{\fs30 
+, Francis & Taylor, Loughborough, UK, pp. }{\b\f11\fs26 632-636}{\fs30 
+\par 
+\par }{\fs30\ul Shaw, M.C.}{\fs30  (1984), }{\i\f4\fs28 Metal Cutting Principles}{\fs30 , Oxford University Press
+\par 
+\par }{\fs30\ul Zhang, J.H. and Hinduja, S.}{\fs30  (1995), }{\i\f4\fs28 "Determination of the optimum tool set for a given batch of turned components"}{\fs30 ,  Annals of the CIRP, vol. 44, no. 1, pp. }{\b\f11\fs26 445-450}{\fs30 
+\par 
+\par }\pard\plain \s2\sb120\nowidctlpar \b\f5\cf9\lang2057 Common mistakes
+\par \pard\plain \widctlpar \f5\fs20\lang2057 {\b\fs24 
+\par }When combining RTF control words with the bibliography format syntax used in {\i Refs} it is quite possible to make small and subtle mistakes that can render the RTF difficult or impossible to read for a word processor. Common mistakes include:
+\par {\fs24 
+\par }\pard \fi-360\li720\widctlpar\tx720\tx5040 {\f1 \'b7}\tab Mismatched brackets. The number of open brackets \ldblquote \{\ldblquote  must be the same as the number of close brackets \ldblquote \}\rdblquote 
+ space. It is important to understand how the curly brackets are splitting the reference into groups.
+\par {\f1 
+\par \'b7}\tab Missing spaces. Control words must be correctly terminated. Often this is achieved by the following control word but for the last one in a group a space is required. So,
+\par 
+\par \tab {\f11 \{\\\\f0\\\\fs24\\\\b This is some text\}}\tab will produce 12 point bold font 0 text,
+\par 
+\par \tab {\f11 \{\\\\f0\\\\fs24\\\\bThis is some text\}}\tab will not work correctly.
+\par 
+\par \tab In this case a space is required after the bold command.
+\par 
+\par {\f1 \'b7}\tab Missing backslashes. Every control word begins with a backslash but in the {\i Refs} bibliography format editor, {\b TWO} backslashes are required i.e. {\f11 \\\\}.
+\par \pard \widctlpar {\fs24 
+\par }\pard\plain \s2\sb120\nowidctlpar \b\f5\cf9\lang2057 Summary
+\par \pard\plain \widctlpar \f5\fs20\lang2057 {\b\fs24 
+\par }
+Although the format of RTF files can be highly complex (try exporting a formatted Word for Windows document in RTF and then look at the file!), there are a relatively small number of simple RTF commands that can be used to produce a wide range of formatti
+ng effects in bibliographies generated in {\i Refs}. 
+\par 
+\par }

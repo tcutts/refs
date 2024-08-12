@@ -1,0 +1,53 @@
+#ifdef WIN32
+#include <winver.h>
+#else
+#include <windows.h>
+#include <ver.h>
+#endif
+
+OPTDLG DIALOG 136, 41, 159, 99
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "BIDS (ISI) Import options"
+BEGIN
+	CONTROL "Add ""&unread"" keyword to each reference", 101, "Button", 3 | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 9, 10, 141, 10
+	CONTROL "&Convert non-abstract fields to lower case", 102, "Button", 3 | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 9, 25, 144, 10
+	CONTROL "Add &document type as a keyword", 104, "Button", 3 | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 9, 60, 140, 10
+	DEFPUSHBUTTON "Ok", IDOK, 88, 80, 32, 15, WS_CHILD | WS_VISIBLE | WS_TABSTOP
+	PUSHBUTTON "Cancel", IDCANCEL, 123, 80, 32, 15
+	LTEXT "\251 Tim Cutts, 1993-5", -1, 9, 88, 67, 7
+	LTEXT "Version 2.3", -1, 25, 78, 41, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	CONTROL "", -1, "static", SS_GRAYFRAME | WS_CHILD | WS_VISIBLE, 3, 7, 153, 68
+	LTEXT "(Not necessary with BIDS-Embase files which are properly capitalised anyway)", -1, 18, 35, 132, 18
+END
+
+VS_VERSION_INFO VERSIONINFO 
+FILEVERSION 2, 3, 0, 0
+PRODUCTVERSION 7, 8, 0, 0
+FILEFLAGSMASK  VS_FFI_FILEFLAGSMASK
+FILEFLAGS VS_FF_PRERELEASE
+#ifdef WIN32
+FILEOS VOS__WINDOWS32
+#else
+FILEOS VOS__WINDOWS16
+#endif
+FILETYPE VFT_DLL
+BEGIN
+	BLOCK "StringFileInfo"
+	BEGIN
+		BLOCK "080904E4"
+		BEGIN
+			VALUE "CompanyName", "Tim Cutts\0"
+			VALUE "FileDescription", "BIDS filter\0"
+			VALUE "FileVersion", "2.3\0"
+			VALUE "InternalName", "BIDS.FLT\000"
+			VALUE "LegalCopyright", "Copyright © Tim Cutts 1993-1995\0"
+			VALUE "OriginalFilename", "BIDS.FLT\0"
+			VALUE "ProductName", "Refs\0"
+			VALUE "ProductVersion", "7.8\0"
+		END
+	END
+    BLOCK "VarFileInfo"
+    BEGIN 
+      VALUE "Translation", 0x809, 1252
+    END 
+END

@@ -1,0 +1,72 @@
+A2.	Abbott, D. H.////McNeilly, A. S.//Lunn, S. T.//Mulme, M. J.//Burden, F. J.
+A5.	Adaptive value of spacing behaviour in population cycles of red grouse and other animals
+A8.	Cohen, M. N.////Malpass, R. S.//Klein, H. G.
+A8.	Gates, D. M.//Schmerl, R. B.
+A10.	Advanced views in primate biology
+A19.	London and Sydney
+A19.	New Haven, Conn.
+A20.	Academic Press Inc.
+A21.	1988
+A23.	106
+A26.	pp. 41
+A33.	Ecol. Stud.
+A42.	0-521-32160-3
+A46.	Reproduction/social/behaviour/social organisation/bat/season/environment
+
+B8.	Clutton-Brock, T. H.////Guiness, F. E.//Albon, S. E.
+B10.	An introduction to population genetics theory
+B19.	Belmont, CA.
+B20.	Am. Zool. 27(3)
+B20.	Burgess Publishing
+B21.	1954
+B42.	0-8240-7024-0
+B43.	173-214
+B43.	Uni-NR: 85WC4900 523+3
+B43.	pp 1-123
+B46.	ecology/review
+
+D2.	Agren, G.////Zhou, Q.//Zhong, W.
+D5.	A BASIC program for use in teaching population dynamics
+D5.	A Study of the biology of the wild rabbit, Oryctolagus cuniculus (L.) in confined populations
+D10.	Acta Biotheoretica
+D21.	1887
+D21.	Oct. 1988
+D23.	1
+D23.	10
+D23.	1008
+D25.	197-210
+D25.	2
+D25.	3/4
+D26.	1-13
+D26.	pp. 71
+D43.	(franz.)
+D43.	Effect of ACTH on behaviour / memory processes
+D43.	Hanne fragen
+D43.	aus: Readings in Sociobiology
+D43.	bei Cina
+D46.	Reproduction/Aggression/behaviour/mouse/social/female/reproductive success
+
+G2.	Boyce, J. L.
+G5.	Development of dispersionary and anti-predator behaviour in young wild rabbits, Oryctolagus cuniculus L. in sand dunes
+G19.	Aberdeen
+G20.	Ludwig-Maximilians-Universit„t
+G20.	University of Aberdeen
+G21.	1983
+G27.	163 pp.
+G27.	288 pp.
+G38.	yes
+G43.	mein Freund Martin
+G45.	092166347
+G46.	rabbit/physiology gen./dominance/behaviour
+
+K2.	Dixon, K.R.////Chapman, J.A.//Rongstad, O.J.//Orhelein, K.M.
+K5.	A comparison of home range size in Sylvilagus floridanus and S. bachmani
+K8.	Myers, K.//MacInnes, C.D.K10.	International Theoretical Congress
+K13.	Nov 1989
+K14.	Edmonton, Canada
+K19.	Guelph
+K20.	University of Guelph
+K21.	1979
+K26.	103-136
+K46.	hare/food/consumption/digestibility/nutrition
+

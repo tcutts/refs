@@ -1,0 +1,18 @@
+#include "../inc/rc.h"
+ABOUT DIALOG 28, 31, 202, 100
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "About..."
+FONT 8, "System"
+BEGIN
+	CONTROL "\251 TJR Cutts, 1992-7", -1, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 117,6,66,8
+	DEFPUSHBUTTON "OK", IDOK, 9,80,92,13
+	CTEXT "Refs 7.8.1", 764, 25, 10, 60, 10
+	CTEXT "refs@cyclin.demon.co.uk", -1, 106,15,87,8
+	LTEXT "Registered to:", -1, 16, 33, 61, 8
+	LTEXT "", id_RegisteredTo, 15, 47, 80, 25
+	CONTROL "", -1, "Static", SS_GRAYFRAME, 10, 7, 90, 16
+	CONTROL "", -1, "Static", SS_BLACKFRAME, 10, 30, 90, 45
+	LTEXT "", idt_Ver, 104, 30, 95, 10
+	LTEXT "", idt_Ver +1, 104, 40, 95, 10
+	LTEXT "", idt_Ver +2, 104, 50, 95, 10
+END
